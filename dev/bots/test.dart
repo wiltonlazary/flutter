@@ -265,9 +265,7 @@ Future<void> _runToolTests() async {
         testPath: path.join(kTest, '$subshard$kDotShard'),
         useBuildRunner: canUseBuildRunner,
         tableData: bigqueryApi?.tabledata,
-        // TODO(ianh): The integration tests fail to start on Windows if asserts are enabled.
-        // See https://github.com/flutter/flutter/issues/36476
-        enableFlutterToolAsserts: !(subshard == 'integration' && Platform.isWindows),
+        enableFlutterToolAsserts: true,
       );
     },
   );
@@ -415,6 +413,7 @@ Future<void> _runFrameworkTests() async {
     await _runFlutterTest(path.join(flutterRoot, 'examples', 'layers'), tableData: bigqueryApi?.tabledata);
     await _runFlutterTest(path.join(flutterRoot, 'examples', 'stocks'), tableData: bigqueryApi?.tabledata);
     await _runFlutterTest(path.join(flutterRoot, 'packages', 'flutter_driver'), tableData: bigqueryApi?.tabledata);
+    await _runFlutterTest(path.join(flutterRoot, 'packages', 'flutter_goldens'), tableData: bigqueryApi?.tabledata);
     await _runFlutterTest(path.join(flutterRoot, 'packages', 'flutter_localizations'), tableData: bigqueryApi?.tabledata);
     await _runFlutterTest(path.join(flutterRoot, 'packages', 'flutter_test'), tableData: bigqueryApi?.tabledata);
     await _runFlutterTest(path.join(flutterRoot, 'packages', 'fuchsia_remote_debug_protocol'), tableData: bigqueryApi?.tabledata);
@@ -962,7 +961,7 @@ Future<String> verifyVersion(File file) async {
 }
 
 /// If the CIRRUS_TASK_NAME environment variable exists, we use that to determine
-/// the shard and subshard (parsing it in the form shard-subshard-platform, ignoring
+/// the shard and sub-shard (parsing it in the form shard-subshard-platform, ignoring
 /// the platform).
 ///
 /// However, for local testing you can just set the SHARD and SUBSHARD
