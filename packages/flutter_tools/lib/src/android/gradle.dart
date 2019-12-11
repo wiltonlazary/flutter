@@ -1,4 +1,4 @@
-// Copyright 2016 The Chromium Authors. All rights reserved.
+// Copyright 2014 The Flutter Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -330,6 +330,9 @@ Future<void> buildGradleApp({
     command.add('-Dbuild-plugins-as-aars=true');
     // Don't use settings.gradle from the current project since it includes the plugins as subprojects.
     command.add('--settings-file=settings_aar.gradle');
+  }
+  if (androidBuildInfo.fastStart) {
+    command.add('-Pfast-start=true');
   }
   command.add(assembleTask);
 

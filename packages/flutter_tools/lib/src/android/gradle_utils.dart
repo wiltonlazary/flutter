@@ -1,4 +1,4 @@
-// Copyright 2019 The Chromium Authors. All rights reserved.
+// Copyright 2014 The Flutter Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -200,7 +200,7 @@ String getGradleVersionFor(String androidPluginVersion) {
   if (_isWithinVersionRange(androidPluginVersion, min: '3.4.0', max: '3.5.0')) {
     return '5.6.2';
   }
-  throwToolExit('Unsuported Android Plugin version: $androidPluginVersion.');
+  throwToolExit('Unsupported Android Plugin version: $androidPluginVersion.');
   return '';
 }
 
