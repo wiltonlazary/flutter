@@ -2,14 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:async';
-import 'dart:typed_data';
-
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 class TestFontLoader extends FontLoader {
-  TestFontLoader(String family) : super(family);
+  TestFontLoader(super.family);
 
   @override
   Future<void> loadFont(Uint8List list, String family) async {
@@ -29,7 +26,7 @@ void main() {
       Uint8List.fromList(<int>[200]),
     ];
 
-    for (Uint8List asset in expectedAssets) {
+    for (final Uint8List asset in expectedAssets) {
       tfl.addFont(Future<ByteData>.value(ByteData.view(asset.buffer)));
     }
     await tfl.load();

@@ -2,27 +2,24 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter_devicelab/framework/apk_utils.dart';
 import 'package:flutter_devicelab/framework/framework.dart';
+import 'package:flutter_devicelab/framework/task_result.dart';
 import 'package:flutter_devicelab/framework/utils.dart';
 import 'package:path/path.dart' as path;
 
 final String gradlew = Platform.isWindows ? 'gradlew.bat' : 'gradlew';
 final String gradlewExecutable = Platform.isWindows ? '.\\$gradlew' : './$gradlew';
 
-final bool useAndroidEmbeddingV2 = Platform.environment['ENABLE_ANDROID_EMBEDDING_V2'] == 'true';
-
 /// Tests that the Android app containing a Flutter module can be built when
 /// it has custom build types and flavors.
 Future<void> main() async {
   await task(() async {
-
     section('Find Java');
 
-    final String javaHome = await findJavaHome();
+    final String? javaHome = await findJavaHome();
     if (javaHome == null) {
       return TaskResult.failure('Could not find Java');
     }
@@ -30,6 +27,8 @@ Future<void> main() async {
     print('\nUsing JAVA_HOME=$javaHome');
 
     section('Create Flutter module project');
+
+    await flutter('precache', options: <String>['--android', '--no-ios']);
 
     final Directory tempDir = Directory.systemTemp.createTempSync('flutter_module_test.');
     final Directory projectDir = Directory(path.join(tempDir.path, 'hello'));
@@ -44,15 +43,14 @@ Future<void> main() async {
       section('Run flutter pub get');
 
       await inDirectory(projectDir, () async {
-        await flutter(
-          'pub',
-          options: <String>['get'],
-        );
+        await flutter('pub', options: <String>['get']);
       });
 
       section('Add to existing Android app');
 
-      final Directory hostAppDir = Directory(path.join(tempDir.path, 'hello_host_app_with_custom_build'));
+      final Directory hostAppDir = Directory(
+        path.join(tempDir.path, 'hello_host_app_with_custom_build'),
+      );
       mkdir(hostAppDir);
       recursiveCopy(
         Directory(
@@ -60,31 +58,27 @@ Future<void> main() async {
             flutterDirectory.path,
             'dev',
             'integration_tests',
-             useAndroidEmbeddingV2 ? 'module_host_with_custom_build_v2_embedding' : 'module_host_with_custom_build',
+            'module_host_with_custom_build_v2_embedding',
           ),
         ),
         hostAppDir,
       );
-      copy(
-        File(path.join(projectDir.path, '.android', gradlew)),
-        hostAppDir,
-      );
+      copy(File(path.join(projectDir.path, '.android', gradlew)), hostAppDir);
       copy(
         File(path.join(projectDir.path, '.android', 'gradle', 'wrapper', 'gradle-wrapper.jar')),
         Directory(path.join(hostAppDir.path, 'gradle', 'wrapper')),
       );
 
-      final Function clean = () async {
+      Future<void> clean() async {
         section('Clean');
         await inDirectory(hostAppDir, () async {
-          await exec(gradlewExecutable,
+          await exec(
+            gradlewExecutable,
             <String>['clean'],
-            environment: <String, String>{
-              'JAVA_HOME': javaHome,
-            },
+            environment: <String, String>{'JAVA_HOME': javaHome},
           );
         });
-      };
+      }
 
       if (!Platform.isWindows) {
         section('Make $gradlewExecutable executable');
@@ -98,11 +92,10 @@ Future<void> main() async {
       section('Run app:assembleDemoDebug');
 
       await inDirectory(hostAppDir, () async {
-        await exec(gradlewExecutable,
+        await exec(
+          gradlewExecutable,
           <String>['app:assembleDemoDebug'],
-          environment: <String, String>{
-            'JAVA_HOME': javaHome,
-          },
+          environment: <String, String>{'JAVA_HOME': javaHome},
         );
       });
 
@@ -135,7 +128,8 @@ Future<void> main() async {
       section('Run app:assembleDemoDebug - Merge assets before processing manifest');
 
       await inDirectory(hostAppDir, () async {
-        await exec(gradlewExecutable,
+        await exec(
+          gradlewExecutable,
           <String>[
             // Normally, `app:processDemoDebugManifest` runs before `app:mergeDemoDebugAssets`.
             // In this case, we run `app:mergeDemoDebugAssets` first.
@@ -143,9 +137,7 @@ Future<void> main() async {
             'app:processDemoDebugManifest',
             'app:assembleDemoDebug',
           ],
-          environment: <String, String>{
-            'JAVA_HOME': javaHome,
-          },
+          environment: <String, String>{'JAVA_HOME': javaHome},
         );
       });
 
@@ -176,11 +168,10 @@ Future<void> main() async {
       section('Run app:assembleDemoStaging');
 
       await inDirectory(hostAppDir, () async {
-        await exec(gradlewExecutable,
+        await exec(
+          gradlewExecutable,
           <String>['app:assembleDemoStaging'],
-          environment: <String, String>{
-            'JAVA_HOME': javaHome,
-          },
+          environment: <String, String>{'JAVA_HOME': javaHome},
         );
       });
 
@@ -213,11 +204,10 @@ Future<void> main() async {
       section('Run app:assembleDemoRelease');
 
       await inDirectory(hostAppDir, () async {
-        await exec(gradlewExecutable,
+        await exec(
+          gradlewExecutable,
           <String>['app:assembleDemoRelease'],
-          environment: <String, String>{
-            'JAVA_HOME': javaHome,
-          },
+          environment: <String, String>{'JAVA_HOME': javaHome},
         );
       });
 
@@ -250,12 +240,11 @@ Future<void> main() async {
 
       section('Run app:assembleDemoProd');
 
-       await inDirectory(hostAppDir, () async {
-        await exec(gradlewExecutable,
+      await inDirectory(hostAppDir, () async {
+        await exec(
+          gradlewExecutable,
           <String>['app:assembleDemoProd'],
-          environment: <String, String>{
-            'JAVA_HOME': javaHome,
-          },
+          environment: <String, String>{'JAVA_HOME': javaHome},
         );
       });
 
@@ -287,7 +276,8 @@ Future<void> main() async {
       return TaskResult.success(null);
     } on TaskResult catch (taskResult) {
       return taskResult;
-    } catch (e) {
+    } catch (e, stackTrace) {
+      print('Task exception stack trace:\n$stackTrace');
       return TaskResult.failure(e.toString());
     } finally {
       rmTree(tempDir);

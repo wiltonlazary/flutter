@@ -3,13 +3,14 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import 'headings_constants.dart';
 export 'headings_constants.dart';
 
 /// A test page with an app bar and some body text for testing heading flags.
 class HeadingsPage extends StatelessWidget {
+  const HeadingsPage({super.key});
+
   static const ValueKey<String> _appBarTitleKey = ValueKey<String>(appBarTitleKeyValue);
   static const ValueKey<String> _bodyTextKey = ValueKey<String>(bodyTextKeyValue);
 
@@ -20,9 +21,7 @@ class HeadingsPage extends StatelessWidget {
         leading: const BackButton(key: ValueKey<String>('back')),
         title: const Text('Heading', key: _appBarTitleKey),
       ),
-      body: const Center(
-        child: Text('Body text', key: _bodyTextKey),
-      ),
+      body: const Center(child: Text('Body text', key: _bodyTextKey)),
     );
   }
 }

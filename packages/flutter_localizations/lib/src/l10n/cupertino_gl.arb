@@ -18,5 +18,16 @@
   "cutButtonLabel": "Cortar",
   "copyButtonLabel": "Copiar",
   "pasteButtonLabel": "Pegar",
-  "selectAllButtonLabel": "Seleccionar todo"
+  "selectAllButtonLabel": "Seleccionar todo",
+  "tabSemanticsLabel": "Pestana $tabIndex de $tabCount",
+  "modalBarrierDismissLabel": "Ignorar",
+  "searchTextFieldPlaceholderLabel": "Fai unha busca",
+  "noSpellCheckReplacementsLabel": "Non se encontrou ningunha substitución",
+  "menuDismissLabel": "Pechar menú",
+  "lookUpButtonLabel": "Mirar cara arriba",
+  "searchWebButtonLabel": "Buscar na Web",
+  "shareButtonLabel": "Compartir…",
+  "clearButtonLabel": "Borrar",
+  "cancelButtonLabel": "Cancelar",
+  "backButtonLabel": "Atrás"
 }

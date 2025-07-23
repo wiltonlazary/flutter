@@ -2,16 +2,24 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/// @docImport 'page_view.dart';
+/// @docImport 'scroll_position.dart';
+/// @docImport 'scroll_view.dart';
+/// @docImport 'scrollable.dart';
+/// @docImport 'sliver.dart';
+library;
+
 import 'package:flutter/rendering.dart';
 
 import 'basic.dart';
+import 'debug.dart';
 import 'framework.dart';
+import 'scroll_notification.dart';
 
-export 'package:flutter/rendering.dart' show
-  AxisDirection,
-  GrowthDirection;
+export 'package:flutter/rendering.dart' show AxisDirection, GrowthDirection, SliverPaintOrder;
 
-/// A widget that is bigger on the inside.
+/// A widget through which a portion of larger content can be viewed, typically
+/// in combination with a [Scrollable].
 ///
 /// [Viewport] is the visual workhorse of the scrolling machinery. It displays a
 /// subset of its children according to its own dimensions and the given
@@ -42,29 +50,31 @@ export 'package:flutter/rendering.dart' show
 ///    sliver context (the opposite of this widget).
 ///  * [ShrinkWrappingViewport], a variant of [Viewport] that shrink-wraps its
 ///    contents along the main axis.
+///  * [ViewportElementMixin], which should be mixed in to the [Element] type used
+///    by viewport-like widgets to correctly handle scroll notifications.
 class Viewport extends MultiChildRenderObjectWidget {
   /// Creates a widget that is bigger on the inside.
   ///
   /// The viewport listens to the [offset], which means you do not need to
   /// rebuild this widget when the [offset] changes.
   ///
-  /// The [offset] argument must not be null.
+  /// The [cacheExtent] must be specified if the [cacheExtentStyle] is
+  /// not [CacheExtentStyle.pixel].
   Viewport({
-    Key key,
+    super.key,
     this.axisDirection = AxisDirection.down,
     this.crossAxisDirection,
     this.anchor = 0.0,
-    @required this.offset,
+    required this.offset,
     this.center,
     this.cacheExtent,
     this.cacheExtentStyle = CacheExtentStyle.pixel,
+    this.paintOrder = SliverPaintOrder.firstIsTop,
+    this.clipBehavior = Clip.hardEdge,
     List<Widget> slivers = const <Widget>[],
-  }) : assert(offset != null),
-       assert(slivers != null),
-       assert(center == null || slivers.where((Widget child) => child.key == center).length == 1),
-       assert(cacheExtentStyle != null),
+  }) : assert(center == null || slivers.where((Widget child) => child.key == center).length == 1),
        assert(cacheExtentStyle != CacheExtentStyle.viewport || cacheExtent != null),
-       super(key: key, children: slivers);
+       super(children: slivers);
 
   /// The direction in which the [offset]'s [ViewportOffset.pixels] increases.
   ///
@@ -82,7 +92,7 @@ class Viewport extends MultiChildRenderObjectWidget {
   ///
   /// If the [axisDirection] is [AxisDirection.left] or [AxisDirection.right],
   /// this property defaults to [AxisDirection.down].
-  final AxisDirection crossAxisDirection;
+  final AxisDirection? crossAxisDirection;
 
   /// The relative position of the zero scroll offset.
   ///
@@ -91,6 +101,8 @@ class Viewport extends MultiChildRenderObjectWidget {
   /// vertically centered within the viewport. If the [anchor] is 1.0, and the
   /// [axisDirection] is [AxisDirection.right], then the zero scroll offset is
   /// on the left edge of the viewport.
+  ///
+  /// {@macro flutter.rendering.GrowthDirection.sample}
   final double anchor;
 
   /// Which part of the content inside the viewport should be visible.
@@ -110,43 +122,81 @@ class Viewport extends MultiChildRenderObjectWidget {
   /// the [axisDirection] relative to the [center].
   ///
   /// The [center] must be the key of a child of the viewport.
-  final Key center;
+  ///
+  /// {@macro flutter.rendering.GrowthDirection.sample}
+  final Key? center;
 
-  /// {@macro flutter.rendering.viewport.cacheExtent}
-  final double cacheExtent;
+  /// {@macro flutter.rendering.RenderViewportBase.cacheExtent}
+  ///
+  /// See also:
+  ///
+  ///  * [cacheExtentStyle], which controls the units of the [cacheExtent].
+  final double? cacheExtent;
 
-  /// {@macro flutter.rendering.viewport.cacheExtentStyle}
+  /// {@macro flutter.rendering.RenderViewportBase.cacheExtentStyle}
   final CacheExtentStyle cacheExtentStyle;
+
+  /// {@macro flutter.rendering.RenderViewportBase.paintOrder}
+  ///
+  /// Defaults to [SliverPaintOrder.firstIsTop].
+  final SliverPaintOrder paintOrder;
+
+  /// {@macro flutter.material.Material.clipBehavior}
+  ///
+  /// Defaults to [Clip.hardEdge].
+  final Clip clipBehavior;
 
   /// Given a [BuildContext] and an [AxisDirection], determine the correct cross
   /// axis direction.
   ///
   /// This depends on the [Directionality] if the `axisDirection` is vertical;
   /// otherwise, the default cross axis direction is downwards.
-  static AxisDirection getDefaultCrossAxisDirection(BuildContext context, AxisDirection axisDirection) {
-    assert(axisDirection != null);
+  static AxisDirection getDefaultCrossAxisDirection(
+    BuildContext context,
+    AxisDirection axisDirection,
+  ) {
     switch (axisDirection) {
       case AxisDirection.up:
+        assert(
+          debugCheckHasDirectionality(
+            context,
+            why:
+                "to determine the cross-axis direction when the viewport has an 'up' axisDirection",
+            alternative:
+                "Alternatively, consider specifying the 'crossAxisDirection' argument on the Viewport.",
+          ),
+        );
         return textDirectionToAxisDirection(Directionality.of(context));
       case AxisDirection.right:
         return AxisDirection.down;
       case AxisDirection.down:
+        assert(
+          debugCheckHasDirectionality(
+            context,
+            why:
+                "to determine the cross-axis direction when the viewport has a 'down' axisDirection",
+            alternative:
+                "Alternatively, consider specifying the 'crossAxisDirection' argument on the Viewport.",
+          ),
+        );
         return textDirectionToAxisDirection(Directionality.of(context));
       case AxisDirection.left:
         return AxisDirection.down;
     }
-    return null;
   }
 
   @override
   RenderViewport createRenderObject(BuildContext context) {
     return RenderViewport(
       axisDirection: axisDirection,
-      crossAxisDirection: crossAxisDirection ?? Viewport.getDefaultCrossAxisDirection(context, axisDirection),
+      crossAxisDirection:
+          crossAxisDirection ?? Viewport.getDefaultCrossAxisDirection(context, axisDirection),
       anchor: anchor,
       offset: offset,
       cacheExtent: cacheExtent,
       cacheExtentStyle: cacheExtentStyle,
+      paintOrder: paintOrder,
+      clipBehavior: clipBehavior,
     );
   }
 
@@ -154,21 +204,26 @@ class Viewport extends MultiChildRenderObjectWidget {
   void updateRenderObject(BuildContext context, RenderViewport renderObject) {
     renderObject
       ..axisDirection = axisDirection
-      ..crossAxisDirection = crossAxisDirection ?? Viewport.getDefaultCrossAxisDirection(context, axisDirection)
+      ..crossAxisDirection =
+          crossAxisDirection ?? Viewport.getDefaultCrossAxisDirection(context, axisDirection)
       ..anchor = anchor
       ..offset = offset
       ..cacheExtent = cacheExtent
-      ..cacheExtentStyle = cacheExtentStyle;
+      ..cacheExtentStyle = cacheExtentStyle
+      ..paintOrder = paintOrder
+      ..clipBehavior = clipBehavior;
   }
 
   @override
-  _ViewportElement createElement() => _ViewportElement(this);
+  MultiChildRenderObjectElement createElement() => _ViewportElement(this);
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties.add(EnumProperty<AxisDirection>('axisDirection', axisDirection));
-    properties.add(EnumProperty<AxisDirection>('crossAxisDirection', crossAxisDirection, defaultValue: null));
+    properties.add(
+      EnumProperty<AxisDirection>('crossAxisDirection', crossAxisDirection, defaultValue: null),
+    );
     properties.add(DoubleProperty('anchor', anchor));
     properties.add(DiagnosticsProperty<ViewportOffset>('offset', offset));
     if (center != null) {
@@ -181,47 +236,96 @@ class Viewport extends MultiChildRenderObjectWidget {
   }
 }
 
-class _ViewportElement extends MultiChildRenderObjectElement {
+class _ViewportElement extends MultiChildRenderObjectElement
+    with NotifiableElementMixin, ViewportElementMixin {
   /// Creates an element that uses the given widget as its configuration.
-  _ViewportElement(Viewport widget) : super(widget);
+  _ViewportElement(Viewport super.widget);
 
-  @override
-  Viewport get widget => super.widget as Viewport;
+  bool _doingMountOrUpdate = false;
+  int? _centerSlotIndex;
 
   @override
   RenderViewport get renderObject => super.renderObject as RenderViewport;
 
   @override
-  void mount(Element parent, dynamic newSlot) {
+  void mount(Element? parent, Object? newSlot) {
+    assert(!_doingMountOrUpdate);
+    _doingMountOrUpdate = true;
     super.mount(parent, newSlot);
     _updateCenter();
+    assert(_doingMountOrUpdate);
+    _doingMountOrUpdate = false;
   }
 
   @override
   void update(MultiChildRenderObjectWidget newWidget) {
+    assert(!_doingMountOrUpdate);
+    _doingMountOrUpdate = true;
     super.update(newWidget);
     _updateCenter();
+    assert(_doingMountOrUpdate);
+    _doingMountOrUpdate = false;
   }
 
   void _updateCenter() {
     // TODO(ianh): cache the keys to make this faster
-    if (widget.center != null) {
-      renderObject.center = children.singleWhere(
-        (Element element) => element.widget.key == widget.center
-      ).renderObject as RenderSliver;
+    final Viewport viewport = widget as Viewport;
+    if (viewport.center != null) {
+      int elementIndex = 0;
+      for (final Element e in children) {
+        if (e.widget.key == viewport.center) {
+          renderObject.center = e.renderObject as RenderSliver?;
+          break;
+        }
+        elementIndex++;
+      }
+      assert(elementIndex < children.length);
+      _centerSlotIndex = elementIndex;
     } else if (children.isNotEmpty) {
-      renderObject.center = children.first.renderObject as RenderSliver;
+      renderObject.center = children.first.renderObject as RenderSliver?;
+      _centerSlotIndex = 0;
     } else {
+      renderObject.center = null;
+      _centerSlotIndex = null;
+    }
+  }
+
+  @override
+  void insertRenderObjectChild(RenderObject child, IndexedSlot<Element?> slot) {
+    super.insertRenderObjectChild(child, slot);
+    // Once [mount]/[update] are done, the `renderObject.center` will be updated
+    // in [_updateCenter].
+    if (!_doingMountOrUpdate && slot.index == _centerSlotIndex) {
+      renderObject.center = child as RenderSliver?;
+    }
+  }
+
+  @override
+  void moveRenderObjectChild(
+    RenderObject child,
+    IndexedSlot<Element?> oldSlot,
+    IndexedSlot<Element?> newSlot,
+  ) {
+    super.moveRenderObjectChild(child, oldSlot, newSlot);
+    assert(_doingMountOrUpdate);
+  }
+
+  @override
+  void removeRenderObjectChild(RenderObject child, Object? slot) {
+    super.removeRenderObjectChild(child, slot);
+    if (!_doingMountOrUpdate && renderObject.center == child) {
       renderObject.center = null;
     }
   }
 
   @override
   void debugVisitOnstageChildren(ElementVisitor visitor) {
-    children.where((Element e) {
-      final RenderSliver renderSliver = e.renderObject as RenderSliver;
-      return renderSliver.geometry.visible;
-    }).forEach(visitor);
+    children
+        .where((Element e) {
+          final RenderSliver renderSliver = e.renderObject! as RenderSliver;
+          return renderSliver.geometry!.visible;
+        })
+        .forEach(visitor);
   }
 }
 
@@ -256,16 +360,15 @@ class ShrinkWrappingViewport extends MultiChildRenderObjectWidget {
   ///
   /// The viewport listens to the [offset], which means you do not need to
   /// rebuild this widget when the [offset] changes.
-  ///
-  /// The [offset] argument must not be null.
-  ShrinkWrappingViewport({
-    Key key,
+  const ShrinkWrappingViewport({
+    super.key,
     this.axisDirection = AxisDirection.down,
     this.crossAxisDirection,
-    @required this.offset,
+    required this.offset,
+    this.paintOrder = SliverPaintOrder.firstIsTop,
+    this.clipBehavior = Clip.hardEdge,
     List<Widget> slivers = const <Widget>[],
-  }) : assert(offset != null),
-       super(key: key, children: slivers);
+  }) : super(children: slivers);
 
   /// The direction in which the [offset]'s [ViewportOffset.pixels] increases.
   ///
@@ -283,7 +386,7 @@ class ShrinkWrappingViewport extends MultiChildRenderObjectWidget {
   ///
   /// If the [axisDirection] is [AxisDirection.left] or [AxisDirection.right],
   /// this property defaults to [AxisDirection.down].
-  final AxisDirection crossAxisDirection;
+  final AxisDirection? crossAxisDirection;
 
   /// Which part of the content inside the viewport should be visible.
   ///
@@ -295,12 +398,25 @@ class ShrinkWrappingViewport extends MultiChildRenderObjectWidget {
   /// Typically a [ScrollPosition].
   final ViewportOffset offset;
 
+  /// {@macro flutter.rendering.RenderViewportBase.paintOrder}
+  ///
+  /// Defaults to [SliverPaintOrder.firstIsTop].
+  final SliverPaintOrder paintOrder;
+
+  /// {@macro flutter.material.Material.clipBehavior}
+  ///
+  /// Defaults to [Clip.hardEdge].
+  final Clip clipBehavior;
+
   @override
   RenderShrinkWrappingViewport createRenderObject(BuildContext context) {
     return RenderShrinkWrappingViewport(
       axisDirection: axisDirection,
-      crossAxisDirection: crossAxisDirection ?? Viewport.getDefaultCrossAxisDirection(context, axisDirection),
+      crossAxisDirection:
+          crossAxisDirection ?? Viewport.getDefaultCrossAxisDirection(context, axisDirection),
       offset: offset,
+      paintOrder: paintOrder,
+      clipBehavior: clipBehavior,
     );
   }
 
@@ -308,15 +424,20 @@ class ShrinkWrappingViewport extends MultiChildRenderObjectWidget {
   void updateRenderObject(BuildContext context, RenderShrinkWrappingViewport renderObject) {
     renderObject
       ..axisDirection = axisDirection
-      ..crossAxisDirection = crossAxisDirection ?? Viewport.getDefaultCrossAxisDirection(context, axisDirection)
-      ..offset = offset;
+      ..crossAxisDirection =
+          crossAxisDirection ?? Viewport.getDefaultCrossAxisDirection(context, axisDirection)
+      ..offset = offset
+      ..paintOrder = paintOrder
+      ..clipBehavior = clipBehavior;
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties.add(EnumProperty<AxisDirection>('axisDirection', axisDirection));
-    properties.add(EnumProperty<AxisDirection>('crossAxisDirection', crossAxisDirection, defaultValue: null));
+    properties.add(
+      EnumProperty<AxisDirection>('crossAxisDirection', crossAxisDirection, defaultValue: null),
+    );
     properties.add(DiagnosticsProperty<ViewportOffset>('offset', offset));
   }
 }

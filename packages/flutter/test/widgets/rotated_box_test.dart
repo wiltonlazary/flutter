@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   testWidgets('Rotated box control test', (WidgetTester tester) async {
@@ -20,20 +20,16 @@ void main() {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               GestureDetector(
-                onTap: () { log.add('left'); },
-                child: Container(
-                  width: 100.0,
-                  height: 40.0,
-                  color: Colors.blue[500],
-                ),
+                onTap: () {
+                  log.add('left');
+                },
+                child: Container(width: 100.0, height: 40.0, color: Colors.blue[500]),
               ),
               GestureDetector(
-                onTap: () { log.add('right'); },
-                child: Container(
-                  width: 75.0,
-                  height: 65.0,
-                  color: Colors.blue[500],
-                ),
+                onTap: () {
+                  log.add('right');
+                },
+                child: Container(width: 75.0, height: 65.0, color: Colors.blue[500]),
               ),
             ],
           ),

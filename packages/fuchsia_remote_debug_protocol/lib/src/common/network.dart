@@ -9,15 +9,17 @@ import 'dart:core';
 /// Throws an [ArgumentError] if the address is neither.
 void validateAddress(String address) {
   if (!(isIpV4Address(address) || isIpV6Address(address))) {
-    throw ArgumentError(
-        '"$address" is neither a valid IPv4 nor IPv6 address');
+    throw ArgumentError('"$address" is neither a valid IPv4 nor IPv6 address');
   }
 }
 
 /// Returns true if `address` is a valid IPv6 address.
 bool isIpV6Address(String address) {
   try {
-    Uri.parseIPv6Address(address);
+    // parseIpv6Address fails if there's a zone ID. Since this is still a valid
+    // IP, remove any zone ID before parsing.
+    final List<String> addressParts = address.split('%');
+    Uri.parseIPv6Address(addressParts[0]);
     return true;
   } on FormatException {
     return false;

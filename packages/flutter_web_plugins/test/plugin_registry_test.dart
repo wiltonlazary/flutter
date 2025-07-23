@@ -3,8 +3,9 @@
 // found in the LICENSE file.
 
 @TestOn('chrome') // Uses web-only Flutter SDK
+library;
 
-import 'dart:ui' as ui;
+import 'dart:ui_web' as ui_web;
 
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -29,8 +30,10 @@ class TestPlugin {
 }
 
 void main() {
-  // Disabling tester emulation because this test relies on real message channel communication.
-  ui.debugEmulateFlutterTesterEnvironment = false; // ignore: undefined_prefixed_name
+  setUp(() {
+    // Disabling tester emulation because this test relies on real message channel communication.
+    ui_web.TestEnvironment.setUp(const ui_web.TestEnvironment.production());
+  });
 
   group('Plugin Registry', () {
     setUp(() {
@@ -43,8 +46,7 @@ void main() {
     test('can register a plugin', () {
       TestPlugin.calledMethods.clear();
 
-      const MethodChannel frameworkChannel =
-          MethodChannel('test_plugin', StandardMethodCodec());
+      const MethodChannel frameworkChannel = MethodChannel('test_plugin');
       frameworkChannel.invokeMethod<void>('test1');
 
       expect(TestPlugin.calledMethods, equals(<String>['test1']));
@@ -54,29 +56,20 @@ void main() {
       const StandardMessageCodec codec = StandardMessageCodec();
 
       final List<String> loggedMessages = <String>[];
-      ServicesBinding.instance.defaultBinaryMessenger
-          .setMessageHandler('test_send', (ByteData data) {
-        loggedMessages.add(codec.decodeMessage(data) as String);
-        return null;
+      ServicesBinding.instance.defaultBinaryMessenger.setMessageHandler('test_send', (
+        ByteData? data,
+      ) {
+        loggedMessages.add(codec.decodeMessage(data)! as String);
+        return Future<ByteData?>.value();
       });
 
-      await pluginBinaryMessenger.send(
-          'test_send', codec.encodeMessage('hello'));
+      await pluginBinaryMessenger.send('test_send', codec.encodeMessage('hello'));
       expect(loggedMessages, equals(<String>['hello']));
 
-      await pluginBinaryMessenger.send(
-          'test_send', codec.encodeMessage('world'));
+      await pluginBinaryMessenger.send('test_send', codec.encodeMessage('world'));
       expect(loggedMessages, equals(<String>['hello', 'world']));
 
-      ServicesBinding.instance.defaultBinaryMessenger
-          .setMessageHandler('test_send', null);
-    });
-
-    test('throws when trying to set a mock handler', () {
-      expect(
-          () => pluginBinaryMessenger.setMockMessageHandler(
-              'test', (ByteData data) async => ByteData(0)),
-          throwsFlutterError);
+      ServicesBinding.instance.defaultBinaryMessenger.setMessageHandler('test_send', null);
     });
   });
 }

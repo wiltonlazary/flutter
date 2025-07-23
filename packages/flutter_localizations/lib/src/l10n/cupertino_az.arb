@@ -18,5 +18,16 @@
   "cutButtonLabel": "Kəsin",
   "copyButtonLabel": "Kopyalayın",
   "pasteButtonLabel": "Yerləşdirin",
-  "selectAllButtonLabel": "Hamısını seçin"
+  "clearButtonLabel": "Silin",
+  "selectAllButtonLabel": "Hamısını seçin",
+  "tabSemanticsLabel": "Tab $tabIndex/$tabCount",
+  "modalBarrierDismissLabel": "İmtina edin",
+  "searchTextFieldPlaceholderLabel": "Axtarın",
+  "noSpellCheckReplacementsLabel": "Əvəzləmə Tapılmadı",
+  "menuDismissLabel": "Menyunu qapadın",
+  "lookUpButtonLabel": "Axtarın",
+  "searchWebButtonLabel": "Vebdə axtarın",
+  "shareButtonLabel": "Paylaşın...",
+  "cancelButtonLabel": "Ləğv edin",
+  "backButtonLabel": "Geri"
 }

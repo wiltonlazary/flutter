@@ -2,11 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'context.dart';
-
-/// The current system clock instance.
-SystemClock get systemClock => context.get<SystemClock>();
-
 /// A class for making time based operations testable.
 class SystemClock {
   /// A const constructor to allow subclasses to be const.
@@ -36,11 +31,10 @@ class _FixedTimeClock extends SystemClock {
 /// Format time as 'yyyy-MM-dd HH:mm:ss Z' where Z is the difference between the
 /// timezone of t and UTC formatted according to RFC 822.
 String formatDateTime(DateTime t) {
-  final String sign = t.timeZoneOffset.isNegative ? '-' : '+';
+  final sign = t.timeZoneOffset.isNegative ? '-' : '+';
   final Duration tzOffset = t.timeZoneOffset.abs();
   final int hoursOffset = tzOffset.inHours;
-  final int minutesOffset =
-      tzOffset.inMinutes - (Duration.minutesPerHour * hoursOffset);
+  final int minutesOffset = tzOffset.inMinutes - (Duration.minutesPerHour * hoursOffset);
   assert(hoursOffset < 24);
   assert(minutesOffset < 60);
 

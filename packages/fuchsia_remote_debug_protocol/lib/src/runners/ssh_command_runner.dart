@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:async';
 import 'dart:io' show ProcessResult;
 
 import 'package:meta/meta.dart';
@@ -44,11 +43,8 @@ class SshCommandRunner {
   /// [ArgumentError] is thrown in the event that `address` is neither valid
   /// IPv4 nor IPv6. When connecting to a link local address (`fe80::` is
   /// usually at the start of the address), an interface should be supplied.
-  SshCommandRunner({
-    this.address,
-    this.interface = '',
-    this.sshConfigPath,
-  }) : _processManager = const LocalProcessManager() {
+  SshCommandRunner({required this.address, this.interface = '', this.sshConfigPath})
+    : _processManager = const LocalProcessManager() {
     validateAddress(address);
   }
 
@@ -56,7 +52,7 @@ class SshCommandRunner {
   @visibleForTesting
   SshCommandRunner.withProcessManager(
     this._processManager, {
-    this.address,
+    required this.address,
     this.interface = '',
     this.sshConfigPath,
   }) {
@@ -71,7 +67,7 @@ class SshCommandRunner {
   final String address;
 
   /// The path to the SSH config (optional).
-  final String sshConfigPath;
+  final String? sshConfigPath;
 
   /// The name of the machine's network interface (for use with IPv6
   /// connections. Ignored otherwise).
@@ -84,11 +80,11 @@ class SshCommandRunner {
   Future<List<String>> run(String command) async {
     final List<String> args = <String>[
       'ssh',
-      if (sshConfigPath != null)
-        ...<String>['-F', sshConfigPath],
-      if (isIpV6Address(address))
-        ...<String>['-6', if (interface.isEmpty) address else '$address%$interface']
-      else
+      if (sshConfigPath != null) ...<String>['-F', sshConfigPath!],
+      if (isIpV6Address(address)) ...<String>[
+        '-6',
+        if (interface.isEmpty) address else '$address%$interface',
+      ] else
         address,
       command,
     ];
@@ -96,7 +92,8 @@ class SshCommandRunner {
     final ProcessResult result = await _processManager.run(args);
     if (result.exitCode != 0) {
       throw SshCommandError(
-          'Command failed: $command\nstdout: ${result.stdout}\nstderr: ${result.stderr}');
+        'Command failed: $command\nstdout: ${result.stdout}\nstderr: ${result.stderr}',
+      );
     }
     _log.fine('SSH command stdout in brackets:[${result.stdout}]');
     return (result.stdout as String).split('\n');

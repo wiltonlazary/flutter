@@ -2,10 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 class Inside extends StatefulWidget {
+  const Inside({super.key});
   @override
   InsideState createState() => InsideState();
 }
@@ -20,14 +21,14 @@ class InsideState extends State<Inside> {
   }
 
   void _handlePointerDown(PointerDownEvent event) {
-    setState(() { });
+    setState(() {});
   }
 }
 
 class Middle extends StatefulWidget {
-  const Middle({ this.child });
+  const Middle({super.key, this.child});
 
-  final Inside child;
+  final Inside? child;
 
   @override
   MiddleState createState() => MiddleState();
@@ -36,18 +37,16 @@ class Middle extends StatefulWidget {
 class MiddleState extends State<Middle> {
   @override
   Widget build(BuildContext context) {
-    return Listener(
-      onPointerDown: _handlePointerDown,
-      child: widget.child,
-    );
+    return Listener(onPointerDown: _handlePointerDown, child: widget.child);
   }
 
   void _handlePointerDown(PointerDownEvent event) {
-    setState(() { });
+    setState(() {});
   }
 }
 
 class Outside extends StatefulWidget {
+  const Outside({super.key});
   @override
   OutsideState createState() => OutsideState();
 }
@@ -55,13 +54,13 @@ class Outside extends StatefulWidget {
 class OutsideState extends State<Outside> {
   @override
   Widget build(BuildContext context) {
-    return Middle(child: Inside());
+    return const Middle(child: Inside());
   }
 }
 
 void main() {
   testWidgets('setState() smoke test', (WidgetTester tester) async {
-    await tester.pumpWidget(Outside());
+    await tester.pumpWidget(const Outside());
     final Offset location = tester.getCenter(find.text('INSIDE'));
     final TestGesture gesture = await tester.startGesture(location);
     await tester.pump();

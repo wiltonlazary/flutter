@@ -2,10 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
-import 'package:vector_math/vector_math_64.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('Should route pointers', () {
@@ -34,6 +33,7 @@ void main() {
     void callback(PointerEvent event) {
       callbackRan = true;
     }
+
     final PointerRouter router = PointerRouter();
     router.addRoute(2, (PointerEvent event) {
       router.removeRoute(2, callback);
@@ -68,6 +68,7 @@ void main() {
     void callback(PointerEvent event) {
       callbackRan = true;
     }
+
     final PointerRouter router = PointerRouter();
     router.addGlobalRoute((PointerEvent event) {
       router.removeGlobalRoute(callback);
@@ -83,6 +84,7 @@ void main() {
     void callback(PointerEvent event) {
       callbackRan = true;
     }
+
     final PointerRouter router = PointerRouter();
     bool perPointerCallbackRan = false;
     router.addRoute(2, (PointerEvent event) {
@@ -112,12 +114,7 @@ void main() {
     });
     final TestPointer pointer2 = TestPointer(2);
     router.route(pointer2.down(Offset.zero));
-    expect(log, equals(<String>[
-      'per-pointer 1',
-      'per-pointer 2',
-      'global 1',
-      'global 2',
-    ]));
+    expect(log, equals(<String>['per-pointer 1', 'per-pointer 2', 'global 1', 'global 2']));
   });
 
   test('Exceptions do not stop pointer routing', () {
@@ -134,28 +131,39 @@ void main() {
       log.add('per-pointer 3');
     });
 
-    final FlutterExceptionHandler previousErrorHandler = FlutterError.onError;
+    final FlutterExceptionHandler? previousErrorHandler = FlutterError.onError;
     FlutterError.onError = (FlutterErrorDetails details) {
       log.add('error report');
     };
 
     final TestPointer pointer2 = TestPointer(2);
     router.route(pointer2.down(Offset.zero));
-    expect(log, equals(<String>[
-      'per-pointer 1',
-      'per-pointer 2',
-      'error report',
-      'per-pointer 3',
-    ]));
+    expect(
+      log,
+      equals(<String>['per-pointer 1', 'per-pointer 2', 'error report', 'per-pointer 3']),
+    );
 
     FlutterError.onError = previousErrorHandler;
+  });
+
+  test('Exceptions include router, route & event', () {
+    try {
+      final PointerRouter router = PointerRouter();
+      router.addRoute(2, (PointerEvent event) => throw 'Pointer exception');
+    } catch (e) {
+      expect(e, contains("router: Instance of 'PointerRouter'"));
+      expect(e, contains('route: Closure: (PointerEvent) => Null'));
+      expect(e, contains('event: PointerDownEvent#[a-zA-Z0-9]{5}(position: Offset(0.0, 0.0))'));
+    }
   });
 
   test('Should transform events', () {
     final List<PointerEvent> events = <PointerEvent>[];
     final List<PointerEvent> globalEvents = <PointerEvent>[];
     final PointerRouter router = PointerRouter();
-    final Matrix4 transform = (Matrix4.identity()..scale(1 / 2.0, 1 / 2.0, 1.0)) * Matrix4.translationValues(-10, -30, 0);
+    final Matrix4 transform = (Matrix4.identity()..scale(1 / 2.0, 1 / 2.0, 1.0)).multiplied(
+      Matrix4.translationValues(-10, -30, 0),
+    );
 
     router.addRoute(1, (PointerEvent event) {
       events.add(event);
@@ -165,7 +173,7 @@ void main() {
       globalEvents.add(event);
     }, transform);
 
-    final TestPointer pointer1 = TestPointer(1);
+    final TestPointer pointer1 = TestPointer();
     const Offset firstPosition = Offset(16, 36);
     router.route(pointer1.down(firstPosition));
 

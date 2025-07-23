@@ -2,9 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 const Key blockKey = Key('test');
 
@@ -15,10 +14,10 @@ void main() {
         textDirection: TextDirection.ltr,
         child: ListView(
           key: blockKey,
-          children: <Widget>[
-            Container(
+          children: const <Widget>[
+            SizedBox(
               height: 200.0, // less than 600, the height of the test area
-              child: const Text('Hello'),
+              child: Text('Hello'),
             ),
           ],
         ),
@@ -43,10 +42,10 @@ void main() {
         textDirection: TextDirection.ltr,
         child: ListView(
           key: blockKey,
-          children: <Widget>[
-            Container(
+          children: const <Widget>[
+            SizedBox(
               height: 2000.0, // more than 600, the height of the test area
-              child: const Text('Hello'),
+              child: Text('Hello'),
             ),
           ],
         ),
@@ -72,7 +71,7 @@ void main() {
     int first = 0;
     int second = 0;
 
-    Widget buildBlock({ bool reverse = false }) {
+    Widget buildBlock({bool reverse = false}) {
       return Directionality(
         textDirection: TextDirection.ltr,
         child: ListView(
@@ -80,14 +79,18 @@ void main() {
           reverse: reverse,
           children: <Widget>[
             GestureDetector(
-              onTap: () { first += 1; },
+              onTap: () {
+                first += 1;
+              },
               child: Container(
                 height: 350.0, // more than half the height of the test area
                 color: const Color(0xFF00FF00),
               ),
             ),
             GestureDetector(
-              onTap: () { second += 1; },
+              onTap: () {
+                second += 1;
+              },
               child: Container(
                 height: 350.0, // more than half the height of the test area
                 color: const Color(0xFF0000FF),
@@ -105,7 +108,7 @@ void main() {
     expect(first, equals(0));
     expect(second, equals(1));
 
-    await tester.pumpWidget(buildBlock(reverse: false));
+    await tester.pumpWidget(buildBlock());
 
     await tester.tapAt(target);
     expect(first, equals(1));
@@ -114,6 +117,7 @@ void main() {
 
   testWidgets('ListView controller', (WidgetTester tester) async {
     final ScrollController controller = ScrollController();
+    addTearDown(controller.dispose);
 
     Widget buildBlock() {
       return Directionality(
@@ -124,11 +128,14 @@ void main() {
         ),
       );
     }
+
     await tester.pumpWidget(buildBlock());
     expect(controller.offset, equals(0.0));
   });
 
-  testWidgets('SliverBlockChildListDelegate.estimateMaxScrollOffset hits end', (WidgetTester tester) async {
+  testWidgets('SliverBlockChildListDelegate.estimateMaxScrollOffset hits end', (
+    WidgetTester tester,
+  ) async {
     final SliverChildListDelegate delegate = SliverChildListDelegate(<Widget>[
       Container(),
       Container(),
@@ -140,17 +147,13 @@ void main() {
     await tester.pumpWidget(
       Directionality(
         textDirection: TextDirection.ltr,
-        child: CustomScrollView(
-          slivers: <Widget>[
-            SliverList(
-              delegate: delegate,
-            ),
-          ],
-        ),
+        child: CustomScrollView(slivers: <Widget>[SliverList(delegate: delegate)]),
       ),
     );
 
-    final SliverMultiBoxAdaptorElement element = tester.element(find.byType(SliverList, skipOffstage: false));
+    final SliverMultiBoxAdaptorElement element = tester.element(
+      find.byType(SliverList, skipOffstage: false),
+    );
 
     final double maxScrollOffset = element.estimateMaxScrollOffset(
       null,
@@ -168,6 +171,7 @@ void main() {
       vsync: const TestVSync(),
       duration: const Duration(milliseconds: 200),
     );
+    addTearDown(controller.dispose);
 
     // The overall height of the frame is (as ever) 600
     Widget buildFrame() {
@@ -179,34 +183,16 @@ void main() {
               // The overall height of the ListView's contents is 500
               child: ListView(
                 children: const <Widget>[
-                  SizedBox(
-                    height: 150.0,
-                    child: Center(
-                      child: Text('top'),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 200.0,
-                    child: Center(
-                      child: Text('middle'),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 150.0,
-                    child: Center(
-                      child: Text('bottom'),
-                    ),
-                  ),
+                  SizedBox(height: 150.0, child: Center(child: Text('top'))),
+                  SizedBox(height: 200.0, child: Center(child: Text('middle'))),
+                  SizedBox(height: 150.0, child: Center(child: Text('bottom'))),
                 ],
               ),
             ),
             // If this widget's height is > 100 the ListView can scroll.
             SizeTransition(
               sizeFactor: controller.view,
-              child: const SizedBox(
-                height: 300.0,
-                child: Text('keyboard'),
-              ),
+              child: const SizedBox(height: 300.0, child: Text('keyboard')),
             ),
           ],
         ),

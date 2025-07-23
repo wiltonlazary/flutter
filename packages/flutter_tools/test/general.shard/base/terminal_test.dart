@@ -2,108 +2,130 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:async';
-
 import 'package:flutter_tools/src/base/io.dart';
+import 'package:flutter_tools/src/base/logger.dart';
 import 'package:flutter_tools/src/base/platform.dart';
+import 'package:flutter_tools/src/base/process.dart';
 import 'package:flutter_tools/src/base/terminal.dart';
-import 'package:flutter_tools/src/globals.dart';
-import 'package:mockito/mockito.dart';
+import 'package:test/fake.dart';
 
 import '../../src/common.dart';
-import '../../src/context.dart';
+import '../../src/fakes.dart';
 
 void main() {
   group('output preferences', () {
-    testUsingContext('can wrap output', () async {
-      printStatus('0123456789' * 8);
-      expect(testLogger.statusText, equals(('0123456789' * 4 + '\n') * 2));
-    }, overrides: <Type, Generator>{
-      OutputPreferences: () => OutputPreferences(wrapText: true, wrapColumn: 40),
+    testWithoutContext('can wrap output', () async {
+      final bufferLogger = BufferLogger(
+        outputPreferences: OutputPreferences.test(wrapText: true, wrapColumn: 40),
+        terminal: TestTerminal(platform: FakePlatform()..stdoutSupportsAnsi = true),
+      );
+      bufferLogger.printStatus('0123456789' * 8);
+
+      expect(bufferLogger.statusText, equals('${'0123456789' * 4}\n' * 2));
     });
 
-    testUsingContext('can turn off wrapping', () async {
+    testWithoutContext('can turn off wrapping', () async {
+      final bufferLogger = BufferLogger(
+        outputPreferences: OutputPreferences.test(),
+        terminal: TestTerminal(platform: FakePlatform()..stdoutSupportsAnsi = true),
+      );
       final String testString = '0123456789' * 20;
-      printStatus(testString);
-      expect(testLogger.statusText, equals('$testString\n'));
-    }, overrides: <Type, Generator>{
-      Platform: () => FakePlatform()..stdoutSupportsAnsi = true,
-      OutputPreferences: () => OutputPreferences(wrapText: false),
+      bufferLogger.printStatus(testString);
+
+      expect(bufferLogger.statusText, equals('$testString\n'));
     });
   });
 
-  group('ANSI coloring and bold', () {
-    AnsiTerminal terminal;
+  group('ANSI coloring, bold, and clearing', () {
+    late AnsiTerminal terminal;
+    late FakePlatform platform;
 
     setUp(() {
-      terminal = AnsiTerminal();
+      platform = FakePlatform()..stdoutSupportsAnsi = true;
+      terminal = AnsiTerminal(
+        stdio: Stdio(), // Danger, using real stdio.
+        platform: platform,
+      );
     });
 
-    testUsingContext('adding colors works', () {
-      for (TerminalColor color in TerminalColor.values) {
+    testWithoutContext('adding colors works', () {
+      for (final TerminalColor color in TerminalColor.values) {
         expect(
           terminal.color('output', color),
           equals('${AnsiTerminal.colorCode(color)}output${AnsiTerminal.resetColor}'),
         );
       }
-    }, overrides: <Type, Generator>{
-      OutputPreferences: () => OutputPreferences(showColor: true),
-      Platform: () => FakePlatform()..stdoutSupportsAnsi = true,
     });
 
-    testUsingContext('adding bold works', () {
+    testWithoutContext('can opt-out of color using NO_COLOR', () {
+      platform.environment = <String, String>{'NO_COLOR': ''};
+      expect(
+        terminal,
+        isA<Terminal>().having((Terminal t) => t.supportsColor, 'supportsColor', isFalse),
+      );
+
+      expect(
+        terminal.color('output-without-color', TerminalColor.red),
+        equals('output-without-color'),
+      );
+    });
+
+    testWithoutContext('adding bold works', () {
       expect(
         terminal.bolden('output'),
         equals('${AnsiTerminal.bold}output${AnsiTerminal.resetBold}'),
       );
-    }, overrides: <Type, Generator>{
-      OutputPreferences: () => OutputPreferences(showColor: true),
-      Platform: () => FakePlatform()..stdoutSupportsAnsi = true,
     });
 
-    testUsingContext('nesting bold within color works', () {
+    testWithoutContext('nesting bold within color works', () {
       expect(
         terminal.color(terminal.bolden('output'), TerminalColor.blue),
-        equals('${AnsiTerminal.blue}${AnsiTerminal.bold}output${AnsiTerminal.resetBold}${AnsiTerminal.resetColor}'),
+        equals(
+          '${AnsiTerminal.blue}${AnsiTerminal.bold}output${AnsiTerminal.resetBold}${AnsiTerminal.resetColor}',
+        ),
       );
       expect(
         terminal.color('non-bold ${terminal.bolden('output')} also non-bold', TerminalColor.blue),
-        equals('${AnsiTerminal.blue}non-bold ${AnsiTerminal.bold}output${AnsiTerminal.resetBold} also non-bold${AnsiTerminal.resetColor}'),
+        equals(
+          '${AnsiTerminal.blue}non-bold ${AnsiTerminal.bold}output${AnsiTerminal.resetBold} also non-bold${AnsiTerminal.resetColor}',
+        ),
       );
-    }, overrides: <Type, Generator>{
-      OutputPreferences: () => OutputPreferences(showColor: true),
-      Platform: () => FakePlatform()..stdoutSupportsAnsi = true,
     });
 
-    testUsingContext('nesting color within bold works', () {
+    testWithoutContext('nesting color within bold works', () {
       expect(
         terminal.bolden(terminal.color('output', TerminalColor.blue)),
-        equals('${AnsiTerminal.bold}${AnsiTerminal.blue}output${AnsiTerminal.resetColor}${AnsiTerminal.resetBold}'),
+        equals(
+          '${AnsiTerminal.bold}${AnsiTerminal.blue}output${AnsiTerminal.resetColor}${AnsiTerminal.resetBold}',
+        ),
       );
       expect(
         terminal.bolden('non-color ${terminal.color('output', TerminalColor.blue)} also non-color'),
-        equals('${AnsiTerminal.bold}non-color ${AnsiTerminal.blue}output${AnsiTerminal.resetColor} also non-color${AnsiTerminal.resetBold}'),
+        equals(
+          '${AnsiTerminal.bold}non-color ${AnsiTerminal.blue}output${AnsiTerminal.resetColor} also non-color${AnsiTerminal.resetBold}',
+        ),
       );
-    }, overrides: <Type, Generator>{
-      OutputPreferences: () => OutputPreferences(showColor: true),
-      Platform: () => FakePlatform()..stdoutSupportsAnsi = true,
     });
 
-    testUsingContext('nesting color within color works', () {
+    testWithoutContext('nesting color within color works', () {
       expect(
         terminal.color(terminal.color('output', TerminalColor.blue), TerminalColor.magenta),
-        equals('${AnsiTerminal.magenta}${AnsiTerminal.blue}output${AnsiTerminal.resetColor}${AnsiTerminal.magenta}${AnsiTerminal.resetColor}'),
+        equals(
+          '${AnsiTerminal.magenta}${AnsiTerminal.blue}output${AnsiTerminal.resetColor}${AnsiTerminal.magenta}${AnsiTerminal.resetColor}',
+        ),
       );
       expect(
-        terminal.color('magenta ${terminal.color('output', TerminalColor.blue)} also magenta', TerminalColor.magenta),
-        equals('${AnsiTerminal.magenta}magenta ${AnsiTerminal.blue}output${AnsiTerminal.resetColor}${AnsiTerminal.magenta} also magenta${AnsiTerminal.resetColor}'),
+        terminal.color(
+          'magenta ${terminal.color('output', TerminalColor.blue)} also magenta',
+          TerminalColor.magenta,
+        ),
+        equals(
+          '${AnsiTerminal.magenta}magenta ${AnsiTerminal.blue}output${AnsiTerminal.resetColor}${AnsiTerminal.magenta} also magenta${AnsiTerminal.resetColor}',
+        ),
       );
-    }, overrides: <Type, Generator>{
-      OutputPreferences: () => OutputPreferences(showColor: true),
-      Platform: () => FakePlatform()..stdoutSupportsAnsi = true,
     });
 
-    testUsingContext('nesting bold within bold works', () {
+    testWithoutContext('nesting bold within bold works', () {
       expect(
         terminal.bolden(terminal.bolden('output')),
         equals('${AnsiTerminal.bold}output${AnsiTerminal.resetBold}'),
@@ -112,27 +134,62 @@ void main() {
         terminal.bolden('bold ${terminal.bolden('output')} still bold'),
         equals('${AnsiTerminal.bold}bold output still bold${AnsiTerminal.resetBold}'),
       );
-    }, overrides: <Type, Generator>{
-      OutputPreferences: () => OutputPreferences(showColor: true),
-      Platform: () => FakePlatform()..stdoutSupportsAnsi = true,
+    });
+
+    testWithoutContext('clearing lines works', () {
+      expect(
+        terminal.clearLines(3),
+        equals(
+          '${AnsiTerminal.cursorBeginningOfLineCode}'
+          '${AnsiTerminal.clearEntireLineCode}'
+          '${AnsiTerminal.cursorUpLineCode}'
+          '${AnsiTerminal.clearEntireLineCode}'
+          '${AnsiTerminal.cursorUpLineCode}'
+          '${AnsiTerminal.clearEntireLineCode}',
+        ),
+      );
+
+      expect(
+        terminal.clearLines(1),
+        equals(
+          '${AnsiTerminal.cursorBeginningOfLineCode}'
+          '${AnsiTerminal.clearEntireLineCode}',
+        ),
+      );
+    });
+
+    testWithoutContext('clearing lines when color is not supported does not work', () {
+      terminal = AnsiTerminal(
+        stdio: Stdio(), // Danger, using real stdio.
+        platform: FakePlatform()..stdoutSupportsAnsi = false,
+      );
+      expect(terminal.clearLines(3), equals(''));
     });
   });
 
   group('character input prompt', () {
-    AnsiTerminal terminalUnderTest;
+    late AnsiTerminal terminalUnderTest;
 
     setUp(() {
-      terminalUnderTest = TestTerminal();
+      terminalUnderTest = TestTerminal(stdio: FakeStdio());
     });
 
-    testUsingContext('character prompt throws if usesTerminalUi is false', () async {
-      expect(terminalUnderTest.promptForCharInput(
-        <String>['a', 'b', 'c'],
-        prompt: 'Please choose something',
-      ), throwsA(isInstanceOf<StateError>()));
+    testWithoutContext('character prompt throws if usesTerminalUi is false', () async {
+      expect(
+        terminalUnderTest.promptForCharInput(
+          <String>['a', 'b', 'c'],
+          prompt: 'Please choose something',
+          logger: BufferLogger.test(),
+        ),
+        throwsStateError,
+      );
     });
 
-    testUsingContext('character prompt', () async {
+    testWithoutContext('character prompt', () async {
+      final bufferLogger = BufferLogger(
+        terminal: terminalUnderTest,
+        outputPreferences: OutputPreferences.test(),
+      );
       terminalUnderTest.usesTerminalUi = true;
       mockStdInStream = Stream<String>.fromFutures(<Future<String>>[
         Future<String>.value('d'), // Not in accepted list.
@@ -142,17 +199,22 @@ void main() {
       final String choice = await terminalUnderTest.promptForCharInput(
         <String>['a', 'b', 'c'],
         prompt: 'Please choose something',
+        logger: bufferLogger,
       );
       expect(choice, 'b');
       expect(
-          testLogger.statusText,
-          'Please choose something [a|b|c]: d\n'
-          'Please choose something [a|b|c]: \n'
-          '\n'
-          'Please choose something [a|b|c]: b\n');
+        bufferLogger.statusText,
+        'Please choose something [a|b|c]: d\n'
+        'Please choose something [a|b|c]: \n'
+        'Please choose something [a|b|c]: b\n',
+      );
     });
 
-    testUsingContext('default character choice without displayAcceptedCharacters', () async {
+    testWithoutContext('default character choice without displayAcceptedCharacters', () async {
+      final bufferLogger = BufferLogger(
+        terminal: terminalUnderTest,
+        outputPreferences: OutputPreferences.test(),
+      );
       terminalUnderTest.usesTerminalUi = true;
       mockStdInStream = Stream<String>.fromFutures(<Future<String>>[
         Future<String>.value('\n'), // Not in accepted list
@@ -162,32 +224,365 @@ void main() {
         prompt: 'Please choose something',
         displayAcceptedCharacters: false,
         defaultChoiceIndex: 1, // which is b.
+        logger: bufferLogger,
       );
+
       expect(choice, 'b');
-      expect(
-          testLogger.statusText,
-          'Please choose something: \n'
-          '\n');
+      expect(bufferLogger.statusText, 'Please choose something: \n');
     });
 
-    testUsingContext('Does not set single char mode when a terminal is not attached', () {
-      when(stdio.stdin).thenThrow(StateError('This should not be called'));
-      when(stdio.stdinHasTerminal).thenReturn(false);
+    testWithoutContext('Does not set single char mode when a terminal is not attached', () {
+      final Stdio stdio = FakeStdio()..stdinHasTerminal = false;
+      final ansiTerminal = AnsiTerminal(stdio: stdio, platform: const LocalPlatform());
 
-      terminal.singleCharMode = true;
-    }, overrides: <Type, Generator>{
-      Stdio: () => MockStdio(),
+      expect(() => ansiTerminal.singleCharMode = true, returnsNormally);
     });
+  });
+
+  testWithoutContext('AnsiTerminal.preferredStyle', () {
+    final Stdio stdio = FakeStdio();
+    expect(
+      AnsiTerminal(stdio: stdio, platform: const LocalPlatform()).preferredStyle,
+      0,
+    ); // Defaults to 0 for backwards compatibility.
+
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018),
+      ).preferredStyle,
+      0,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 2),
+      ).preferredStyle,
+      1,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 3),
+      ).preferredStyle,
+      2,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 4),
+      ).preferredStyle,
+      3,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 5),
+      ).preferredStyle,
+      4,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 6),
+      ).preferredStyle,
+      5,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 7),
+      ).preferredStyle,
+      5,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 8),
+      ).preferredStyle,
+      0,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 9),
+      ).preferredStyle,
+      1,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 10),
+      ).preferredStyle,
+      2,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 11),
+      ).preferredStyle,
+      3,
+    );
+
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 1, 1),
+      ).preferredStyle,
+      0,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 2, 1),
+      ).preferredStyle,
+      1,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 3, 1),
+      ).preferredStyle,
+      2,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 4, 1),
+      ).preferredStyle,
+      3,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 5, 1),
+      ).preferredStyle,
+      4,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 6, 1),
+      ).preferredStyle,
+      6,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 7, 1),
+      ).preferredStyle,
+      6,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 8, 1),
+      ).preferredStyle,
+      0,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 9, 1),
+      ).preferredStyle,
+      1,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 10, 1),
+      ).preferredStyle,
+      2,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 11, 1),
+      ).preferredStyle,
+      3,
+    );
+
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 1, 23),
+      ).preferredStyle,
+      0,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 2, 23),
+      ).preferredStyle,
+      1,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 3, 23),
+      ).preferredStyle,
+      2,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 4, 23),
+      ).preferredStyle,
+      3,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 5, 23),
+      ).preferredStyle,
+      4,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 6, 23),
+      ).preferredStyle,
+      28,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 7, 23),
+      ).preferredStyle,
+      28,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 8, 23),
+      ).preferredStyle,
+      0,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 9, 23),
+      ).preferredStyle,
+      1,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 10, 23),
+      ).preferredStyle,
+      2,
+    );
+    expect(
+      AnsiTerminal(
+        stdio: stdio,
+        platform: const LocalPlatform(),
+        now: DateTime(2018, 1, 11, 23),
+      ).preferredStyle,
+      3,
+    );
+  });
+
+  testWithoutContext('set singleCharMode resilient to StdinException', () async {
+    final stdio = FakeStdio();
+    final terminal = AnsiTerminal(stdio: stdio, platform: const LocalPlatform());
+    stdio.stdinHasTerminal = true;
+    stdio._stdin = FakeStdin()
+      ..echoModeCallback = (bool _) => throw const StdinException(
+        'Error setting terminal echo mode, OS Error: The handle is invalid.',
+      );
+    terminal.singleCharMode = true;
+  });
+
+  testWithoutContext('singleCharMode is reset by shutdown hook', () {
+    final shutdownHooks = ShutdownHooks();
+    final stdio = FakeStdio();
+    final terminal = AnsiTerminal(
+      stdio: stdio,
+      platform: const LocalPlatform(),
+      shutdownHooks: shutdownHooks,
+    );
+    stdio.stdinHasTerminal = true;
+    stdio._stdin = FakeStdin();
+
+    terminal.singleCharMode = true;
+    shutdownHooks.runShutdownHooks(BufferLogger.test());
+    expect(terminal.singleCharMode, false);
   });
 }
 
-Stream<String> mockStdInStream;
+late Stream<String> mockStdInStream;
 
 class TestTerminal extends AnsiTerminal {
+  TestTerminal({Stdio? stdio, super.platform = const LocalPlatform(), DateTime? now})
+    : super(stdio: stdio ?? Stdio(), now: now ?? DateTime(2018));
+
   @override
   Stream<String> get keystrokes {
     return mockStdInStream;
   }
+
+  var _singleCharMode = false;
+
+  @override
+  bool get singleCharMode => _singleCharMode;
+
+  void Function(bool newMode)? _singleCharModeCallback;
+
+  @override
+  set singleCharMode(bool newMode) {
+    _singleCharMode = newMode;
+    if (_singleCharModeCallback != null) {
+      _singleCharModeCallback!(newMode);
+    }
+  }
+
+  @override
+  int get preferredStyle => 0;
 }
 
-class MockStdio extends Mock implements Stdio {}
+class FakeStdio extends Fake implements Stdio {
+  Stream<List<int>>? _stdin;
+
+  @override
+  Stream<List<int>> get stdin {
+    if (_stdin != null) {
+      return _stdin!;
+    }
+    throw UnimplementedError('stdin');
+  }
+
+  @override
+  var stdinHasTerminal = false;
+}

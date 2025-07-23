@@ -1,4 +1,14 @@
 {
+  "cancelButtonLabel": "取消",
+  "backButtonLabel": "返回",
+  "clearButtonLabel": "清除",
+  "lookUpButtonLabel": "查詢",
+  "searchWebButtonLabel": "搜尋",
+  "shareButtonLabel": "分享…",
+  "noSpellCheckReplacementsLabel": "找不到替代文字",
+  "menuDismissLabel": "關閉選單",
+  "searchTextFieldPlaceholderLabel": "搜尋",
+  "tabSemanticsLabel": "第 $tabIndex 個分頁標籤，共 $tabCount 個",
   "datePickerHourSemanticsLabelOne": "$hour 點",
   "datePickerHourSemanticsLabelOther": "$hour 點",
   "datePickerMinuteSemanticsLabelOne": "1 分",
@@ -8,7 +18,7 @@
   "anteMeridiemAbbreviation": "上午",
   "postMeridiemAbbreviation": "下午",
   "todayLabel": "今天",
-  "alertDialogLabel": "快訊",
+  "alertDialogLabel": "警告",
   "timerPickerHourLabelOne": "小時",
   "timerPickerHourLabelOther": "小時",
   "timerPickerMinuteLabelOne": "分",
@@ -18,5 +28,6 @@
   "cutButtonLabel": "剪下",
   "copyButtonLabel": "複製",
   "pasteButtonLabel": "貼上",
-  "selectAllButtonLabel": "全選"
+  "selectAllButtonLabel": "全選",
+  "modalBarrierDismissLabel": "關閉"
 }

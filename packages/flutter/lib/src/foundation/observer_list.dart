@@ -27,7 +27,7 @@ import 'dart:collection';
 class ObserverList<T> extends Iterable<T> {
   final List<T> _list = <T>[];
   bool _isDirty = false;
-  HashSet<T> _set;
+  late final HashSet<T> _set = HashSet<T>();
 
   /// Adds an item to the end of this list.
   ///
@@ -43,22 +43,29 @@ class ObserverList<T> extends Iterable<T> {
   ///
   /// Returns whether the item was present in the list.
   bool remove(T item) {
-    _isDirty = true;
-    _set?.clear(); // Clear the set so that we don't leak items.
-    return _list.remove(item);
+    final bool removed = _list.remove(item);
+    if (removed) {
+      _isDirty = true;
+      _set.clear(); // Clear the set so that we don't leak items.
+    }
+    return removed;
+  }
+
+  /// Removes all items from the [ObserverList].
+  void clear() {
+    _isDirty = false;
+    _list.clear();
+    _set.clear();
   }
 
   @override
-  bool contains(Object element) {
-    if (_list.length < 3)
+  bool contains(Object? element) {
+    if (_list.length < 3) {
       return _list.contains(element);
+    }
 
     if (_isDirty) {
-      if (_set == null) {
-        _set = HashSet<T>.from(_list);
-      } else {
-        _set.addAll(_list);
-      }
+      _set.addAll(_list);
       _isDirty = false;
     }
 
@@ -73,6 +80,15 @@ class ObserverList<T> extends Iterable<T> {
 
   @override
   bool get isNotEmpty => _list.isNotEmpty;
+
+  /// Creates a List containing the elements of the [ObserverList].
+  ///
+  /// Overrides the default implementation of the [Iterable] to reduce number
+  /// of allocations.
+  @override
+  List<T> toList({bool growable = true}) {
+    return _list.toList(growable: growable);
+  }
 }
 
 /// A list optimized for the observer pattern, but for larger numbers of observers.
@@ -90,7 +106,7 @@ class ObserverList<T> extends Iterable<T> {
 ///
 ///  * [ObserverList] for a list that is fast for small numbers of observers.
 class HashedObserverList<T> extends Iterable<T> {
-  final LinkedHashMap<T, int> _map = LinkedHashMap<T, int>();
+  final Map<T, int> _map = <T, int>{};
 
   /// Adds an item to the end of this list.
   ///
@@ -105,7 +121,7 @@ class HashedObserverList<T> extends Iterable<T> {
   ///
   /// Returns whether the item was present in the list.
   bool remove(T item) {
-    final int value = _map[item];
+    final int? value = _map[item];
     if (value == null) {
       return false;
     }
@@ -117,8 +133,11 @@ class HashedObserverList<T> extends Iterable<T> {
     return true;
   }
 
+  /// Removes all items from the [HashedObserverList].
+  void clear() => _map.clear();
+
   @override
-  bool contains(Object element) => _map.containsKey(element);
+  bool contains(Object? element) => _map.containsKey(element);
 
   @override
   Iterator<T> get iterator => _map.keys.iterator;
@@ -128,4 +147,14 @@ class HashedObserverList<T> extends Iterable<T> {
 
   @override
   bool get isNotEmpty => _map.isNotEmpty;
+
+  /// Creates a List containing the elements of the [HashedObserverList].
+  ///
+  /// Overrides the default implementation of [Iterable] to reduce number of
+  /// allocations.
+  @override
+  List<T> toList({bool growable = true}) {
+    final Iterator<T> iterator = _map.keys.iterator;
+    return List<T>.generate(_map.length, (_) => (iterator..moveNext()).current, growable: growable);
+  }
 }

@@ -18,13 +18,9 @@ void main() {
       Directionality(
         textDirection: TextDirection.ltr,
         child: Center(
-          child: Container(
+          child: SizedBox(
             width: 200.0,
-            child: GridView.extent(
-              maxCrossAxisExtent: 100.0,
-              shrinkWrap: true,
-              children: children,
-            ),
+            child: GridView.extent(maxCrossAxisExtent: 100.0, shrinkWrap: true, children: children),
           ),
         ),
       ),
@@ -32,7 +28,7 @@ void main() {
 
     expect(tester.renderObjectList<RenderBox>(find.byType(DecoratedBox)), hasLength(4));
 
-    for (RenderBox box in tester.renderObjectList<RenderBox>(find.byType(DecoratedBox))) {
+    for (final RenderBox box in tester.renderObjectList<RenderBox>(find.byType(DecoratedBox))) {
       expect(box.size.width, equals(100.0), reason: 'child width');
       expect(box.size.height, equals(100.0), reason: 'child height');
     }
@@ -47,19 +43,15 @@ void main() {
       Directionality(
         textDirection: TextDirection.ltr,
         child: Center(
-          child: Container(
+          child: SizedBox(
             width: 200.0,
-            child: GridView.extent(
-              maxCrossAxisExtent: 60.0,
-              shrinkWrap: true,
-              children: children,
-            ),
+            child: GridView.extent(maxCrossAxisExtent: 60.0, shrinkWrap: true, children: children),
           ),
         ),
       ),
     );
 
-    for (RenderBox box in tester.renderObjectList<RenderBox>(find.byType(DecoratedBox))) {
+    for (final RenderBox box in tester.renderObjectList<RenderBox>(find.byType(DecoratedBox))) {
       expect(box.size.width, equals(50.0), reason: 'child width');
       expect(box.size.height, equals(50.0), reason: 'child height');
     }

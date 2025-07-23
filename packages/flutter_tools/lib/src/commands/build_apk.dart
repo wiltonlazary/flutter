@@ -2,45 +2,90 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:async';
+import 'package:unified_analytics/unified_analytics.dart';
 
 import '../android/android_builder.dart';
-import '../base/terminal.dart';
+import '../android/build_validation.dart';
+import '../android/gradle_utils.dart';
 import '../build_info.dart';
 import '../cache.dart';
-import '../globals.dart';
+import '../globals.dart' as globals;
 import '../project.dart';
-import '../reporting/reporting.dart';
 import '../runner/flutter_command.dart' show FlutterCommandResult;
 import 'build.dart';
 
 class BuildApkCommand extends BuildSubCommand {
-  BuildApkCommand({bool verboseHelp = false}) {
+  BuildApkCommand({required super.logger, bool verboseHelp = false})
+    : super(verboseHelp: verboseHelp) {
+    addTreeShakeIconsFlag();
     usesTargetOption();
     addBuildModeFlags(verboseHelp: verboseHelp);
     usesFlavorOption();
     usesPubOption();
     usesBuildNumberOption();
     usesBuildNameOption();
-    addShrinkingFlag();
-
+    addShrinkingFlag(verboseHelp: verboseHelp);
+    addSplitDebugInfoOption();
+    addDartObfuscationOption();
+    usesDartDefineOption();
+    usesExtraDartFlagOptions(verboseHelp: verboseHelp);
+    addEnableExperimentation(hide: !verboseHelp);
+    addBuildPerformanceFile(hide: !verboseHelp);
+    usesAnalyzeSizeFlag();
+    addAndroidSpecificBuildOptions(hide: !verboseHelp);
+    addIgnoreDeprecationOption();
     argParser
-      ..addFlag('split-per-abi',
+      ..addFlag(
+        'split-per-abi',
         negatable: false,
-        help: 'Whether to split the APKs per ABIs. '
-              'To learn more, see: https://developer.android.com/studio/build/configure-apk-splits#configure-abi-split',
+        help:
+            'Whether to split the APKs per ABIs. '
+            'To learn more, see: https://developer.android.com/studio/build/configure-apk-splits#configure-abi-split',
       )
-      ..addMultiOption('target-platform',
-        splitCommas: true,
-        defaultsTo: <String>['android-arm', 'android-arm64', 'android-x64'],
-        allowed: <String>['android-arm', 'android-arm64', 'android-x86', 'android-x64'],
+      ..addFlag(
+        'config-only',
+        help:
+            'Generate build files used by flutter but '
+            'do not build any artifacts.',
+      )
+      ..addMultiOption(
+        'target-platform',
+        allowed: <String>['android-arm', 'android-arm64', 'android-x64'],
         help: 'The target platform for which the app is compiled.',
       );
     usesTrackWidgetCreation(verboseHelp: verboseHelp);
   }
 
+  BuildMode get _buildMode {
+    if (boolArg('release')) {
+      return BuildMode.release;
+    } else if (boolArg('profile')) {
+      return BuildMode.profile;
+    } else if (boolArg('debug')) {
+      return BuildMode.debug;
+    } else if (boolArg('jit-release')) {
+      return BuildMode.jitRelease;
+    }
+    return BuildMode.release;
+  }
+
+  static const _kDefaultJitArchs = <String>['android-arm', 'android-arm64', 'android-x64'];
+  static const _kDefaultAotArchs = <String>['android-arm', 'android-arm64', 'android-x64'];
+  List<String> get _targetArchs => stringsArg('target-platform').isEmpty
+      ? switch (_buildMode) {
+          BuildMode.release || BuildMode.profile => _kDefaultAotArchs,
+          BuildMode.debug || BuildMode.jitRelease => _kDefaultJitArchs,
+        }
+      : stringsArg('target-platform');
+
   @override
-  final String name = 'apk';
+  final name = 'apk';
+
+  @override
+  DeprecationBehavior get deprecationBehavior =>
+      boolArg('ignore-deprecation') ? DeprecationBehavior.ignore : DeprecationBehavior.exit;
+
+  bool get configOnly => boolArg('config-only');
 
   @override
   Future<Set<DevelopmentArtifact>> get requiredArtifacts async => <DevelopmentArtifact>{
@@ -48,65 +93,55 @@ class BuildApkCommand extends BuildSubCommand {
   };
 
   @override
-  final String description = 'Build an Android APK file from your app.\n\n'
-    'This command can build debug and release versions of your application. \'debug\' builds support '
-    'debugging and a quick development cycle. \'release\' builds don\'t support debugging and are '
-    'suitable for deploying to app stores.';
+  final description =
+      'Build an Android APK file from your app.\n\n'
+      "This command can build debug and release versions of your application. 'debug' builds support "
+      "debugging and a quick development cycle. 'release' builds don't support debugging and are "
+      'suitable for deploying to app stores. If you are deploying the app to the Play Store, '
+      "it's recommended to use app bundles or split the APK to reduce the APK size. Learn more at:\n\n"
+      ' * https://developer.android.com/guide/app-bundle\n'
+      ' * https://developer.android.com/studio/build/configure-apk-splits#configure-abi-split';
 
   @override
-  Future<Map<CustomDimensions, String>> get usageValues async {
-    final Map<CustomDimensions, String> usage = <CustomDimensions, String>{};
-
-    usage[CustomDimensions.commandBuildApkTargetPlatform] =
-        stringsArg('target-platform').join(',');
-    usage[CustomDimensions.commandBuildApkSplitPerAbi] =
-        boolArg('split-per-abi').toString();
-
-    if (boolArg('release')) {
-      usage[CustomDimensions.commandBuildApkBuildMode] = 'release';
-    } else if (boolArg('debug')) {
-      usage[CustomDimensions.commandBuildApkBuildMode] = 'debug';
-    } else if (boolArg('profile')) {
-      usage[CustomDimensions.commandBuildApkBuildMode] = 'profile';
-    } else {
-      // The build defaults to release.
-      usage[CustomDimensions.commandBuildApkBuildMode] = 'release';
-    }
-    return usage;
+  Future<Event> unifiedAnalyticsUsageValues(String commandPath) async {
+    return Event.commandUsageValues(
+      workflow: commandPath,
+      commandHasTerminal: hasTerminal,
+      buildApkTargetPlatform: _targetArchs.join(','),
+      buildApkBuildMode: _buildMode.cliName,
+      buildApkSplitPerAbi: boolArg('split-per-abi'),
+    );
   }
 
   @override
   Future<FlutterCommandResult> runCommand() async {
-    final BuildInfo buildInfo = getBuildInfo();
-    final AndroidBuildInfo androidBuildInfo = AndroidBuildInfo(
+    if (globals.androidSdk == null) {
+      exitWithNoSdkMessage();
+    }
+    final BuildInfo buildInfo = await getBuildInfo();
+
+    final androidBuildInfo = AndroidBuildInfo(
       buildInfo,
       splitPerAbi: boolArg('split-per-abi'),
-      targetArchs: stringsArg('target-platform').map<AndroidArch>(getAndroidArchForName),
-      shrink: boolArg('shrink'),
+      targetArchs: _targetArchs.map<AndroidArch>(getAndroidArchForName),
     );
-
-    if (buildInfo.isRelease && !androidBuildInfo.splitPerAbi && androidBuildInfo.targetArchs.length > 1) {
-      final String targetPlatforms = stringsArg('target-platform').join(', ');
-
-      printStatus('You are building a fat APK that includes binaries for '
-                  '$targetPlatforms.', emphasis: true, color: TerminalColor.green);
-      printStatus('If you are deploying the app to the Play Store, '
-                  'it\'s recommended to use app bundles or split the APK to reduce the APK size.', emphasis: true);
-      printStatus('To generate an app bundle, run:', emphasis: true, indent: 4);
-      printStatus('flutter build appbundle '
-                  '--target-platform ${targetPlatforms.replaceAll(' ', '')}',indent: 8);
-      printStatus('Learn more on: https://developer.android.com/guide/app-bundle',indent: 8);
-      printStatus('To split the APKs per ABI, run:', emphasis: true, indent: 4);
-      printStatus('flutter build apk '
-                  '--target-platform ${targetPlatforms.replaceAll(' ', '')} '
-                  '--split-per-abi', indent: 8);
-      printStatus('Learn more on:  https://developer.android.com/studio/build/configure-apk-splits#configure-abi-split',indent: 8);
-    }
-    await androidBuilder.buildApk(
-      project: FlutterProject.current(),
+    validateBuild(androidBuildInfo);
+    globals.terminal.usesTerminalUi = true;
+    final FlutterProject project = FlutterProject.current();
+    await androidBuilder?.buildApk(
+      project: project,
       target: targetFile,
       androidBuildInfo: androidBuildInfo,
+      configOnly: configOnly,
     );
-    return null;
+
+    // When an app is successfully built, record to analytics whether Impeller
+    // is enabled or disabled. Note that 'computeImpellerEnabled' will default
+    // to false if not enabled explicitly in the manifest.
+    final bool impellerEnabled = project.android.computeImpellerEnabled();
+    final buildLabel = impellerEnabled ? 'manifest-impeller-enabled' : 'manifest-impeller-disabled';
+    globals.analytics.send(Event.flutterBuildInfo(label: buildLabel, buildType: 'android'));
+
+    return FlutterCommandResult.success();
   }
 }

@@ -18,5 +18,16 @@
   "cutButtonLabel": "Кесүү",
   "copyButtonLabel": "Көчүрүү",
   "pasteButtonLabel": "Чаптоо",
-  "selectAllButtonLabel": "Баарын тандоо"
+  "selectAllButtonLabel": "Баарын тандоо",
+  "tabSemanticsLabel": "$tabCount ичинен $tabIndex-өтмөк",
+  "modalBarrierDismissLabel": "Жабуу",
+  "searchTextFieldPlaceholderLabel": "Издөө",
+  "noSpellCheckReplacementsLabel": "Алмаштыруу үчүн сөз табылган жок",
+  "menuDismissLabel": "Менюну жабуу",
+  "lookUpButtonLabel": "Издөө",
+  "searchWebButtonLabel": "Интернеттен издөө",
+  "shareButtonLabel": "Бөлүшүү…",
+  "clearButtonLabel": "Тазалоо",
+  "cancelButtonLabel": "Токтотуу",
+  "backButtonLabel": "Артка"
 }

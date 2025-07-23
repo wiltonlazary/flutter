@@ -7,14 +7,16 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class BackdropFilterPage extends StatefulWidget {
+  const BackdropFilterPage({super.key});
+
   @override
-  _BackdropFilterPageState createState() => _BackdropFilterPageState();
+  State<BackdropFilterPage> createState() => _BackdropFilterPageState();
 }
 
 class _BackdropFilterPageState extends State<BackdropFilterPage> with TickerProviderStateMixin {
   bool _blurGroup = false;
   bool _blurTexts = true;
-  AnimationController animation;
+  late AnimationController animation;
 
   @override
   void initState() {
@@ -34,25 +36,20 @@ class _BackdropFilterPageState extends State<BackdropFilterPage> with TickerProv
     Widget addBlur(Widget child, bool shouldBlur) {
       if (shouldBlur) {
         return ClipRect(
-          child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-            child: child,
-          ),
+          child: BackdropFilter(filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5), child: child),
         );
       } else {
         return child;
       }
     }
 
-    final Widget txt = addBlur(Container(
-      padding: const EdgeInsets.all(5),
-      child: const Text('txt'),
-    ), _blurTexts);
+    final Widget txt = addBlur(
+      Container(padding: const EdgeInsets.all(5), child: const Text('txt')),
+      _blurTexts,
+    );
 
     Widget col(Widget w, int numRows) {
-      return Column(
-          children: List<Widget>.generate(numRows, (int i) => w),
-      );
+      return Column(children: List<Widget>.generate(numRows, (int i) => w));
     }
 
     Widget grid(Widget w, int numRows, int numCols) {
@@ -66,44 +63,49 @@ class _BackdropFilterPageState extends State<BackdropFilterPage> with TickerProv
       backgroundColor: Colors.grey,
       body: Stack(
         children: <Widget>[
-          Text('0' * 10000, style: TextStyle(color: Colors.yellow)),
+          Text('0' * 10000, style: const TextStyle(color: Colors.yellow)),
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Expanded(
                 child: RepaintBoundary(
-                    child: Center(
-                      child: AnimatedBuilder(
-                          animation: animation,
-                          builder: (BuildContext c, Widget w) {
-                            final int val = (animation.value * 255).round();
-                            return Container(
-                                width: 50,
-                                height: 50,
-                                color: Color.fromARGB(255, val, val, val));
-                          }),
-                    )),
+                  child: Center(
+                    child: AnimatedBuilder(
+                      animation: animation,
+                      builder: (BuildContext c, Widget? w) {
+                        final int val = (animation.value * 255).round();
+                        return Container(
+                          width: 50,
+                          height: 50,
+                          color: Color.fromARGB(255, val, val, val),
+                        );
+                      },
+                    ),
+                  ),
+                ),
               ),
               const SizedBox(height: 20),
-              RepaintBoundary(
-                child: addBlur(grid(txt, 17, 5), _blurGroup),
-              ),
+              RepaintBoundary(child: addBlur(grid(txt, 17, 5), _blurGroup)),
               const SizedBox(height: 20),
-              Container(
+              ColoredBox(
                 color: Colors.white,
-                child:Row(
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     const Text('Backdrop per txt:'),
                     Checkbox(
                       value: _blurTexts,
-                      onChanged: (bool v) => setState(() { _blurTexts = v; }),
+                      onChanged: (bool? v) => setState(() {
+                        _blurTexts = v ?? false;
+                      }),
                     ),
                     const SizedBox(width: 10),
                     const Text('Backdrop grid:'),
                     Checkbox(
                       value: _blurGroup,
-                      onChanged: (bool v) => setState(() { _blurGroup = v; }),
+                      onChanged: (bool? v) => setState(() {
+                        _blurGroup = v ?? false;
+                      }),
                     ),
                   ],
                 ),

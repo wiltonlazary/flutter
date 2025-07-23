@@ -2,19 +2,21 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// This example shows how to show the text 'Hello, world.' using using the raw
+// This example shows how to show the text 'Hello, world.' using the raw
 // interface to the engine.
 
 import 'dart:ui' as ui;
 
+// The FlutterView into which this example will draw; set in the main method.
+late final ui.FlutterView view;
+
 void beginFrame(Duration timeStamp) {
-  final double devicePixelRatio = ui.window.devicePixelRatio;
-  final ui.Size logicalSize = ui.window.physicalSize / devicePixelRatio;
+  final double devicePixelRatio = view.devicePixelRatio;
+  final ui.Size logicalSize = view.physicalSize / devicePixelRatio;
 
   final ui.ParagraphBuilder paragraphBuilder = ui.ParagraphBuilder(
     ui.ParagraphStyle(textDirection: ui.TextDirection.ltr),
-  )
-    ..addText('Hello, world.');
+  )..addText('Hello, world.');
   final ui.Paragraph paragraph = paragraphBuilder.build()
     ..layout(ui.ParagraphConstraints(width: logicalSize.width));
 
@@ -22,10 +24,13 @@ void beginFrame(Duration timeStamp) {
   final ui.PictureRecorder recorder = ui.PictureRecorder();
   final ui.Canvas canvas = ui.Canvas(recorder, physicalBounds);
   canvas.scale(devicePixelRatio, devicePixelRatio);
-  canvas.drawParagraph(paragraph, ui.Offset(
-    (logicalSize.width - paragraph.maxIntrinsicWidth) / 2.0,
-    (logicalSize.height - paragraph.height) / 2.0,
-  ));
+  canvas.drawParagraph(
+    paragraph,
+    ui.Offset(
+      (logicalSize.width - paragraph.maxIntrinsicWidth) / 2.0,
+      (logicalSize.height - paragraph.height) / 2.0,
+    ),
+  );
   final ui.Picture picture = recorder.endRecording();
 
   final ui.SceneBuilder sceneBuilder = ui.SceneBuilder()
@@ -35,16 +40,20 @@ void beginFrame(Duration timeStamp) {
     ..addPicture(ui.Offset.zero, picture)
     ..pop();
 
-  ui.window.render(sceneBuilder.build());
+  view.render(sceneBuilder.build());
 }
 
 // This function is the primary entry point to your application. The engine
 // calls main() as soon as it has loaded your code.
 void main() {
+  // TODO(goderbauer): Create a window if embedder doesn't provide an implicit view to draw into.
+  assert(ui.PlatformDispatcher.instance.implicitView != null);
+  view = ui.PlatformDispatcher.instance.implicitView!;
+
   // The engine calls onBeginFrame whenever it wants us to produce a frame.
-  ui.window.onBeginFrame = beginFrame;
+  ui.PlatformDispatcher.instance.onBeginFrame = beginFrame;
   // Here we kick off the whole process by asking the engine to schedule a new
   // frame. The engine will eventually call onBeginFrame when it is time for us
   // to actually produce the frame.
-  ui.window.scheduleFrame();
+  ui.PlatformDispatcher.instance.scheduleFrame();
 }

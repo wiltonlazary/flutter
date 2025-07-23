@@ -11,11 +11,10 @@ For additional samples, see the
 Available examples include:
 
 - **Hello, world** The [hello world app](hello_world) is a minimal Flutter app
-  that shows the text "hello, world."
+  that shows the text "Hello, world!"
 
-- **Flutter gallery** The [flutter gallery app](flutter_gallery) showcases
-  Flutter's widgets, including its implementation of [material
-  design](https://material.io/design/).
+- **Flutter gallery** The flutter gallery app no longer lives in this repo.
+  Please see the [gallery repo](https://github.com/flutter/gallery).
 
 - **Layers** The [layers vignettes](layers) show how to use the various layers
   in the Flutter framework. For details, see the [layers
@@ -23,7 +22,7 @@ Available examples include:
 
 - **Platform Channel** The [platform channel app](platform_channel) demonstrates
   how to connect a Flutter app to platform-specific APIs. For documentation, see
-  <https://flutter.dev/platform-channels/>.
+  <https://flutter.dev/to/platform-channels/>.
 
 - **Platform Channel Swift** The [platform channel swift
   app](platform_channel_swift) is the same as [platform

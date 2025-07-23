@@ -2,6 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/// @docImport 'button_bar.dart';
+/// @docImport 'dropdown.dart';
+/// @docImport 'text_theme.dart';
+library;
+
 import 'dart:ui' show lerpDouble;
 
 import 'package:flutter/foundation.dart';
@@ -9,6 +14,9 @@ import 'package:flutter/widgets.dart';
 
 import 'button_theme.dart';
 import 'theme.dart';
+
+// Examples can assume:
+// late BuildContext context;
 
 /// Defines the visual properties of [ButtonBar] widgets.
 ///
@@ -24,11 +32,20 @@ import 'theme.dart';
 ///    its subtree.
 ///  * [ButtonBar], which uses this to configure itself and its children
 ///    button widgets.
-class ButtonBarThemeData extends Diagnosticable {
+@Deprecated(
+  'Use OverflowBar instead. '
+  'This feature was deprecated after v3.21.0-10.0.pre.',
+)
+@immutable
+class ButtonBarThemeData with Diagnosticable {
   /// Constructs the set of properties used to configure [ButtonBar] widgets.
   ///
   /// Both [buttonMinWidth] and [buttonHeight] must be non-negative if they
   /// are not null.
+  @Deprecated(
+    'Use OverflowBar instead. '
+    'This feature was deprecated after v3.21.0-10.0.pre.',
+  )
   const ButtonBarThemeData({
     this.alignment,
     this.mainAxisSize,
@@ -38,45 +55,46 @@ class ButtonBarThemeData extends Diagnosticable {
     this.buttonPadding,
     this.buttonAlignedDropdown,
     this.layoutBehavior,
+    this.overflowDirection,
   }) : assert(buttonMinWidth == null || buttonMinWidth >= 0.0),
        assert(buttonHeight == null || buttonHeight >= 0.0);
 
   /// How the children should be placed along the horizontal axis.
-  final MainAxisAlignment alignment;
+  final MainAxisAlignment? alignment;
 
   /// How much horizontal space is available. See [Row.mainAxisSize].
-  final MainAxisSize mainAxisSize;
+  final MainAxisSize? mainAxisSize;
 
   /// Defines a [ButtonBar] button's base colors, and the defaults for
   /// the button's minimum size, internal padding, and shape.
   ///
-  /// This will override the surrounding [ButtonTheme.textTheme] setting
+  /// This will override the surrounding [ButtonThemeData.textTheme] setting
   /// for buttons contained in the [ButtonBar].
   ///
   /// Despite the name, this property is not a [TextTheme], its value is not a
   /// collection of [TextStyle]s.
-  final ButtonTextTheme buttonTextTheme;
+  final ButtonTextTheme? buttonTextTheme;
 
   /// The minimum width for [ButtonBar] buttons.
   ///
-  /// This will override the surrounding [ButtonTheme.minWidth] setting
+  /// This will override the surrounding [ButtonThemeData.minWidth] setting
   /// for buttons contained in the [ButtonBar].
   ///
   /// The actual horizontal space allocated for a button's child is
-  /// at least this value less the theme's horizontal [padding].
-  final double buttonMinWidth;
+  /// at least this value less the theme's horizontal [ButtonThemeData.padding].
+  final double? buttonMinWidth;
 
   /// The minimum height for [ButtonBar] buttons.
   ///
-  /// This will override the surrounding [ButtonTheme.height] setting
+  /// This will override the surrounding [ButtonThemeData.height] setting
   /// for buttons contained in the [ButtonBar].
-  final double buttonHeight;
+  final double? buttonHeight;
 
   /// Padding for a [ButtonBar] button's child (typically the button's label).
   ///
-  /// This will override the surrounding [ButtonTheme.padding] setting
+  /// This will override the surrounding [ButtonThemeData.padding] setting
   /// for buttons contained in the [ButtonBar].
-  final EdgeInsetsGeometry buttonPadding;
+  final EdgeInsetsGeometry? buttonPadding;
 
   /// If true, then a [DropdownButton] menu's width will match the [ButtonBar]
   /// button's width.
@@ -86,28 +104,41 @@ class ButtonBarThemeData extends Diagnosticable {
   /// edge of the menu's value with the leading edge of the values
   /// displayed by the menu items.
   ///
-  /// This will override the surrounding [ButtonTheme.alignedDropdown] setting
+  /// This will override the surrounding [ButtonThemeData.alignedDropdown] setting
   /// for buttons contained in the [ButtonBar].
   ///
   /// This property only affects [DropdownButton] contained in a [ButtonBar]
   /// and its menu.
-  final bool buttonAlignedDropdown;
+  final bool? buttonAlignedDropdown;
 
   /// Defines whether a [ButtonBar] should size itself with a minimum size
   /// constraint or with padding.
-  final ButtonBarLayoutBehavior layoutBehavior;
+  final ButtonBarLayoutBehavior? layoutBehavior;
+
+  /// Defines the vertical direction of a [ButtonBar]'s children if it
+  /// overflows.
+  ///
+  /// If the [ButtonBar]'s children do not fit into a single row, then they
+  /// are arranged in a column. The first action is at the top of the
+  /// column if this property is set to [VerticalDirection.down], since it
+  /// "starts" at the top and "ends" at the bottom. On the other hand,
+  /// the first action will be at the bottom of the column if this
+  /// property is set to [VerticalDirection.up], since it "starts" at the
+  /// bottom and "ends" at the top.
+  final VerticalDirection? overflowDirection;
 
   /// Creates a copy of this object but with the given fields replaced with the
   /// new values.
   ButtonBarThemeData copyWith({
-    MainAxisAlignment alignment,
-    MainAxisSize mainAxisSize,
-    ButtonTextTheme buttonTextTheme,
-    double buttonMinWidth,
-    double buttonHeight,
-    EdgeInsetsGeometry buttonPadding,
-    bool buttonAlignedDropdown,
-    ButtonBarLayoutBehavior layoutBehavior,
+    MainAxisAlignment? alignment,
+    MainAxisSize? mainAxisSize,
+    ButtonTextTheme? buttonTextTheme,
+    double? buttonMinWidth,
+    double? buttonHeight,
+    EdgeInsetsGeometry? buttonPadding,
+    bool? buttonAlignedDropdown,
+    ButtonBarLayoutBehavior? layoutBehavior,
+    VerticalDirection? overflowDirection,
   }) {
     return ButtonBarThemeData(
       alignment: alignment ?? this.alignment,
@@ -118,6 +149,7 @@ class ButtonBarThemeData extends Diagnosticable {
       buttonPadding: buttonPadding ?? this.buttonPadding,
       buttonAlignedDropdown: buttonAlignedDropdown ?? this.buttonAlignedDropdown,
       layoutBehavior: layoutBehavior ?? this.layoutBehavior,
+      overflowDirection: overflowDirection ?? this.overflowDirection,
     );
   }
 
@@ -126,68 +158,94 @@ class ButtonBarThemeData extends Diagnosticable {
   /// If both arguments are null, then null is returned.
   ///
   /// {@macro dart.ui.shadow.lerp}
-  static ButtonBarThemeData lerp(ButtonBarThemeData a, ButtonBarThemeData b, double t) {
-    assert(t != null);
-    if (a == null && b == null)
-      return null;
+  static ButtonBarThemeData? lerp(ButtonBarThemeData? a, ButtonBarThemeData? b, double t) {
+    if (identical(a, b)) {
+      return a;
+    }
     return ButtonBarThemeData(
-      alignment: t < 0.5 ? a.alignment : b.alignment,
-      mainAxisSize: t < 0.5 ? a.mainAxisSize : b.mainAxisSize,
-      buttonTextTheme: t < 0.5 ? a.buttonTextTheme : b.buttonTextTheme,
+      alignment: t < 0.5 ? a?.alignment : b?.alignment,
+      mainAxisSize: t < 0.5 ? a?.mainAxisSize : b?.mainAxisSize,
+      buttonTextTheme: t < 0.5 ? a?.buttonTextTheme : b?.buttonTextTheme,
       buttonMinWidth: lerpDouble(a?.buttonMinWidth, b?.buttonMinWidth, t),
       buttonHeight: lerpDouble(a?.buttonHeight, b?.buttonHeight, t),
-      buttonPadding: EdgeInsets.lerp(a?.buttonPadding, b?.buttonPadding, t),
-      buttonAlignedDropdown: t < 0.5 ? a.buttonAlignedDropdown : b.buttonAlignedDropdown,
-      layoutBehavior: t < 0.5 ? a.layoutBehavior : b.layoutBehavior,
+      buttonPadding: EdgeInsetsGeometry.lerp(a?.buttonPadding, b?.buttonPadding, t),
+      buttonAlignedDropdown: t < 0.5 ? a?.buttonAlignedDropdown : b?.buttonAlignedDropdown,
+      layoutBehavior: t < 0.5 ? a?.layoutBehavior : b?.layoutBehavior,
+      overflowDirection: t < 0.5 ? a?.overflowDirection : b?.overflowDirection,
     );
   }
 
   @override
-  int get hashCode {
-    return hashValues(
-      alignment,
-      mainAxisSize,
-      buttonTextTheme,
-      buttonMinWidth,
-      buttonHeight,
-      buttonPadding,
-      buttonAlignedDropdown,
-      layoutBehavior,
-    );
-  }
+  int get hashCode => Object.hash(
+    alignment,
+    mainAxisSize,
+    buttonTextTheme,
+    buttonMinWidth,
+    buttonHeight,
+    buttonPadding,
+    buttonAlignedDropdown,
+    layoutBehavior,
+    overflowDirection,
+  );
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other))
+    if (identical(this, other)) {
       return true;
-    if (other.runtimeType != runtimeType)
+    }
+    if (other.runtimeType != runtimeType) {
       return false;
-    final ButtonBarThemeData typedOther = other;
-    return typedOther.alignment == alignment
-        && typedOther.mainAxisSize == mainAxisSize
-        && typedOther.buttonTextTheme == buttonTextTheme
-        && typedOther.buttonMinWidth == buttonMinWidth
-        && typedOther.buttonHeight == buttonHeight
-        && typedOther.buttonPadding == buttonPadding
-        && typedOther.buttonAlignedDropdown == buttonAlignedDropdown
-        && typedOther.layoutBehavior == layoutBehavior;
+    }
+    return other is ButtonBarThemeData &&
+        other.alignment == alignment &&
+        other.mainAxisSize == mainAxisSize &&
+        other.buttonTextTheme == buttonTextTheme &&
+        other.buttonMinWidth == buttonMinWidth &&
+        other.buttonHeight == buttonHeight &&
+        other.buttonPadding == buttonPadding &&
+        other.buttonAlignedDropdown == buttonAlignedDropdown &&
+        other.layoutBehavior == layoutBehavior &&
+        other.overflowDirection == overflowDirection;
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<MainAxisAlignment>('alignment', alignment, defaultValue: null));
-    properties.add(DiagnosticsProperty<MainAxisSize>('mainAxisSize', mainAxisSize, defaultValue: null));
-    properties.add(DiagnosticsProperty<ButtonTextTheme>('textTheme', buttonTextTheme, defaultValue: null));
+    properties.add(
+      DiagnosticsProperty<MainAxisAlignment>('alignment', alignment, defaultValue: null),
+    );
+    properties.add(
+      DiagnosticsProperty<MainAxisSize>('mainAxisSize', mainAxisSize, defaultValue: null),
+    );
+    properties.add(
+      DiagnosticsProperty<ButtonTextTheme>('textTheme', buttonTextTheme, defaultValue: null),
+    );
     properties.add(DoubleProperty('minWidth', buttonMinWidth, defaultValue: null));
     properties.add(DoubleProperty('height', buttonHeight, defaultValue: null));
-    properties.add(DiagnosticsProperty<EdgeInsetsGeometry>('padding', buttonPadding, defaultValue: null));
-    properties.add(FlagProperty(
+    properties.add(
+      DiagnosticsProperty<EdgeInsetsGeometry>('padding', buttonPadding, defaultValue: null),
+    );
+    properties.add(
+      FlagProperty(
         'buttonAlignedDropdown',
         value: buttonAlignedDropdown,
         ifTrue: 'dropdown width matches button',
-        defaultValue: null));
-    properties.add(DiagnosticsProperty<ButtonBarLayoutBehavior>('layoutBehavior', layoutBehavior, defaultValue: null));
+      ),
+    );
+    properties.add(
+      DiagnosticsProperty<ButtonBarLayoutBehavior>(
+        'layoutBehavior',
+        layoutBehavior,
+        defaultValue: null,
+      ),
+    );
+    properties.add(
+      DiagnosticsProperty<VerticalDirection>(
+        'overflowDirection',
+        overflowDirection,
+        defaultValue: null,
+      ),
+    );
   }
 }
 
@@ -208,15 +266,9 @@ class ButtonBarThemeData extends Diagnosticable {
 ///  * [ButtonBarThemeData], which describes the actual configuration of a button
 ///    bar theme.
 class ButtonBarTheme extends InheritedWidget {
-  /// Constructs a button bar theme that configures all descendent [ButtonBar]
+  /// Constructs a button bar theme that configures all descendant [ButtonBar]
   /// widgets.
-  ///
-  /// The [data] must not be null.
-  const ButtonBarTheme({
-    Key key,
-    @required this.data,
-    Widget child,
-  }) : assert(data != null), super(key: key, child: child);
+  const ButtonBarTheme({super.key, required this.data, required super.child});
 
   /// The properties used for all descendant [ButtonBar] widgets.
   final ButtonBarThemeData data;
@@ -231,7 +283,8 @@ class ButtonBarTheme extends InheritedWidget {
   /// ButtonBarThemeData theme = ButtonBarTheme.of(context);
   /// ```
   static ButtonBarThemeData of(BuildContext context) {
-    final ButtonBarTheme buttonBarTheme = context.dependOnInheritedWidgetOfExactType<ButtonBarTheme>();
+    final ButtonBarTheme? buttonBarTheme = context
+        .dependOnInheritedWidgetOfExactType<ButtonBarTheme>();
     return buttonBarTheme?.data ?? Theme.of(context).buttonBarTheme;
   }
 

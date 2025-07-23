@@ -2,26 +2,19 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
-import '../flutter_test_alternative.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 import 'rendering_tester.dart';
 
 void main() {
+  TestRenderingFlutterBinding.ensureInitialized();
+
   test('nested repaint boundaries - smoke test', () {
     RenderOpacity a, b, c;
     a = RenderOpacity(
-      opacity: 1.0,
       child: RenderRepaintBoundary(
-        child: b = RenderOpacity(
-          opacity: 1.0,
-          child: RenderRepaintBoundary(
-            child: c = RenderOpacity(
-              opacity: 1.0
-            )
-          ),
-        ),
+        child: b = RenderOpacity(child: RenderRepaintBoundary(child: c = RenderOpacity())),
       ),
     );
     layout(a, phase: EnginePhase.flushSemantics);
@@ -44,57 +37,51 @@ void main() {
 
     repaintBoundary.markNeedsCompositingBitsUpdate();
 
-    renderer.renderView.child = null;
-    final RenderPadding padding = RenderPadding(
-      padding: const EdgeInsets.all(50),
-    );
-    renderer.renderView.child = padding;
+    TestRenderingFlutterBinding.instance.renderView.child = null;
+    final RenderPadding padding = RenderPadding(padding: const EdgeInsets.all(50));
+    TestRenderingFlutterBinding.instance.renderView.child = padding;
     padding.child = repaintBoundary;
     pumpFrame(phase: EnginePhase.flushSemantics);
   });
 
   test('Framework creates an OffsetLayer for a repaint boundary', () {
     final _TestRepaintBoundary repaintBoundary = _TestRepaintBoundary();
-    final RenderOpacity opacity = RenderOpacity(
-      opacity: 1.0,
-      child: repaintBoundary,
-    );
+    final RenderOpacity opacity = RenderOpacity(child: repaintBoundary);
     layout(opacity, phase: EnginePhase.flushSemantics);
-    expect(repaintBoundary.debugLayer, isInstanceOf<OffsetLayer>());
+    expect(repaintBoundary.debugLayer, isA<OffsetLayer>());
   });
 
   test('Framework does not create an OffsetLayer for a non-repaint boundary', () {
     final _TestNonCompositedBox nonCompositedBox = _TestNonCompositedBox();
-    final RenderOpacity opacity = RenderOpacity(
-      opacity: 1.0,
-      child: nonCompositedBox,
-    );
+    final RenderOpacity opacity = RenderOpacity(child: nonCompositedBox);
     layout(opacity, phase: EnginePhase.flushSemantics);
     expect(nonCompositedBox.debugLayer, null);
   });
 
   test('Framework allows a non-repaint boundary to create own layer', () {
     final _TestCompositedBox compositedBox = _TestCompositedBox();
-    final RenderOpacity opacity = RenderOpacity(
-      opacity: 1.0,
-      child: compositedBox,
-    );
+    final RenderOpacity opacity = RenderOpacity(child: compositedBox);
     layout(opacity, phase: EnginePhase.flushSemantics);
-    expect(compositedBox.debugLayer, isInstanceOf<OpacityLayer>());
+    expect(compositedBox.debugLayer, isA<OpacityLayer>());
   });
 
   test('Framework ensures repaint boundary layer is not overwritten', () {
-    final _TestRepaintBoundaryThatOverwritesItsLayer faultyRenderObject = _TestRepaintBoundaryThatOverwritesItsLayer();
-    final RenderOpacity opacity = RenderOpacity(
-      opacity: 1.0,
-      child: faultyRenderObject,
-    );
+    final _TestRepaintBoundaryThatOverwritesItsLayer faultyRenderObject =
+        _TestRepaintBoundaryThatOverwritesItsLayer();
+    final RenderOpacity opacity = RenderOpacity(child: faultyRenderObject);
 
-    FlutterErrorDetails error;
-    layout(opacity, phase: EnginePhase.flushSemantics, onErrors: () {
-      error = renderer.takeFlutterErrorDetails();
-    });
-    expect('${error.exception}', contains('Attempted to set a layer to a repaint boundary render object.'));
+    late FlutterErrorDetails error;
+    layout(
+      opacity,
+      phase: EnginePhase.flushSemantics,
+      onErrors: () {
+        error = TestRenderingFlutterBinding.instance.takeFlutterErrorDetails()!;
+      },
+    );
+    expect(
+      '${error.exception}',
+      contains('Attempted to set a layer to a repaint boundary render object.'),
+    );
   });
 }
 

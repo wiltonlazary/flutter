@@ -4,11 +4,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('precedingScrollExtent is reported as infinity for Sliver of unknown size', (WidgetTester tester) async {
+  testWidgets('precedingScrollExtent is reported as infinity for Sliver of unknown size', (
+    WidgetTester tester,
+  ) async {
     await tester.pumpWidget(
       MaterialApp(
         home: CustomScrollView(
@@ -37,7 +38,7 @@ void main() {
     // can fit in the viewport, and the SliverList doesn't report a child count,
     // so the SliverList leads to an infinite precedingScrollExtent.
     final RenderViewport renderViewport = tester.renderObject(find.byType(Viewport));
-    final RenderSliver lastRenderSliver = renderViewport.lastChild;
+    final RenderSliver lastRenderSliver = renderViewport.lastChild!;
     expect(lastRenderSliver.constraints.precedingScrollExtent, double.infinity);
   });
 }

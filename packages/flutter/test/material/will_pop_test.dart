@@ -2,18 +2,19 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 bool willPopValue = false;
 
 class SamplePage extends StatefulWidget {
+  const SamplePage({super.key});
   @override
   SamplePageState createState() => SamplePageState();
 }
 
 class SamplePageState extends State<SamplePage> {
-  ModalRoute<void> _route;
+  ModalRoute<void>? _route;
 
   Future<bool> _callback() async => willPopValue;
 
@@ -33,16 +34,14 @@ class SamplePageState extends State<SamplePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Sample Page')),
-    );
+    return Scaffold(appBar: AppBar(title: const Text('Sample Page')));
   }
 }
 
 int willPopCount = 0;
 
 class SampleForm extends StatelessWidget {
-  const SampleForm({ Key key, this.callback }) : super(key: key);
+  const SampleForm({super.key, required this.callback});
 
   final WillPopCallback callback;
 
@@ -64,16 +63,34 @@ class SampleForm extends StatelessWidget {
 }
 
 // Expose the protected hasScopedWillPopCallback getter
-class TestPageRoute<T> extends MaterialPageRoute<T> {
-  TestPageRoute({ WidgetBuilder builder })
-    : super(builder: builder, maintainState: true);
+class _TestPageRoute<T> extends MaterialPageRoute<T> {
+  _TestPageRoute({super.settings, required super.builder}) : super(maintainState: true);
 
   bool get hasCallback => super.hasScopedWillPopCallback;
 }
 
+class _TestPage extends Page<dynamic> {
+  _TestPage({required this.builder, required LocalKey key}) : _key = GlobalKey(), super(key: key);
+
+  final WidgetBuilder builder;
+  final GlobalKey<dynamic> _key;
+
+  @override
+  Route<dynamic> createRoute(BuildContext context) {
+    return _TestPageRoute<dynamic>(
+      settings: this,
+      builder: (BuildContext context) {
+        // keep state during move to another location in tree
+        return KeyedSubtree(key: _key, child: builder.call(context));
+      },
+    );
+  }
+}
 
 void main() {
-  testWidgets('ModalRoute scopedWillPopupCallback can inhibit back button', (WidgetTester tester) async {
+  testWidgets('ModalRoute scopedWillPopupCallback can inhibit back button', (
+    WidgetTester tester,
+  ) async {
     await tester.pumpWidget(
       MaterialApp(
         home: Scaffold(
@@ -81,12 +98,12 @@ void main() {
           body: Builder(
             builder: (BuildContext context) {
               return Center(
-                child: FlatButton(
+                child: TextButton(
                   child: const Text('X'),
                   onPressed: () {
                     showDialog<void>(
                       context: context,
-                      builder: (BuildContext context) => SamplePage(),
+                      builder: (BuildContext context) => const SamplePage(),
                     );
                   },
                 ),
@@ -116,6 +133,7 @@ void main() {
     // Use didPopRoute() to simulate the system back button. Check that
     // didPopRoute() indicates that the notification was handled.
     final dynamic widgetsAppState = tester.state(find.byType(WidgetsApp));
+    // ignore: avoid_dynamic_calls
     expect(await widgetsAppState.didPopRoute(), isTrue);
     expect(find.text('Sample Page'), findsOneWidget);
 
@@ -127,6 +145,45 @@ void main() {
     expect(find.text('Sample Page'), findsNothing);
   });
 
+  testWidgets('willPop will only pop if the callback returns true', (WidgetTester tester) async {
+    Widget buildFrame() {
+      return MaterialApp(
+        home: Scaffold(
+          appBar: AppBar(title: const Text('Home')),
+          body: Builder(
+            builder: (BuildContext context) {
+              return Center(
+                child: TextButton(
+                  child: const Text('X'),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute<void>(
+                        builder: (BuildContext context) {
+                          return SampleForm(callback: () => Future<bool>.value(willPopValue));
+                        },
+                      ),
+                    );
+                  },
+                ),
+              );
+            },
+          ),
+        ),
+      );
+    }
+
+    await tester.pumpWidget(buildFrame());
+    await tester.tap(find.text('X'));
+    await tester.pumpAndSettle();
+    expect(find.text('Sample Form'), findsOneWidget);
+
+    // Should pop if callback returns true
+    willPopValue = true;
+    await tester.tap(find.byTooltip('Back'));
+    await tester.pumpAndSettle();
+    expect(find.text('Sample Form'), findsNothing);
+  });
+
   testWidgets('Form.willPop can inhibit back button', (WidgetTester tester) async {
     Widget buildFrame() {
       return MaterialApp(
@@ -135,16 +192,16 @@ void main() {
           body: Builder(
             builder: (BuildContext context) {
               return Center(
-                child: FlatButton(
+                child: TextButton(
                   child: const Text('X'),
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute<void>(
-                      builder: (BuildContext context) {
-                        return SampleForm(
-                          callback: () => Future<bool>.value(willPopValue),
-                        );
-                      },
-                    ));
+                    Navigator.of(context).push(
+                      MaterialPageRoute<void>(
+                        builder: (BuildContext context) {
+                          return SampleForm(callback: () => Future<bool>.value(willPopValue));
+                        },
+                      ),
+                    );
                   },
                 ),
               );
@@ -182,24 +239,28 @@ void main() {
   });
 
   testWidgets('Form.willPop callbacks do not accumulate', (WidgetTester tester) async {
-    Future<bool> showYesNoAlert(BuildContext context) {
-      return showDialog<bool>(
+    Future<bool> showYesNoAlert(BuildContext context) async {
+      return (await showDialog<bool>(
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            actions: <Widget> [
-              FlatButton(
+            actions: <Widget>[
+              TextButton(
                 child: const Text('YES'),
-                onPressed: () { Navigator.of(context).pop(true); },
+                onPressed: () {
+                  Navigator.of(context).pop(true);
+                },
               ),
-              FlatButton(
+              TextButton(
                 child: const Text('NO'),
-                onPressed: () { Navigator.of(context).pop(false); },
+                onPressed: () {
+                  Navigator.of(context).pop(false);
+                },
               ),
             ],
           );
         },
-      );
+      ))!;
     }
 
     Widget buildFrame() {
@@ -209,16 +270,16 @@ void main() {
           body: Builder(
             builder: (BuildContext context) {
               return Center(
-                child: FlatButton(
+                child: TextButton(
                   child: const Text('X'),
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute<void>(
-                      builder: (BuildContext context) {
-                        return SampleForm(
-                          callback: () => showYesNoAlert(context),
-                        );
-                      }
-                    ));
+                    Navigator.of(context).push(
+                      MaterialPageRoute<void>(
+                        builder: (BuildContext context) {
+                          return SampleForm(callback: () => showYesNoAlert(context));
+                        },
+                      ),
+                    );
                   },
                 ),
               );
@@ -274,16 +335,18 @@ void main() {
   });
 
   testWidgets('Route.scopedWillPop callbacks do not accumulate', (WidgetTester tester) async {
-    StateSetter contentsSetState; // call this to rebuild the route's SampleForm contents
+    late StateSetter contentsSetState; // call this to rebuild the route's SampleForm contents
     bool contentsEmpty = false; // when true, don't include the SampleForm in the route
 
-    final TestPageRoute<void> route = TestPageRoute<void>(
+    final _TestPageRoute<void> route = _TestPageRoute<void>(
       builder: (BuildContext context) {
         return StatefulBuilder(
           builder: (BuildContext context, StateSetter setState) {
             contentsSetState = setState;
-            return contentsEmpty ? Container() : SampleForm(key: UniqueKey());
-          }
+            return contentsEmpty
+                ? Container()
+                : SampleForm(key: UniqueKey(), callback: () async => false);
+          },
         );
       },
     );
@@ -295,7 +358,7 @@ void main() {
           body: Builder(
             builder: (BuildContext context) {
               return Center(
-                child: FlatButton(
+                child: TextButton(
                   child: const Text('X'),
                   onPressed: () {
                     Navigator.of(context).push(route);
@@ -318,18 +381,76 @@ void main() {
     expect(route.hasCallback, isTrue);
 
     // Rebuild the route's SampleForm child an additional 3x for good measure.
-    contentsSetState(() { });
+    contentsSetState(() {});
     await tester.pump();
-    contentsSetState(() { });
+    contentsSetState(() {});
     await tester.pump();
-    contentsSetState(() { });
+    contentsSetState(() {});
     await tester.pump();
 
     // Now build the route's contents without the sample form.
     contentsEmpty = true;
-    contentsSetState(() { });
+    contentsSetState(() {});
     await tester.pump();
 
     expect(route.hasCallback, isFalse);
+  });
+
+  testWidgets('should handle new route if page moved from one navigator to another', (
+    WidgetTester tester,
+  ) async {
+    // Regression test for https://github.com/flutter/flutter/issues/89133
+    late StateSetter contentsSetState;
+    bool moveToAnotherNavigator = false;
+
+    final List<Page<dynamic>> pages = <Page<dynamic>>[
+      _TestPage(
+        key: UniqueKey(),
+        builder: (BuildContext context) {
+          return WillPopScope(onWillPop: () async => true, child: const Text('anchor'));
+        },
+      ),
+    ];
+
+    Widget buildNavigator(Key? key, List<Page<dynamic>> pages) {
+      return Navigator(
+        key: key,
+        pages: pages,
+        onPopPage: (Route<dynamic> route, dynamic result) {
+          return route.didPop(result);
+        },
+      );
+    }
+
+    Widget buildFrame() {
+      return MaterialApp(
+        home: Scaffold(
+          body: StatefulBuilder(
+            builder: (BuildContext context, StateSetter setState) {
+              contentsSetState = setState;
+              if (moveToAnotherNavigator) {
+                return buildNavigator(const ValueKey<int>(1), pages);
+              }
+              return buildNavigator(const ValueKey<int>(2), pages);
+            },
+          ),
+        ),
+      );
+    }
+
+    await tester.pumpWidget(buildFrame());
+    await tester.pump();
+    final _TestPageRoute<dynamic> route1 =
+        ModalRoute.of(tester.element(find.text('anchor')))! as _TestPageRoute<dynamic>;
+    expect(route1.hasCallback, isTrue);
+    moveToAnotherNavigator = true;
+    contentsSetState(() {});
+
+    await tester.pump();
+    final _TestPageRoute<dynamic> route2 =
+        ModalRoute.of(tester.element(find.text('anchor')))! as _TestPageRoute<dynamic>;
+
+    expect(route1.hasCallback, isFalse);
+    expect(route2.hasCallback, isTrue);
   });
 }

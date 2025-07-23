@@ -3,9 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/gestures.dart';
-import 'package:vector_math/vector_math_64.dart';
-
-import '../flutter_test_alternative.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 class TestPointerSignalListener {
   TestPointerSignalListener(this.event);
@@ -44,6 +42,22 @@ void main() {
     tester.resolver.resolve(tester.event);
   });
 
+  test('Resolving with no entries should notify engine of no-op', () {
+    bool allowedPlatformDefault = false;
+    final PointerSignalTester tester = PointerSignalTester();
+    tester.event = PointerScrollEvent(
+      onRespond: ({required bool allowPlatformDefault}) {
+        allowedPlatformDefault = allowPlatformDefault;
+      },
+    );
+    tester.resolver.resolve(tester.event);
+    expect(
+      allowedPlatformDefault,
+      isTrue,
+      reason: 'Should have called respond with allowPlatformDefault: true',
+    );
+  });
+
   test('First entry should always win', () {
     final PointerSignalTester tester = PointerSignalTester();
     final TestPointerSignalListener first = tester.addListener();
@@ -71,17 +85,34 @@ void main() {
 
   test('works with transformed events', () {
     final PointerSignalResolver resolver = PointerSignalResolver();
-    const PointerSignalEvent originalEvent = PointerScrollEvent();
-    final PointerSignalEvent transformedEvent = originalEvent
-        .transformed(Matrix4.translationValues(10.0, 20.0, 0.0));
+    const PointerScrollEvent originalEvent = PointerScrollEvent();
+    final PointerSignalEvent transformedEvent = originalEvent.transformed(
+      Matrix4.translationValues(10.0, 20.0, 0.0),
+    );
+    final PointerSignalEvent anotherTransformedEvent = originalEvent.transformed(
+      Matrix4.translationValues(30.0, 50.0, 0.0),
+    );
 
     expect(originalEvent, isNot(same(transformedEvent)));
     expect(transformedEvent.original, same(originalEvent));
+
+    expect(originalEvent, isNot(same(anotherTransformedEvent)));
+    expect(anotherTransformedEvent.original, same(originalEvent));
 
     final List<PointerSignalEvent> events = <PointerSignalEvent>[];
     resolver.register(transformedEvent, (PointerSignalEvent event) {
       events.add(event);
     });
+
+    // Registering a second transformed event should not throw an assertion.
+    expect(() {
+      resolver.register(anotherTransformedEvent, (PointerSignalEvent event) {
+        // This shouldn't be called because only the first registered callback is
+        // invoked.
+        events.add(event);
+      });
+    }, returnsNormally);
+
     resolver.resolve(originalEvent);
 
     expect(events.single, same(transformedEvent));

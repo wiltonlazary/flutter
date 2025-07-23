@@ -2,51 +2,48 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-part of reporting;
+part of 'reporting.dart';
 
 class DisabledUsage implements Usage {
-  @override
-  bool get isFirstRun => false;
-
   @override
   bool get suppressAnalytics => true;
 
   @override
-  set suppressAnalytics(bool value) { }
+  set suppressAnalytics(bool value) {}
 
   @override
   bool get enabled => false;
 
   @override
-  set enabled(bool value) { }
+  set enabled(bool value) {}
 
   @override
-  String get clientId => null;
+  String get clientId => '';
 
   @override
-  void sendCommand(String command, { Map<String, String> parameters }) { }
+  void sendCommand(String command, {CustomDimensions? parameters}) {}
 
   @override
   void sendEvent(
     String category,
     String parameter, {
-    String label,
-    int value,
-    Map<String, String> parameters,
-  }) { }
+    String? label,
+    int? value,
+    CustomDimensions? parameters,
+  }) {}
 
   @override
-  void sendTiming(String category, String variableName, Duration duration, { String label }) { }
+  void sendTiming(String category, String variableName, Duration duration, {String? label}) {}
 
   @override
-  void sendException(dynamic exception) { }
+  void sendException(dynamic exception) {}
 
   @override
-  Stream<Map<String, dynamic>> get onSend => null;
+  Stream<Map<String, dynamic>> get onSend => const Stream<Map<String, dynamic>>.empty();
 
   @override
   Future<void> ensureAnalyticsSent() => Future<void>.value();
 
   @override
-  void printWelcome() { }
+  void printWelcome() {}
 }

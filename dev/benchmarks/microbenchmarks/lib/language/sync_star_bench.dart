@@ -7,8 +7,8 @@ import '../common.dart';
 const int _kNumIterations = 1000;
 const int _kNumWarmUp = 100;
 
-void main() {
-  assert(false, "Don't run benchmarks in checked mode! Use 'flutter run --release'.");
+Future<void> execute() async {
+  assert(false, "Don't run benchmarks in debug mode! Use 'flutter run --release'.");
 
   // Warm up lap
   for (int i = 0; i < _kNumWarmUp; i += 1) {
@@ -84,8 +84,15 @@ Iterable<int> generateIterableList() {
 
 int sumIterable(Iterable<int> values) {
   int result = 0;
-  for (int value in values) {
+  for (final int value in values) {
     result += value;
   }
   return result;
+}
+
+//
+//  Note that the benchmark is normally run by benchmark_collection.dart.
+//
+Future<void> main() async {
+  return execute();
 }

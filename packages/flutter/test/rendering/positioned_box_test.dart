@@ -3,11 +3,13 @@
 // found in the LICENSE file.
 
 import 'package:flutter/rendering.dart';
-import '../flutter_test_alternative.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 import 'rendering_tester.dart';
 
 void main() {
+  TestRenderingFlutterBinding.ensureInitialized();
+
   test('RenderPositionedBox expands', () {
     final RenderConstrainedBox sizer = RenderConstrainedBox(
       additionalConstraints: BoxConstraints.tight(const Size(100.0, 100.0)),
@@ -50,9 +52,17 @@ void main() {
       additionalConstraints: BoxConstraints.tight(const Size(100.0, 100.0)),
       child: RenderDecoratedBox(decoration: const BoxDecoration()),
     );
-    final RenderPositionedBox positioner = RenderPositionedBox(child: sizer, widthFactor: 1.0, heightFactor: 0.0);
+    final RenderPositionedBox positioner = RenderPositionedBox(
+      child: sizer,
+      widthFactor: 1.0,
+      heightFactor: 0.0,
+    );
     layout(positioner, constraints: BoxConstraints.loose(const Size(200.0, 200.0)));
 
+    expect(positioner.computeMinIntrinsicWidth(200), equals(100.0));
+    expect(positioner.computeMaxIntrinsicWidth(200), equals(100.0));
+    expect(positioner.computeMinIntrinsicHeight(200), equals(0));
+    expect(positioner.computeMaxIntrinsicHeight(200), equals(0));
     expect(positioner.size.width, equals(100.0));
     expect(positioner.size.height, equals(0.0));
 
@@ -60,6 +70,10 @@ void main() {
     positioner.heightFactor = 0.5;
     pumpFrame();
 
+    expect(positioner.computeMinIntrinsicWidth(200), equals(50.0));
+    expect(positioner.computeMaxIntrinsicWidth(200), equals(50.0));
+    expect(positioner.computeMinIntrinsicHeight(200), equals(50.0));
+    expect(positioner.computeMaxIntrinsicHeight(200), equals(50.0));
     expect(positioner.size.width, equals(50.0));
     expect(positioner.size.height, equals(50.0));
 
@@ -67,7 +81,11 @@ void main() {
     positioner.heightFactor = null;
     pumpFrame();
 
+    expect(positioner.computeMinIntrinsicWidth(200), equals(100.0));
+    expect(positioner.computeMaxIntrinsicWidth(200), equals(100.0));
+    expect(positioner.computeMinIntrinsicHeight(200), equals(100.0));
+    expect(positioner.computeMaxIntrinsicHeight(200), equals(100.0));
     expect(positioner.size.width, equals(200.0));
     expect(positioner.size.height, equals(200.0));
-  }, skip: isBrowser);
+  });
 }

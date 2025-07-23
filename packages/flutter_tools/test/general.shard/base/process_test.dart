@@ -4,378 +4,480 @@
 
 import 'dart:async';
 
+import 'package:file/memory.dart';
+import 'package:flutter_tools/src/base/exit.dart';
 import 'package:flutter_tools/src/base/io.dart';
 import 'package:flutter_tools/src/base/logger.dart';
 import 'package:flutter_tools/src/base/platform.dart';
 import 'package:flutter_tools/src/base/process.dart';
 import 'package:flutter_tools/src/base/terminal.dart';
-import 'package:mockito/mockito.dart';
-import 'package:process/process.dart';
+import 'package:unified_analytics/unified_analytics.dart';
 
 import '../../src/common.dart';
 import '../../src/context.dart';
-import '../../src/mocks.dart' show MockProcess,
-                                   MockProcessManager,
-                                   flakyProcessFactory;
+import '../../src/fakes.dart';
 
 void main() {
   group('process exceptions', () {
-    ProcessManager mockProcessManager;
+    late FakeProcessManager fakeProcessManager;
+    late ProcessUtils processUtils;
 
     setUp(() {
-      mockProcessManager = PlainMockProcessManager();
+      fakeProcessManager = FakeProcessManager.empty();
+      processUtils = ProcessUtils(processManager: fakeProcessManager, logger: BufferLogger.test());
     });
 
-    testUsingContext('runAsync throwOnError: exceptions should be ProcessException objects', () async {
-      when(mockProcessManager.run(<String>['false'])).thenAnswer(
-          (Invocation invocation) => Future<ProcessResult>.value(ProcessResult(0, 1, '', '')));
-      expect(() async => await processUtils.run(<String>['false'], throwOnError: true),
-             throwsA(isInstanceOf<ProcessException>()));
-    }, overrides: <Type, Generator>{ProcessManager: () => mockProcessManager});
+    testWithoutContext(
+      'runAsync throwOnError: exceptions should be ProcessException objects',
+      () async {
+        fakeProcessManager.addCommand(const FakeCommand(command: <String>['false'], exitCode: 1));
+
+        expect(
+          () async => processUtils.run(<String>['false'], throwOnError: true),
+          throwsProcessException(message: 'Process exited abnormally with exit code 1'),
+        );
+      },
+    );
   });
 
   group('shutdownHooks', () {
-    testUsingContext('runInExpectedOrder', () async {
-      int i = 1;
-      int serializeRecording1;
-      int serializeRecording2;
-      int postProcessRecording;
-      int cleanup;
+    testWithoutContext('runInExpectedOrder', () async {
+      var i = 1;
+      int? cleanup;
 
-      addShutdownHook(() async {
-        serializeRecording1 = i++;
-      }, ShutdownStage.SERIALIZE_RECORDING);
+      final shutdownHooks = ShutdownHooks();
 
-      addShutdownHook(() async {
+      shutdownHooks.addShutdownHook(() async {
         cleanup = i++;
-      }, ShutdownStage.CLEANUP);
+      });
 
-      addShutdownHook(() async {
-        postProcessRecording = i++;
-      }, ShutdownStage.POST_PROCESS_RECORDING);
+      await shutdownHooks.runShutdownHooks(BufferLogger.test());
 
-      addShutdownHook(() async {
-        serializeRecording2 = i++;
-      }, ShutdownStage.SERIALIZE_RECORDING);
-
-      await runShutdownHooks();
-
-      expect(serializeRecording1, lessThanOrEqualTo(2));
-      expect(serializeRecording2, lessThanOrEqualTo(2));
-      expect(postProcessRecording, 3);
-      expect(cleanup, 4);
+      expect(cleanup, 1);
     });
   });
 
   group('output formatting', () {
-    MockProcessManager mockProcessManager;
-    BufferLogger mockLogger;
+    late FakeProcessManager processManager;
+    late ProcessUtils processUtils;
+    late BufferLogger logger;
 
     setUp(() {
-      mockProcessManager = MockProcessManager();
-      mockLogger = BufferLogger();
+      processManager = FakeProcessManager.empty();
+      logger = BufferLogger.test();
+      processUtils = ProcessUtils(processManager: processManager, logger: logger);
     });
 
-    MockProcess Function(List<String>) processMetaFactory(List<String> stdout, { List<String> stderr = const <String>[] }) {
-      final Stream<List<int>> stdoutStream =
-          Stream<List<int>>.fromIterable(stdout.map<List<int>>((String s) => s.codeUnits));
-      final Stream<List<int>> stderrStream =
-      Stream<List<int>>.fromIterable(stderr.map<List<int>>((String s) => s.codeUnits));
-      return (List<String> command) => MockProcess(stdout: stdoutStream, stderr: stderrStream);
-    }
+    testWithoutContext('Command output is not wrapped.', () async {
+      final testString = <String>['0123456789' * 10];
+      processManager.addCommand(
+        FakeCommand(
+          command: const <String>['command'],
+          stdout: testString.join(),
+          stderr: testString.join(),
+        ),
+      );
 
-    testUsingContext('Command output is not wrapped.', () async {
-      final List<String> testString = <String>['0123456789' * 10];
-      mockProcessManager.processFactory = processMetaFactory(testString, stderr: testString);
       await processUtils.stream(<String>['command']);
-      expect(mockLogger.statusText, equals('${testString[0]}\n'));
-      expect(mockLogger.errorText, equals('${testString[0]}\n'));
-    }, overrides: <Type, Generator>{
-      Logger: () => mockLogger,
-      ProcessManager: () => mockProcessManager,
-      OutputPreferences: () => OutputPreferences(wrapText: true, wrapColumn: 40),
-      Platform: () => FakePlatform.fromPlatform(const LocalPlatform())..stdoutSupportsAnsi = false,
+
+      expect(logger.statusText, equals('${testString[0]}\n'));
+      expect(logger.errorText, equals('${testString[0]}\n'));
+    });
+
+    testWithoutContext('Command output is filtered by mapFunction', () async {
+      processManager.addCommand(
+        const FakeCommand(
+          command: <String>['command'],
+          stdout: 'match\nno match',
+          stderr: 'match\nno match',
+        ),
+      );
+
+      await processUtils.stream(
+        <String>['command'],
+        mapFunction: (String line) {
+          if (line == 'match') {
+            return line;
+          }
+          return null;
+        },
+      );
+
+      expect(logger.statusText, equals('match\n'));
+      expect(logger.errorText, equals('match\n'));
     });
   });
 
   group('run', () {
-    const Duration delay = Duration(seconds: 2);
-    MockProcessManager flakyProcessManager;
-    ProcessManager mockProcessManager;
+    late FakeProcessManager fakeProcessManager;
+    late ProcessUtils processUtils;
 
     setUp(() {
-      // MockProcessManager has an implementation of start() that returns the
-      // result of processFactory.
-      flakyProcessManager = MockProcessManager();
-      mockProcessManager = MockProcessManager();
+      fakeProcessManager = FakeProcessManager.empty();
+      processUtils = ProcessUtils(processManager: fakeProcessManager, logger: BufferLogger.test());
     });
 
-    testUsingContext(' succeeds on success', () async {
-      when(mockProcessManager.run(<String>['whoohoo'])).thenAnswer((_) {
-        return Future<ProcessResult>.value(ProcessResult(0, 0, '', ''));
-      });
+    testWithoutContext(' succeeds on success', () async {
+      fakeProcessManager.addCommand(const FakeCommand(command: <String>['whoohoo']));
       expect((await processUtils.run(<String>['whoohoo'])).exitCode, 0);
-    }, overrides: <Type, Generator>{
-      ProcessManager: () => mockProcessManager,
     });
 
-    testUsingContext(' fails on failure', () async {
-      when(mockProcessManager.run(<String>['boohoo'])).thenAnswer((_) {
-        return Future<ProcessResult>.value(ProcessResult(0, 1, '', ''));
-      });
+    testWithoutContext(' fails on failure', () async {
+      fakeProcessManager.addCommand(const FakeCommand(command: <String>['boohoo'], exitCode: 1));
       expect((await processUtils.run(<String>['boohoo'])).exitCode, 1);
-    }, overrides: <Type, Generator>{
-      ProcessManager: () => mockProcessManager,
     });
 
-    testUsingContext(' throws on failure with throwOnError', () async {
-      when(mockProcessManager.run(<String>['kaboom'])).thenAnswer((_) {
-        return Future<ProcessResult>.value(ProcessResult(0, 1, '', ''));
-      });
-      expect(() => processUtils.run(<String>['kaboom'], throwOnError: true),
-             throwsA(isA<ProcessException>()));
-    }, overrides: <Type, Generator>{
-      ProcessManager: () => mockProcessManager,
+    testWithoutContext(' throws on failure with throwOnError', () async {
+      fakeProcessManager.addCommand(const FakeCommand(command: <String>['kaboom'], exitCode: 1));
+      expect(
+        () => processUtils.run(<String>['kaboom'], throwOnError: true),
+        throwsProcessException(),
+      );
     });
 
-    testUsingContext(' does not throw on failure with whitelist', () async {
-      when(mockProcessManager.run(<String>['kaboom'])).thenAnswer((_) {
-        return Future<ProcessResult>.value(ProcessResult(0, 1, '', ''));
-      });
+    testWithoutContext(' does not throw on allowed Failures', () async {
+      fakeProcessManager.addCommand(const FakeCommand(command: <String>['kaboom'], exitCode: 1));
       expect(
         (await processUtils.run(
           <String>['kaboom'],
           throwOnError: true,
-          whiteListFailures: (int c) => c == 1,
+          allowedFailures: (int c) => c == 1,
         )).exitCode,
-        1);
-    }, overrides: <Type, Generator>{
-      ProcessManager: () => mockProcessManager,
+        1,
+      );
     });
 
-    testUsingContext(' throws on failure when not in whitelist', () async {
-      when(mockProcessManager.run(<String>['kaboom'])).thenAnswer((_) {
-        return Future<ProcessResult>.value(ProcessResult(0, 2, '', ''));
-      });
+    testWithoutContext(' throws on disallowed failure', () async {
+      fakeProcessManager.addCommand(const FakeCommand(command: <String>['kaboom'], exitCode: 2));
       expect(
         () => processUtils.run(
           <String>['kaboom'],
           throwOnError: true,
-          whiteListFailures: (int c) => c == 1,
+          allowedFailures: (int c) => c == 1,
         ),
-        throwsA(isA<ProcessException>()));
-    }, overrides: <Type, Generator>{
-      ProcessManager: () => mockProcessManager,
-    });
-
-    testUsingContext(' flaky process fails without retry', () async {
-      flakyProcessManager.processFactory = flakyProcessFactory(
-        flakes: 1,
-        delay: delay,
+        throwsProcessException(),
       );
-      final RunResult result = await processUtils.run(
-        <String>['dummy'],
-        timeout: delay + const Duration(seconds: 1),
-      );
-      expect(result.exitCode, -9);
-    }, overrides: <Type, Generator>{
-      ProcessManager: () => flakyProcessManager,
-    });
-
-    testUsingContext(' flaky process succeeds with retry', () async {
-      flakyProcessManager.processFactory = flakyProcessFactory(
-        flakes: 1,
-        delay: delay,
-      );
-      final RunResult result = await processUtils.run(
-        <String>['dummy'],
-        timeout: delay - const Duration(milliseconds: 500),
-        timeoutRetries: 1,
-      );
-      expect(result.exitCode, 0);
-    }, overrides: <Type, Generator>{
-      ProcessManager: () => flakyProcessManager,
-    });
-
-    testUsingContext(' flaky process generates ProcessException on timeout', () async {
-      final Completer<List<int>> flakyStderr = Completer<List<int>>();
-      final Completer<List<int>> flakyStdout = Completer<List<int>>();
-      flakyProcessManager.processFactory = flakyProcessFactory(
-        flakes: 1,
-        delay: delay,
-        stderr: () => Stream<List<int>>.fromFuture(flakyStderr.future),
-        stdout: () => Stream<List<int>>.fromFuture(flakyStdout.future),
-      );
-      when(flakyProcessManager.killPid(any)).thenAnswer((_) {
-        // Don't let the stderr stream stop until the process is killed. This
-        // ensures that runAsync() does not delay killing the process until
-        // stdout and stderr are drained (which won't happen).
-        flakyStderr.complete(<int>[]);
-        flakyStdout.complete(<int>[]);
-        return true;
-      });
-      expect(() => processUtils.run(
-        <String>['dummy'],
-        timeout: delay - const Duration(milliseconds: 500),
-        timeoutRetries: 0,
-      ), throwsA(isInstanceOf<ProcessException>()));
-    }, overrides: <Type, Generator>{
-      ProcessManager: () => flakyProcessManager,
     });
   });
 
   group('runSync', () {
-    ProcessManager mockProcessManager;
+    late FakeProcessManager fakeProcessManager;
+    late ProcessUtils processUtils;
+    late BufferLogger testLogger;
 
     setUp(() {
-      mockProcessManager = MockProcessManager();
+      fakeProcessManager = FakeProcessManager.empty();
+      testLogger = BufferLogger(
+        terminal: AnsiTerminal(stdio: FakeStdio(), platform: FakePlatform()),
+        outputPreferences: OutputPreferences(wrapText: true, wrapColumn: 40),
+      );
+      processUtils = ProcessUtils(processManager: fakeProcessManager, logger: testLogger);
     });
 
-    testUsingContext(' succeeds on success', () async {
-      when(mockProcessManager.runSync(<String>['whoohoo'])).thenReturn(
-        ProcessResult(0, 0, '', '')
-      );
+    testWithoutContext(' succeeds on success', () async {
+      fakeProcessManager.addCommand(const FakeCommand(command: <String>['whoohoo']));
       expect(processUtils.runSync(<String>['whoohoo']).exitCode, 0);
-    }, overrides: <Type, Generator>{
-      ProcessManager: () => mockProcessManager,
     });
 
-    testUsingContext(' fails on failure', () async {
-      when(mockProcessManager.runSync(<String>['boohoo'])).thenReturn(
-        ProcessResult(0, 1, '', '')
-      );
+    testWithoutContext(' fails on failure', () async {
+      fakeProcessManager.addCommand(const FakeCommand(command: <String>['boohoo'], exitCode: 1));
       expect(processUtils.runSync(<String>['boohoo']).exitCode, 1);
-    }, overrides: <Type, Generator>{
-      ProcessManager: () => mockProcessManager,
     });
 
-    testUsingContext(' throws on failure with throwOnError', () async {
-      when(mockProcessManager.runSync(<String>['kaboom'])).thenReturn(
-        ProcessResult(0, 1, '', '')
-      );
-      expect(() => processUtils.runSync(<String>['kaboom'], throwOnError: true),
-             throwsA(isA<ProcessException>()));
-    }, overrides: <Type, Generator>{
-      ProcessManager: () => mockProcessManager,
-    });
-
-    testUsingContext(' does not throw on failure with whitelist', () async {
-      when(mockProcessManager.runSync(<String>['kaboom'])).thenReturn(
-        ProcessResult(0, 1, '', '')
+    testWithoutContext('throws on failure with throwOnError', () async {
+      const stderr = 'Something went wrong.';
+      fakeProcessManager.addCommand(
+        const FakeCommand(command: <String>['kaboom'], exitCode: 1, stderr: stderr),
       );
       expect(
-        processUtils.runSync(
-          <String>['kaboom'],
-          throwOnError: true,
-          whiteListFailures: (int c) => c == 1,
-        ).exitCode,
-        1);
-    }, overrides: <Type, Generator>{
-      ProcessManager: () => mockProcessManager,
+        () => processUtils.runSync(<String>['kaboom'], throwOnError: true),
+        throwsA(
+          isA<ProcessException>().having(
+            (ProcessException error) => error.message,
+            'message',
+            isNot(contains(stderr)),
+          ),
+        ),
+      );
     });
 
-    testUsingContext(' throws on failure when not in whitelist', () async {
-      when(mockProcessManager.runSync(<String>['kaboom'])).thenReturn(
-        ProcessResult(0, 2, '', '')
+    testWithoutContext(
+      'throws with stderr in exception on failure with verboseExceptions',
+      () async {
+        const stderr = 'Something went wrong.';
+        fakeProcessManager.addCommand(
+          const FakeCommand(command: <String>['verybad'], exitCode: 1, stderr: stderr),
+        );
+        expect(
+          () => processUtils.runSync(
+            <String>['verybad'],
+            throwOnError: true,
+            verboseExceptions: true,
+          ),
+          throwsProcessException(message: stderr),
+        );
+      },
+    );
+
+    testWithoutContext(' does not throw on allowed Failures', () async {
+      fakeProcessManager.addCommand(const FakeCommand(command: <String>['kaboom'], exitCode: 1));
+      expect(
+        processUtils
+            .runSync(<String>['kaboom'], throwOnError: true, allowedFailures: (int c) => c == 1)
+            .exitCode,
+        1,
       );
+    });
+
+    testWithoutContext(' throws on disallowed failure', () async {
+      fakeProcessManager.addCommand(const FakeCommand(command: <String>['kaboom'], exitCode: 2));
       expect(
         () => processUtils.runSync(
           <String>['kaboom'],
           throwOnError: true,
-          whiteListFailures: (int c) => c == 1,
+          allowedFailures: (int c) => c == 1,
         ),
-        throwsA(isA<ProcessException>()));
-    }, overrides: <Type, Generator>{
-      ProcessManager: () => mockProcessManager,
+        throwsProcessException(),
+      );
     });
 
-    testUsingContext(' prints stdout and stderr to trace on success', () async {
-      when(mockProcessManager.runSync(<String>['whoohoo'])).thenReturn(
-        ProcessResult(0, 0, 'stdout', 'stderr')
+    testWithoutContext(' prints stdout and stderr to trace on success', () async {
+      fakeProcessManager.addCommand(
+        const FakeCommand(command: <String>['whoohoo'], stdout: 'stdout', stderr: 'stderr'),
       );
       expect(processUtils.runSync(<String>['whoohoo']).exitCode, 0);
       expect(testLogger.traceText, contains('stdout'));
       expect(testLogger.traceText, contains('stderr'));
-    }, overrides: <Type, Generator>{
-      ProcessManager: () => mockProcessManager,
     });
 
-    testUsingContext(' prints stdout to status and stderr to error on failure with throwOnError', () async {
-      when(mockProcessManager.runSync(<String>['kaboom'])).thenReturn(
-        ProcessResult(0, 1, 'stdout', 'stderr')
-      );
-      expect(() => processUtils.runSync(<String>['kaboom'], throwOnError: true),
-             throwsA(isA<ProcessException>()));
-      expect(testLogger.statusText, contains('stdout'));
-      expect(testLogger.errorText, contains('stderr'));
-    }, overrides: <Type, Generator>{
-      ProcessManager: () => mockProcessManager,
-    });
+    testWithoutContext(
+      ' prints stdout to status and stderr to error on failure with throwOnError',
+      () async {
+        fakeProcessManager.addCommand(
+          const FakeCommand(
+            command: <String>['kaboom'],
+            exitCode: 1,
+            stdout: 'stdout',
+            stderr: 'stderr',
+          ),
+        );
+        expect(
+          () => processUtils.runSync(<String>['kaboom'], throwOnError: true),
+          throwsProcessException(),
+        );
+        expect(testLogger.statusText, contains('stdout'));
+        expect(testLogger.errorText, contains('stderr'));
+      },
+    );
 
-    testUsingContext(' does not print stdout with hideStdout', () async {
-      when(mockProcessManager.runSync(<String>['whoohoo'])).thenReturn(
-        ProcessResult(0, 0, 'stdout', 'stderr')
+    testWithoutContext(' does not print stdout with hideStdout', () async {
+      fakeProcessManager.addCommand(
+        const FakeCommand(command: <String>['whoohoo'], stdout: 'stdout', stderr: 'stderr'),
       );
       expect(processUtils.runSync(<String>['whoohoo'], hideStdout: true).exitCode, 0);
       expect(testLogger.traceText.contains('stdout'), isFalse);
       expect(testLogger.traceText, contains('stderr'));
-    }, overrides: <Type, Generator>{
-      ProcessManager: () => mockProcessManager,
     });
   });
 
   group('exitsHappySync', () {
-    ProcessManager mockProcessManager;
+    late FakeProcessManager processManager;
+    late ProcessUtils processUtils;
 
     setUp(() {
-      mockProcessManager = MockProcessManager();
+      processManager = FakeProcessManager.empty();
+      processUtils = ProcessUtils(processManager: processManager, logger: BufferLogger.test());
     });
 
-    testUsingContext(' succeeds on success', () async {
-      when(mockProcessManager.runSync(<String>['whoohoo'])).thenReturn(
-        ProcessResult(0, 0, '', '')
-      );
+    testWithoutContext('succeeds on success', () async {
+      processManager.addCommand(const FakeCommand(command: <String>['whoohoo']));
+
       expect(processUtils.exitsHappySync(<String>['whoohoo']), isTrue);
-    }, overrides: <Type, Generator>{
-      ProcessManager: () => mockProcessManager,
     });
 
-    testUsingContext(' fails on failure', () async {
-      when(mockProcessManager.runSync(<String>['boohoo'])).thenReturn(
-        ProcessResult(0, 1, '', '')
-      );
+    testWithoutContext('fails on failure', () async {
+      processManager.addCommand(const FakeCommand(command: <String>['boohoo'], exitCode: 1));
+
       expect(processUtils.exitsHappySync(<String>['boohoo']), isFalse);
-    }, overrides: <Type, Generator>{
-      ProcessManager: () => mockProcessManager,
+    });
+
+    testWithoutContext('catches Exception and returns false', () {
+      processManager.addCommand(
+        const FakeCommand(
+          command: <String>['boohoo'],
+          exception: ProcessException('Process failed', <String>[]),
+        ),
+      );
+
+      expect(processUtils.exitsHappySync(<String>['boohoo']), isFalse);
+    });
+
+    testWithoutContext('does not throw Exception and returns false if binary cannot run', () {
+      processManager.excludedExecutables.add('nonesuch');
+
+      expect(processUtils.exitsHappySync(<String>['nonesuch']), isFalse);
+    });
+
+    testWithoutContext('does not catch ArgumentError', () async {
+      processManager.addCommand(
+        FakeCommand(command: const <String>['invalid'], exception: ArgumentError('Bad input')),
+      );
+
+      expect(() => processUtils.exitsHappySync(<String>['invalid']), throwsArgumentError);
     });
   });
 
   group('exitsHappy', () {
-    ProcessManager mockProcessManager;
+    late FakeProcessManager processManager;
+    late ProcessUtils processUtils;
 
     setUp(() {
-      mockProcessManager = MockProcessManager();
+      processManager = FakeProcessManager.empty();
+      processUtils = ProcessUtils(processManager: processManager, logger: BufferLogger.test());
     });
 
-    testUsingContext(' succeeds on success', () async {
-      when(mockProcessManager.run(<String>['whoohoo'])).thenAnswer((_) {
-        return Future<ProcessResult>.value(ProcessResult(0, 0, '', ''));
-      });
+    testWithoutContext('succeeds on success', () async {
+      processManager.addCommand(const FakeCommand(command: <String>['whoohoo']));
+
       expect(await processUtils.exitsHappy(<String>['whoohoo']), isTrue);
-    }, overrides: <Type, Generator>{
-      ProcessManager: () => mockProcessManager,
     });
 
-    testUsingContext(' fails on failure', () async {
-      when(mockProcessManager.run(<String>['boohoo'])).thenAnswer((_) {
-        return Future<ProcessResult>.value(ProcessResult(0, 1, '', ''));
-      });
+    testWithoutContext('fails on failure', () async {
+      processManager.addCommand(const FakeCommand(command: <String>['boohoo'], exitCode: 1));
+
       expect(await processUtils.exitsHappy(<String>['boohoo']), isFalse);
-    }, overrides: <Type, Generator>{
-      ProcessManager: () => mockProcessManager,
+    });
+
+    testWithoutContext('catches Exception and returns false', () async {
+      processManager.addCommand(
+        const FakeCommand(
+          command: <String>['boohoo'],
+          exception: ProcessException('Process failed', <String>[]),
+        ),
+      );
+
+      expect(await processUtils.exitsHappy(<String>['boohoo']), isFalse);
+    });
+
+    testWithoutContext('does not throw Exception and returns false if binary cannot run', () async {
+      processManager.excludedExecutables.add('nonesuch');
+
+      expect(await processUtils.exitsHappy(<String>['nonesuch']), isFalse);
+    });
+
+    testWithoutContext('does not catch ArgumentError', () async {
+      processManager.addCommand(
+        FakeCommand(command: const <String>['invalid'], exception: ArgumentError('Bad input')),
+      );
+
+      expect(() async => processUtils.exitsHappy(<String>['invalid']), throwsArgumentError);
     });
   });
 
+  group('writeToStdinGuarded', () {
+    testWithoutContext('handles any error thrown by stdin.flush', () async {
+      final stdin = _ThrowsOnFlushIOSink();
+      Object? errorPassedToCallback;
+
+      await ProcessUtils.writeToStdinGuarded(
+        stdin: stdin,
+        content: 'message to stdin',
+        onError: (Object error, StackTrace stackTrace) {
+          errorPassedToCallback = error;
+        },
+      );
+
+      expect(
+        errorPassedToCallback,
+        isNotNull,
+        reason: 'onError callback should have been invoked.',
+      );
+
+      expect(errorPassedToCallback, const TypeMatcher<SocketException>());
+    });
+  });
+
+  group('exitWithHooks', () {
+    late MemoryFileSystem fileSystem;
+    late BufferLogger logger;
+    late Analytics analytics;
+
+    setUp(() {
+      fileSystem = MemoryFileSystem.test();
+      logger = BufferLogger.test();
+      final fakeFlutterVersion = FakeFlutterVersion();
+      analytics = Analytics.fake(
+        tool: DashTool.flutterTool,
+        homeDirectory: fileSystem.currentDirectory,
+        dartVersion: fakeFlutterVersion.dartSdkVersion,
+        fs: fileSystem,
+        flutterChannel: fakeFlutterVersion.channel,
+        flutterVersion: fakeFlutterVersion.getVersionString(),
+      );
+    });
+
+    testUsingContext(
+      'prints analytics welcome message',
+      () async {
+        setExitFunctionForTests((int exitCode) {});
+        final shutdownHooks = ShutdownHooks();
+        await exitWithHooks(0, shutdownHooks: shutdownHooks);
+        expect(logger.statusText, contains(analytics.getConsentMessage));
+      },
+      overrides: <Type, Generator>{Analytics: () => analytics, Logger: () => logger},
+    );
+
+    testUsingContext(
+      'does not print analytics welcome message if Analytics instance indicates it should not be printed',
+      () async {
+        setExitFunctionForTests((int exitCode) {});
+
+        analytics.clientShowedMessage();
+
+        final shutdownHooks = ShutdownHooks();
+        await exitWithHooks(0, shutdownHooks: shutdownHooks);
+        expect(logger.statusText, isNot(contains(analytics.getConsentMessage)));
+      },
+      overrides: <Type, Generator>{Analytics: () => analytics, Logger: () => logger},
+    );
+
+    testUsingContext(
+      '[sync] exceptions thrown from a hook do not crash the tool',
+      () async {
+        setExitFunctionForTests((int exitCode) {});
+
+        final shutdownHooks = ShutdownHooks();
+        shutdownHooks.addShutdownHook(() => throw StateError('CRASH'));
+        await expectLater(exitWithHooks(0, shutdownHooks: shutdownHooks), completes);
+        expect(
+          logger.warningText,
+          stringContainsInOrder(<String>['One or more uncaught errors occurred', 'CRASH']),
+        );
+      },
+      overrides: <Type, Generator>{Analytics: () => analytics, Logger: () => logger},
+    );
+
+    testUsingContext(
+      '[async] exceptions thrown from a hook do not crash the tool',
+      () async {
+        setExitFunctionForTests((int exitCode) {});
+
+        final shutdownHooks = ShutdownHooks();
+        shutdownHooks.addShutdownHook(() async => throw StateError('CRASH'));
+        await expectLater(exitWithHooks(0, shutdownHooks: shutdownHooks), completes);
+        expect(
+          logger.warningText,
+          stringContainsInOrder(<String>['One or more uncaught errors occurred', 'CRASH']),
+        );
+      },
+      overrides: <Type, Generator>{Analytics: () => analytics, Logger: () => logger},
+    );
+  });
 }
 
-class PlainMockProcessManager extends Mock implements ProcessManager {}
+class _ThrowsOnFlushIOSink extends MemoryIOSink {
+  @override
+  Future<Object?> flush() async {
+    throw const SocketException('Write failed', osError: OSError('Broken pipe', 32));
+  }
+}

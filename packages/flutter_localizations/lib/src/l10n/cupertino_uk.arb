@@ -28,5 +28,16 @@
   "cutButtonLabel": "Вирізати",
   "copyButtonLabel": "Копіювати",
   "pasteButtonLabel": "Вставити",
-  "selectAllButtonLabel": "Вибрати все"
+  "selectAllButtonLabel": "Вибрати все",
+  "tabSemanticsLabel": "Вкладка $tabIndex з $tabCount",
+  "modalBarrierDismissLabel": "Закрити",
+  "searchTextFieldPlaceholderLabel": "Шукайте",
+  "noSpellCheckReplacementsLabel": "Замін не знайдено",
+  "menuDismissLabel": "Закрити меню",
+  "lookUpButtonLabel": "Шукати",
+  "searchWebButtonLabel": "Пошук в Інтернеті",
+  "shareButtonLabel": "Поділитися…",
+  "clearButtonLabel": "Очистити",
+  "cancelButtonLabel": "Скасувати",
+  "backButtonLabel": "Назад"
 }

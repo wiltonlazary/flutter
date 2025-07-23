@@ -2,13 +2,16 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:async';
+/// @docImport 'package:flutter/widgets.dart';
+library;
+
 import 'dart:ui' show TextDirection;
 
 import 'package:flutter/services.dart' show SystemChannels;
 
-import 'semantics_event.dart' show AnnounceSemanticsEvent, TooltipSemanticsEvent;
+import 'semantics_event.dart' show AnnounceSemanticsEvent, Assertiveness, TooltipSemanticsEvent;
 
+export 'dart:ui' show TextDirection;
 
 /// Allows access to the platform's accessibility services.
 ///
@@ -17,9 +20,7 @@ import 'semantics_event.dart' show AnnounceSemanticsEvent, TooltipSemanticsEvent
 ///
 /// When possible, prefer using mechanisms like [Semantics] to implicitly
 /// trigger announcements over using this event.
-class SemanticsService {
-  SemanticsService._();
-
+abstract final class SemanticsService {
   /// Sends a semantic announcement.
   ///
   /// This should be used for announcement that are not seamlessly announced by
@@ -27,8 +28,32 @@ class SemanticsService {
   ///
   /// For example a camera application can use this method to make accessibility
   /// announcements regarding objects in the viewfinder.
-  static Future<void> announce(String message, TextDirection textDirection) async {
-    final AnnounceSemanticsEvent event = AnnounceSemanticsEvent(message, textDirection);
+  ///
+  /// The assertiveness level of the announcement is determined by [assertiveness].
+  /// Currently, this is only supported by the web engine and has no effect on
+  /// other platforms. The default mode is [Assertiveness.polite].
+  ///
+  /// Not all platforms support announcements. Check to see if it is supported using
+  /// [MediaQuery.supportsAnnounceOf] before calling this method.
+  ///
+  /// ### Android
+  /// Android has [deprecated announcement events][1] due to its disruptive
+  /// behavior with TalkBack forcing it to clear its speech queue and speak the
+  /// provided text. Instead, use mechanisms like [Semantics] to implicitly
+  /// trigger announcements.
+  ///
+  /// [1]: https://developer.android.com/reference/android/view/View#announceForAccessibility(java.lang.CharSequence)
+  ///
+  static Future<void> announce(
+    String message,
+    TextDirection textDirection, {
+    Assertiveness assertiveness = Assertiveness.polite,
+  }) async {
+    final AnnounceSemanticsEvent event = AnnounceSemanticsEvent(
+      message,
+      textDirection,
+      assertiveness: assertiveness,
+    );
     await SystemChannels.accessibility.send(event.toMap());
   }
 

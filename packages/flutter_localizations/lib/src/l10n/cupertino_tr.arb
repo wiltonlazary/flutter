@@ -18,5 +18,16 @@
   "cutButtonLabel": "Kes",
   "copyButtonLabel": "Kopyala",
   "pasteButtonLabel": "Yapıştır",
-  "selectAllButtonLabel": "Tümünü Seç"
+  "selectAllButtonLabel": "Tümünü Seç",
+  "tabSemanticsLabel": "Sekme $tabIndex/$tabCount",
+  "modalBarrierDismissLabel": "Kapat",
+  "searchTextFieldPlaceholderLabel": "Ara",
+  "noSpellCheckReplacementsLabel": "Yerine Kelime Bulunamadı",
+  "menuDismissLabel": "Menüyü kapat",
+  "lookUpButtonLabel": "Ara",
+  "searchWebButtonLabel": "Web'de Ara",
+  "shareButtonLabel": "Paylaş...",
+  "clearButtonLabel": "Temizle",
+  "cancelButtonLabel": "İptal",
+  "backButtonLabel": "Geri"
 }

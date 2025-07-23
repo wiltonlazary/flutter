@@ -18,5 +18,16 @@
   "cutButtonLabel": "Potong",
   "copyButtonLabel": "Salin",
   "pasteButtonLabel": "Tempel",
-  "selectAllButtonLabel": "Pilih Semua"
+  "selectAllButtonLabel": "Pilih Semua",
+  "tabSemanticsLabel": "Tab $tabIndex dari $tabCount",
+  "modalBarrierDismissLabel": "Tutup",
+  "searchTextFieldPlaceholderLabel": "Telusuri",
+  "noSpellCheckReplacementsLabel": "Penggantian Tidak Ditemukan",
+  "menuDismissLabel": "Tutup menu",
+  "lookUpButtonLabel": "Cari",
+  "searchWebButtonLabel": "Telusuri di Web",
+  "shareButtonLabel": "Bagikan...",
+  "clearButtonLabel": "Hapus",
+  "cancelButtonLabel": "Batal",
+  "backButtonLabel": "Kembali"
 }

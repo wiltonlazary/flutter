@@ -7,6 +7,11 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
+  test('ButtonBarThemeData lerp special cases', () {
+    expect(ButtonBarThemeData.lerp(null, null, 0), null);
+    const ButtonBarThemeData data = ButtonBarThemeData();
+    expect(identical(ButtonBarThemeData.lerp(data, data, 0.5), data), true);
+  });
 
   test('ButtonBarThemeData null fields by default', () {
     const ButtonBarThemeData buttonBarTheme = ButtonBarThemeData();
@@ -18,6 +23,7 @@ void main() {
     expect(buttonBarTheme.buttonPadding, null);
     expect(buttonBarTheme.buttonAlignedDropdown, null);
     expect(buttonBarTheme.layoutBehavior, null);
+    expect(buttonBarTheme.overflowDirection, null);
   });
 
   test('ThemeData uses default ButtonBarThemeData', () {
@@ -39,6 +45,7 @@ void main() {
       buttonPadding: EdgeInsets.symmetric(vertical: 5.0),
       buttonAlignedDropdown: false,
       layoutBehavior: ButtonBarLayoutBehavior.padded,
+      overflowDirection: VerticalDirection.down,
     );
     const ButtonBarThemeData barThemeAccent = ButtonBarThemeData(
       alignment: MainAxisAlignment.center,
@@ -49,9 +56,10 @@ void main() {
       buttonPadding: EdgeInsets.symmetric(horizontal: 10.0),
       buttonAlignedDropdown: true,
       layoutBehavior: ButtonBarLayoutBehavior.constrained,
+      overflowDirection: VerticalDirection.up,
     );
 
-    final ButtonBarThemeData lerp = ButtonBarThemeData.lerp(barThemePrimary, barThemeAccent, 0.5);
+    final ButtonBarThemeData lerp = ButtonBarThemeData.lerp(barThemePrimary, barThemeAccent, 0.5)!;
     expect(lerp.alignment, equals(MainAxisAlignment.center));
     expect(lerp.mainAxisSize, equals(MainAxisSize.max));
     expect(lerp.buttonTextTheme, equals(ButtonTextTheme.accent));
@@ -60,6 +68,7 @@ void main() {
     expect(lerp.buttonPadding, equals(const EdgeInsets.fromLTRB(5.0, 2.5, 5.0, 2.5)));
     expect(lerp.buttonAlignedDropdown, isTrue);
     expect(lerp.layoutBehavior, equals(ButtonBarLayoutBehavior.constrained));
+    expect(lerp.overflowDirection, equals(VerticalDirection.up));
   });
 
   testWidgets('Default ButtonBarThemeData debugFillProperties', (WidgetTester tester) async {
@@ -85,6 +94,7 @@ void main() {
       buttonPadding: EdgeInsets.symmetric(horizontal: 7.3),
       buttonAlignedDropdown: true,
       layoutBehavior: ButtonBarLayoutBehavior.constrained,
+      overflowDirection: VerticalDirection.up,
     ).debugFillProperties(builder);
 
     final List<String> description = builder.properties
@@ -101,12 +111,15 @@ void main() {
       'padding: EdgeInsets(7.3, 0.0, 7.3, 0.0)',
       'dropdown width matches button',
       'layoutBehavior: ButtonBarLayoutBehavior.constrained',
+      'overflowDirection: VerticalDirection.up',
     ]);
   });
 
-  testWidgets('ButtonBarTheme.of falls back to ThemeData.buttonBarTheme', (WidgetTester tester) async {
+  testWidgets('ButtonBarTheme.of falls back to ThemeData.buttonBarTheme', (
+    WidgetTester tester,
+  ) async {
     const ButtonBarThemeData buttonBarTheme = ButtonBarThemeData(buttonMinWidth: 42.0);
-    BuildContext capturedContext;
+    late BuildContext capturedContext;
     await tester.pumpWidget(
       MaterialApp(
         theme: ThemeData(buttonBarTheme: buttonBarTheme),
@@ -114,7 +127,7 @@ void main() {
           builder: (BuildContext context) {
             capturedContext = context;
             return Container();
-          }
+          },
         ),
       ),
     );
@@ -125,7 +138,7 @@ void main() {
   testWidgets('ButtonBarTheme overrides ThemeData.buttonBarTheme', (WidgetTester tester) async {
     const ButtonBarThemeData defaultBarTheme = ButtonBarThemeData(buttonMinWidth: 42.0);
     const ButtonBarThemeData buttonBarTheme = ButtonBarThemeData(buttonMinWidth: 84.0);
-    BuildContext capturedContext;
+    late BuildContext capturedContext;
     await tester.pumpWidget(
       MaterialApp(
         theme: ThemeData(buttonBarTheme: defaultBarTheme),
@@ -140,7 +153,7 @@ void main() {
                 },
               ),
             );
-          }
+          },
         ),
       ),
     );

@@ -4,124 +4,280 @@
 
 import 'dart:async';
 
-import 'package:dwds/dwds.dart';
-import 'package:flutter_tools/src/base/common.dart';
+import 'package:file/memory.dart';
+import 'package:flutter_tools/src/application_package.dart';
 import 'package:flutter_tools/src/base/file_system.dart';
 import 'package:flutter_tools/src/base/logger.dart';
+import 'package:flutter_tools/src/base/platform.dart';
+import 'package:flutter_tools/src/base/terminal.dart';
+import 'package:flutter_tools/src/base/time.dart';
 import 'package:flutter_tools/src/build_info.dart';
+import 'package:flutter_tools/src/build_system/build_system.dart';
+import 'package:flutter_tools/src/dart/pub.dart';
+import 'package:flutter_tools/src/devfs.dart';
 import 'package:flutter_tools/src/device.dart';
-import 'package:flutter_tools/src/globals.dart';
+import 'package:flutter_tools/src/isolated/devfs_web.dart';
+import 'package:flutter_tools/src/isolated/resident_web_runner.dart';
 import 'package:flutter_tools/src/project.dart';
 import 'package:flutter_tools/src/resident_runner.dart';
-import 'package:flutter_tools/src/build_runner/resident_web_runner.dart';
-import 'package:flutter_tools/src/build_runner/web_fs.dart';
-import 'package:meta/meta.dart';
-import 'package:mockito/mockito.dart';
-import 'package:vm_service/vm_service.dart';
+import 'package:flutter_tools/src/vmservice.dart';
+import 'package:test/fake.dart';
 
 import '../src/common.dart';
-import '../src/testbed.dart';
+import '../src/context.dart';
+import '../src/fakes.dart';
+import '../src/package_config.dart';
+import '../src/test_build_system.dart';
+import '../src/throwing_pub.dart';
 
 void main() {
-  Testbed testbed;
-  MockFlutterWebFs mockWebFs;
-  ResidentWebRunner residentWebRunner;
-  MockFlutterDevice mockFlutterDevice;
+  late FakeFlutterDevice mockFlutterDevice;
+  late FakeWebDevFS mockWebDevFS;
+  late MemoryFileSystem fileSystem;
 
   setUp(() {
-    mockWebFs = MockFlutterWebFs();
-    final MockWebDevice mockWebDevice = MockWebDevice();
-    mockFlutterDevice = MockFlutterDevice();
-    when(mockFlutterDevice.device).thenReturn(mockWebDevice);
-    testbed = Testbed(
-      setup: () {
-        residentWebRunner =  residentWebRunner = DwdsWebRunnerFactory().createWebRunner(
-          mockFlutterDevice,
-          flutterProject: FlutterProject.current(),
-          debuggingOptions: DebuggingOptions.disabled(BuildInfo.release),
-          ipv6: true,
-          stayResident: true,
-          dartDefines: const <String>[],
-        ) as ResidentWebRunner;
-      },
-      overrides: <Type, Generator>{
-        WebFsFactory: () => ({
-          @required String target,
-          @required FlutterProject flutterProject,
-          @required BuildInfo buildInfo,
-          @required bool skipDwds,
-          @required bool initializePlatform,
-          @required String hostname,
-          @required String port,
-          @required List<String> dartDefines,
-        }) async {
-          return mockWebFs;
-        },
-      },
-    );
+    fileSystem = MemoryFileSystem.test();
+    mockWebDevFS = FakeWebDevFS();
+    final mockWebDevice = FakeWebDevice();
+    mockFlutterDevice = FakeFlutterDevice(mockWebDevice);
+    mockFlutterDevice._devFS = mockWebDevFS;
+
+    fileSystem.file('pubspec.yaml').writeAsStringSync('''
+name: my_app
+''');
+
+    writePackageConfigFiles(directory: fileSystem.currentDirectory, mainLibName: 'my_app');
+    fileSystem.file(fileSystem.path.join('lib', 'main.dart')).createSync(recursive: true);
+    fileSystem.file(fileSystem.path.join('web', 'index.html')).createSync(recursive: true);
   });
 
-  void _setupMocks() {
-    fs.file('pubspec.yaml').createSync();
-    fs.file(fs.path.join('lib', 'main.dart')).createSync(recursive: true);
-    fs.file(fs.path.join('web', 'index.html')).createSync(recursive: true);
-    when(mockWebFs.connect(any)).thenThrow(StateError('debugging not supported'));
-  }
+  testUsingContext(
+    'Can successfully run and connect without vmservice',
+    () async {
+      final FlutterProject project = FlutterProject.fromDirectoryTest(fileSystem.currentDirectory);
+      final residentWebRunner = ResidentWebRunner(
+        mockFlutterDevice,
+        flutterProject: project,
+        debuggingOptions: DebuggingOptions.disabled(BuildInfo.release),
+        fileSystem: fileSystem,
+        logger: BufferLogger.test(),
+        terminal: Terminal.test(),
+        platform: FakePlatform(),
+        outputPreferences: OutputPreferences.test(),
+        systemClock: SystemClock.fixed(DateTime(0, 0, 0)),
+        analytics: getInitializedFakeAnalyticsInstance(
+          fs: fileSystem,
+          fakeFlutterVersion: FakeFlutterVersion(),
+        ),
+      );
 
-  test('Can successfully run and connect without vmservice', () => testbed.run(() async {
-    _setupMocks();
-    final DelegateLogger delegateLogger = logger as DelegateLogger;
-    final MockStatus mockStatus = MockStatus();
-    delegateLogger.status = mockStatus;
-    final Completer<DebugConnectionInfo> connectionInfoCompleter = Completer<DebugConnectionInfo>();
-    unawaited(residentWebRunner.run(
-      connectionInfoCompleter: connectionInfoCompleter,
-    ));
-    final DebugConnectionInfo debugConnectionInfo = await connectionInfoCompleter.future;
+      final connectionInfoCompleter = Completer<DebugConnectionInfo>();
+      unawaited(residentWebRunner.run(connectionInfoCompleter: connectionInfoCompleter));
+      final DebugConnectionInfo debugConnectionInfo = await connectionInfoCompleter.future;
 
-    expect(debugConnectionInfo.wsUri, null);
-    verify(mockStatus.stop()).called(1);
-  }, overrides: <Type, Generator>{
-    Logger: () => DelegateLogger(BufferLogger()),
-  }));
+      expect(debugConnectionInfo.wsUri, null);
+    },
+    overrides: <Type, Generator>{
+      BuildSystem: () => TestBuildSystem.all(BuildResult(success: true)),
+      FileSystem: () => fileSystem,
+      ProcessManager: () => FakeProcessManager.any(),
+      Pub: ThrowingPub.new,
+    },
+  );
 
-  test('Can full restart after attaching', () => testbed.run(() async {
-    _setupMocks();
-    final Completer<DebugConnectionInfo> connectionInfoCompleter = Completer<DebugConnectionInfo>();
-    unawaited(residentWebRunner.run(
-      connectionInfoCompleter: connectionInfoCompleter,
-    ));
-    await connectionInfoCompleter.future;
-    when(mockWebFs.recompile()).thenAnswer((Invocation _) async {
-      return true;
-    });
-    final OperationResult result = await residentWebRunner.restart(fullRestart: true);
+  // Regression test for https://github.com/flutter/flutter/issues/60613
+  testUsingContext(
+    'ResidentWebRunner calls appFailedToStart if initial compilation fails',
+    () async {
+      final FlutterProject project = FlutterProject.fromDirectoryTest(fileSystem.currentDirectory);
+      final residentWebRunner = ResidentWebRunner(
+        mockFlutterDevice,
+        flutterProject: project,
+        debuggingOptions: DebuggingOptions.disabled(BuildInfo.release),
+        fileSystem: fileSystem,
+        logger: BufferLogger.test(),
+        terminal: Terminal.test(),
+        platform: FakePlatform(),
+        outputPreferences: OutputPreferences.test(),
+        systemClock: SystemClock.fixed(DateTime(0, 0, 0)),
+        analytics: getInitializedFakeAnalyticsInstance(
+          fs: fileSystem,
+          fakeFlutterVersion: FakeFlutterVersion(),
+        ),
+      );
 
-    expect(result.code, 0);
-  }));
+      expect(() => residentWebRunner.run(), throwsToolExit());
+      expect(await residentWebRunner.waitForAppToFinish(), 1);
+    },
+    overrides: <Type, Generator>{
+      BuildSystem: () => TestBuildSystem.all(BuildResult(success: false)),
+      FileSystem: () => fileSystem,
+      ProcessManager: () => FakeProcessManager.any(),
+      Pub: ThrowingPub.new,
+    },
+  );
 
-  test('Fails on compilation errors in hot restart', () => testbed.run(() async {
-    _setupMocks();
-    final Completer<DebugConnectionInfo> connectionInfoCompleter = Completer<DebugConnectionInfo>();
-    unawaited(residentWebRunner.run(
-      connectionInfoCompleter: connectionInfoCompleter,
-    ));
-    await connectionInfoCompleter.future;
-    when(mockWebFs.recompile()).thenAnswer((Invocation _) async {
-      return false;
-    });
-    final OperationResult result = await residentWebRunner.restart(fullRestart: true);
+  // Regression test for https://github.com/flutter/flutter/issues/60613
+  testUsingContext(
+    'ResidentWebRunner calls appFailedToStart if error is thrown during startup',
+    () async {
+      final FlutterProject project = FlutterProject.fromDirectoryTest(fileSystem.currentDirectory);
+      final residentWebRunner = ResidentWebRunner(
+        mockFlutterDevice,
+        flutterProject: project,
+        debuggingOptions: DebuggingOptions.disabled(BuildInfo.release),
+        fileSystem: fileSystem,
+        logger: BufferLogger.test(),
+        terminal: Terminal.test(),
+        platform: FakePlatform(),
+        outputPreferences: OutputPreferences.test(),
+        systemClock: SystemClock.fixed(DateTime(0, 0, 0)),
+        analytics: getInitializedFakeAnalyticsInstance(
+          fs: fileSystem,
+          fakeFlutterVersion: FakeFlutterVersion(),
+        ),
+      );
 
-    expect(result.code, 1);
-    expect(result.message, contains('Failed to recompile application.'));
-  }));
+      expect(() async => residentWebRunner.run(), throwsException);
+      expect(await residentWebRunner.waitForAppToFinish(), 1);
+    },
+    overrides: <Type, Generator>{
+      BuildSystem: () => TestBuildSystem.error(Exception('foo')),
+      FileSystem: () => fileSystem,
+      ProcessManager: () => FakeProcessManager.any(),
+      Pub: ThrowingPub.new,
+    },
+  );
 
+  testUsingContext(
+    'Can full restart after attaching',
+    () async {
+      final FlutterProject project = FlutterProject.fromDirectoryTest(fileSystem.currentDirectory);
+      final residentWebRunner = ResidentWebRunner(
+        mockFlutterDevice,
+        flutterProject: project,
+        debuggingOptions: DebuggingOptions.disabled(BuildInfo.release),
+        fileSystem: fileSystem,
+        logger: BufferLogger.test(),
+        terminal: Terminal.test(),
+        platform: FakePlatform(),
+        outputPreferences: OutputPreferences.test(),
+        systemClock: SystemClock.fixed(DateTime(0, 0, 0)),
+        analytics: getInitializedFakeAnalyticsInstance(
+          fs: fileSystem,
+          fakeFlutterVersion: FakeFlutterVersion(),
+        ),
+      );
+      final connectionInfoCompleter = Completer<DebugConnectionInfo>();
+      unawaited(residentWebRunner.run(connectionInfoCompleter: connectionInfoCompleter));
+      await connectionInfoCompleter.future;
+      final OperationResult result = await residentWebRunner.restart(fullRestart: true);
+
+      expect(result.code, 0);
+    },
+    overrides: <Type, Generator>{
+      BuildSystem: () => TestBuildSystem.all(BuildResult(success: true)),
+      FileSystem: () => fileSystem,
+      ProcessManager: () => FakeProcessManager.any(),
+      Pub: ThrowingPub.new,
+    },
+  );
+
+  testUsingContext(
+    'Fails on compilation errors in hot restart',
+    () async {
+      final FlutterProject project = FlutterProject.fromDirectoryTest(fileSystem.currentDirectory);
+      final residentWebRunner = ResidentWebRunner(
+        mockFlutterDevice,
+        flutterProject: project,
+        debuggingOptions: DebuggingOptions.disabled(BuildInfo.release),
+        fileSystem: fileSystem,
+        logger: BufferLogger.test(),
+        terminal: Terminal.test(),
+        platform: FakePlatform(),
+        outputPreferences: OutputPreferences.test(),
+        systemClock: SystemClock.fixed(DateTime(0, 0, 0)),
+        analytics: getInitializedFakeAnalyticsInstance(
+          fs: fileSystem,
+          fakeFlutterVersion: FakeFlutterVersion(),
+        ),
+      );
+      final connectionInfoCompleter = Completer<DebugConnectionInfo>();
+      unawaited(residentWebRunner.run(connectionInfoCompleter: connectionInfoCompleter));
+      await connectionInfoCompleter.future;
+      final OperationResult result = await residentWebRunner.restart(fullRestart: true);
+
+      expect(result.code, 1);
+      expect(result.message, contains('Failed to recompile application.'));
+    },
+    overrides: <Type, Generator>{
+      BuildSystem: () => TestBuildSystem.list(<BuildResult>[
+        BuildResult(success: true),
+        BuildResult(success: false),
+      ]),
+      FileSystem: () => fileSystem,
+      ProcessManager: () => FakeProcessManager.any(),
+      Pub: ThrowingPub.new,
+    },
+  );
 }
 
-class MockWebDevice extends Mock implements Device {}
-class MockBuildDaemonCreator extends Mock implements BuildDaemonCreator {}
-class MockFlutterWebFs extends Mock implements WebFs {}
-class MockDebugConnection extends Mock implements DebugConnection {}
-class MockVmService extends Mock implements VmService {}
-class MockStatus extends Mock implements Status {}
-class MockFlutterDevice extends Mock implements FlutterDevice {}
+class FakeWebDevFS extends Fake implements WebDevFS {
+  @override
+  List<Uri> get sources => <Uri>[];
+
+  @override
+  Future<Uri> create() async {
+    return Uri.base;
+  }
+}
+
+class FakeWebDevice extends Fake implements Device {
+  @override
+  String get name => 'web';
+
+  @override
+  String get displayName => name;
+
+  @override
+  Future<bool> stopApp(ApplicationPackage? app, {String? userIdentifier}) async {
+    return true;
+  }
+
+  @override
+  Future<String> get sdkNameAndVersion async {
+    return 'Flutter Tools';
+  }
+
+  @override
+  Future<LaunchResult> startApp(
+    ApplicationPackage? package, {
+    String? mainPath,
+    String? route,
+    DebuggingOptions? debuggingOptions,
+    Map<String, dynamic>? platformArgs,
+    bool prebuiltApplication = false,
+    bool ipv6 = false,
+    String? userIdentifier,
+  }) async {
+    return LaunchResult.succeeded();
+  }
+}
+
+class FakeFlutterDevice extends Fake implements FlutterDevice {
+  FakeFlutterDevice(this.device);
+
+  @override
+  final FakeWebDevice device;
+
+  DevFS? _devFS;
+
+  @override
+  DevFS? get devFS => _devFS;
+
+  @override
+  set devFS(DevFS? value) {}
+
+  @override
+  FlutterVmService? vmService;
+}

@@ -18,5 +18,16 @@
   "cutButtonLabel": "Изрязване",
   "copyButtonLabel": "Копиране",
   "pasteButtonLabel": "Поставяне",
-  "selectAllButtonLabel": "Избиране на всички"
+  "clearButtonLabel": "Изчистване",
+  "selectAllButtonLabel": "Избиране на всички",
+  "tabSemanticsLabel": "Раздел $tabIndex от $tabCount",
+  "modalBarrierDismissLabel": "Отхвърляне",
+  "searchTextFieldPlaceholderLabel": "Търсене",
+  "noSpellCheckReplacementsLabel": "Не бяха намерени замествания",
+  "menuDismissLabel": "Отхвърляне на менюто",
+  "lookUpButtonLabel": "Look Up",
+  "searchWebButtonLabel": "Търсене в мрежата",
+  "shareButtonLabel": "Споделяне...",
+  "cancelButtonLabel": "Отказ",
+  "backButtonLabel": "Назад"
 }

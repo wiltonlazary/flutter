@@ -4,11 +4,10 @@
 
 // This file has been automatically generated. Please do not edit it manually.
 // To regenerate the file, use:
-// dart dev/tools/localization/gen_localizations.dart --overwrite
+// dart dev/tools/localization/bin/gen_localizations.dart --overwrite
 
 import 'dart:collection';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart' as intl;
 
@@ -21,152 +20,179 @@ import '../cupertino_localizations.dart';
 // bottom of this file, and used by the [_GlobalCupertinoLocalizationsDelegate.load]
 // method defined in `flutter_localizations/lib/src/cupertino_localizations.dart`.
 
+// TODO(goderbauer): Extend the generator to properly format the output.
+// dart format off
+
 /// The translations for Afrikaans (`af`).
 class CupertinoLocalizationAf extends GlobalCupertinoLocalizations {
   /// Create an instance of the translation bundle for Afrikaans.
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationAf({
-    String localeName = 'af',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'af',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Opletberig';
+  String get alertDialogLabel => 'Opletberig';
 
   @override
-  String get anteMeridiemAbbreviation => r'vm.';
+  String get anteMeridiemAbbreviation => 'vm.';
 
   @override
-  String get copyButtonLabel => r'Kopieer';
+  String get backButtonLabel => 'Terug';
 
   @override
-  String get cutButtonLabel => r'Knip';
+  String get cancelButtonLabel => 'Kanselleer';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Vee uit';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Kopieer';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Knip';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour uur';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour uur';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour uur';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 minuut';
+  String? get datePickerMinuteSemanticsLabelOne => '1 minuut';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute minute';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Plak';
+  String get lookUpButtonLabel => 'Kyk op';
 
   @override
-  String get postMeridiemAbbreviation => r'nm.';
+  String get menuDismissLabel => 'Maak kieslys toe';
 
   @override
-  String get selectAllButtonLabel => r'Kies alles';
+  String get modalBarrierDismissLabel => 'Maak toe';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Geen plaasvervangers gevind nie';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Plak';
 
   @override
-  String get timerPickerHourLabelOne => r'uur';
+  String get postMeridiemAbbreviation => 'nm.';
 
   @override
-  String get timerPickerHourLabelOther => r'uur';
+  String get searchTextFieldPlaceholderLabel => 'Soek';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Deursoek web';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Kies alles';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Deel …';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Oortjie $tabIndex van $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'min.';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'min.';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'uur';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'uur';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'sek.';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'sek.';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'min.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'min.';
 
   @override
-  String get todayLabel => r'Vandag';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'sek.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'sek.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Vandag';
 }
 
 /// The translations for Amharic (`am`).
@@ -175,146 +201,170 @@ class CupertinoLocalizationAm extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationAm({
-    String localeName = 'am',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'am',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'ማንቂያ';
+  String get alertDialogLabel => 'ማንቂያ';
 
   @override
-  String get anteMeridiemAbbreviation => r'ጥዋት';
+  String get anteMeridiemAbbreviation => 'ጥዋት';
 
   @override
-  String get copyButtonLabel => r'ቅዳ';
+  String get backButtonLabel => 'ተመለስ';
 
   @override
-  String get cutButtonLabel => r'ቁረጥ';
+  String get cancelButtonLabel => 'ይቅር';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'አጽዳ';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'ቅዳ';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'ቁረጥ';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour ሰዓት';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour ሰዓት';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour ሰዓት';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 ደቂቃ';
+  String? get datePickerMinuteSemanticsLabelOne => '1 ደቂቃ';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute ደቂቃዎች';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'ለጥፍ';
+  String get lookUpButtonLabel => 'ይመልከቱ';
 
   @override
-  String get postMeridiemAbbreviation => r'ከሰዓት';
+  String get menuDismissLabel => 'ምናሌን አሰናብት';
 
   @override
-  String get selectAllButtonLabel => r'ሁሉንም ምረጥ';
+  String get modalBarrierDismissLabel => 'አሰናብት';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'ምንም ተተኪዎች አልተገኙም';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'ለጥፍ';
 
   @override
-  String get timerPickerHourLabelOne => r'ሰዓት';
+  String get postMeridiemAbbreviation => 'ከሰዓት';
 
   @override
-  String get timerPickerHourLabelOther => r'ሰዓቶች';
+  String get searchTextFieldPlaceholderLabel => 'ፍለጋ';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'ድርን ፈልግ';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'ሁሉንም ምረጥ';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'አጋራ...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'ትር $tabIndex ከ$tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'ደቂቃ';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'ደቂቃ';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'ሰዓት';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'ሰዓቶች';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'ሴኮ';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'ሴኮ';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'ደቂቃ';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'ደቂቃ';
 
   @override
-  String get todayLabel => r'ዛሬ';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'ሴኮ';
+
+  @override
+  String get timerPickerSecondLabelOther => 'ሴኮ';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'ዛሬ';
 }
 
 /// The translations for Arabic (`ar`).
@@ -323,146 +373,170 @@ class CupertinoLocalizationAr extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationAr({
-    String localeName = 'ar',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'ar',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'تنبيه';
+  String get alertDialogLabel => 'تنبيه';
 
   @override
-  String get anteMeridiemAbbreviation => r'ص';
+  String get anteMeridiemAbbreviation => 'ص';
 
   @override
-  String get copyButtonLabel => r'نسخ';
+  String get backButtonLabel => 'رجوع';
 
   @override
-  String get cutButtonLabel => r'قص';
+  String get cancelButtonLabel => 'الإلغاء';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'محو';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'نسخ';
 
   @override
-  String get datePickerHourSemanticsLabelFew => r'$hour بالضبط';
+  String get cutButtonLabel => 'قص';
 
   @override
-  String get datePickerHourSemanticsLabelMany => r'$hour بالضبط';
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour بالضبط';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => r'$hour بالضبط';
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => r'$hour بالضبط';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour بالضبط';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour بالضبط';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => r'$hour بالضبط';
+  String? get datePickerHourSemanticsLabelTwo => r'$hour بالضبط';
 
   @override
-  String get datePickerHourSemanticsLabelZero => r'$hour بالضبط';
+  String? get datePickerHourSemanticsLabelZero => r'$hour بالضبط';
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => r'$minute دقائق';
+  String? get datePickerMinuteSemanticsLabelFew => r'$minute دقائق';
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => r'$minute دقيقة​';
+  String? get datePickerMinuteSemanticsLabelMany => r'$minute دقيقة​';
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'دقيقة واحدة';
+  String? get datePickerMinuteSemanticsLabelOne => 'دقيقة واحدة';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute دقيقة​';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => r'دقيقتان ($minute)';
+  String? get datePickerMinuteSemanticsLabelTwo => r'دقيقتان ($minute)';
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => r'$minute دقيقة​';
+  String? get datePickerMinuteSemanticsLabelZero => r'$minute دقيقة​';
 
   @override
-  String get pasteButtonLabel => r'لصق';
+  String get lookUpButtonLabel => 'بحث عام';
 
   @override
-  String get postMeridiemAbbreviation => r'م';
+  String get menuDismissLabel => 'إغلاق القائمة';
 
   @override
-  String get selectAllButtonLabel => r'اختيار الكل';
+  String get modalBarrierDismissLabel => 'رفض';
 
   @override
-  String get timerPickerHourLabelFew => r'ساعات';
+  String get noSpellCheckReplacementsLabel => 'لم يتم العثور على بدائل';
 
   @override
-  String get timerPickerHourLabelMany => r'ساعة';
+  String get pasteButtonLabel => 'لصق';
 
   @override
-  String get timerPickerHourLabelOne => r'ساعة';
+  String get postMeridiemAbbreviation => 'م';
 
   @override
-  String get timerPickerHourLabelOther => r'ساعة';
+  String get searchTextFieldPlaceholderLabel => 'بحث';
 
   @override
-  String get timerPickerHourLabelTwo => r'ساعتان';
+  String get searchWebButtonLabel => 'البحث على الويب';
 
   @override
-  String get timerPickerHourLabelZero => r'ساعة';
+  String get selectAllButtonLabel => 'اختيار الكل';
 
   @override
-  String get timerPickerMinuteLabelFew => r'دقائق';
+  String get shareButtonLabel => 'مشاركة…';
 
   @override
-  String get timerPickerMinuteLabelMany => r'دقيقة';
+  String get tabSemanticsLabelRaw => r'علامة التبويب $tabIndex من $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'دقيقة واحدة';
+  String? get timerPickerHourLabelFew => 'ساعات';
 
   @override
-  String get timerPickerMinuteLabelOther => r'دقيقة';
+  String? get timerPickerHourLabelMany => 'ساعة';
 
   @override
-  String get timerPickerMinuteLabelTwo => r'دقيقتان';
+  String? get timerPickerHourLabelOne => 'ساعة';
 
   @override
-  String get timerPickerMinuteLabelZero => r'دقيقة';
+  String get timerPickerHourLabelOther => 'ساعة';
 
   @override
-  String get timerPickerSecondLabelFew => r'ثوانٍ';
+  String? get timerPickerHourLabelTwo => 'ساعتان';
 
   @override
-  String get timerPickerSecondLabelMany => r'ثانية';
+  String? get timerPickerHourLabelZero => 'ساعة';
 
   @override
-  String get timerPickerSecondLabelOne => r'ثانية واحدة';
+  String? get timerPickerMinuteLabelFew => 'دقائق';
 
   @override
-  String get timerPickerSecondLabelOther => r'ثانية';
+  String? get timerPickerMinuteLabelMany => 'دقيقة';
 
   @override
-  String get timerPickerSecondLabelTwo => r'ثانيتان';
+  String? get timerPickerMinuteLabelOne => 'دقيقة واحدة';
 
   @override
-  String get timerPickerSecondLabelZero => r'ثانية';
+  String get timerPickerMinuteLabelOther => 'دقيقة';
 
   @override
-  String get todayLabel => r'اليوم';
+  String? get timerPickerMinuteLabelTwo => 'دقيقتان';
+
+  @override
+  String? get timerPickerMinuteLabelZero => 'دقيقة';
+
+  @override
+  String? get timerPickerSecondLabelFew => 'ثوانٍ';
+
+  @override
+  String? get timerPickerSecondLabelMany => 'ثانية';
+
+  @override
+  String? get timerPickerSecondLabelOne => 'ثانية واحدة';
+
+  @override
+  String get timerPickerSecondLabelOther => 'ثانية';
+
+  @override
+  String? get timerPickerSecondLabelTwo => 'ثانيتان';
+
+  @override
+  String? get timerPickerSecondLabelZero => 'ثانية';
+
+  @override
+  String get todayLabel => 'اليوم';
 }
 
 /// The translations for Assamese (`as`).
@@ -471,146 +545,170 @@ class CupertinoLocalizationAs extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationAs({
-    String localeName = 'as',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'as',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'সতৰ্কবাৰ্তা';
+  String get alertDialogLabel => 'সতৰ্কবাৰ্তা';
 
   @override
-  String get anteMeridiemAbbreviation => r'পূৰ্বাহ্ন';
+  String get anteMeridiemAbbreviation => 'পূৰ্বাহ্ন';
 
   @override
-  String get copyButtonLabel => r'প্ৰতিলিপি কৰক';
+  String get backButtonLabel => 'উভতি যাওক';
 
   @override
-  String get cutButtonLabel => r'কাট কৰক';
+  String get cancelButtonLabel => 'বাতিল কৰক';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get clearButtonLabel => 'মচক';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'প্ৰতিলিপি কৰক';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'কাট কৰক';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'mdy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour বাজিছে';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour বাজিছে';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour বাজিছে';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'১মিনিট';
+  String? get datePickerMinuteSemanticsLabelOne => '১মিনিট';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minuteমিনিট';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'পে' "'" r'ষ্ট কৰক';
+  String get lookUpButtonLabel => 'ওপৰলৈ চাওক';
 
   @override
-  String get postMeridiemAbbreviation => r'অপৰাহ্ন';
+  String get menuDismissLabel => 'অগ্ৰাহ্য কৰাৰ মেনু';
 
   @override
-  String get selectAllButtonLabel => r'সকলো বাছনি কৰক';
+  String get modalBarrierDismissLabel => 'অগ্ৰাহ্য কৰক';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'এইটোৰ সলনি ব্যৱহাৰ কৰিব পৰা শব্দ পোৱা নগ’ল';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => "পে'ষ্ট কৰক";
 
   @override
-  String get timerPickerHourLabelOne => r'ঘণ্টা';
+  String get postMeridiemAbbreviation => 'অপৰাহ্ন';
 
   @override
-  String get timerPickerHourLabelOther => r'ঘণ্টা';
+  String get searchTextFieldPlaceholderLabel => 'সন্ধান কৰক';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'ৱেবত সন্ধান কৰক';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'সকলো বাছনি কৰক';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'শ্বেয়াৰ কৰক…';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'$tabCount টা টেবৰ $tabIndex নম্বৰটো';
 
   @override
-  String get timerPickerMinuteLabelOne => r'মিনিট।';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'মিনিট।';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'ঘণ্টা';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'ঘণ্টা';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'ছেকেণ্ড।';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'ছেকেণ্ড।';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'মিনিট।';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'মিনিট।';
 
   @override
-  String get todayLabel => r'আজি';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'ছেকেণ্ড।';
+
+  @override
+  String get timerPickerSecondLabelOther => 'ছেকেণ্ড।';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'আজি';
 }
 
 /// The translations for Azerbaijani (`az`).
@@ -619,146 +717,170 @@ class CupertinoLocalizationAz extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationAz({
-    String localeName = 'az',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'az',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Bildiriş';
+  String get alertDialogLabel => 'Bildiriş';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'Kopyalayın';
+  String get backButtonLabel => 'Geri';
 
   @override
-  String get cutButtonLabel => r'Kəsin';
+  String get cancelButtonLabel => 'Ləğv edin';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get clearButtonLabel => 'Silin';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Kopyalayın';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Kəsin';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'mdy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'Saat $hour';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'Saat $hour';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'Saat $hour';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 dəqiqə';
+  String? get datePickerMinuteSemanticsLabelOne => '1 dəqiqə';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute dəqiqə';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Yerləşdirin';
+  String get lookUpButtonLabel => 'Axtarın';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'Menyunu qapadın';
 
   @override
-  String get selectAllButtonLabel => r'Hamısını seçin';
+  String get modalBarrierDismissLabel => 'İmtina edin';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Əvəzləmə Tapılmadı';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Yerləşdirin';
 
   @override
-  String get timerPickerHourLabelOne => r'saat';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'saat';
+  String get searchTextFieldPlaceholderLabel => 'Axtarın';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Vebdə axtarın';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Hamısını seçin';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Paylaşın...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Tab $tabIndex/$tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'dəq.';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'dəq.';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'saat';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'saat';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'san.';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'san.';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'dəq.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'dəq.';
 
   @override
-  String get todayLabel => r'Bu gün';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'san.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'san.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Bu gün';
 }
 
 /// The translations for Belarusian (`be`).
@@ -767,146 +889,170 @@ class CupertinoLocalizationBe extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationBe({
-    String localeName = 'be',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'be',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Абвестка';
+  String get alertDialogLabel => 'Абвестка';
 
   @override
-  String get anteMeridiemAbbreviation => r'раніцы';
+  String get anteMeridiemAbbreviation => 'раніцы';
 
   @override
-  String get copyButtonLabel => r'Капіраваць';
+  String get backButtonLabel => 'Назад';
 
   @override
-  String get cutButtonLabel => r'Выразаць';
+  String get cancelButtonLabel => 'Скасаваць';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get clearButtonLabel => 'Ачысціць';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Капіраваць';
 
   @override
-  String get datePickerHourSemanticsLabelFew => r'$hour гадзіны нуль хвілін';
+  String get cutButtonLabel => 'Выразаць';
 
   @override
-  String get datePickerHourSemanticsLabelMany => r'$hour гадзін нуль хвілін';
+  String get datePickerDateOrderString => 'mdy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour гадзіна нуль хвілін';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => r'$hour гадзіны нуль хвілін';
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => r'$hour гадзін нуль хвілін';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour гадзіна нуль хвілін';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour гадзіны нуль хвілін';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => r'$minute хвіліны';
+  String? get datePickerMinuteSemanticsLabelFew => r'$minute хвіліны';
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => r'$minute хвілін';
+  String? get datePickerMinuteSemanticsLabelMany => r'$minute хвілін';
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 хвіліна';
+  String? get datePickerMinuteSemanticsLabelOne => '1 хвіліна';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute хвіліны';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Уставіць';
+  String get lookUpButtonLabel => 'Знайсці';
 
   @override
-  String get postMeridiemAbbreviation => r'вечара';
+  String get menuDismissLabel => 'Закрыць меню';
 
   @override
-  String get selectAllButtonLabel => r'Выбраць усе';
+  String get modalBarrierDismissLabel => 'Адхіліць';
 
   @override
-  String get timerPickerHourLabelFew => r'гадзіны';
+  String get noSpellCheckReplacementsLabel => 'Замен не знойдзена';
 
   @override
-  String get timerPickerHourLabelMany => r'гадзін';
+  String get pasteButtonLabel => 'Уставіць';
 
   @override
-  String get timerPickerHourLabelOne => r'гадзіна';
+  String get postMeridiemAbbreviation => 'вечара';
 
   @override
-  String get timerPickerHourLabelOther => r'гадзіны';
+  String get searchTextFieldPlaceholderLabel => 'Пошук';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Пошук у сетцы';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Выбраць усе';
 
   @override
-  String get timerPickerMinuteLabelFew => r'хв';
+  String get shareButtonLabel => 'Абагуліць...';
 
   @override
-  String get timerPickerMinuteLabelMany => r'хв';
+  String get tabSemanticsLabelRaw => r'Укладка $tabIndex з $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'хв';
+  String? get timerPickerHourLabelFew => 'гадзіны';
 
   @override
-  String get timerPickerMinuteLabelOther => r'хв';
+  String? get timerPickerHourLabelMany => 'гадзін';
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'гадзіна';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'гадзіны';
 
   @override
-  String get timerPickerSecondLabelFew => r'с';
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => r'с';
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'с';
+  String? get timerPickerMinuteLabelFew => 'хв';
 
   @override
-  String get timerPickerSecondLabelOther => r'с';
+  String? get timerPickerMinuteLabelMany => 'хв';
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'хв';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'хв';
 
   @override
-  String get todayLabel => r'Сёння';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => 'с';
+
+  @override
+  String? get timerPickerSecondLabelMany => 'с';
+
+  @override
+  String? get timerPickerSecondLabelOne => 'с';
+
+  @override
+  String get timerPickerSecondLabelOther => 'с';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Сёння';
 }
 
 /// The translations for Bulgarian (`bg`).
@@ -915,146 +1061,170 @@ class CupertinoLocalizationBg extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationBg({
-    String localeName = 'bg',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'bg',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Сигнал';
+  String get alertDialogLabel => 'Сигнал';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'Копиране';
+  String get backButtonLabel => 'Назад';
 
   @override
-  String get cutButtonLabel => r'Изрязване';
+  String get cancelButtonLabel => 'Отказ';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Изчистване';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Копиране';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Изрязване';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour часа';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour часа';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour часа';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 минута';
+  String? get datePickerMinuteSemanticsLabelOne => '1 минута';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute минути';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Поставяне';
+  String get lookUpButtonLabel => 'Look Up';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'Отхвърляне на менюто';
 
   @override
-  String get selectAllButtonLabel => r'Избиране на всички';
+  String get modalBarrierDismissLabel => 'Отхвърляне';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Не бяха намерени замествания';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Поставяне';
 
   @override
-  String get timerPickerHourLabelOne => r'час';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'часа';
+  String get searchTextFieldPlaceholderLabel => 'Търсене';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Търсене в мрежата';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Избиране на всички';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Споделяне...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Раздел $tabIndex от $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'мин';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'мин';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'час';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'часа';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'сек';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'сек';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'мин';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'мин';
 
   @override
-  String get todayLabel => r'Днес';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'сек';
+
+  @override
+  String get timerPickerSecondLabelOther => 'сек';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Днес';
 }
 
 /// The translations for Bengali Bangla (`bn`).
@@ -1063,146 +1233,342 @@ class CupertinoLocalizationBn extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationBn({
-    String localeName = 'bn',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'bn',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'সতর্কতা';
+  String get alertDialogLabel => 'সতর্কতা';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'কপি করুন';
+  String get backButtonLabel => 'ফিরে যান';
 
   @override
-  String get cutButtonLabel => r'কাট করুন';
+  String get cancelButtonLabel => 'বাতিল করুন';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get clearButtonLabel => 'মুছুন';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'কপি করুন';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'কাট করুন';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'mdy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hourটা বাজে';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hourটা বাজে';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hourটা বাজে';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'১ মিনিট';
+  String? get datePickerMinuteSemanticsLabelOne => '১ মিনিট';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute মিনিট';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'পেস্ট করুন';
+  String get lookUpButtonLabel => 'লুক-আপ';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'বাতিল করার মেনু';
 
   @override
-  String get selectAllButtonLabel => r'সব বেছে নিন';
+  String get modalBarrierDismissLabel => 'খারিজ করুন';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'কোনও বিকল্প বানান দেখানো হয়নি';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'পেস্ট করুন';
 
   @override
-  String get timerPickerHourLabelOne => r'ঘণ্টা';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'ঘণ্টা';
+  String get searchTextFieldPlaceholderLabel => 'সার্চ করুন';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'ওয়েবে সার্চ করুন';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'সব বেছে নিন';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'শেয়ার করুন...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'$tabCount-এর মধ্যে $tabIndex নম্বর ট্যাব';
 
   @override
-  String get timerPickerMinuteLabelOne => r'মিনিট।';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'মিনিট।';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'ঘণ্টা';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'ঘণ্টা';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'সেকেন্ড।';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'সেকেন্ড।';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'মিনিট।';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'মিনিট।';
 
   @override
-  String get todayLabel => r'আজ';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'সেকেন্ড।';
+
+  @override
+  String get timerPickerSecondLabelOther => 'সেকেন্ড।';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'আজ';
+}
+
+/// The translations for Tibetan (`bo`).
+class CupertinoLocalizationBo extends GlobalCupertinoLocalizations {
+  /// Create an instance of the translation bundle for Tibetan.
+  ///
+  /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
+  const CupertinoLocalizationBo({
+    super.localeName = 'bo',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
+
+  @override
+  String get alertDialogLabel => 'གསལ་བརྡ།';
+
+  @override
+  String get anteMeridiemAbbreviation => 'སྔ་དྲོ';
+
+  @override
+  String get backButtonLabel => 'Back';
+
+  @override
+  String get cancelButtonLabel => 'ཕྱིར་འཐེན།';
+
+  @override
+  String get clearButtonLabel => 'གཙང་བཟོ།';
+
+  @override
+  String get copyButtonLabel => 'བཤུས།';
+
+  @override
+  String get cutButtonLabel => 'གཅོད།';
+
+  @override
+  String get datePickerDateOrderString => 'ymd';
+
+  @override
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour ཆུ་ཚོད།';
+
+  @override
+  String get datePickerHourSemanticsLabelOther => r'$hour ཆུ་ཚོད།';
+
+  @override
+  String? get datePickerHourSemanticsLabelTwo => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelZero => null;
+
+  @override
+  String? get datePickerMinuteSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerMinuteSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerMinuteSemanticsLabelOne => 'སྐར་མ། 1';
+
+  @override
+  String get datePickerMinuteSemanticsLabelOther => r'$minute སྐར་མ་དུ་མ།';
+
+  @override
+  String? get datePickerMinuteSemanticsLabelTwo => null;
+
+  @override
+  String? get datePickerMinuteSemanticsLabelZero => null;
+
+  @override
+  String get lookUpButtonLabel => 'འཚོལ་བ།';
+
+  @override
+  String get menuDismissLabel => 'ཐོ་གཞུང་འདོར་བ།';
+
+  @override
+  String get modalBarrierDismissLabel => 'འདོར་བ།';
+
+  @override
+  String get noSpellCheckReplacementsLabel => 'བརྗེས་ལེན་མ་རྙེད།';
+
+  @override
+  String get pasteButtonLabel => 'འཕོས་པ།';
+
+  @override
+  String get postMeridiemAbbreviation => 'ཕྱི་དྲོ།';
+
+  @override
+  String get searchTextFieldPlaceholderLabel => 'འཚོལ་བཤེར།';
+
+  @override
+  String get searchWebButtonLabel => 'དྲ་ཐོག་འཚོལ་བཤེར།';
+
+  @override
+  String get selectAllButtonLabel => 'ཚང་འདེམས།';
+
+  @override
+  String get shareButtonLabel => 'མཉམ་སྤྱོད།…';
+
+  @override
+  String get tabSemanticsLabelRaw => r'འཛར་གནོན་ $tabIndex ཡི $tabCount';
+
+  @override
+  String? get timerPickerHourLabelFew => null;
+
+  @override
+  String? get timerPickerHourLabelMany => null;
+
+  @override
+  String? get timerPickerHourLabelOne => 'ཆུ་ཚོད།';
+
+  @override
+  String get timerPickerHourLabelOther => 'ཆུ་ཚོད་དུ་མ།';
+
+  @override
+  String? get timerPickerHourLabelTwo => null;
+
+  @override
+  String? get timerPickerHourLabelZero => null;
+
+  @override
+  String? get timerPickerMinuteLabelFew => null;
+
+  @override
+  String? get timerPickerMinuteLabelMany => null;
+
+  @override
+  String? get timerPickerMinuteLabelOne => 'སྐར་མ།';
+
+  @override
+  String get timerPickerMinuteLabelOther => 'སྐར་མ།';
+
+  @override
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'སྐར་ཆ།';
+
+  @override
+  String get timerPickerSecondLabelOther => 'སྐར་ཆ།';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'དེ་རིང་།';
 }
 
 /// The translations for Bosnian (`bs`).
@@ -1211,146 +1577,170 @@ class CupertinoLocalizationBs extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationBs({
-    String localeName = 'bs',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'bs',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Upozorenje';
+  String get alertDialogLabel => 'Upozorenje';
 
   @override
-  String get anteMeridiemAbbreviation => r'prijepodne';
+  String get anteMeridiemAbbreviation => 'prijepodne';
 
   @override
-  String get copyButtonLabel => r'Kopiraj';
+  String get backButtonLabel => 'Nazad';
 
   @override
-  String get cutButtonLabel => r'Izreži';
+  String get cancelButtonLabel => 'Otkaži';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Obriši';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Kopiraj';
 
   @override
-  String get datePickerHourSemanticsLabelFew => r'$hour sata';
+  String get cutButtonLabel => 'Izreži';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour sat';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => r'$hour sata';
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour sat';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour sati';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => r'$minute minute';
+  String? get datePickerMinuteSemanticsLabelFew => r'$minute minute';
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 minuta';
+  String? get datePickerMinuteSemanticsLabelOne => '1 minuta';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute minuta';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Zalijepi';
+  String get lookUpButtonLabel => 'Pogled nagore';
 
   @override
-  String get postMeridiemAbbreviation => r'poslijepodne';
+  String get menuDismissLabel => 'Odbacivanje menija';
 
   @override
-  String get selectAllButtonLabel => r'Odaberi sve';
+  String get modalBarrierDismissLabel => 'Odbaci';
 
   @override
-  String get timerPickerHourLabelFew => r'sata';
+  String get noSpellCheckReplacementsLabel => 'Nije pronađena nijedna zamjena';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Zalijepi';
 
   @override
-  String get timerPickerHourLabelOne => r'sat';
+  String get postMeridiemAbbreviation => 'poslijepodne';
 
   @override
-  String get timerPickerHourLabelOther => r'sati';
+  String get searchTextFieldPlaceholderLabel => 'Pretraživanje';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Pretraži Web';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Odaberi sve';
 
   @override
-  String get timerPickerMinuteLabelFew => r'min.';
+  String get shareButtonLabel => 'Dijeli...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Kartica $tabIndex od $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'min.';
+  String? get timerPickerHourLabelFew => 'sata';
 
   @override
-  String get timerPickerMinuteLabelOther => r'min.';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'sat';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'sati';
 
   @override
-  String get timerPickerSecondLabelFew => r'sec.';
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'sec.';
+  String? get timerPickerMinuteLabelFew => 'min';
 
   @override
-  String get timerPickerSecondLabelOther => r'sec.';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'min';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'min';
 
   @override
-  String get todayLabel => r'Danas';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => 'sec.';
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'sec.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'sec.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Danas';
 }
 
 /// The translations for Catalan Valencian (`ca`).
@@ -1359,146 +1749,170 @@ class CupertinoLocalizationCa extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationCa({
-    String localeName = 'ca',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'ca',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Alerta';
+  String get alertDialogLabel => 'Alerta';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'Copia';
+  String get backButtonLabel => 'Enrere';
 
   @override
-  String get cutButtonLabel => r'Retalla';
+  String get cancelButtonLabel => 'Cancel·la';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Esborra';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Copia';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Retalla';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour en punt';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour en punt';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour en punt';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 minut';
+  String? get datePickerMinuteSemanticsLabelOne => '1 minut';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute minuts';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Enganxa';
+  String get lookUpButtonLabel => 'Mira amunt';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'Ignora el menú';
 
   @override
-  String get selectAllButtonLabel => r'Selecciona-ho tot';
+  String get modalBarrierDismissLabel => 'Ignora';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => "No s'ha trobat cap substitució";
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Enganxa';
 
   @override
-  String get timerPickerHourLabelOne => r'hora';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'hores';
+  String get searchTextFieldPlaceholderLabel => 'Cerca';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Cerca al web';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Seleccionar-ho tot';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Comparteix...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Pestanya $tabIndex de $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'min';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'min';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'hora';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'hores';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r's';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r's';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'min';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'min';
 
   @override
-  String get todayLabel => r'Avui';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 's';
+
+  @override
+  String get timerPickerSecondLabelOther => 's';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Avui';
 }
 
 /// The translations for Czech (`cs`).
@@ -1507,146 +1921,342 @@ class CupertinoLocalizationCs extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationCs({
-    String localeName = 'cs',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'cs',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Upozornění';
+  String get alertDialogLabel => 'Upozornění';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'Kopírovat';
+  String get backButtonLabel => 'Zpět';
 
   @override
-  String get cutButtonLabel => r'Vyjmout';
+  String get cancelButtonLabel => 'Zrušit';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get clearButtonLabel => 'Vymazat';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Kopírovat';
 
   @override
-  String get datePickerHourSemanticsLabelFew => r'$hour hodiny';
+  String get cutButtonLabel => 'Vyjmout';
 
   @override
-  String get datePickerHourSemanticsLabelMany => r'$hour hodiny';
+  String get datePickerDateOrderString => 'mdy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour hodina';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => r'$hour hodiny';
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => r'$hour hodiny';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour hodina';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour hodin';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => r'$minute minuty';
+  String? get datePickerMinuteSemanticsLabelFew => r'$minute minuty';
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => r'$minute minuty';
+  String? get datePickerMinuteSemanticsLabelMany => r'$minute minuty';
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 minuta';
+  String? get datePickerMinuteSemanticsLabelOne => '1 minuta';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute minut';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Vložit';
+  String get lookUpButtonLabel => 'Vyhledat';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'Zavřít nabídku';
 
   @override
-  String get selectAllButtonLabel => r'Vybrat vše';
+  String get modalBarrierDismissLabel => 'Zavřít';
 
   @override
-  String get timerPickerHourLabelFew => r'hodiny';
+  String get noSpellCheckReplacementsLabel => 'Žádná nahrazení nenalezena';
 
   @override
-  String get timerPickerHourLabelMany => r'hodiny';
+  String get pasteButtonLabel => 'Vložit';
 
   @override
-  String get timerPickerHourLabelOne => r'hodina';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'hodin';
+  String get searchTextFieldPlaceholderLabel => 'Hledat';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Vyhledávat na webu';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Vybrat vše';
 
   @override
-  String get timerPickerMinuteLabelFew => r'min';
+  String get shareButtonLabel => 'Sdílet…';
 
   @override
-  String get timerPickerMinuteLabelMany => r'min';
+  String get tabSemanticsLabelRaw => r'Karta $tabIndex z $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'min';
+  String? get timerPickerHourLabelFew => 'hodiny';
 
   @override
-  String get timerPickerMinuteLabelOther => r'min';
+  String? get timerPickerHourLabelMany => 'hodiny';
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'hodina';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'hodin';
 
   @override
-  String get timerPickerSecondLabelFew => r's';
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => r's';
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r's';
+  String? get timerPickerMinuteLabelFew => 'min';
 
   @override
-  String get timerPickerSecondLabelOther => r's';
+  String? get timerPickerMinuteLabelMany => 'min';
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'min';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'min';
 
   @override
-  String get todayLabel => r'Dnes';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => 's';
+
+  @override
+  String? get timerPickerSecondLabelMany => 's';
+
+  @override
+  String? get timerPickerSecondLabelOne => 's';
+
+  @override
+  String get timerPickerSecondLabelOther => 's';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Dnes';
+}
+
+/// The translations for Welsh (`cy`).
+class CupertinoLocalizationCy extends GlobalCupertinoLocalizations {
+  /// Create an instance of the translation bundle for Welsh.
+  ///
+  /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
+  const CupertinoLocalizationCy({
+    super.localeName = 'cy',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
+
+  @override
+  String get alertDialogLabel => 'Rhybudd';
+
+  @override
+  String get anteMeridiemAbbreviation => 'AM';
+
+  @override
+  String get backButtonLabel => 'Nôl';
+
+  @override
+  String get cancelButtonLabel => 'Canslo';
+
+  @override
+  String get clearButtonLabel => 'Clirio';
+
+  @override
+  String get copyButtonLabel => 'Copïo';
+
+  @override
+  String get cutButtonLabel => 'Torri';
+
+  @override
+  String get datePickerDateOrderString => 'dmy';
+
+  @override
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => r"$hour o'r gloch";
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => r"$hour o'r gloch";
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r"$hour o'r gloch";
+
+  @override
+  String get datePickerHourSemanticsLabelOther => r"$hour o'r gloch";
+
+  @override
+  String? get datePickerHourSemanticsLabelTwo => r"$hour o'r gloch";
+
+  @override
+  String? get datePickerHourSemanticsLabelZero => r"$hour o'r gloch";
+
+  @override
+  String? get datePickerMinuteSemanticsLabelFew => r'$minute munud';
+
+  @override
+  String? get datePickerMinuteSemanticsLabelMany => r'$minute munud';
+
+  @override
+  String? get datePickerMinuteSemanticsLabelOne => '1 funud';
+
+  @override
+  String get datePickerMinuteSemanticsLabelOther => r'$minute munud';
+
+  @override
+  String? get datePickerMinuteSemanticsLabelTwo => r'$minute funud';
+
+  @override
+  String? get datePickerMinuteSemanticsLabelZero => r'$minute munud';
+
+  @override
+  String get lookUpButtonLabel => 'Chwilio';
+
+  @override
+  String get menuDismissLabel => "Diystyru'r ddewislen";
+
+  @override
+  String get modalBarrierDismissLabel => 'Diystyru';
+
+  @override
+  String get noSpellCheckReplacementsLabel => "Dim Ailosodiadau wedi'u Canfod";
+
+  @override
+  String get pasteButtonLabel => 'Gludo';
+
+  @override
+  String get postMeridiemAbbreviation => 'PM';
+
+  @override
+  String get searchTextFieldPlaceholderLabel => 'Chwilio';
+
+  @override
+  String get searchWebButtonLabel => "Chwilio'r We";
+
+  @override
+  String get selectAllButtonLabel => 'Dewis y Cyfan';
+
+  @override
+  String get shareButtonLabel => 'Rhannu...';
+
+  @override
+  String get tabSemanticsLabelRaw => r'Tab $tabIndex o $tabCount';
+
+  @override
+  String? get timerPickerHourLabelFew => 'awr';
+
+  @override
+  String? get timerPickerHourLabelMany => 'awr';
+
+  @override
+  String? get timerPickerHourLabelOne => 'awr';
+
+  @override
+  String get timerPickerHourLabelOther => 'awr';
+
+  @override
+  String? get timerPickerHourLabelTwo => 'awr';
+
+  @override
+  String? get timerPickerHourLabelZero => 'awr';
+
+  @override
+  String? get timerPickerMinuteLabelFew => 'munud';
+
+  @override
+  String? get timerPickerMinuteLabelMany => 'munud';
+
+  @override
+  String? get timerPickerMinuteLabelOne => 'funud';
+
+  @override
+  String get timerPickerMinuteLabelOther => 'munud';
+
+  @override
+  String? get timerPickerMinuteLabelTwo => 'funud';
+
+  @override
+  String? get timerPickerMinuteLabelZero => 'munud';
+
+  @override
+  String? get timerPickerSecondLabelFew => 'eiliad';
+
+  @override
+  String? get timerPickerSecondLabelMany => 'eiliad';
+
+  @override
+  String? get timerPickerSecondLabelOne => 'eiliad';
+
+  @override
+  String get timerPickerSecondLabelOther => 'eiliad';
+
+  @override
+  String? get timerPickerSecondLabelTwo => 'eiliad';
+
+  @override
+  String? get timerPickerSecondLabelZero => 'eiliad';
+
+  @override
+  String get todayLabel => 'Heddiw';
 }
 
 /// The translations for Danish (`da`).
@@ -1655,146 +2265,170 @@ class CupertinoLocalizationDa extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationDa({
-    String localeName = 'da',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'da',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Underretning';
+  String get alertDialogLabel => 'Underretning';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'Kopiér';
+  String get backButtonLabel => 'Tilbage';
 
   @override
-  String get cutButtonLabel => r'Klip';
+  String get cancelButtonLabel => 'Annuller';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Ryd';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Kopiér';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Klip';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'klokken $hour';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'klokken $hour';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'klokken $hour';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 minut';
+  String? get datePickerMinuteSemanticsLabelOne => '1 minut';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute minutter';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Sæt ind';
+  String get lookUpButtonLabel => 'Slå op';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'Luk menu';
 
   @override
-  String get selectAllButtonLabel => r'Vælg alle';
+  String get modalBarrierDismissLabel => 'Afvis';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Der blev ikke fundet nogen erstatninger';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Indsæt';
 
   @override
-  String get timerPickerHourLabelOne => r'time';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'timer';
+  String get searchTextFieldPlaceholderLabel => 'Søg';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Søg på nettet';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Vælg alt';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Del…';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Fane $tabIndex af $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'min.';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'min.';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'time';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'timer';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'sek.';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'sek.';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'min.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'min.';
 
   @override
-  String get todayLabel => r'I dag';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'sek.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'sek.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'I dag';
 }
 
 /// The translations for German (`de`).
@@ -1803,146 +2437,198 @@ class CupertinoLocalizationDe extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationDe({
-    String localeName = 'de',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'de',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Benachrichtigung';
+  String get alertDialogLabel => 'Benachrichtigung';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'Kopieren';
+  String get backButtonLabel => 'Zurück';
 
   @override
-  String get cutButtonLabel => r'Ausschneiden';
+  String get cancelButtonLabel => 'Abbrechen';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Löschen';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Kopieren';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Ausschneiden';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour Uhr';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour Uhr';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour Uhr';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 Minute';
+  String? get datePickerMinuteSemanticsLabelOne => '1 Minute';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute Minuten';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Einsetzen';
+  String get lookUpButtonLabel => 'Nachschlagen';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'Menü schließen';
 
   @override
-  String get selectAllButtonLabel => r'Alles auswählen';
+  String get modalBarrierDismissLabel => 'Schließen';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Keine Ersetzungen gefunden';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Einsetzen';
 
   @override
-  String get timerPickerHourLabelOne => r'Stunde';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'Stunden';
+  String get searchTextFieldPlaceholderLabel => 'Suche';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Im Web suchen';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Alle auswählen';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Teilen…';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Tab $tabIndex von $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'min';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'min';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'Stunde';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'Stunden';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r's';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r's';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'Min.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'Min.';
 
   @override
-  String get todayLabel => r'Heute';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 's';
+
+  @override
+  String get timerPickerSecondLabelOther => 's';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Heute';
+}
+
+/// The translations for German, as used in Switzerland (`de_CH`).
+class CupertinoLocalizationDeCh extends CupertinoLocalizationDe {
+  /// Create an instance of the translation bundle for German, as used in Switzerland.
+  ///
+  /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
+  const CupertinoLocalizationDeCh({
+    super.localeName = 'de_CH',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
+
+  @override
+  String get clearButtonLabel => 'Clear';
+
+  @override
+  String get selectAllButtonLabel => 'Alles auswählen';
+
+  @override
+  String get modalBarrierDismissLabel => 'Schliessen';
 }
 
 /// The translations for Modern Greek (`el`).
@@ -1951,146 +2637,170 @@ class CupertinoLocalizationEl extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEl({
-    String localeName = 'el',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'el',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Ειδοποίηση';
+  String get alertDialogLabel => 'Ειδοποίηση';
 
   @override
-  String get anteMeridiemAbbreviation => r'π.μ.';
+  String get anteMeridiemAbbreviation => 'π.μ.';
 
   @override
-  String get copyButtonLabel => r'Αντιγραφή';
+  String get backButtonLabel => 'Πίσω';
 
   @override
-  String get cutButtonLabel => r'Αποκοπή';
+  String get cancelButtonLabel => 'Ακύρωση';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Διαγραφή';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Αντιγραφή';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Αποκοπή';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour ακριβώς';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour ακριβώς';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour ακριβώς';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 λεπτό';
+  String? get datePickerMinuteSemanticsLabelOne => '1 λεπτό';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute λεπτά';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Επικόλληση';
+  String get lookUpButtonLabel => 'Look Up';
 
   @override
-  String get postMeridiemAbbreviation => r'μ.μ.';
+  String get menuDismissLabel => 'Παράβλεψη μενού';
 
   @override
-  String get selectAllButtonLabel => r'Επιλογή όλων';
+  String get modalBarrierDismissLabel => 'Παράβλεψη';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Δεν βρέθηκαν αντικαταστάσεις';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Επικόλληση';
 
   @override
-  String get timerPickerHourLabelOne => r'ώρα';
+  String get postMeridiemAbbreviation => 'μ.μ.';
 
   @override
-  String get timerPickerHourLabelOther => r'ώρες';
+  String get searchTextFieldPlaceholderLabel => 'Αναζήτηση';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Αναζήτηση στον ιστό';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Επιλογή όλων';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Κοινοποίηση…';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Καρτέλα $tabIndex από $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'λεπ.';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'λεπ.';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'ώρα';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'ώρες';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'δευτ.';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'δευτ.';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'λεπ.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'λεπ.';
 
   @override
-  String get todayLabel => r'Σήμερα';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'δευτ.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'δευτ.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Σήμερα';
 }
 
 /// The translations for English (`en`).
@@ -2099,146 +2809,170 @@ class CupertinoLocalizationEn extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEn({
-    String localeName = 'en',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'en',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Alert';
+  String get alertDialogLabel => 'Alert';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'Copy';
+  String get backButtonLabel => 'Back';
 
   @override
-  String get cutButtonLabel => r'Cut';
+  String get cancelButtonLabel => 'Cancel';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get clearButtonLabel => 'Clear';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Copy';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Cut';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'mdy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour o' "'" r'clock';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
 
   @override
-  String get datePickerHourSemanticsLabelOther => r'$hour o' "'" r'clock';
+  String? get datePickerHourSemanticsLabelFew => null;
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelMany => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelOne => r"$hour o'clock";
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String get datePickerHourSemanticsLabelOther => r"$hour o'clock";
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 minute';
+  String? get datePickerHourSemanticsLabelZero => null;
+
+  @override
+  String? get datePickerMinuteSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerMinuteSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerMinuteSemanticsLabelOne => '1 minute';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute minutes';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Paste';
+  String get lookUpButtonLabel => 'Look Up';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'Dismiss menu';
 
   @override
-  String get selectAllButtonLabel => r'Select All';
+  String get modalBarrierDismissLabel => 'Dismiss';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'No Replacements Found';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Paste';
 
   @override
-  String get timerPickerHourLabelOne => r'hour';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'hours';
+  String get searchTextFieldPlaceholderLabel => 'Search';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Search Web';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Select All';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Share...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Tab $tabIndex of $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'min.';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'min.';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'hour';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'hours';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'sec.';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'sec.';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'min.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'min.';
 
   @override
-  String get todayLabel => r'Today';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'sec.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'sec.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Today';
 }
 
 /// The translations for English, as used in Australia (`en_AU`).
@@ -2247,32 +2981,29 @@ class CupertinoLocalizationEnAu extends CupertinoLocalizationEn {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEnAu({
-    String localeName = 'en_AU',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'en_AU',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get lookUpButtonLabel => 'Look up';
 
   @override
-  String get selectAllButtonLabel => r'Select all';
+  String get noSpellCheckReplacementsLabel => 'No replacements found';
+
+  @override
+  String get datePickerDateOrderString => 'dmy';
+
+  @override
+  String get selectAllButtonLabel => 'Select all';
 }
 
 /// The translations for English, as used in Canada (`en_CA`).
@@ -2281,32 +3012,23 @@ class CupertinoLocalizationEnCa extends CupertinoLocalizationEn {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEnCa({
-    String localeName = 'en_CA',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'en_CA',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get selectAllButtonLabel => r'Select all';
+  String get selectAllButtonLabel => 'Select all';
 }
 
 /// The translations for English, as used in the United Kingdom (`en_GB`).
@@ -2315,32 +3037,29 @@ class CupertinoLocalizationEnGb extends CupertinoLocalizationEn {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEnGb({
-    String localeName = 'en_GB',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'en_GB',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get lookUpButtonLabel => 'Look up';
 
   @override
-  String get selectAllButtonLabel => r'Select all';
+  String get noSpellCheckReplacementsLabel => 'No replacements found';
+
+  @override
+  String get datePickerDateOrderString => 'dmy';
+
+  @override
+  String get selectAllButtonLabel => 'Select all';
 }
 
 /// The translations for English, as used in Ireland (`en_IE`).
@@ -2349,32 +3068,29 @@ class CupertinoLocalizationEnIe extends CupertinoLocalizationEn {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEnIe({
-    String localeName = 'en_IE',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'en_IE',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get lookUpButtonLabel => 'Look up';
 
   @override
-  String get selectAllButtonLabel => r'Select all';
+  String get noSpellCheckReplacementsLabel => 'No replacements found';
+
+  @override
+  String get datePickerDateOrderString => 'dmy';
+
+  @override
+  String get selectAllButtonLabel => 'Select all';
 }
 
 /// The translations for English, as used in India (`en_IN`).
@@ -2383,32 +3099,29 @@ class CupertinoLocalizationEnIn extends CupertinoLocalizationEn {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEnIn({
-    String localeName = 'en_IN',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'en_IN',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get lookUpButtonLabel => 'Look up';
 
   @override
-  String get selectAllButtonLabel => r'Select all';
+  String get noSpellCheckReplacementsLabel => 'No replacements found';
+
+  @override
+  String get datePickerDateOrderString => 'dmy';
+
+  @override
+  String get selectAllButtonLabel => 'Select all';
 }
 
 /// The translations for English, as used in New Zealand (`en_NZ`).
@@ -2417,32 +3130,29 @@ class CupertinoLocalizationEnNz extends CupertinoLocalizationEn {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEnNz({
-    String localeName = 'en_NZ',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'en_NZ',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get lookUpButtonLabel => 'Look up';
 
   @override
-  String get selectAllButtonLabel => r'Select all';
+  String get noSpellCheckReplacementsLabel => 'No replacements found';
+
+  @override
+  String get datePickerDateOrderString => 'dmy';
+
+  @override
+  String get selectAllButtonLabel => 'Select all';
 }
 
 /// The translations for English, as used in Singapore (`en_SG`).
@@ -2451,32 +3161,29 @@ class CupertinoLocalizationEnSg extends CupertinoLocalizationEn {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEnSg({
-    String localeName = 'en_SG',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'en_SG',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get lookUpButtonLabel => 'Look up';
 
   @override
-  String get selectAllButtonLabel => r'Select all';
+  String get noSpellCheckReplacementsLabel => 'No replacements found';
+
+  @override
+  String get datePickerDateOrderString => 'dmy';
+
+  @override
+  String get selectAllButtonLabel => 'Select all';
 }
 
 /// The translations for English, as used in South Africa (`en_ZA`).
@@ -2485,32 +3192,29 @@ class CupertinoLocalizationEnZa extends CupertinoLocalizationEn {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEnZa({
-    String localeName = 'en_ZA',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'en_ZA',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get lookUpButtonLabel => 'Look up';
 
   @override
-  String get selectAllButtonLabel => r'Select all';
+  String get noSpellCheckReplacementsLabel => 'No replacements found';
+
+  @override
+  String get datePickerDateOrderString => 'dmy';
+
+  @override
+  String get selectAllButtonLabel => 'Select all';
 }
 
 /// The translations for Spanish Castilian (`es`).
@@ -2519,146 +3223,170 @@ class CupertinoLocalizationEs extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEs({
-    String localeName = 'es',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'es',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Alerta';
+  String get alertDialogLabel => 'Alerta';
 
   @override
-  String get anteMeridiemAbbreviation => r'A.M.';
+  String get anteMeridiemAbbreviation => 'a. m.';
 
   @override
-  String get copyButtonLabel => r'Copiar';
+  String get backButtonLabel => 'Atrás';
 
   @override
-  String get cutButtonLabel => r'Cortar';
+  String get cancelButtonLabel => 'Cancelar';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Borrar';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Copiar';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Cortar';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour en punto';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour en punto';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour en punto';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 minuto';
+  String? get datePickerMinuteSemanticsLabelOne => '1 minuto';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute minutos';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Pegar';
+  String get lookUpButtonLabel => 'Buscador visual';
 
   @override
-  String get postMeridiemAbbreviation => r'P.M.';
+  String get menuDismissLabel => 'Cerrar menú';
 
   @override
-  String get selectAllButtonLabel => r'Seleccionar todo';
+  String get modalBarrierDismissLabel => 'Cerrar';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'No se ha encontrado ninguna sustitución';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Pegar';
 
   @override
-  String get timerPickerHourLabelOne => r'hora';
+  String get postMeridiemAbbreviation => 'p. m.';
 
   @override
-  String get timerPickerHourLabelOther => r'horas';
+  String get searchTextFieldPlaceholderLabel => 'Buscar';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Buscar en la Web';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Seleccionar todo';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Compartir...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Pestaña $tabIndex de $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'min';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'min';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'hora';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'horas';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r's';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r's';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'min';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'min';
 
   @override
-  String get todayLabel => r'Hoy';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 's';
+
+  @override
+  String get timerPickerSecondLabelOther => 's';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Hoy';
 }
 
 /// The translations for Spanish Castilian, as used in Latin America and the Caribbean (`es_419`).
@@ -2667,44 +3395,44 @@ class CupertinoLocalizationEs419 extends CupertinoLocalizationEs {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEs419({
-    String localeName = 'es_419',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'es_419',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour en punto';
+  String get shareButtonLabel => 'Compartir…';
+
+  @override
+  String get lookUpButtonLabel => 'Mirar hacia arriba';
+
+  @override
+  String get noSpellCheckReplacementsLabel => 'No se encontraron reemplazos';
+
+  @override
+  String get menuDismissLabel => 'Descartar menú';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour en punto';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour en punto';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get anteMeridiemAbbreviation => 'a.m.';
 
   @override
-  String get anteMeridiemAbbreviation => r'a.m.';
+  String get postMeridiemAbbreviation => 'p.m.';
 
   @override
-  String get postMeridiemAbbreviation => r'p.m.';
-
-  @override
-  String get selectAllButtonLabel => r'Seleccionar todos';
+  String get modalBarrierDismissLabel => 'Descartar';
 }
 
 /// The translations for Spanish Castilian, as used in Argentina (`es_AR`).
@@ -2713,44 +3441,44 @@ class CupertinoLocalizationEsAr extends CupertinoLocalizationEs {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEsAr({
-    String localeName = 'es_AR',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'es_AR',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour en punto';
+  String get shareButtonLabel => 'Compartir…';
+
+  @override
+  String get lookUpButtonLabel => 'Mirar hacia arriba';
+
+  @override
+  String get noSpellCheckReplacementsLabel => 'No se encontraron reemplazos';
+
+  @override
+  String get menuDismissLabel => 'Descartar menú';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour en punto';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour en punto';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get anteMeridiemAbbreviation => 'a.m.';
 
   @override
-  String get anteMeridiemAbbreviation => r'a.m.';
+  String get postMeridiemAbbreviation => 'p.m.';
 
   @override
-  String get postMeridiemAbbreviation => r'p.m.';
-
-  @override
-  String get selectAllButtonLabel => r'Seleccionar todos';
+  String get modalBarrierDismissLabel => 'Descartar';
 }
 
 /// The translations for Spanish Castilian, as used in Bolivia (`es_BO`).
@@ -2759,44 +3487,44 @@ class CupertinoLocalizationEsBo extends CupertinoLocalizationEs {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEsBo({
-    String localeName = 'es_BO',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'es_BO',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour en punto';
+  String get shareButtonLabel => 'Compartir…';
+
+  @override
+  String get lookUpButtonLabel => 'Mirar hacia arriba';
+
+  @override
+  String get noSpellCheckReplacementsLabel => 'No se encontraron reemplazos';
+
+  @override
+  String get menuDismissLabel => 'Descartar menú';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour en punto';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour en punto';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get anteMeridiemAbbreviation => 'a.m.';
 
   @override
-  String get anteMeridiemAbbreviation => r'a.m.';
+  String get postMeridiemAbbreviation => 'p.m.';
 
   @override
-  String get postMeridiemAbbreviation => r'p.m.';
-
-  @override
-  String get selectAllButtonLabel => r'Seleccionar todos';
+  String get modalBarrierDismissLabel => 'Descartar';
 }
 
 /// The translations for Spanish Castilian, as used in Chile (`es_CL`).
@@ -2805,44 +3533,44 @@ class CupertinoLocalizationEsCl extends CupertinoLocalizationEs {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEsCl({
-    String localeName = 'es_CL',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'es_CL',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour en punto';
+  String get shareButtonLabel => 'Compartir…';
+
+  @override
+  String get lookUpButtonLabel => 'Mirar hacia arriba';
+
+  @override
+  String get noSpellCheckReplacementsLabel => 'No se encontraron reemplazos';
+
+  @override
+  String get menuDismissLabel => 'Descartar menú';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour en punto';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour en punto';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get anteMeridiemAbbreviation => 'a.m.';
 
   @override
-  String get anteMeridiemAbbreviation => r'a.m.';
+  String get postMeridiemAbbreviation => 'p.m.';
 
   @override
-  String get postMeridiemAbbreviation => r'p.m.';
-
-  @override
-  String get selectAllButtonLabel => r'Seleccionar todos';
+  String get modalBarrierDismissLabel => 'Descartar';
 }
 
 /// The translations for Spanish Castilian, as used in Colombia (`es_CO`).
@@ -2851,44 +3579,44 @@ class CupertinoLocalizationEsCo extends CupertinoLocalizationEs {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEsCo({
-    String localeName = 'es_CO',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'es_CO',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour en punto';
+  String get shareButtonLabel => 'Compartir…';
+
+  @override
+  String get lookUpButtonLabel => 'Mirar hacia arriba';
+
+  @override
+  String get noSpellCheckReplacementsLabel => 'No se encontraron reemplazos';
+
+  @override
+  String get menuDismissLabel => 'Descartar menú';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour en punto';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour en punto';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get anteMeridiemAbbreviation => 'a.m.';
 
   @override
-  String get anteMeridiemAbbreviation => r'a.m.';
+  String get postMeridiemAbbreviation => 'p.m.';
 
   @override
-  String get postMeridiemAbbreviation => r'p.m.';
-
-  @override
-  String get selectAllButtonLabel => r'Seleccionar todos';
+  String get modalBarrierDismissLabel => 'Descartar';
 }
 
 /// The translations for Spanish Castilian, as used in Costa Rica (`es_CR`).
@@ -2897,44 +3625,44 @@ class CupertinoLocalizationEsCr extends CupertinoLocalizationEs {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEsCr({
-    String localeName = 'es_CR',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'es_CR',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour en punto';
+  String get shareButtonLabel => 'Compartir…';
+
+  @override
+  String get lookUpButtonLabel => 'Mirar hacia arriba';
+
+  @override
+  String get noSpellCheckReplacementsLabel => 'No se encontraron reemplazos';
+
+  @override
+  String get menuDismissLabel => 'Descartar menú';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour en punto';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour en punto';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get anteMeridiemAbbreviation => 'a.m.';
 
   @override
-  String get anteMeridiemAbbreviation => r'a.m.';
+  String get postMeridiemAbbreviation => 'p.m.';
 
   @override
-  String get postMeridiemAbbreviation => r'p.m.';
-
-  @override
-  String get selectAllButtonLabel => r'Seleccionar todos';
+  String get modalBarrierDismissLabel => 'Descartar';
 }
 
 /// The translations for Spanish Castilian, as used in the Dominican Republic (`es_DO`).
@@ -2943,44 +3671,44 @@ class CupertinoLocalizationEsDo extends CupertinoLocalizationEs {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEsDo({
-    String localeName = 'es_DO',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'es_DO',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour en punto';
+  String get shareButtonLabel => 'Compartir…';
+
+  @override
+  String get lookUpButtonLabel => 'Mirar hacia arriba';
+
+  @override
+  String get noSpellCheckReplacementsLabel => 'No se encontraron reemplazos';
+
+  @override
+  String get menuDismissLabel => 'Descartar menú';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour en punto';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour en punto';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get anteMeridiemAbbreviation => 'a.m.';
 
   @override
-  String get anteMeridiemAbbreviation => r'a.m.';
+  String get postMeridiemAbbreviation => 'p.m.';
 
   @override
-  String get postMeridiemAbbreviation => r'p.m.';
-
-  @override
-  String get selectAllButtonLabel => r'Seleccionar todos';
+  String get modalBarrierDismissLabel => 'Descartar';
 }
 
 /// The translations for Spanish Castilian, as used in Ecuador (`es_EC`).
@@ -2989,44 +3717,44 @@ class CupertinoLocalizationEsEc extends CupertinoLocalizationEs {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEsEc({
-    String localeName = 'es_EC',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'es_EC',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour en punto';
+  String get shareButtonLabel => 'Compartir…';
+
+  @override
+  String get lookUpButtonLabel => 'Mirar hacia arriba';
+
+  @override
+  String get noSpellCheckReplacementsLabel => 'No se encontraron reemplazos';
+
+  @override
+  String get menuDismissLabel => 'Descartar menú';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour en punto';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour en punto';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get anteMeridiemAbbreviation => 'a.m.';
 
   @override
-  String get anteMeridiemAbbreviation => r'a.m.';
+  String get postMeridiemAbbreviation => 'p.m.';
 
   @override
-  String get postMeridiemAbbreviation => r'p.m.';
-
-  @override
-  String get selectAllButtonLabel => r'Seleccionar todos';
+  String get modalBarrierDismissLabel => 'Descartar';
 }
 
 /// The translations for Spanish Castilian, as used in Guatemala (`es_GT`).
@@ -3035,44 +3763,44 @@ class CupertinoLocalizationEsGt extends CupertinoLocalizationEs {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEsGt({
-    String localeName = 'es_GT',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'es_GT',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour en punto';
+  String get shareButtonLabel => 'Compartir…';
+
+  @override
+  String get lookUpButtonLabel => 'Mirar hacia arriba';
+
+  @override
+  String get noSpellCheckReplacementsLabel => 'No se encontraron reemplazos';
+
+  @override
+  String get menuDismissLabel => 'Descartar menú';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour en punto';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour en punto';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get anteMeridiemAbbreviation => 'a.m.';
 
   @override
-  String get anteMeridiemAbbreviation => r'a.m.';
+  String get postMeridiemAbbreviation => 'p.m.';
 
   @override
-  String get postMeridiemAbbreviation => r'p.m.';
-
-  @override
-  String get selectAllButtonLabel => r'Seleccionar todos';
+  String get modalBarrierDismissLabel => 'Descartar';
 }
 
 /// The translations for Spanish Castilian, as used in Honduras (`es_HN`).
@@ -3081,44 +3809,44 @@ class CupertinoLocalizationEsHn extends CupertinoLocalizationEs {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEsHn({
-    String localeName = 'es_HN',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'es_HN',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour en punto';
+  String get shareButtonLabel => 'Compartir…';
+
+  @override
+  String get lookUpButtonLabel => 'Mirar hacia arriba';
+
+  @override
+  String get noSpellCheckReplacementsLabel => 'No se encontraron reemplazos';
+
+  @override
+  String get menuDismissLabel => 'Descartar menú';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour en punto';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour en punto';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get anteMeridiemAbbreviation => 'a.m.';
 
   @override
-  String get anteMeridiemAbbreviation => r'a.m.';
+  String get postMeridiemAbbreviation => 'p.m.';
 
   @override
-  String get postMeridiemAbbreviation => r'p.m.';
-
-  @override
-  String get selectAllButtonLabel => r'Seleccionar todos';
+  String get modalBarrierDismissLabel => 'Descartar';
 }
 
 /// The translations for Spanish Castilian, as used in Mexico (`es_MX`).
@@ -3127,44 +3855,44 @@ class CupertinoLocalizationEsMx extends CupertinoLocalizationEs {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEsMx({
-    String localeName = 'es_MX',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'es_MX',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour en punto';
+  String get shareButtonLabel => 'Compartir…';
+
+  @override
+  String get lookUpButtonLabel => 'Mirar hacia arriba';
+
+  @override
+  String get noSpellCheckReplacementsLabel => 'No se encontraron reemplazos';
+
+  @override
+  String get menuDismissLabel => 'Descartar menú';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour en punto';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour en punto';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get anteMeridiemAbbreviation => 'a.m.';
 
   @override
-  String get anteMeridiemAbbreviation => r'a.m.';
+  String get postMeridiemAbbreviation => 'p.m.';
 
   @override
-  String get postMeridiemAbbreviation => r'p.m.';
-
-  @override
-  String get selectAllButtonLabel => r'Seleccionar todos';
+  String get modalBarrierDismissLabel => 'Descartar';
 }
 
 /// The translations for Spanish Castilian, as used in Nicaragua (`es_NI`).
@@ -3173,44 +3901,44 @@ class CupertinoLocalizationEsNi extends CupertinoLocalizationEs {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEsNi({
-    String localeName = 'es_NI',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'es_NI',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour en punto';
+  String get shareButtonLabel => 'Compartir…';
+
+  @override
+  String get lookUpButtonLabel => 'Mirar hacia arriba';
+
+  @override
+  String get noSpellCheckReplacementsLabel => 'No se encontraron reemplazos';
+
+  @override
+  String get menuDismissLabel => 'Descartar menú';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour en punto';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour en punto';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get anteMeridiemAbbreviation => 'a.m.';
 
   @override
-  String get anteMeridiemAbbreviation => r'a.m.';
+  String get postMeridiemAbbreviation => 'p.m.';
 
   @override
-  String get postMeridiemAbbreviation => r'p.m.';
-
-  @override
-  String get selectAllButtonLabel => r'Seleccionar todos';
+  String get modalBarrierDismissLabel => 'Descartar';
 }
 
 /// The translations for Spanish Castilian, as used in Panama (`es_PA`).
@@ -3219,44 +3947,44 @@ class CupertinoLocalizationEsPa extends CupertinoLocalizationEs {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEsPa({
-    String localeName = 'es_PA',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'es_PA',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour en punto';
+  String get shareButtonLabel => 'Compartir…';
+
+  @override
+  String get lookUpButtonLabel => 'Mirar hacia arriba';
+
+  @override
+  String get noSpellCheckReplacementsLabel => 'No se encontraron reemplazos';
+
+  @override
+  String get menuDismissLabel => 'Descartar menú';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour en punto';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour en punto';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get anteMeridiemAbbreviation => 'a.m.';
 
   @override
-  String get anteMeridiemAbbreviation => r'a.m.';
+  String get postMeridiemAbbreviation => 'p.m.';
 
   @override
-  String get postMeridiemAbbreviation => r'p.m.';
-
-  @override
-  String get selectAllButtonLabel => r'Seleccionar todos';
+  String get modalBarrierDismissLabel => 'Descartar';
 }
 
 /// The translations for Spanish Castilian, as used in Peru (`es_PE`).
@@ -3265,44 +3993,44 @@ class CupertinoLocalizationEsPe extends CupertinoLocalizationEs {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEsPe({
-    String localeName = 'es_PE',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'es_PE',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour en punto';
+  String get shareButtonLabel => 'Compartir…';
+
+  @override
+  String get lookUpButtonLabel => 'Mirar hacia arriba';
+
+  @override
+  String get noSpellCheckReplacementsLabel => 'No se encontraron reemplazos';
+
+  @override
+  String get menuDismissLabel => 'Descartar menú';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour en punto';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour en punto';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get anteMeridiemAbbreviation => 'a.m.';
 
   @override
-  String get anteMeridiemAbbreviation => r'a.m.';
+  String get postMeridiemAbbreviation => 'p.m.';
 
   @override
-  String get postMeridiemAbbreviation => r'p.m.';
-
-  @override
-  String get selectAllButtonLabel => r'Seleccionar todos';
+  String get modalBarrierDismissLabel => 'Descartar';
 }
 
 /// The translations for Spanish Castilian, as used in Puerto Rico (`es_PR`).
@@ -3311,44 +4039,44 @@ class CupertinoLocalizationEsPr extends CupertinoLocalizationEs {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEsPr({
-    String localeName = 'es_PR',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'es_PR',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour en punto';
+  String get shareButtonLabel => 'Compartir…';
+
+  @override
+  String get lookUpButtonLabel => 'Mirar hacia arriba';
+
+  @override
+  String get noSpellCheckReplacementsLabel => 'No se encontraron reemplazos';
+
+  @override
+  String get menuDismissLabel => 'Descartar menú';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour en punto';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour en punto';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get anteMeridiemAbbreviation => 'a.m.';
 
   @override
-  String get anteMeridiemAbbreviation => r'a.m.';
+  String get postMeridiemAbbreviation => 'p.m.';
 
   @override
-  String get postMeridiemAbbreviation => r'p.m.';
-
-  @override
-  String get selectAllButtonLabel => r'Seleccionar todos';
+  String get modalBarrierDismissLabel => 'Descartar';
 }
 
 /// The translations for Spanish Castilian, as used in Paraguay (`es_PY`).
@@ -3357,44 +4085,44 @@ class CupertinoLocalizationEsPy extends CupertinoLocalizationEs {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEsPy({
-    String localeName = 'es_PY',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'es_PY',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour en punto';
+  String get shareButtonLabel => 'Compartir…';
+
+  @override
+  String get lookUpButtonLabel => 'Mirar hacia arriba';
+
+  @override
+  String get noSpellCheckReplacementsLabel => 'No se encontraron reemplazos';
+
+  @override
+  String get menuDismissLabel => 'Descartar menú';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour en punto';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour en punto';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get anteMeridiemAbbreviation => 'a.m.';
 
   @override
-  String get anteMeridiemAbbreviation => r'a.m.';
+  String get postMeridiemAbbreviation => 'p.m.';
 
   @override
-  String get postMeridiemAbbreviation => r'p.m.';
-
-  @override
-  String get selectAllButtonLabel => r'Seleccionar todos';
+  String get modalBarrierDismissLabel => 'Descartar';
 }
 
 /// The translations for Spanish Castilian, as used in El Salvador (`es_SV`).
@@ -3403,44 +4131,44 @@ class CupertinoLocalizationEsSv extends CupertinoLocalizationEs {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEsSv({
-    String localeName = 'es_SV',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'es_SV',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour en punto';
+  String get shareButtonLabel => 'Compartir…';
+
+  @override
+  String get lookUpButtonLabel => 'Mirar hacia arriba';
+
+  @override
+  String get noSpellCheckReplacementsLabel => 'No se encontraron reemplazos';
+
+  @override
+  String get menuDismissLabel => 'Descartar menú';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour en punto';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour en punto';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get anteMeridiemAbbreviation => 'a.m.';
 
   @override
-  String get anteMeridiemAbbreviation => r'a.m.';
+  String get postMeridiemAbbreviation => 'p.m.';
 
   @override
-  String get postMeridiemAbbreviation => r'p.m.';
-
-  @override
-  String get selectAllButtonLabel => r'Seleccionar todos';
+  String get modalBarrierDismissLabel => 'Descartar';
 }
 
 /// The translations for Spanish Castilian, as used in the United States (`es_US`).
@@ -3449,44 +4177,44 @@ class CupertinoLocalizationEsUs extends CupertinoLocalizationEs {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEsUs({
-    String localeName = 'es_US',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'es_US',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour en punto';
+  String get shareButtonLabel => 'Compartir…';
+
+  @override
+  String get lookUpButtonLabel => 'Mirar hacia arriba';
+
+  @override
+  String get noSpellCheckReplacementsLabel => 'No se encontraron reemplazos';
+
+  @override
+  String get menuDismissLabel => 'Descartar menú';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour en punto';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour en punto';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get anteMeridiemAbbreviation => 'a.m.';
 
   @override
-  String get anteMeridiemAbbreviation => r'a.m.';
+  String get postMeridiemAbbreviation => 'p.m.';
 
   @override
-  String get postMeridiemAbbreviation => r'p.m.';
-
-  @override
-  String get selectAllButtonLabel => r'Seleccionar todos';
+  String get modalBarrierDismissLabel => 'Descartar';
 }
 
 /// The translations for Spanish Castilian, as used in Uruguay (`es_UY`).
@@ -3495,44 +4223,44 @@ class CupertinoLocalizationEsUy extends CupertinoLocalizationEs {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEsUy({
-    String localeName = 'es_UY',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'es_UY',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour en punto';
+  String get shareButtonLabel => 'Compartir…';
+
+  @override
+  String get lookUpButtonLabel => 'Mirar hacia arriba';
+
+  @override
+  String get noSpellCheckReplacementsLabel => 'No se encontraron reemplazos';
+
+  @override
+  String get menuDismissLabel => 'Descartar menú';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour en punto';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour en punto';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get anteMeridiemAbbreviation => 'a.m.';
 
   @override
-  String get anteMeridiemAbbreviation => r'a.m.';
+  String get postMeridiemAbbreviation => 'p.m.';
 
   @override
-  String get postMeridiemAbbreviation => r'p.m.';
-
-  @override
-  String get selectAllButtonLabel => r'Seleccionar todos';
+  String get modalBarrierDismissLabel => 'Descartar';
 }
 
 /// The translations for Spanish Castilian, as used in Venezuela (`es_VE`).
@@ -3541,44 +4269,44 @@ class CupertinoLocalizationEsVe extends CupertinoLocalizationEs {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEsVe({
-    String localeName = 'es_VE',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'es_VE',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour en punto';
+  String get shareButtonLabel => 'Compartir…';
+
+  @override
+  String get lookUpButtonLabel => 'Mirar hacia arriba';
+
+  @override
+  String get noSpellCheckReplacementsLabel => 'No se encontraron reemplazos';
+
+  @override
+  String get menuDismissLabel => 'Descartar menú';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour en punto';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour en punto';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get anteMeridiemAbbreviation => 'a.m.';
 
   @override
-  String get anteMeridiemAbbreviation => r'a.m.';
+  String get postMeridiemAbbreviation => 'p.m.';
 
   @override
-  String get postMeridiemAbbreviation => r'p.m.';
-
-  @override
-  String get selectAllButtonLabel => r'Seleccionar todos';
+  String get modalBarrierDismissLabel => 'Descartar';
 }
 
 /// The translations for Estonian (`et`).
@@ -3587,146 +4315,170 @@ class CupertinoLocalizationEt extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEt({
-    String localeName = 'et',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'et',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Märguanne';
+  String get alertDialogLabel => 'Märguanne';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'Kopeeri';
+  String get backButtonLabel => 'Tagasi';
 
   @override
-  String get cutButtonLabel => r'Lõika';
+  String get cancelButtonLabel => 'Tühista';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Kustutamine';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Kopeeri';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Lõika';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'Kell $hour';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'Kell $hour';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'Kell $hour';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 minut';
+  String? get datePickerMinuteSemanticsLabelOne => '1 minut';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute minutit';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Kleebi';
+  String get lookUpButtonLabel => 'Look Up';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'Sulge menüü';
 
   @override
-  String get selectAllButtonLabel => r'Vali kõik';
+  String get modalBarrierDismissLabel => 'Loobu';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Asendusi ei leitud';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Kleebi';
 
   @override
-  String get timerPickerHourLabelOne => r'tund';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'tundi';
+  String get searchTextFieldPlaceholderLabel => 'Otsige';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Otsi veebist';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Vali kõik';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Jaga …';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'$tabIndex. vaheleht $tabCount-st';
 
   @override
-  String get timerPickerMinuteLabelOne => r'min';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'min';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'tund';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'tundi';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r's';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r's';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'min';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'min';
 
   @override
-  String get todayLabel => r'Täna';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 's';
+
+  @override
+  String get timerPickerSecondLabelOther => 's';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Täna';
 }
 
 /// The translations for Basque (`eu`).
@@ -3735,146 +4487,170 @@ class CupertinoLocalizationEu extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationEu({
-    String localeName = 'eu',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'eu',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Alerta';
+  String get alertDialogLabel => 'Alerta';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'Kopiatu';
+  String get backButtonLabel => 'Atzera';
 
   @override
-  String get cutButtonLabel => r'Ebaki';
+  String get cancelButtonLabel => 'Utzi';
 
   @override
-  String get datePickerDateOrderString => r'ymd';
+  String get clearButtonLabel => 'Garbitu';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Kopiatu';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Ebaki';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'ymd';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'Ordu$houra da';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'Ordu$houra da';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hourak dira';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'Minutu bat';
+  String? get datePickerMinuteSemanticsLabelOne => 'Minutu bat';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute minutu';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Itsatsi';
+  String get lookUpButtonLabel => 'Bilatu';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'Baztertu menua';
 
   @override
-  String get selectAllButtonLabel => r'Hautatu guztiak';
+  String get modalBarrierDismissLabel => 'Baztertu';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Ez da aurkitu ordezteko hitzik';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Itsatsi';
 
   @override
-  String get timerPickerHourLabelOne => r'ordu';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'ordu';
+  String get searchTextFieldPlaceholderLabel => 'Bilatu';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Bilatu sarean';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Hautatu dena';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Partekatu...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'$tabIndex/$tabCount fitxa';
 
   @override
-  String get timerPickerMinuteLabelOne => r'min.';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'min.';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'ordu';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'ordu';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r's';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r's';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'min.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'min.';
 
   @override
-  String get todayLabel => r'Gaur';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 's';
+
+  @override
+  String get timerPickerSecondLabelOther => 's';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Gaur';
 }
 
 /// The translations for Persian (`fa`).
@@ -3883,146 +4659,170 @@ class CupertinoLocalizationFa extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationFa({
-    String localeName = 'fa',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'fa',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'هشدار';
+  String get alertDialogLabel => 'هشدار';
 
   @override
-  String get anteMeridiemAbbreviation => r'ق.ظ.';
+  String get anteMeridiemAbbreviation => 'ق.ظ.';
 
   @override
-  String get copyButtonLabel => r'کپی';
+  String get backButtonLabel => 'برگشتن';
 
   @override
-  String get cutButtonLabel => r'برش';
+  String get cancelButtonLabel => 'لغو';
 
   @override
-  String get datePickerDateOrderString => r'ymd';
+  String get clearButtonLabel => 'پاک کردن';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'کپی';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'برش';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'ymd';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'ساعت $hour';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'ساعت $hour';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'ساعت $hour';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'۱ دقیقه';
+  String? get datePickerMinuteSemanticsLabelOne => '۱ دقیقه';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute دقیقه';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'جای‌گذاری';
+  String get lookUpButtonLabel => 'جستجو';
 
   @override
-  String get postMeridiemAbbreviation => r'ب.ظ.';
+  String get menuDismissLabel => 'بستن منو';
 
   @override
-  String get selectAllButtonLabel => r'انتخاب همه';
+  String get modalBarrierDismissLabel => 'نپذیرفتن';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'جایگزینی پیدا نشد';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'جای‌گذاری';
 
   @override
-  String get timerPickerHourLabelOne => r'ساعت';
+  String get postMeridiemAbbreviation => 'ب.ظ.';
 
   @override
-  String get timerPickerHourLabelOther => r'ساعت';
+  String get searchTextFieldPlaceholderLabel => 'جستجو';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'جستجو در وب';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'انتخاب همه';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'هم‌رسانی…';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'برگه $tabIndex از $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'دقیقه';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'دقیقه';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'ساعت';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'ساعت';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'ثانیه';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'ثانیه';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'دقیقه';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'دقیقه';
 
   @override
-  String get todayLabel => r'امروز';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'ثانیه';
+
+  @override
+  String get timerPickerSecondLabelOther => 'ثانیه';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'امروز';
 }
 
 /// The translations for Finnish (`fi`).
@@ -4031,146 +4831,170 @@ class CupertinoLocalizationFi extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationFi({
-    String localeName = 'fi',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'fi',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Ilmoitus';
+  String get alertDialogLabel => 'Ilmoitus';
 
   @override
-  String get anteMeridiemAbbreviation => r'ap';
+  String get anteMeridiemAbbreviation => 'ap';
 
   @override
-  String get copyButtonLabel => r'Kopioi';
+  String get backButtonLabel => 'Takaisin';
 
   @override
-  String get cutButtonLabel => r'Leikkaa';
+  String get cancelButtonLabel => 'Peru';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Tyhjennä';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Kopioi';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Leikkaa';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'klo $hour';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'klo $hour';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'klo $hour';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 minuutti';
+  String? get datePickerMinuteSemanticsLabelOne => '1 minuutti';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute minuuttia';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Liitä';
+  String get lookUpButtonLabel => 'Hae';
 
   @override
-  String get postMeridiemAbbreviation => r'ip';
+  String get menuDismissLabel => 'Hylkää valikko';
 
   @override
-  String get selectAllButtonLabel => r'Valitse kaikki';
+  String get modalBarrierDismissLabel => 'Ohita';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Korvaavia sanoja ei löydy';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Liitä';
 
   @override
-  String get timerPickerHourLabelOne => r'tunti';
+  String get postMeridiemAbbreviation => 'ip';
 
   @override
-  String get timerPickerHourLabelOther => r'tuntia';
+  String get searchTextFieldPlaceholderLabel => 'Hae';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Hae verkosta';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Valitse kaikki';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Jaa…';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Välilehti $tabIndex kautta $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'min';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'min';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'tunti';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'tuntia';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r's';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r's';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'min';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'min';
 
   @override
-  String get todayLabel => r'Tänään';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 's';
+
+  @override
+  String get timerPickerSecondLabelOther => 's';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Tänään';
 }
 
 /// The translations for Filipino Pilipino (`fil`).
@@ -4179,146 +5003,170 @@ class CupertinoLocalizationFil extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationFil({
-    String localeName = 'fil',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'fil',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Alerto';
+  String get alertDialogLabel => 'Alerto';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'Kopyahin';
+  String get backButtonLabel => 'Bumalik';
 
   @override
-  String get cutButtonLabel => r'I-cut';
+  String get cancelButtonLabel => 'Kanselahin';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get clearButtonLabel => 'I-clear';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Kopyahin';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'I-cut';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'mdy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'Ala $hour';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'Ala $hour';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'Alas $hour';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 minuto';
+  String? get datePickerMinuteSemanticsLabelOne => '1 minuto';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute na minuto';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'I-paste';
+  String get lookUpButtonLabel => 'Tumingin sa Itaas';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'I-dismiss ang menu';
 
   @override
-  String get selectAllButtonLabel => r'Piliin Lahat';
+  String get modalBarrierDismissLabel => 'I-dismiss';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Walang Nahanap na Kapalit';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'I-paste';
 
   @override
-  String get timerPickerHourLabelOne => r'oras';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'na oras';
+  String get searchTextFieldPlaceholderLabel => 'Hanapin';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Maghanap sa Web';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Piliin Lahat';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Ibahagi...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Tab $tabIndex ng $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'min.';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'na min.';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'oras';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'na oras';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'seg.';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'na seg.';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'min.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'na min.';
 
   @override
-  String get todayLabel => r'Ngayon';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'seg.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'na seg.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Ngayon';
 }
 
 /// The translations for French (`fr`).
@@ -4327,146 +5175,170 @@ class CupertinoLocalizationFr extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationFr({
-    String localeName = 'fr',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'fr',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Alerte';
+  String get alertDialogLabel => 'Alerte';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'Copier';
+  String get backButtonLabel => 'Retour';
 
   @override
-  String get cutButtonLabel => r'Couper';
+  String get cancelButtonLabel => 'Annuler';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Effacer';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Copier';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Couper';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour heure';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour heure';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour heures';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 minute';
+  String? get datePickerMinuteSemanticsLabelOne => '1 minute';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute minutes';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Coller';
+  String get lookUpButtonLabel => 'Recherche visuelle';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'Fermer le menu';
 
   @override
-  String get selectAllButtonLabel => r'Tout sélect.';
+  String get modalBarrierDismissLabel => 'Ignorer';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Aucun remplacement trouvé';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Coller';
 
   @override
-  String get timerPickerHourLabelOne => r'heure';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'heures';
+  String get searchTextFieldPlaceholderLabel => 'Rechercher';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Rechercher sur le Web';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Tout sélectionner';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Partager…';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Onglet $tabIndex sur $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'minute';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'minutes';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'heure';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'heures';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r's';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r's';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'minute';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'minutes';
 
   @override
-  String get todayLabel => r'aujourd' "'" r'hui';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 's';
+
+  @override
+  String get timerPickerSecondLabelOther => 's';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => "aujourd'hui";
 }
 
 /// The translations for French, as used in Canada (`fr_CA`).
@@ -4475,50 +5347,216 @@ class CupertinoLocalizationFrCa extends CupertinoLocalizationFr {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationFrCa({
-    String localeName = 'fr_CA',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'fr_CA',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour heure';
+  String get lookUpButtonLabel => 'Regarder en haut';
+
+  @override
+  String get menuDismissLabel => 'Ignorer le menu';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour heure';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour heures';
 
   @override
-  String get anteMeridiemAbbreviation => r'am';
+  String get anteMeridiemAbbreviation => 'am';
 
   @override
-  String get postMeridiemAbbreviation => r'pm';
+  String get postMeridiemAbbreviation => 'pm';
 
   @override
-  String get todayLabel => r'Aujourd' "'" r'hui';
+  String get todayLabel => "Aujourd'hui";
 
   @override
-  String get timerPickerMinuteLabelOne => r'min';
+  String? get timerPickerMinuteLabelOne => 'min';
 
   @override
-  String get timerPickerMinuteLabelOther => r'min';
+  String get timerPickerMinuteLabelOther => 'min';
+}
+
+/// The translations for Irish (`ga`).
+class CupertinoLocalizationGa extends GlobalCupertinoLocalizations {
+  /// Create an instance of the translation bundle for Irish.
+  ///
+  /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
+  const CupertinoLocalizationGa({
+    super.localeName = 'ga',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get selectAllButtonLabel => r'Tout sélectionner';
+  String get alertDialogLabel => 'Foláireamh';
+
+  @override
+  String get anteMeridiemAbbreviation => 'R.N.';
+
+  @override
+  String get backButtonLabel => 'Siar';
+
+  @override
+  String get cancelButtonLabel => 'Cealaigh';
+
+  @override
+  String get clearButtonLabel => 'Glan';
+
+  @override
+  String get copyButtonLabel => 'Cóipeáil';
+
+  @override
+  String get cutButtonLabel => 'Gearr';
+
+  @override
+  String get datePickerDateOrderString => 'dmy';
+
+  @override
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => r'$hour a chlog';
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => r'$hour a chlog';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour a chlog';
+
+  @override
+  String get datePickerHourSemanticsLabelOther => r'$hour a chlog';
+
+  @override
+  String? get datePickerHourSemanticsLabelTwo => r'$hour a chlog';
+
+  @override
+  String? get datePickerHourSemanticsLabelZero => null;
+
+  @override
+  String? get datePickerMinuteSemanticsLabelFew => r'$minute nóiméad';
+
+  @override
+  String? get datePickerMinuteSemanticsLabelMany => r'$minute nóiméad';
+
+  @override
+  String? get datePickerMinuteSemanticsLabelOne => 'Aon nóiméad amháin';
+
+  @override
+  String get datePickerMinuteSemanticsLabelOther => r'$minute nóiméad';
+
+  @override
+  String? get datePickerMinuteSemanticsLabelTwo => r'$minute nóiméad';
+
+  @override
+  String? get datePickerMinuteSemanticsLabelZero => null;
+
+  @override
+  String get lookUpButtonLabel => 'Cuardaigh';
+
+  @override
+  String get menuDismissLabel => 'Ruaig an roghchlár';
+
+  @override
+  String get modalBarrierDismissLabel => 'Ruaig';
+
+  @override
+  String get noSpellCheckReplacementsLabel => 'Níor Aimsíodh Aon Fhocal Oiriúnach le Cur ina Áit';
+
+  @override
+  String get pasteButtonLabel => 'Greamaigh';
+
+  @override
+  String get postMeridiemAbbreviation => 'I.N.';
+
+  @override
+  String get searchTextFieldPlaceholderLabel => 'Cuardaigh';
+
+  @override
+  String get searchWebButtonLabel => 'Cuardaigh an Gréasán';
+
+  @override
+  String get selectAllButtonLabel => 'Roghnaigh Gach Rud';
+
+  @override
+  String get shareButtonLabel => 'Comhroinn...';
+
+  @override
+  String get tabSemanticsLabelRaw => r'Cluaisín $tabIndex de $tabCount';
+
+  @override
+  String? get timerPickerHourLabelFew => 'uair an chloig';
+
+  @override
+  String? get timerPickerHourLabelMany => 'n-uair an chloig';
+
+  @override
+  String? get timerPickerHourLabelOne => 'uair an chloig';
+
+  @override
+  String get timerPickerHourLabelOther => 'uair an chloig';
+
+  @override
+  String? get timerPickerHourLabelTwo => 'uair an chloig';
+
+  @override
+  String? get timerPickerHourLabelZero => null;
+
+  @override
+  String? get timerPickerMinuteLabelFew => 'nóim.';
+
+  @override
+  String? get timerPickerMinuteLabelMany => 'nóim.';
+
+  @override
+  String? get timerPickerMinuteLabelOne => 'nóim.';
+
+  @override
+  String get timerPickerMinuteLabelOther => 'nóim.';
+
+  @override
+  String? get timerPickerMinuteLabelTwo => 'nóim.';
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => 'soic.';
+
+  @override
+  String? get timerPickerSecondLabelMany => 'soic.';
+
+  @override
+  String? get timerPickerSecondLabelOne => 'soic.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'soic.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => 'soic.';
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Inniu';
 }
 
 /// The translations for Galician (`gl`).
@@ -4527,146 +5565,170 @@ class CupertinoLocalizationGl extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationGl({
-    String localeName = 'gl',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'gl',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Alerta';
+  String get alertDialogLabel => 'Alerta';
 
   @override
-  String get anteMeridiemAbbreviation => r'a.m.';
+  String get anteMeridiemAbbreviation => 'a.m.';
 
   @override
-  String get copyButtonLabel => r'Copiar';
+  String get backButtonLabel => 'Atrás';
 
   @override
-  String get cutButtonLabel => r'Cortar';
+  String get cancelButtonLabel => 'Cancelar';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Borrar';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Copiar';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Cortar';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour en punto';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour en punto';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour en punto';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 minuto';
+  String? get datePickerMinuteSemanticsLabelOne => '1 minuto';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute minutos';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Pegar';
+  String get lookUpButtonLabel => 'Mirar cara arriba';
 
   @override
-  String get postMeridiemAbbreviation => r'p.m.';
+  String get menuDismissLabel => 'Pechar menú';
 
   @override
-  String get selectAllButtonLabel => r'Seleccionar todo';
+  String get modalBarrierDismissLabel => 'Ignorar';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Non se encontrou ningunha substitución';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Pegar';
 
   @override
-  String get timerPickerHourLabelOne => r'hora';
+  String get postMeridiemAbbreviation => 'p.m.';
 
   @override
-  String get timerPickerHourLabelOther => r'horas';
+  String get searchTextFieldPlaceholderLabel => 'Fai unha busca';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Buscar na Web';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Seleccionar todo';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Compartir…';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Pestana $tabIndex de $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'min';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'min';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'hora';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'horas';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r's';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r's';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'min';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'min';
 
   @override
-  String get todayLabel => r'Hoxe';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 's';
+
+  @override
+  String get timerPickerSecondLabelOther => 's';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Hoxe';
 }
 
 /// The translations for Swiss German Alemannic Alsatian (`gsw`).
@@ -4675,146 +5737,170 @@ class CupertinoLocalizationGsw extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationGsw({
-    String localeName = 'gsw',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'gsw',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Benachrichtigung';
+  String get alertDialogLabel => 'Benachrichtigung';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'Kopieren';
+  String get backButtonLabel => 'Zurück';
 
   @override
-  String get cutButtonLabel => r'Ausschneiden';
+  String get cancelButtonLabel => 'Abbrechen';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Löschen';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Kopieren';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Ausschneiden';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour Uhr';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour Uhr';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour Uhr';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 Minute';
+  String? get datePickerMinuteSemanticsLabelOne => '1 Minute';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute Minuten';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Einsetzen';
+  String get lookUpButtonLabel => 'Nachschlagen';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'Menü schließen';
 
   @override
-  String get selectAllButtonLabel => r'Alles auswählen';
+  String get modalBarrierDismissLabel => 'Schließen';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Keine Ersetzungen gefunden';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Einsetzen';
 
   @override
-  String get timerPickerHourLabelOne => r'Stunde';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'Stunden';
+  String get searchTextFieldPlaceholderLabel => 'Suche';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Im Web suchen';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Alle auswählen';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Teilen…';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Tab $tabIndex von $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'min';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'min';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'Stunde';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'Stunden';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r's';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r's';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'Min.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'Min.';
 
   @override
-  String get todayLabel => r'Heute';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 's';
+
+  @override
+  String get timerPickerSecondLabelOther => 's';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Heute';
 }
 
 /// The translations for Gujarati (`gu`).
@@ -4823,146 +5909,170 @@ class CupertinoLocalizationGu extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationGu({
-    String localeName = 'gu',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'gu',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'અલર્ટ';
+  String get alertDialogLabel => 'અલર્ટ';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'કૉપિ કરો';
+  String get backButtonLabel => 'પાછળ';
 
   @override
-  String get cutButtonLabel => r'કાપો';
+  String get cancelButtonLabel => 'રદ કરો';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'સાફ કરો';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'કૉપિ કરો';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'કાપો';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour વાગ્યો છે';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour વાગ્યો છે';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour વાગ્યા છે';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 મિનિટ';
+  String? get datePickerMinuteSemanticsLabelOne => '1 મિનિટ';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute મિનિટ';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'પેસ્ટ કરો';
+  String get lookUpButtonLabel => 'શોધો';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'મેનૂ છોડી દો';
 
   @override
-  String get selectAllButtonLabel => r'બધા પસંદ કરો';
+  String get modalBarrierDismissLabel => 'છોડી દો';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'બદલવા માટે કોઈ શબ્દ મળ્યો નથી';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'પેસ્ટ કરો';
 
   @override
-  String get timerPickerHourLabelOne => r'કલાક';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'કલાક';
+  String get searchTextFieldPlaceholderLabel => 'શોધો';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'વેબ પર શોધો';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'બધા પસંદ કરો';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'શેર કરો…';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'$tabCountમાંથી $tabIndex ટૅબ';
 
   @override
-  String get timerPickerMinuteLabelOne => r'મિનિટ';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'મિનિટ';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'કલાક';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'કલાક';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'સેકન્ડ';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'સેકન્ડ';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'મિનિટ';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'મિનિટ';
 
   @override
-  String get todayLabel => r'આજે';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'સેકન્ડ';
+
+  @override
+  String get timerPickerSecondLabelOther => 'સેકન્ડ';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'આજે';
 }
 
 /// The translations for Hebrew (`he`).
@@ -4971,146 +6081,170 @@ class CupertinoLocalizationHe extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationHe({
-    String localeName = 'he',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'he',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'התראה';
+  String get alertDialogLabel => 'התראה';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'העתקה';
+  String get backButtonLabel => 'למסך הקודם';
 
   @override
-  String get cutButtonLabel => r'גזירה';
+  String get cancelButtonLabel => 'ביטול';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'ניקוי';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'העתקה';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'גזירה';
 
   @override
-  String get datePickerHourSemanticsLabelMany => r'$hour בדיוק';
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour בדיוק';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => r'$hour בדיוק';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour בדיוק';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour בדיוק';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => r'$hour בדיוק';
+  String? get datePickerHourSemanticsLabelTwo => r'$hour בדיוק';
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => r'$minute דקות';
+  String? get datePickerMinuteSemanticsLabelMany => r'$minute דקות';
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'דקה אחת';
+  String? get datePickerMinuteSemanticsLabelOne => 'דקה אחת';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute דקות';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => r'$minute דקות';
+  String? get datePickerMinuteSemanticsLabelTwo => r'$minute דקות';
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'הדבקה';
+  String get lookUpButtonLabel => 'חיפוש';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'סגירת התפריט';
 
   @override
-  String get selectAllButtonLabel => r'בחירת הכול';
+  String get modalBarrierDismissLabel => 'סגירה';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'לא נמצאו חלופות';
 
   @override
-  String get timerPickerHourLabelMany => r'שעות';
+  String get pasteButtonLabel => 'הדבקה';
 
   @override
-  String get timerPickerHourLabelOne => r'שעה';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'שעות';
+  String get searchTextFieldPlaceholderLabel => 'חיפוש';
 
   @override
-  String get timerPickerHourLabelTwo => r'שעות';
+  String get searchWebButtonLabel => 'חיפוש באינטרנט';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'בחירת הכול';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'שיתוף…';
 
   @override
-  String get timerPickerMinuteLabelMany => r'דק’';
+  String get tabSemanticsLabelRaw => r'כרטיסייה $tabIndex מתוך $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'דק’';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'דק’';
+  String? get timerPickerHourLabelMany => 'שעות';
 
   @override
-  String get timerPickerMinuteLabelTwo => r'דק’';
+  String? get timerPickerHourLabelOne => 'שעה';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'שעות';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => 'שעות';
 
   @override
-  String get timerPickerSecondLabelMany => r'שנ’';
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'שנ’';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'שנ’';
+  String? get timerPickerMinuteLabelMany => 'דק’';
 
   @override
-  String get timerPickerSecondLabelTwo => r'שנ’';
+  String? get timerPickerMinuteLabelOne => 'דק’';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'דק’';
 
   @override
-  String get todayLabel => r'היום';
+  String? get timerPickerMinuteLabelTwo => 'דק’';
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => 'שנ’';
+
+  @override
+  String? get timerPickerSecondLabelOne => 'שנ’';
+
+  @override
+  String get timerPickerSecondLabelOther => 'שנ’';
+
+  @override
+  String? get timerPickerSecondLabelTwo => 'שנ’';
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'היום';
 }
 
 /// The translations for Hindi (`hi`).
@@ -5119,146 +6253,170 @@ class CupertinoLocalizationHi extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationHi({
-    String localeName = 'hi',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'hi',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'अलर्ट';
+  String get alertDialogLabel => 'अलर्ट';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'कॉपी करें';
+  String get backButtonLabel => 'वापस जाएं';
 
   @override
-  String get cutButtonLabel => r'काटें';
+  String get cancelButtonLabel => 'रद्द करें';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'मिटाएं';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'कॉपी करें';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'काटें';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour बजे';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour बजे';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour बजे';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 मिनट';
+  String? get datePickerMinuteSemanticsLabelOne => '1 मिनट';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute मिनट';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'चिपकाएं';
+  String get lookUpButtonLabel => 'लुक अप बटन';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'मेन्यू खारिज करें';
 
   @override
-  String get selectAllButtonLabel => r'सभी चुनें';
+  String get modalBarrierDismissLabel => 'खारिज करें';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'सही वर्तनी वाला कोई शब्द नहीं मिला';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'चिपकाएं';
 
   @override
-  String get timerPickerHourLabelOne => r'घंटा';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'घंटे';
+  String get searchTextFieldPlaceholderLabel => 'खोजें';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'वेब पर खोजें';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'सभी चुनें';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'शेयर करें…';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'$tabCount का टैब $tabIndex';
 
   @override
-  String get timerPickerMinuteLabelOne => r'मिनट';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'मिनट';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'घंटा';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'घंटे';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'सेकंड';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'सेकंड';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'मिनट';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'मिनट';
 
   @override
-  String get todayLabel => r'आज';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'सेकंड';
+
+  @override
+  String get timerPickerSecondLabelOther => 'सेकंड';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'आज';
 }
 
 /// The translations for Croatian (`hr`).
@@ -5267,146 +6425,170 @@ class CupertinoLocalizationHr extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationHr({
-    String localeName = 'hr',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'hr',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Upozorenje';
+  String get alertDialogLabel => 'Upozorenje';
 
   @override
-  String get anteMeridiemAbbreviation => r'prijepodne';
+  String get anteMeridiemAbbreviation => 'prijepodne';
 
   @override
-  String get copyButtonLabel => r'Kopiraj';
+  String get backButtonLabel => 'Natrag';
 
   @override
-  String get cutButtonLabel => r'Izreži';
+  String get cancelButtonLabel => 'Odustani';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Izbriši';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Kopiraj';
 
   @override
-  String get datePickerHourSemanticsLabelFew => r'$hour sata';
+  String get cutButtonLabel => 'Izreži';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour sat';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => r'$hour sata';
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour sat';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour sati';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => r'$minute minute';
+  String? get datePickerMinuteSemanticsLabelFew => r'$minute minute';
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'Jedna minuta';
+  String? get datePickerMinuteSemanticsLabelOne => 'Jedna minuta';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute minuta';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Zalijepi';
+  String get lookUpButtonLabel => 'Pogled prema gore';
 
   @override
-  String get postMeridiemAbbreviation => r'popodne';
+  String get menuDismissLabel => 'Odbacivanje izbornika';
 
   @override
-  String get selectAllButtonLabel => r'Odaberi sve';
+  String get modalBarrierDismissLabel => 'Odbaci';
 
   @override
-  String get timerPickerHourLabelFew => r'sata';
+  String get noSpellCheckReplacementsLabel => 'Nema pronađenih zamjena';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Zalijepi';
 
   @override
-  String get timerPickerHourLabelOne => r'sat';
+  String get postMeridiemAbbreviation => 'popodne';
 
   @override
-  String get timerPickerHourLabelOther => r'sati';
+  String get searchTextFieldPlaceholderLabel => 'Pretraživanje';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Pretraži web';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Odaberi sve';
 
   @override
-  String get timerPickerMinuteLabelFew => r'min';
+  String get shareButtonLabel => 'Dijeli...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Kartica $tabIndex od $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'min';
+  String? get timerPickerHourLabelFew => 'sata';
 
   @override
-  String get timerPickerMinuteLabelOther => r'min';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'sat';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'sati';
 
   @override
-  String get timerPickerSecondLabelFew => r's';
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r's';
+  String? get timerPickerMinuteLabelFew => 'min';
 
   @override
-  String get timerPickerSecondLabelOther => r's';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'min';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'min';
 
   @override
-  String get todayLabel => r'Danas';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => 's';
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 's';
+
+  @override
+  String get timerPickerSecondLabelOther => 's';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Danas';
 }
 
 /// The translations for Hungarian (`hu`).
@@ -5415,146 +6597,170 @@ class CupertinoLocalizationHu extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationHu({
-    String localeName = 'hu',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'hu',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Értesítés';
+  String get alertDialogLabel => 'Értesítés';
 
   @override
-  String get anteMeridiemAbbreviation => r'de.';
+  String get anteMeridiemAbbreviation => 'de.';
 
   @override
-  String get copyButtonLabel => r'Másolás';
+  String get backButtonLabel => 'Vissza';
 
   @override
-  String get cutButtonLabel => r'Kivágás';
+  String get cancelButtonLabel => 'Mégse';
 
   @override
-  String get datePickerDateOrderString => r'ymd';
+  String get clearButtonLabel => 'Törlés';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_dayPeriod_time';
+  String get copyButtonLabel => 'Másolás';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Kivágás';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'ymd';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour óra';
+  String get datePickerDateTimeOrderString => 'date_dayPeriod_time';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour óra';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour óra';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 perc';
+  String? get datePickerMinuteSemanticsLabelOne => '1 perc';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute perc';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Beillesztés';
+  String get lookUpButtonLabel => 'Felfelé nézés';
 
   @override
-  String get postMeridiemAbbreviation => r'du.';
+  String get menuDismissLabel => 'Menü bezárása';
 
   @override
-  String get selectAllButtonLabel => r'Összes kijelölése';
+  String get modalBarrierDismissLabel => 'Elvetés';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Nem található javítás';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Beillesztés';
 
   @override
-  String get timerPickerHourLabelOne => r'óra';
+  String get postMeridiemAbbreviation => 'du.';
 
   @override
-  String get timerPickerHourLabelOther => r'óra';
+  String get searchTextFieldPlaceholderLabel => 'Keresés';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Keresés az interneten';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Összes kijelölése';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Megosztás…';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'$tabCount/$tabIndex. lap';
 
   @override
-  String get timerPickerMinuteLabelOne => r'perc';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'perc';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'óra';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'óra';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'mp';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'mp';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'perc';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'perc';
 
   @override
-  String get todayLabel => r'Ma';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'mp';
+
+  @override
+  String get timerPickerSecondLabelOther => 'mp';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Ma';
 }
 
 /// The translations for Armenian (`hy`).
@@ -5563,146 +6769,170 @@ class CupertinoLocalizationHy extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationHy({
-    String localeName = 'hy',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'hy',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Ծանուցում';
+  String get alertDialogLabel => 'Ծանուցում';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'Պատճենել';
+  String get backButtonLabel => 'Հետ';
 
   @override
-  String get cutButtonLabel => r'Կտրել';
+  String get cancelButtonLabel => 'Չեղարկել';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Մաքրել';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Պատճենել';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Կտրել';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour:00';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour:00';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour:00';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 րոպե';
+  String? get datePickerMinuteSemanticsLabelOne => '1 րոպե';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute րոպե';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Տեղադրել';
+  String get lookUpButtonLabel => 'Փնտրել';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'Փակել ընտրացանկը';
 
   @override
-  String get selectAllButtonLabel => r'Նշել բոլորը';
+  String get modalBarrierDismissLabel => 'Փակել';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Փոխարինումներ չեն գտնվել';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Տեղադրել';
 
   @override
-  String get timerPickerHourLabelOne => r'ժամ';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'ժամ';
+  String get searchTextFieldPlaceholderLabel => 'Որոնում';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Որոնել համացանցում';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Նշել բոլորը';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Կիսվել...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Ներդիր $tabIndex՝ $tabCount-ից';
 
   @override
-  String get timerPickerMinuteLabelOne => r'րոպե';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'րոպե';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'ժամ';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'ժամ';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'վրկ';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'վրկ';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'րոպե';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'րոպե';
 
   @override
-  String get todayLabel => r'Այսօր';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'վրկ';
+
+  @override
+  String get timerPickerSecondLabelOther => 'վրկ';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Այսօր';
 }
 
 /// The translations for Indonesian (`id`).
@@ -5711,146 +6941,170 @@ class CupertinoLocalizationId extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationId({
-    String localeName = 'id',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'id',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Notifikasi';
+  String get alertDialogLabel => 'Notifikasi';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'Salin';
+  String get backButtonLabel => 'Kembali';
 
   @override
-  String get cutButtonLabel => r'Potong';
+  String get cancelButtonLabel => 'Batal';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Hapus';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Salin';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Potong';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour tepat';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour tepat';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour tepat';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 menit';
+  String? get datePickerMinuteSemanticsLabelOne => '1 menit';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute menit';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Tempel';
+  String get lookUpButtonLabel => 'Cari';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'Tutup menu';
 
   @override
-  String get selectAllButtonLabel => r'Pilih Semua';
+  String get modalBarrierDismissLabel => 'Tutup';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Penggantian Tidak Ditemukan';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Tempel';
 
   @override
-  String get timerPickerHourLabelOne => r'jam';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'jam';
+  String get searchTextFieldPlaceholderLabel => 'Telusuri';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Telusuri di Web';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Pilih Semua';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Bagikan...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Tab $tabIndex dari $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'mnt.';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'mnt.';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'jam';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'jam';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'dtk.';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'dtk.';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'mnt.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'mnt.';
 
   @override
-  String get todayLabel => r'Hari ini';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'dtk.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'dtk.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Hari ini';
 }
 
 /// The translations for Icelandic (`is`).
@@ -5859,146 +7113,170 @@ class CupertinoLocalizationIs extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationIs({
-    String localeName = 'is',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'is',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Tilkynning';
+  String get alertDialogLabel => 'Tilkynning';
 
   @override
-  String get anteMeridiemAbbreviation => r'f.h.';
+  String get anteMeridiemAbbreviation => 'f.h.';
 
   @override
-  String get copyButtonLabel => r'Afrita';
+  String get backButtonLabel => 'Til baka';
 
   @override
-  String get cutButtonLabel => r'Klippa';
+  String get cancelButtonLabel => 'Hætta við';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Hreinsa';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Afrita';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Klippa';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'klukkan $hour';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'klukkan $hour';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'klukkan $hour';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 mínúta';
+  String? get datePickerMinuteSemanticsLabelOne => '1 mínúta';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute mínútur';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Líma';
+  String get lookUpButtonLabel => 'Look Up';
 
   @override
-  String get postMeridiemAbbreviation => r'e.h.';
+  String get menuDismissLabel => 'Loka valmynd';
 
   @override
-  String get selectAllButtonLabel => r'Velja allt';
+  String get modalBarrierDismissLabel => 'Hunsa';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Engir staðgenglar fundust';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Líma';
 
   @override
-  String get timerPickerHourLabelOne => r'klukkustund';
+  String get postMeridiemAbbreviation => 'e.h.';
 
   @override
-  String get timerPickerHourLabelOther => r'klukkustundir';
+  String get searchTextFieldPlaceholderLabel => 'Leit';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Leita á vefnum';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Velja allt';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Deila...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Flipi $tabIndex af $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'mín.';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'mín.';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'klukkustund';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'klukkustundir';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'sek.';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'sek.';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'mín.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'mín.';
 
   @override
-  String get todayLabel => r'Í dag';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'sek.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'sek.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Í dag';
 }
 
 /// The translations for Italian (`it`).
@@ -6007,146 +7285,170 @@ class CupertinoLocalizationIt extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationIt({
-    String localeName = 'it',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'it',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Avviso';
+  String get alertDialogLabel => 'Avviso';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'Copia';
+  String get backButtonLabel => 'Indietro';
 
   @override
-  String get cutButtonLabel => r'Taglia';
+  String get cancelButtonLabel => 'Annulla';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Cancella';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Copia';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Taglia';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour in punto';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour in punto';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour in punto';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 minuto';
+  String? get datePickerMinuteSemanticsLabelOne => '1 minuto';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute minuti';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Incolla';
+  String get lookUpButtonLabel => 'Cerca';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'Ignora menu';
 
   @override
-  String get selectAllButtonLabel => r'Seleziona tutto';
+  String get modalBarrierDismissLabel => 'Ignora';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Nessuna sostituzione trovata';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Incolla';
 
   @override
-  String get timerPickerHourLabelOne => r'ora';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'ore';
+  String get searchTextFieldPlaceholderLabel => 'Cerca';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Cerca sul web';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Seleziona tutto';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Condividi…';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Scheda $tabIndex di $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'min.';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'min.';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'ora';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'ore';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'sec.';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'sec.';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'min.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'min.';
 
   @override
-  String get todayLabel => r'Oggi';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'sec.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'sec.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Oggi';
 }
 
 /// The translations for Japanese (`ja`).
@@ -6155,146 +7457,170 @@ class CupertinoLocalizationJa extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationJa({
-    String localeName = 'ja',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'ja',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'通知';
+  String get alertDialogLabel => '通知';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'コピー';
+  String get backButtonLabel => '戻る';
 
   @override
-  String get cutButtonLabel => r'切り取り';
+  String get cancelButtonLabel => 'キャンセル';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get clearButtonLabel => '消去';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'コピー';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => '切り取り';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'ymd';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour時';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour時';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour時';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1分';
+  String? get datePickerMinuteSemanticsLabelOne => '1分';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute分';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'貼り付け';
+  String get lookUpButtonLabel => '調べる';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'メニューを閉じる';
 
   @override
-  String get selectAllButtonLabel => r'すべて選択';
+  String get modalBarrierDismissLabel => '閉じる';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => '置き換えるものがありません';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => '貼り付け';
 
   @override
-  String get timerPickerHourLabelOne => r'時間';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'時間';
+  String get searchTextFieldPlaceholderLabel => '検索';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'ウェブを検索';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'すべてを選択';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => '共有...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'タブ: $tabIndex/$tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'分';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'分';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => '時間';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => '時間';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'秒';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'秒';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => '分';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => '分';
 
   @override
-  String get todayLabel => r'今日';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => '秒';
+
+  @override
+  String get timerPickerSecondLabelOther => '秒';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => '今日';
 }
 
 /// The translations for Georgian (`ka`).
@@ -6303,146 +7629,170 @@ class CupertinoLocalizationKa extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationKa({
-    String localeName = 'ka',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'ka',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'გაფრთხილება';
+  String get alertDialogLabel => 'გაფრთხილება';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'კოპირება';
+  String get backButtonLabel => 'უკან';
 
   @override
-  String get cutButtonLabel => r'ამოჭრა';
+  String get cancelButtonLabel => 'გაუქმება';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'გასუფთავება';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_dayPeriod_time';
+  String get copyButtonLabel => 'კოპირება';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'ამოჭრა';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour საათი';
+  String get datePickerDateTimeOrderString => 'date_dayPeriod_time';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour საათი';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour საათი';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 წუთი';
+  String? get datePickerMinuteSemanticsLabelOne => '1 წუთი';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute წუთი';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'ჩასმა';
+  String get lookUpButtonLabel => 'აიხედეთ ზემოთ';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'მენიუს უარყოფა';
 
   @override
-  String get selectAllButtonLabel => r'ყველას არჩევა';
+  String get modalBarrierDismissLabel => 'დახურვა';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'ჩანაცვლება არ მოიძებნა';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'ჩასმა';
 
   @override
-  String get timerPickerHourLabelOne => r'საათი';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'საათი';
+  String get searchTextFieldPlaceholderLabel => 'ძიება';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'ვებში ძიება';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'ყველას არჩევა';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'გაზიარება...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'ჩანართი $tabIndex / $tabCount-დან';
 
   @override
-  String get timerPickerMinuteLabelOne => r'წთ';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'წთ';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'საათი';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'საათი';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'წმ';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'წმ';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'წთ';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'წთ';
 
   @override
-  String get todayLabel => r'დღეს';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'წმ';
+
+  @override
+  String get timerPickerSecondLabelOther => 'წმ';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'დღეს';
 }
 
 /// The translations for Kazakh (`kk`).
@@ -6451,146 +7801,170 @@ class CupertinoLocalizationKk extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationKk({
-    String localeName = 'kk',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'kk',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Дабыл';
+  String get alertDialogLabel => 'Дабыл';
 
   @override
-  String get anteMeridiemAbbreviation => r'түстен кейін';
+  String get anteMeridiemAbbreviation => 'түстен кейін';
 
   @override
-  String get copyButtonLabel => r'Көшіру';
+  String get backButtonLabel => 'Артқа';
 
   @override
-  String get cutButtonLabel => r'Қию';
+  String get cancelButtonLabel => 'Бас тарту';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Өшіру';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Көшіру';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Қию';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'Сағат: $hour';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'Сағат: $hour';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'Сағат: $hour';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 минут';
+  String? get datePickerMinuteSemanticsLabelOne => '1 минут';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute минут';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Қою';
+  String get lookUpButtonLabel => 'Іздеу';
 
   @override
-  String get postMeridiemAbbreviation => r'түстен кейін';
+  String get menuDismissLabel => 'Мәзірді жабу';
 
   @override
-  String get selectAllButtonLabel => r'Барлығын таңдау';
+  String get modalBarrierDismissLabel => 'Жабу';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Ауыстыратын ешнәрсе табылмады.';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Қою';
 
   @override
-  String get timerPickerHourLabelOne => r'сағат';
+  String get postMeridiemAbbreviation => 'түстен кейін';
 
   @override
-  String get timerPickerHourLabelOther => r'сағат';
+  String get searchTextFieldPlaceholderLabel => 'Іздеу';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Интернеттен іздеу';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Барлығын таңдау';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Бөлісу…';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Қойынды: $tabIndex/$tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'мин';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'мин';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'сағат';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'сағат';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'сек';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'сек';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'мин';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'мин';
 
   @override
-  String get todayLabel => r'Бүгін';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'сек';
+
+  @override
+  String get timerPickerSecondLabelOther => 'сек';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Бүгін';
 }
 
 /// The translations for Khmer Central Khmer (`km`).
@@ -6599,146 +7973,170 @@ class CupertinoLocalizationKm extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationKm({
-    String localeName = 'km',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'km',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'ជូនដំណឹង';
+  String get alertDialogLabel => 'ជូនដំណឹង';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'ចម្លង';
+  String get backButtonLabel => 'ថយក្រោយ';
 
   @override
-  String get cutButtonLabel => r'កាត់';
+  String get cancelButtonLabel => 'បោះបង់';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'សម្អាត';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'ចម្លង';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'កាត់';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'ម៉ោង $hour';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'ម៉ោង $hour';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'ម៉ោង $hour';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 នាទី';
+  String? get datePickerMinuteSemanticsLabelOne => '1 នាទី';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute នាទី';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'ដាក់​ចូល';
+  String get lookUpButtonLabel => 'រកមើល';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'ច្រានចោល​ម៉ឺនុយ';
 
   @override
-  String get selectAllButtonLabel => r'ជ្រើសរើស​ទាំងអស់';
+  String get modalBarrierDismissLabel => 'ច្រាន​ចោល';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'រកមិនឃើញ​ការជំនួសទេ';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'ដាក់​ចូល';
 
   @override
-  String get timerPickerHourLabelOne => r'ម៉ោង';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'ម៉ោង';
+  String get searchTextFieldPlaceholderLabel => 'ស្វែងរក';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'ស្វែងរក​លើបណ្ដាញ';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'ជ្រើសរើស​ទាំងអស់';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'ចែករំលែក...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'ផ្ទាំងទី $tabIndex នៃ $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'នាទី';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'នាទី';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'ម៉ោង';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'ម៉ោង';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'វិនាទី';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'វិនាទី';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'នាទី';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'នាទី';
 
   @override
-  String get todayLabel => r'ថ្ងៃនេះ';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'វិនាទី';
+
+  @override
+  String get timerPickerSecondLabelOther => 'វិនាទី';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'ថ្ងៃនេះ';
 }
 
 /// The translations for Kannada (`kn`).
@@ -6747,26 +8145,17 @@ class CupertinoLocalizationKn extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationKn({
-    String localeName = 'kn',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'kn',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
   String get alertDialogLabel => '\u{c8e}\u{c9a}\u{ccd}\u{c9a}\u{cb0}\u{cbf}\u{c95}\u{cc6}';
@@ -6775,52 +8164,73 @@ class CupertinoLocalizationKn extends GlobalCupertinoLocalizations {
   String get anteMeridiemAbbreviation => '\u{cac}\u{cc6}\u{cb3}\u{cbf}\u{c97}\u{ccd}\u{c97}\u{cc6}';
 
   @override
-  String get copyButtonLabel => '\u{ca8}\u{c95}\u{cb2}\u{cbf}\u{cb8}\u{cbf}';
+  String get backButtonLabel => '\u{cb9}\u{cbf}\u{c82}\u{ca6}\u{cc6}';
+
+  @override
+  String get cancelButtonLabel => '\u{cb0}\u{ca6}\u{ccd}\u{ca6}\u{cc1}\u{cae}\u{cbe}\u{ca1}\u{cbf}';
+
+  @override
+  String get clearButtonLabel => '\u{ca4}\u{cc6}\u{cb0}\u{cb5}\u{cc1}\u{c97}\u{cca}\u{cb3}\u{cbf}\u{cb8}\u{cbf}';
+
+  @override
+  String get copyButtonLabel => '\u{c95}\u{cbe}\u{caa}\u{cbf}\u{20}\u{cae}\u{cbe}\u{ca1}\u{cbf}';
 
   @override
   String get cutButtonLabel => '\u{c95}\u{ca4}\u{ccd}\u{ca4}\u{cb0}\u{cbf}\u{cb8}\u{cbf}';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String? get datePickerHourSemanticsLabelFew => null;
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String? get datePickerHourSemanticsLabelMany => null;
 
   @override
-  String get datePickerHourSemanticsLabelOne => '\u{24}\u{68}\u{6f}\u{75}\u{72}\u{20}\u{c97}\u{c82}\u{c9f}\u{cc6}';
+  String? get datePickerHourSemanticsLabelOne => '\u{24}\u{68}\u{6f}\u{75}\u{72}\u{20}\u{c97}\u{c82}\u{c9f}\u{cc6}';
 
   @override
   String get datePickerHourSemanticsLabelOther => '\u{24}\u{68}\u{6f}\u{75}\u{72}\u{20}\u{c97}\u{c82}\u{c9f}\u{cc6}';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => '\u{31}\u{20}\u{ca8}\u{cbf}\u{cae}\u{cbf}\u{cb7}';
+  String? get datePickerMinuteSemanticsLabelOne => '\u{31}\u{20}\u{ca8}\u{cbf}\u{cae}\u{cbf}\u{cb7}';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => '\u{24}\u{6d}\u{69}\u{6e}\u{75}\u{74}\u{65}\u{20}\u{ca8}\u{cbf}\u{cae}\u{cbf}\u{cb7}\u{c97}\u{cb3}\u{cc1}';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
+
+  @override
+  String get lookUpButtonLabel => '\u{cae}\u{cc7}\u{cb2}\u{cc6}\u{20}\u{ca8}\u{ccb}\u{ca1}\u{cbf}';
+
+  @override
+  String get menuDismissLabel => '\u{cae}\u{cc6}\u{ca8}\u{cc1}\u{cb5}\u{ca8}\u{ccd}\u{ca8}\u{cc1}\u{20}\u{cb5}\u{c9c}\u{cbe}\u{c97}\u{cc6}\u{cc2}\u{cb3}\u{cbf}\u{cb8}\u{cbf}';
+
+  @override
+  String get modalBarrierDismissLabel => '\u{cb5}\u{c9c}\u{cbe}\u{c97}\u{cca}\u{cb3}\u{cbf}\u{cb8}\u{cbf}';
+
+  @override
+  String get noSpellCheckReplacementsLabel => '\u{caf}\u{cbe}\u{cb5}\u{cc1}\u{ca6}\u{cc7}\u{20}\u{cac}\u{ca6}\u{cb2}\u{cbe}\u{cb5}\u{ca3}\u{cc6}\u{c97}\u{cb3}\u{cc1}\u{20}\u{c95}\u{c82}\u{ca1}\u{cc1}\u{cac}\u{c82}\u{ca6}\u{cbf}\u{cb2}\u{ccd}\u{cb2}';
 
   @override
   String get pasteButtonLabel => '\u{c85}\u{c82}\u{c9f}\u{cbf}\u{cb8}\u{cbf}';
@@ -6829,61 +8239,73 @@ class CupertinoLocalizationKn extends GlobalCupertinoLocalizations {
   String get postMeridiemAbbreviation => '\u{cb8}\u{c82}\u{c9c}\u{cc6}';
 
   @override
+  String get searchTextFieldPlaceholderLabel => '\u{cb9}\u{cc1}\u{ca1}\u{cc1}\u{c95}\u{cbf}';
+
+  @override
+  String get searchWebButtonLabel => '\u{cb5}\u{cc6}\u{cac}\u{ccd}\u{200c}\u{ca8}\u{cb2}\u{ccd}\u{cb2}\u{cbf}\u{20}\u{cb9}\u{cc1}\u{ca1}\u{cc1}\u{c95}\u{cbf}';
+
+  @override
   String get selectAllButtonLabel => '\u{c8e}\u{cb2}\u{ccd}\u{cb2}\u{cb5}\u{ca8}\u{ccd}\u{ca8}\u{cc2}\u{20}\u{c86}\u{caf}\u{ccd}\u{c95}\u{cc6}\u{cae}\u{cbe}\u{ca1}\u{cbf}';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get shareButtonLabel => '\u{cb9}\u{c82}\u{c9a}\u{cbf}\u{c95}\u{cca}\u{cb3}\u{ccd}\u{cb3}\u{cbf}\u{2e}\u{2e}\u{2e}';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get tabSemanticsLabelRaw => '\u{24}\u{74}\u{61}\u{62}\u{43}\u{6f}\u{75}\u{6e}\u{74}\u{20}\u{cb0}\u{cb2}\u{ccd}\u{cb2}\u{cbf}\u{ca8}\u{20}\u{24}\u{74}\u{61}\u{62}\u{49}\u{6e}\u{64}\u{65}\u{78}\u{20}\u{c9f}\u{ccd}\u{caf}\u{cbe}\u{cac}\u{ccd}';
 
   @override
-  String get timerPickerHourLabelOne => '\u{c97}\u{c82}\u{c9f}\u{cc6}';
+  String? get timerPickerHourLabelFew => null;
+
+  @override
+  String? get timerPickerHourLabelMany => null;
+
+  @override
+  String? get timerPickerHourLabelOne => '\u{c97}\u{c82}\u{c9f}\u{cc6}';
 
   @override
   String get timerPickerHourLabelOther => '\u{c97}\u{c82}\u{c9f}\u{cc6}\u{c97}\u{cb3}\u{cc1}';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelOne => '\u{ca8}\u{cbf}\u{cae}\u{cbf}\u{2e}';
+  String? get timerPickerMinuteLabelOne => '\u{ca8}\u{cbf}\u{cae}\u{cbf}\u{2e}';
 
   @override
   String get timerPickerMinuteLabelOther => '\u{ca8}\u{cbf}\u{cae}\u{cbf}\u{2e}';
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerMinuteLabelTwo => null;
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String? get timerPickerMinuteLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerSecondLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerSecondLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelOne => '\u{cb8}\u{cc6}\u{2e}';
+  String? get timerPickerSecondLabelOne => '\u{cb8}\u{cc6}\u{2e}';
 
   @override
   String get timerPickerSecondLabelOther => '\u{cb8}\u{cc6}\u{2e}';
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerSecondLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String? get timerPickerSecondLabelZero => null;
 
   @override
   String get todayLabel => '\u{c87}\u{c82}\u{ca6}\u{cc1}';
@@ -6895,146 +8317,170 @@ class CupertinoLocalizationKo extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationKo({
-    String localeName = 'ko',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'ko',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'알림';
+  String get alertDialogLabel => '알림';
 
   @override
-  String get anteMeridiemAbbreviation => r'오전';
+  String get anteMeridiemAbbreviation => '오전';
 
   @override
-  String get copyButtonLabel => r'복사';
+  String get backButtonLabel => '뒤로';
 
   @override
-  String get cutButtonLabel => r'잘라냄';
+  String get cancelButtonLabel => '취소';
 
   @override
-  String get datePickerDateOrderString => r'ymd';
+  String get clearButtonLabel => '삭제';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => '복사';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => '잘라내기';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'ymd';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour시 정각';
+  String get datePickerDateTimeOrderString => 'date_dayPeriod_time';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour시 정각';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour시 정각';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1분';
+  String? get datePickerMinuteSemanticsLabelOne => '1분';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute분';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'붙여넣기';
+  String get lookUpButtonLabel => '찾기';
 
   @override
-  String get postMeridiemAbbreviation => r'오후';
+  String get menuDismissLabel => '메뉴 닫기';
 
   @override
-  String get selectAllButtonLabel => r'전체 선택';
+  String get modalBarrierDismissLabel => '닫기';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => '수정사항 없음';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => '붙여넣기';
 
   @override
-  String get timerPickerHourLabelOne => r'시간';
+  String get postMeridiemAbbreviation => '오후';
 
   @override
-  String get timerPickerHourLabelOther => r'시간';
+  String get searchTextFieldPlaceholderLabel => '검색';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => '웹 검색';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => '전체 선택';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => '공유...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'탭 $tabCount개 중 $tabIndex번째';
 
   @override
-  String get timerPickerMinuteLabelOne => r'분';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'분';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => '시간';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => '시간';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'초';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'초';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => '분';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => '분';
 
   @override
-  String get todayLabel => r'오늘';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => '초';
+
+  @override
+  String get timerPickerSecondLabelOther => '초';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => '오늘';
 }
 
 /// The translations for Kirghiz Kyrgyz (`ky`).
@@ -7043,146 +8489,170 @@ class CupertinoLocalizationKy extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationKy({
-    String localeName = 'ky',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'ky',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Эскертүү';
+  String get alertDialogLabel => 'Эскертүү';
 
   @override
-  String get anteMeridiemAbbreviation => r'түшкө чейин';
+  String get anteMeridiemAbbreviation => 'түшкө чейин';
 
   @override
-  String get copyButtonLabel => r'Көчүрүү';
+  String get backButtonLabel => 'Артка';
 
   @override
-  String get cutButtonLabel => r'Кесүү';
+  String get cancelButtonLabel => 'Токтотуу';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Тазалоо';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Көчүрүү';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Кесүү';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'Саат $hour';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'Саат $hour';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'Саат $hour';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 мүнөт';
+  String? get datePickerMinuteSemanticsLabelOne => '1 мүнөт';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute мүнөт';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Чаптоо';
+  String get lookUpButtonLabel => 'Издөө';
 
   @override
-  String get postMeridiemAbbreviation => r'түштөн кийин';
+  String get menuDismissLabel => 'Менюну жабуу';
 
   @override
-  String get selectAllButtonLabel => r'Баарын тандоо';
+  String get modalBarrierDismissLabel => 'Жабуу';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Алмаштыруу үчүн сөз табылган жок';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Чаптоо';
 
   @override
-  String get timerPickerHourLabelOne => r'саат';
+  String get postMeridiemAbbreviation => 'түштөн кийин';
 
   @override
-  String get timerPickerHourLabelOther => r'саат';
+  String get searchTextFieldPlaceholderLabel => 'Издөө';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Интернеттен издөө';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Баарын тандоо';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Бөлүшүү…';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'$tabCount ичинен $tabIndex-өтмөк';
 
   @override
-  String get timerPickerMinuteLabelOne => r'мүн.';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'мүн.';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'саат';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'саат';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'сек.';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'сек.';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'мүн.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'мүн.';
 
   @override
-  String get todayLabel => r'Бүгүн';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'сек.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'сек.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Бүгүн';
 }
 
 /// The translations for Lao (`lo`).
@@ -7191,146 +8661,170 @@ class CupertinoLocalizationLo extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationLo({
-    String localeName = 'lo',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'lo',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'ການເຕືອນ';
+  String get alertDialogLabel => 'ການເຕືອນ';
 
   @override
-  String get anteMeridiemAbbreviation => r'ກ່ອນທ່ຽງ';
+  String get anteMeridiemAbbreviation => 'ກ່ອນທ່ຽງ';
 
   @override
-  String get copyButtonLabel => r'ສຳເນົາ';
+  String get backButtonLabel => 'ກັບຄືນ';
 
   @override
-  String get cutButtonLabel => r'ຕັດ';
+  String get cancelButtonLabel => 'ຍົກເລີກ';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get clearButtonLabel => 'ລຶບລ້າງ';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'ສຳເນົາ';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'ຕັດ';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'mdy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour ໂມງກົງ';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour ໂມງກົງ';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour ໂມງກົງ';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 ນາທີ';
+  String? get datePickerMinuteSemanticsLabelOne => '1 ນາທີ';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute ນາທີ';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'ວາງ';
+  String get lookUpButtonLabel => 'ຊອກຫາຂໍ້ມູນ';
 
   @override
-  String get postMeridiemAbbreviation => r'ຫຼັງທ່ຽງ';
+  String get menuDismissLabel => 'ປິດເມນູ';
 
   @override
-  String get selectAllButtonLabel => r'ເລືອກທັງໝົດ';
+  String get modalBarrierDismissLabel => 'ປິດໄວ້';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'ບໍ່ພົບການແທນທີ່';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'ວາງ';
 
   @override
-  String get timerPickerHourLabelOne => r'ຊົ່ວໂມງ';
+  String get postMeridiemAbbreviation => 'ຫຼັງທ່ຽງ';
 
   @override
-  String get timerPickerHourLabelOther => r'ຊົ່ວໂມງ';
+  String get searchTextFieldPlaceholderLabel => 'ຊອກຫາ';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'ຊອກຫາຢູ່ອິນເຕີເນັດ';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'ເລືອກທັງໝົດ';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'ແບ່ງປັນ...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'ແຖບທີ $tabIndex ຈາກທັງໝົດ $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'ນທ.';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'ນທ.';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'ຊົ່ວໂມງ';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'ຊົ່ວໂມງ';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'ວິ.';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'ວິ.';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'ນທ.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'ນທ.';
 
   @override
-  String get todayLabel => r'ມື້ນີ້';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'ວິ.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'ວິ.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'ມື້ນີ້';
 }
 
 /// The translations for Lithuanian (`lt`).
@@ -7339,146 +8833,170 @@ class CupertinoLocalizationLt extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationLt({
-    String localeName = 'lt',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'lt',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Įspėjimas';
+  String get alertDialogLabel => 'Įspėjimas';
 
   @override
-  String get anteMeridiemAbbreviation => r'priešpiet';
+  String get anteMeridiemAbbreviation => 'priešpiet';
 
   @override
-  String get copyButtonLabel => r'Kopijuoti';
+  String get backButtonLabel => 'Atgal';
 
   @override
-  String get cutButtonLabel => r'Iškirpti';
+  String get cancelButtonLabel => 'Atšaukti';
 
   @override
-  String get datePickerDateOrderString => r'ymd';
+  String get clearButtonLabel => 'Išvalyti';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Kopijuoti';
 
   @override
-  String get datePickerHourSemanticsLabelFew => r'$hour val.';
+  String get cutButtonLabel => 'Iškirpti';
 
   @override
-  String get datePickerHourSemanticsLabelMany => r'$hour val.';
+  String get datePickerDateOrderString => 'ymd';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour val.';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => r'$hour val.';
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => r'$hour val.';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour val.';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour val.';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => r'$minute min.';
+  String? get datePickerMinuteSemanticsLabelFew => r'$minute min.';
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => r'$minute min.';
+  String? get datePickerMinuteSemanticsLabelMany => r'$minute min.';
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 min.';
+  String? get datePickerMinuteSemanticsLabelOne => '1 min.';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute min.';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Įklijuoti';
+  String get lookUpButtonLabel => 'Ieškoti';
 
   @override
-  String get postMeridiemAbbreviation => r'popiet';
+  String get menuDismissLabel => 'Atsisakyti meniu';
 
   @override
-  String get selectAllButtonLabel => r'Pasirinkti viską';
+  String get modalBarrierDismissLabel => 'Atsisakyti';
 
   @override
-  String get timerPickerHourLabelFew => r'val.';
+  String get noSpellCheckReplacementsLabel => 'Nerasta jokių pakeitimų';
 
   @override
-  String get timerPickerHourLabelMany => r'val.';
+  String get pasteButtonLabel => 'Įklijuoti';
 
   @override
-  String get timerPickerHourLabelOne => r'val.';
+  String get postMeridiemAbbreviation => 'popiet';
 
   @override
-  String get timerPickerHourLabelOther => r'val.';
+  String get searchTextFieldPlaceholderLabel => 'Paieška';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Ieškoti žiniatinklyje';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Pasirinkti viską';
 
   @override
-  String get timerPickerMinuteLabelFew => r'min.';
+  String get shareButtonLabel => 'Bendrinti...';
 
   @override
-  String get timerPickerMinuteLabelMany => r'min.';
+  String get tabSemanticsLabelRaw => r'$tabIndex skirtukas iš $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'min.';
+  String? get timerPickerHourLabelFew => 'val.';
 
   @override
-  String get timerPickerMinuteLabelOther => r'min.';
+  String? get timerPickerHourLabelMany => 'val.';
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'val.';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'val.';
 
   @override
-  String get timerPickerSecondLabelFew => r'sek.';
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => r'sek.';
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'sek.';
+  String? get timerPickerMinuteLabelFew => 'min.';
 
   @override
-  String get timerPickerSecondLabelOther => r'sek.';
+  String? get timerPickerMinuteLabelMany => 'min.';
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'min.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'min.';
 
   @override
-  String get todayLabel => r'Šiandien';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => 'sek.';
+
+  @override
+  String? get timerPickerSecondLabelMany => 'sek.';
+
+  @override
+  String? get timerPickerSecondLabelOne => 'sek.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'sek.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Šiandien';
 }
 
 /// The translations for Latvian (`lv`).
@@ -7487,146 +9005,170 @@ class CupertinoLocalizationLv extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationLv({
-    String localeName = 'lv',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'lv',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Brīdinājums';
+  String get alertDialogLabel => 'Brīdinājums';
 
   @override
-  String get anteMeridiemAbbreviation => r'priekšpusdienā';
+  String get anteMeridiemAbbreviation => 'priekšpusdienā';
 
   @override
-  String get copyButtonLabel => r'Kopēt';
+  String get backButtonLabel => 'Atpakaļ';
 
   @override
-  String get cutButtonLabel => r'Izgriezt';
+  String get cancelButtonLabel => 'Atcelt';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get clearButtonLabel => 'Notīrīt';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Kopēt';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Izgriezt';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'mdy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'plkst. $hour';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'plkst. $hour';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'plkst. $hour';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => r'plkst. $hour';
+  String? get datePickerHourSemanticsLabelZero => r'plkst. $hour';
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 minūte';
+  String? get datePickerMinuteSemanticsLabelOne => '1 minūte';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute minūtes';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => r'$minute minūtes';
+  String? get datePickerMinuteSemanticsLabelZero => r'$minute minūtes';
 
   @override
-  String get pasteButtonLabel => r'Ielīmēt';
+  String get lookUpButtonLabel => 'Meklēt';
 
   @override
-  String get postMeridiemAbbreviation => r'pēcpusdienā';
+  String get menuDismissLabel => 'Nerādīt izvēlni';
 
   @override
-  String get selectAllButtonLabel => r'Atlasīt visu';
+  String get modalBarrierDismissLabel => 'Nerādīt';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Netika atrasts neviens vārds aizstāšanai';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Ielīmēt';
 
   @override
-  String get timerPickerHourLabelOne => r'h';
+  String get postMeridiemAbbreviation => 'pēcpusdienā';
 
   @override
-  String get timerPickerHourLabelOther => r'h';
+  String get searchTextFieldPlaceholderLabel => 'Meklēšana';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Meklēt tīmeklī';
 
   @override
-  String get timerPickerHourLabelZero => r'h';
+  String get selectAllButtonLabel => 'Atlasīt visu';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Kopīgot…';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'$tabIndex. cilne no $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'min';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'min';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'h';
 
   @override
-  String get timerPickerMinuteLabelZero => r'min';
+  String get timerPickerHourLabelOther => 'h';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => 'h';
 
   @override
-  String get timerPickerSecondLabelOne => r's';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r's';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'min';
 
   @override
-  String get timerPickerSecondLabelZero => r's';
+  String get timerPickerMinuteLabelOther => 'min';
 
   @override
-  String get todayLabel => r'Šodien';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => 'min';
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 's';
+
+  @override
+  String get timerPickerSecondLabelOther => 's';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => 's';
+
+  @override
+  String get todayLabel => 'Šodien';
 }
 
 /// The translations for Macedonian (`mk`).
@@ -7635,146 +9177,170 @@ class CupertinoLocalizationMk extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationMk({
-    String localeName = 'mk',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'mk',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Предупредување';
+  String get alertDialogLabel => 'Предупредување';
 
   @override
-  String get anteMeridiemAbbreviation => r'ПРЕТПЛАДНЕ';
+  String get anteMeridiemAbbreviation => 'ПРЕТПЛАДНЕ';
 
   @override
-  String get copyButtonLabel => r'Копирај';
+  String get backButtonLabel => 'Назад';
 
   @override
-  String get cutButtonLabel => r'Исечи';
+  String get cancelButtonLabel => 'Откажи';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Избриши';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Копирај';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Исечи';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour часот';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour часот';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour часот';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 минута';
+  String? get datePickerMinuteSemanticsLabelOne => '1 минута';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute минути';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Залепи';
+  String get lookUpButtonLabel => 'Погледнете нагоре';
 
   @override
-  String get postMeridiemAbbreviation => r'ПОПЛАДНЕ';
+  String get menuDismissLabel => 'Отфрлете го менито';
 
   @override
-  String get selectAllButtonLabel => r'Избери ги сите';
+  String get modalBarrierDismissLabel => 'Отфрли';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Не се најдени заменски зборови';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Залепи';
 
   @override
-  String get timerPickerHourLabelOne => r'час';
+  String get postMeridiemAbbreviation => 'ПОПЛАДНЕ';
 
   @override
-  String get timerPickerHourLabelOther => r'часа';
+  String get searchTextFieldPlaceholderLabel => 'Пребарувајте';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Пребарајте на интернет';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Избери ги сите';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Споделете...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Картичка $tabIndex од $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'мин.';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'мин.';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'час';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'часа';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'сек.';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'сек.';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'мин.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'мин.';
 
   @override
-  String get todayLabel => r'Денес';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'сек.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'сек.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Денес';
 }
 
 /// The translations for Malayalam (`ml`).
@@ -7783,146 +9349,170 @@ class CupertinoLocalizationMl extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationMl({
-    String localeName = 'ml',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'ml',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'മുന്നറിയിപ്പ്';
+  String get alertDialogLabel => 'മുന്നറിയിപ്പ്';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'പകർത്തുക';
+  String get backButtonLabel => 'മടങ്ങുക';
 
   @override
-  String get cutButtonLabel => r'മുറിക്കുക';
+  String get cancelButtonLabel => 'റദ്ദാക്കുക';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'മായ്ക്കുക';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'പകർത്തുക';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'മുറിക്കുക';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour മണി';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour മണി';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour മണി';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'ഒരു മിനിറ്റ്';
+  String? get datePickerMinuteSemanticsLabelOne => 'ഒരു മിനിറ്റ്';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute മിനിറ്റ്';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'ഒട്ടിക്കുക';
+  String get lookUpButtonLabel => 'മുകളിലേക്ക് നോക്കുക';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'മെനു ഡിസ്മിസ് ചെയ്യുക';
 
   @override
-  String get selectAllButtonLabel => r'എല്ലാം തിരഞ്ഞെടുക്കുക';
+  String get modalBarrierDismissLabel => 'നിരസിക്കുക';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'റീപ്ലേസ്‌മെന്റുകളൊന്നും കണ്ടെത്തിയില്ല';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'ഒട്ടിക്കുക';
 
   @override
-  String get timerPickerHourLabelOne => r'മണിക്കൂർ';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'മണിക്കൂർ';
+  String get searchTextFieldPlaceholderLabel => 'തിരയുക';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'വെബിൽ തിരയുക';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'എല്ലാം തിരഞ്ഞെടുക്കുക';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'പങ്കിടുക...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'$tabCount ടാബിൽ $tabIndex-ാമത്തേത്';
 
   @override
-  String get timerPickerMinuteLabelOne => r'മിനിറ്റ്';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'മിനിറ്റ്';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'മണിക്കൂർ';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'മണിക്കൂർ';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'സെക്കൻഡ്';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'സെക്കൻഡ്';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'മിനിറ്റ്';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'മിനിറ്റ്';
 
   @override
-  String get todayLabel => r'ഇന്ന്';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'സെക്കൻഡ്';
+
+  @override
+  String get timerPickerSecondLabelOther => 'സെക്കൻഡ്';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'ഇന്ന്';
 }
 
 /// The translations for Mongolian (`mn`).
@@ -7931,146 +9521,170 @@ class CupertinoLocalizationMn extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationMn({
-    String localeName = 'mn',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'mn',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Сэрэмжлүүлэг';
+  String get alertDialogLabel => 'Сэрэмжлүүлэг';
 
   @override
-  String get anteMeridiemAbbreviation => r'ӨГЛӨӨ';
+  String get anteMeridiemAbbreviation => 'ӨГЛӨӨ';
 
   @override
-  String get copyButtonLabel => r'Хуулах';
+  String get backButtonLabel => 'Буцах';
 
   @override
-  String get cutButtonLabel => r'Таслах';
+  String get cancelButtonLabel => 'Цуцлах';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get clearButtonLabel => 'Арилгах';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Хуулах';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Таслах';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'mdy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour цаг';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour цаг';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour цаг';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 минут';
+  String? get datePickerMinuteSemanticsLabelOne => '1 минут';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute минут';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Буулгах';
+  String get lookUpButtonLabel => 'Дээшээ харах';
 
   @override
-  String get postMeridiemAbbreviation => r'ОРОЙ';
+  String get menuDismissLabel => 'Цэсийг хаах';
 
   @override
-  String get selectAllButtonLabel => r'Бүгдийг сонгох';
+  String get modalBarrierDismissLabel => 'Үл хэрэгсэх';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Ямар ч орлуулалт олдсонгүй';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Буулгах';
 
   @override
-  String get timerPickerHourLabelOne => r'цаг';
+  String get postMeridiemAbbreviation => 'ОРОЙ';
 
   @override
-  String get timerPickerHourLabelOther => r'цаг';
+  String get searchTextFieldPlaceholderLabel => 'Хайх';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Вебээс хайх';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Бүгдийг сонгох';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Хуваалцах...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'$tabCount-н $tabIndex-р таб';
 
   @override
-  String get timerPickerMinuteLabelOne => r'минут.';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'минут.';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'цаг';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'цаг';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'секунд.';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'секунд.';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'минут.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'минут.';
 
   @override
-  String get todayLabel => r'Өнөөдөр';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'секунд.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'секунд.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Өнөөдөр';
 }
 
 /// The translations for Marathi (`mr`).
@@ -8079,146 +9693,170 @@ class CupertinoLocalizationMr extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationMr({
-    String localeName = 'mr',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'mr',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'सूचना';
+  String get alertDialogLabel => 'सूचना';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'कॉपी करा';
+  String get backButtonLabel => 'मागे जा';
 
   @override
-  String get cutButtonLabel => r'कट करा';
+  String get cancelButtonLabel => 'रद्द करा';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get clearButtonLabel => 'साफ करा';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'कॉपी करा';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'कट करा';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'mdy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour वाजता';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour वाजता';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour वाजता';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'एक मिनिट';
+  String? get datePickerMinuteSemanticsLabelOne => 'एक मिनिट';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute मिनिटे';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'पेस्ट करा';
+  String get lookUpButtonLabel => 'शोध घ्या';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'मेनू डिसमिस करा';
 
   @override
-  String get selectAllButtonLabel => r'सर्व निवडा';
+  String get modalBarrierDismissLabel => 'डिसमिस करा';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'कोणतेही बदल आढळले नाहीत';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'पेस्ट करा';
 
   @override
-  String get timerPickerHourLabelOne => r'तास';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'तास';
+  String get searchTextFieldPlaceholderLabel => 'शोधा';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'वेबवर शोधा';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'सर्व निवडा';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'शेअर करा...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'$tabCount पैकी $tabIndex टॅब';
 
   @override
-  String get timerPickerMinuteLabelOne => r'मि.';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'मि.';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'तास';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'तास';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'से.';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'से.';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'मि.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'मि.';
 
   @override
-  String get todayLabel => r'आज';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'से.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'से.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'आज';
 }
 
 /// The translations for Malay (`ms`).
@@ -8227,146 +9865,170 @@ class CupertinoLocalizationMs extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationMs({
-    String localeName = 'ms',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'ms',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Makluman';
+  String get alertDialogLabel => 'Makluman';
 
   @override
-  String get anteMeridiemAbbreviation => r'PG';
+  String get anteMeridiemAbbreviation => 'PG';
 
   @override
-  String get copyButtonLabel => r'Salin';
+  String get backButtonLabel => 'Kembali';
 
   @override
-  String get cutButtonLabel => r'Potong';
+  String get cancelButtonLabel => 'Batal';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Kosongkan';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Salin';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Potong';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'Pukul $hour';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'Pukul $hour';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'Pukul $hour';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 minit';
+  String? get datePickerMinuteSemanticsLabelOne => '1 minit';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute minit';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Tampal';
+  String get lookUpButtonLabel => 'Lihat ke Atas';
 
   @override
-  String get postMeridiemAbbreviation => r'PTG';
+  String get menuDismissLabel => 'Ketepikan menu';
 
   @override
-  String get selectAllButtonLabel => r'Pilih Semua';
+  String get modalBarrierDismissLabel => 'Tolak';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Tiada Penggantian Ditemukan';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Tampal';
 
   @override
-  String get timerPickerHourLabelOne => r'jam';
+  String get postMeridiemAbbreviation => 'P/M';
 
   @override
-  String get timerPickerHourLabelOther => r'jam';
+  String get searchTextFieldPlaceholderLabel => 'Cari';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Buat carian pada Web';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Pilih Semua';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Kongsi...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Tab $tabIndex daripada $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'minit';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'minit';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'jam';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'jam';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'saat';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'saat';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'minit';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'minit';
 
   @override
-  String get todayLabel => r'Hari ini';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'saat';
+
+  @override
+  String get timerPickerSecondLabelOther => 'saat';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Hari ini';
 }
 
 /// The translations for Burmese (`my`).
@@ -8375,146 +10037,170 @@ class CupertinoLocalizationMy extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationMy({
-    String localeName = 'my',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'my',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'သတိပေးချက်';
+  String get alertDialogLabel => 'သတိပေးချက်';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'မိတ္တူကူးရန်';
+  String get backButtonLabel => 'နောက်သို့';
 
   @override
-  String get cutButtonLabel => r'ဖြတ်ယူရန်';
+  String get cancelButtonLabel => 'မလုပ်တော့';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get clearButtonLabel => 'ဖယ်ရှားရန်';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'မိတ္တူကူးရန်';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'ဖြတ်ယူရန်';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'mdy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour နာရီ';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour နာရီ';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour နာရီ';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'၁ မိနစ်';
+  String? get datePickerMinuteSemanticsLabelOne => '၁ မိနစ်';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute မိနစ်';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'ကူးထည့်ရန်';
+  String get lookUpButtonLabel => 'အပေါ်ကြည့်ရန်';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'မီနူးကိုပယ်ပါ';
 
   @override
-  String get selectAllButtonLabel => r'အားလုံး ရွေးရန်';
+  String get modalBarrierDismissLabel => 'ပယ်ရန်';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'အစားထိုးမှုများ မတွေ့ပါ';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'ကူးထည့်ရန်';
 
   @override
-  String get timerPickerHourLabelOne => r'နာရီ';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'နာရီ';
+  String get searchTextFieldPlaceholderLabel => 'ရှာရန်';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'ဝဘ်တွင်ရှာရန်';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'အားလုံး ရွေးရန်';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'မျှဝေရန်...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'တဘ် $tabCount ခုအနက် $tabIndex ခု';
 
   @override
-  String get timerPickerMinuteLabelOne => r'မိနစ်';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'မိနစ်';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'နာရီ';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'နာရီ';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'စက္ကန့်';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'စက္ကန့်';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'မိနစ်';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'မိနစ်';
 
   @override
-  String get todayLabel => r'ယနေ့';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'စက္ကန့်';
+
+  @override
+  String get timerPickerSecondLabelOther => 'စက္ကန့်';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'ယနေ့';
 }
 
 /// The translations for Norwegian Bokmål (`nb`).
@@ -8523,146 +10209,170 @@ class CupertinoLocalizationNb extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationNb({
-    String localeName = 'nb',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'nb',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Varsel';
+  String get alertDialogLabel => 'Varsel';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'Kopiér';
+  String get backButtonLabel => 'Tilbake';
 
   @override
-  String get cutButtonLabel => r'Klipp ut';
+  String get cancelButtonLabel => 'Avbryt';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Slett';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Kopiér';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Klipp ut';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour null-null';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour null-null';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour null-null';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 minutt';
+  String? get datePickerMinuteSemanticsLabelOne => '1 minutt';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute minutter';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Lim inn';
+  String get lookUpButtonLabel => 'Slå opp';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'Lukk menyen';
 
   @override
-  String get selectAllButtonLabel => r'Velg alle';
+  String get modalBarrierDismissLabel => 'Avvis';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Fant ingen erstatninger';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Lim inn';
 
   @override
-  String get timerPickerHourLabelOne => r'time';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'timer';
+  String get searchTextFieldPlaceholderLabel => 'Søk';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Søk på nettet';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Velg alle';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Del…';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Fane $tabIndex av $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'min.';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'min.';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'time';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'timer';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'sek.';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'sek.';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'min.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'min.';
 
   @override
-  String get todayLabel => r'I dag';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'sek.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'sek.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'I dag';
 }
 
 /// The translations for Nepali (`ne`).
@@ -8671,146 +10381,170 @@ class CupertinoLocalizationNe extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationNe({
-    String localeName = 'ne',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'ne',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'अलर्ट';
+  String get alertDialogLabel => 'अलर्ट';
 
   @override
-  String get anteMeridiemAbbreviation => r'पूर्वाह्न';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'प्रतिलिपि गर्नुहोस्';
+  String get backButtonLabel => 'पछाडि';
 
   @override
-  String get cutButtonLabel => r'काट्नुहोस्';
+  String get cancelButtonLabel => 'रद्द गर्नुहोस्';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get clearButtonLabel => 'हटाउनुहोस्';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'कपी गर्नुहोस्';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'काट्नुहोस्';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'mdy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour बजे';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour बजे';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour बजे';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'१ मिनेट';
+  String? get datePickerMinuteSemanticsLabelOne => '१ मिनेट';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute मिनेट';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'टाँस्नुहोस्';
+  String get lookUpButtonLabel => 'माथितिर हेर्नुहोस्';
 
   @override
-  String get postMeridiemAbbreviation => r'अपराह्न';
+  String get menuDismissLabel => 'मेनु खारेज गर्नुहोस्';
 
   @override
-  String get selectAllButtonLabel => r'सबै चयन गर्नुहोस्';
+  String get modalBarrierDismissLabel => 'खारेज गर्नुहोस्';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'बदल्नु पर्ने कुनै पनि कुरा भेटिएन';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'टाँस्नुहोस्';
 
   @override
-  String get timerPickerHourLabelOne => r'घन्टा';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'घन्टा';
+  String get searchTextFieldPlaceholderLabel => 'खोज्नुहोस्';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'वेबमा खोज्नुहोस्';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'सबै चयन गर्नुहोस्';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'सेयर गर्नुहोस्...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'$tabCount मध्ये $tabIndex ट्याब';
 
   @override
-  String get timerPickerMinuteLabelOne => r'मिनेट';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'मिनेट';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'घन्टा';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'घन्टा';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'सेकेन्ड';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'सेकेन्ड';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'मिनेट';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'मिनेट';
 
   @override
-  String get todayLabel => r'आज';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'सेकेन्ड';
+
+  @override
+  String get timerPickerSecondLabelOther => 'सेकेन्ड';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'आज';
 }
 
 /// The translations for Dutch Flemish (`nl`).
@@ -8819,146 +10553,342 @@ class CupertinoLocalizationNl extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationNl({
-    String localeName = 'nl',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'nl',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Melding';
+  String get alertDialogLabel => 'Melding';
 
   @override
-  String get anteMeridiemAbbreviation => r'am';
+  String get anteMeridiemAbbreviation => 'am';
 
   @override
-  String get copyButtonLabel => r'Kopiëren';
+  String get backButtonLabel => 'Terug';
 
   @override
-  String get cutButtonLabel => r'Knippen';
+  String get cancelButtonLabel => 'Annuleren';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Wissen';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Kopiëren';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Knippen';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour uur';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour uur';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour uur';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 minuut';
+  String? get datePickerMinuteSemanticsLabelOne => '1 minuut';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute minuten';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Plakken';
+  String get lookUpButtonLabel => 'Opzoeken';
 
   @override
-  String get postMeridiemAbbreviation => r'pm';
+  String get menuDismissLabel => 'Menu sluiten';
 
   @override
-  String get selectAllButtonLabel => r'Alles selecteren';
+  String get modalBarrierDismissLabel => 'Sluiten';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Geen vervangingen gevonden';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Plakken';
 
   @override
-  String get timerPickerHourLabelOne => r'uur';
+  String get postMeridiemAbbreviation => 'pm';
 
   @override
-  String get timerPickerHourLabelOther => r'uur';
+  String get searchTextFieldPlaceholderLabel => 'Zoeken';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Op internet zoeken';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Alles selecteren';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Delen...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Tabblad $tabIndex van $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'min.';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'min.';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'uur';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'uur';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'sec.';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'sec.';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'min.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'min.';
 
   @override
-  String get todayLabel => r'Vandaag';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'sec.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'sec.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Vandaag';
+}
+
+/// The translations for Norwegian (`no`).
+class CupertinoLocalizationNo extends GlobalCupertinoLocalizations {
+  /// Create an instance of the translation bundle for Norwegian.
+  ///
+  /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
+  const CupertinoLocalizationNo({
+    super.localeName = 'no',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
+
+  @override
+  String get alertDialogLabel => 'Varsel';
+
+  @override
+  String get anteMeridiemAbbreviation => 'AM';
+
+  @override
+  String get backButtonLabel => 'Tilbake';
+
+  @override
+  String get cancelButtonLabel => 'Avbryt';
+
+  @override
+  String get clearButtonLabel => 'Slett';
+
+  @override
+  String get copyButtonLabel => 'Kopiér';
+
+  @override
+  String get cutButtonLabel => 'Klipp ut';
+
+  @override
+  String get datePickerDateOrderString => 'dmy';
+
+  @override
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour null-null';
+
+  @override
+  String get datePickerHourSemanticsLabelOther => r'$hour null-null';
+
+  @override
+  String? get datePickerHourSemanticsLabelTwo => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelZero => null;
+
+  @override
+  String? get datePickerMinuteSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerMinuteSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerMinuteSemanticsLabelOne => '1 minutt';
+
+  @override
+  String get datePickerMinuteSemanticsLabelOther => r'$minute minutter';
+
+  @override
+  String? get datePickerMinuteSemanticsLabelTwo => null;
+
+  @override
+  String? get datePickerMinuteSemanticsLabelZero => null;
+
+  @override
+  String get lookUpButtonLabel => 'Slå opp';
+
+  @override
+  String get menuDismissLabel => 'Lukk menyen';
+
+  @override
+  String get modalBarrierDismissLabel => 'Avvis';
+
+  @override
+  String get noSpellCheckReplacementsLabel => 'Fant ingen erstatninger';
+
+  @override
+  String get pasteButtonLabel => 'Lim inn';
+
+  @override
+  String get postMeridiemAbbreviation => 'PM';
+
+  @override
+  String get searchTextFieldPlaceholderLabel => 'Søk';
+
+  @override
+  String get searchWebButtonLabel => 'Søk på nettet';
+
+  @override
+  String get selectAllButtonLabel => 'Velg alle';
+
+  @override
+  String get shareButtonLabel => 'Del…';
+
+  @override
+  String get tabSemanticsLabelRaw => r'Fane $tabIndex av $tabCount';
+
+  @override
+  String? get timerPickerHourLabelFew => null;
+
+  @override
+  String? get timerPickerHourLabelMany => null;
+
+  @override
+  String? get timerPickerHourLabelOne => 'time';
+
+  @override
+  String get timerPickerHourLabelOther => 'timer';
+
+  @override
+  String? get timerPickerHourLabelTwo => null;
+
+  @override
+  String? get timerPickerHourLabelZero => null;
+
+  @override
+  String? get timerPickerMinuteLabelFew => null;
+
+  @override
+  String? get timerPickerMinuteLabelMany => null;
+
+  @override
+  String? get timerPickerMinuteLabelOne => 'min.';
+
+  @override
+  String get timerPickerMinuteLabelOther => 'min.';
+
+  @override
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'sek.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'sek.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'I dag';
 }
 
 /// The translations for Oriya (`or`).
@@ -8967,146 +10897,170 @@ class CupertinoLocalizationOr extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationOr({
-    String localeName = 'or',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'or',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'ଆଲର୍ଟ';
+  String get alertDialogLabel => 'ଆଲର୍ଟ';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'କପି କରନ୍ତୁ';
+  String get backButtonLabel => 'Back';
 
   @override
-  String get cutButtonLabel => r'କଟ୍ କରନ୍ତୁ';
+  String get cancelButtonLabel => 'ବାତିଲ କରନ୍ତୁ';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get clearButtonLabel => 'ଖାଲି କରନ୍ତୁ';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'କପି କରନ୍ତୁ';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'କଟ୍ କରନ୍ତୁ';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'mdy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hourଟା';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hourଟା';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hourଟା';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 ମିନିଟ୍';
+  String? get datePickerMinuteSemanticsLabelOne => '1 ମିନିଟ୍';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute ମିନିଟ୍';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'ପେଷ୍ଟ କରନ୍ତୁ';
+  String get lookUpButtonLabel => 'ଉପରକୁ ଦେଖନ୍ତୁ';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'ମେନୁ ଖାରଜ କରନ୍ତୁ';
 
   @override
-  String get selectAllButtonLabel => r'ସମସ୍ତ ଚୟନ କରନ୍ତୁ';
+  String get modalBarrierDismissLabel => 'ଖାରଜ କରନ୍ତୁ';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'କୌଣସି ରିପ୍ଲେସମେଣ୍ଟ ମିଳିଲା ନାହିଁ';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'ପେଷ୍ଟ କରନ୍ତୁ';
 
   @override
-  String get timerPickerHourLabelOne => r'ଘଣ୍ଟା';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'ଘଣ୍ଟା';
+  String get searchTextFieldPlaceholderLabel => 'ସନ୍ଧାନ କରନ୍ତୁ';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'ୱେବ ସର୍ଚ୍ଚ କରନ୍ତୁ';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'ସମସ୍ତ ଚୟନ କରନ୍ତୁ';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'ସେୟାର୍ କରନ୍ତୁ...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'$tabCountର $tabIndex ଟାବ୍';
 
   @override
-  String get timerPickerMinuteLabelOne => r'ମିନିଟ୍';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'ମିନିଟ୍';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'ଘଣ୍ଟା';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'ଘଣ୍ଟା';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'ସେକେଣ୍ଡ';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'ସେକେଣ୍ଡ';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'ମିନିଟ୍';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'ମିନିଟ୍';
 
   @override
-  String get todayLabel => r'ଆଜି';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'ସେକେଣ୍ଡ';
+
+  @override
+  String get timerPickerSecondLabelOther => 'ସେକେଣ୍ଡ';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'ଆଜି';
 }
 
 /// The translations for Panjabi Punjabi (`pa`).
@@ -9115,146 +11069,170 @@ class CupertinoLocalizationPa extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationPa({
-    String localeName = 'pa',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'pa',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'ਸੁਚੇਤਨਾ';
+  String get alertDialogLabel => 'ਅਲਰਟ';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'ਕਾਪੀ ਕਰੋ';
+  String get backButtonLabel => 'ਪਿੱਛੇ';
 
   @override
-  String get cutButtonLabel => r'ਕੱਟ ਕਰੋ';
+  String get cancelButtonLabel => 'ਰੱਦ ਕਰੋ';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'ਕਲੀਅਰ ਕਰੋ';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'ਕਾਪੀ ਕਰੋ';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'ਕੱਟ ਕਰੋ';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour ਵਜੇ';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour ਵਜੇ';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour ਵਜੇ';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 ਮਿੰਟ';
+  String? get datePickerMinuteSemanticsLabelOne => '1 ਮਿੰਟ';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute ਮਿੰਟ';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'ਪੇਸਟ ਕਰੋ';
+  String get lookUpButtonLabel => 'ਖੋਜੋ';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'ਮੀਨੂ ਖਾਰਜ ਕਰੋ';
 
   @override
-  String get selectAllButtonLabel => r'ਸਭ ਚੁਣੋ';
+  String get modalBarrierDismissLabel => 'ਖਾਰਜ ਕਰੋ';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'ਕੋਈ ਸੁਝਾਅ ਨਹੀਂ ਮਿਲਿਆ';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'ਪੇਸਟ ਕਰੋ';
 
   @override
-  String get timerPickerHourLabelOne => r'ਘੰਟਾ';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'ਘੰਟੇ';
+  String get searchTextFieldPlaceholderLabel => 'ਖੋਜੋ';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => "ਵੈੱਬ 'ਤੇ ਖੋਜੋ";
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'ਸਭ ਚੁਣੋ';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'ਸਾਂਝਾ ਕਰੋ...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'$tabCount ਵਿੱਚੋਂ $tabIndex ਟੈਬ';
 
   @override
-  String get timerPickerMinuteLabelOne => r'ਮਿੰ.';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'ਮਿੰ.';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'ਘੰਟਾ';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'ਘੰਟੇ';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'ਸਕਿੰ.';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'ਸਕਿੰ.';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'ਮਿੰ.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'ਮਿੰ.';
 
   @override
-  String get todayLabel => r'ਅੱਜ';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'ਸਕਿੰ.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'ਸਕਿੰ.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'ਅੱਜ';
 }
 
 /// The translations for Polish (`pl`).
@@ -9263,146 +11241,170 @@ class CupertinoLocalizationPl extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationPl({
-    String localeName = 'pl',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'pl',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Alert';
+  String get alertDialogLabel => 'Alert';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'Kopiuj';
+  String get backButtonLabel => 'Wstecz';
 
   @override
-  String get cutButtonLabel => r'Wytnij';
+  String get cancelButtonLabel => 'Anuluj';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Wyczyść';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Kopiuj';
 
   @override
-  String get datePickerHourSemanticsLabelFew => r'$hour';
+  String get cutButtonLabel => 'Wytnij';
 
   @override
-  String get datePickerHourSemanticsLabelMany => r'$hour';
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => r'$hour';
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => r'$hour';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => r'$minute minuty';
+  String? get datePickerMinuteSemanticsLabelFew => r'$minute minuty';
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => r'$minute minut';
+  String? get datePickerMinuteSemanticsLabelMany => r'$minute minut';
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 minuta';
+  String? get datePickerMinuteSemanticsLabelOne => '1 minuta';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute minuty';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Wklej';
+  String get lookUpButtonLabel => 'Sprawdź';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'Zamknij menu';
 
   @override
-  String get selectAllButtonLabel => r'Wybierz wszystkie';
+  String get modalBarrierDismissLabel => 'Zamknij';
 
   @override
-  String get timerPickerHourLabelFew => r'godziny';
+  String get noSpellCheckReplacementsLabel => 'Brak wyników zamieniania';
 
   @override
-  String get timerPickerHourLabelMany => r'godzin';
+  String get pasteButtonLabel => 'Wklej';
 
   @override
-  String get timerPickerHourLabelOne => r'godzina';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'godziny';
+  String get searchTextFieldPlaceholderLabel => 'Szukaj';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Szukaj w internecie';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Wybierz wszystkie';
 
   @override
-  String get timerPickerMinuteLabelFew => r'min';
+  String get shareButtonLabel => 'Udostępnij…';
 
   @override
-  String get timerPickerMinuteLabelMany => r'min';
+  String get tabSemanticsLabelRaw => r'Karta $tabIndex z $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'min';
+  String? get timerPickerHourLabelFew => 'godziny';
 
   @override
-  String get timerPickerMinuteLabelOther => r'min';
+  String? get timerPickerHourLabelMany => 'godzin';
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'godzina';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'godziny';
 
   @override
-  String get timerPickerSecondLabelFew => r's';
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => r's';
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r's';
+  String? get timerPickerMinuteLabelFew => 'min';
 
   @override
-  String get timerPickerSecondLabelOther => r's';
+  String? get timerPickerMinuteLabelMany => 'min';
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'min';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'min';
 
   @override
-  String get todayLabel => r'Dziś';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => 's';
+
+  @override
+  String? get timerPickerSecondLabelMany => 's';
+
+  @override
+  String? get timerPickerSecondLabelOne => 's';
+
+  @override
+  String get timerPickerSecondLabelOther => 's';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Dziś';
 }
 
 /// The translations for Portuguese (`pt`).
@@ -9411,146 +11413,170 @@ class CupertinoLocalizationPt extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationPt({
-    String localeName = 'pt',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'pt',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Alerta';
+  String get alertDialogLabel => 'Alerta';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'Copiar';
+  String get backButtonLabel => 'Voltar';
 
   @override
-  String get cutButtonLabel => r'Cortar';
+  String get cancelButtonLabel => 'Cancelar';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Limpar';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Copiar';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Cortar';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour hora';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour hora';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour horas';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 minuto';
+  String? get datePickerMinuteSemanticsLabelOne => '1 minuto';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute minutos';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Colar';
+  String get lookUpButtonLabel => 'Pesquisar';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'Dispensar menu';
 
   @override
-  String get selectAllButtonLabel => r'Selecionar Tudo';
+  String get modalBarrierDismissLabel => 'Dispensar';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Nenhuma alternativa encontrada';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Colar';
 
   @override
-  String get timerPickerHourLabelOne => r'hora';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'horas';
+  String get searchTextFieldPlaceholderLabel => 'Pesquisar';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Pesquisar na Web';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Selecionar tudo';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Compartilhar…';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Guia $tabIndex de $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'min';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'min';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'hora';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'horas';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r's';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r's';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'min';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'min';
 
   @override
-  String get todayLabel => r'Hoje';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 's';
+
+  @override
+  String get timerPickerSecondLabelOther => 's';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Hoje';
 }
 
 /// The translations for Portuguese, as used in Portugal (`pt_PT`).
@@ -9559,38 +11585,50 @@ class CupertinoLocalizationPtPt extends CupertinoLocalizationPt {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationPtPt({
-    String localeName = 'pt_PT',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'pt_PT',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
+
+  @override
+  String get backButtonLabel => 'Anterior';
+
+  @override
+  String get shareButtonLabel => 'Partilhar…';
+
+  @override
+  String get lookUpButtonLabel => 'Procurar';
+
+  @override
+  String get noSpellCheckReplacementsLabel => 'Não foram encontradas substituições';
+
+  @override
+  String get menuDismissLabel => 'Ignorar menu';
+
+  @override
+  String get searchTextFieldPlaceholderLabel => 'Pesquise';
+
+  @override
+  String get tabSemanticsLabelRaw => r'Separador $tabIndex de $tabCount';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour hora';
 
   @override
-  String get timerPickerSecondLabelOne => r'seg';
+  String? get timerPickerSecondLabelOne => 'seg';
 
   @override
-  String get timerPickerSecondLabelOther => r'seg';
+  String get timerPickerSecondLabelOther => 'seg';
 
   @override
-  String get selectAllButtonLabel => r'Selecionar tudo';
+  String get modalBarrierDismissLabel => 'Ignorar';
 }
 
 /// The translations for Romanian Moldavian Moldovan (`ro`).
@@ -9599,146 +11637,170 @@ class CupertinoLocalizationRo extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationRo({
-    String localeName = 'ro',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'ro',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Alertă';
+  String get alertDialogLabel => 'Alertă';
 
   @override
-  String get anteMeridiemAbbreviation => r'a.m.';
+  String get anteMeridiemAbbreviation => 'a.m.';
 
   @override
-  String get copyButtonLabel => r'Copiați';
+  String get backButtonLabel => 'Înapoi';
 
   @override
-  String get cutButtonLabel => r'Decupați';
+  String get cancelButtonLabel => 'Anulați';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Ștergeți';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Copiați';
 
   @override
-  String get datePickerHourSemanticsLabelFew => r'Ora $hour';
+  String get cutButtonLabel => 'Decupați';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'Ora $hour';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => r'Ora $hour';
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'Ora $hour';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'Ora $hour';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => r'$minute minute';
+  String? get datePickerMinuteSemanticsLabelFew => r'$minute minute';
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 minut';
+  String? get datePickerMinuteSemanticsLabelOne => '1 minut';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute de minute';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Inserați';
+  String get lookUpButtonLabel => 'Privire în sus';
 
   @override
-  String get postMeridiemAbbreviation => r'p.m.';
+  String get menuDismissLabel => 'Respingeți meniul';
 
   @override
-  String get selectAllButtonLabel => r'Selectați-le pe toate';
+  String get modalBarrierDismissLabel => 'Închideți';
 
   @override
-  String get timerPickerHourLabelFew => r'ore';
+  String get noSpellCheckReplacementsLabel => 'Nu s-au găsit înlocuiri';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Inserați';
 
   @override
-  String get timerPickerHourLabelOne => r'oră';
+  String get postMeridiemAbbreviation => 'p.m.';
 
   @override
-  String get timerPickerHourLabelOther => r'de ore';
+  String get searchTextFieldPlaceholderLabel => 'Căutați';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Căutați pe web';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Selectează tot';
 
   @override
-  String get timerPickerMinuteLabelFew => r'min.';
+  String get shareButtonLabel => 'Trimiteți…';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Fila $tabIndex din $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'min.';
+  String? get timerPickerHourLabelFew => 'ore';
 
   @override
-  String get timerPickerMinuteLabelOther => r'min.';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'oră';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'de ore';
 
   @override
-  String get timerPickerSecondLabelFew => r'sec.';
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'sec.';
+  String? get timerPickerMinuteLabelFew => 'min.';
 
   @override
-  String get timerPickerSecondLabelOther => r'sec.';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'min.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'min.';
 
   @override
-  String get todayLabel => r'Azi';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => 'sec.';
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'sec.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'sec.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Azi';
 }
 
 /// The translations for Russian (`ru`).
@@ -9747,146 +11809,170 @@ class CupertinoLocalizationRu extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationRu({
-    String localeName = 'ru',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'ru',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Оповещение';
+  String get alertDialogLabel => 'Оповещение';
 
   @override
-  String get anteMeridiemAbbreviation => r'АМ';
+  String get anteMeridiemAbbreviation => 'АМ';
 
   @override
-  String get copyButtonLabel => r'Копировать';
+  String get backButtonLabel => 'Назад';
 
   @override
-  String get cutButtonLabel => r'Вырезать';
+  String get cancelButtonLabel => 'Отмена';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Очистить';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Копировать';
 
   @override
-  String get datePickerHourSemanticsLabelFew => r'$hour часа';
+  String get cutButtonLabel => 'Вырезать';
 
   @override
-  String get datePickerHourSemanticsLabelMany => r'$hour часов';
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour час';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => r'$hour часа';
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => r'$hour часов';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour час';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour часа';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => r'$minute минуты';
+  String? get datePickerMinuteSemanticsLabelFew => r'$minute минуты';
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => r'$minute минут';
+  String? get datePickerMinuteSemanticsLabelMany => r'$minute минут';
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 минута';
+  String? get datePickerMinuteSemanticsLabelOne => '1 минута';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute минуты';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Вставить';
+  String get lookUpButtonLabel => 'Найти';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'Закрыть меню';
 
   @override
-  String get selectAllButtonLabel => r'Выбрать все';
+  String get modalBarrierDismissLabel => 'Закрыть';
 
   @override
-  String get timerPickerHourLabelFew => r'часа';
+  String get noSpellCheckReplacementsLabel => 'Варианты замены не найдены';
 
   @override
-  String get timerPickerHourLabelMany => r'часов';
+  String get pasteButtonLabel => 'Вставить';
 
   @override
-  String get timerPickerHourLabelOne => r'час';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'часа';
+  String get searchTextFieldPlaceholderLabel => 'Поиск';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Искать в интернете';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Выбрать все';
 
   @override
-  String get timerPickerMinuteLabelFew => r'мин.';
+  String get shareButtonLabel => 'Поделиться';
 
   @override
-  String get timerPickerMinuteLabelMany => r'мин.';
+  String get tabSemanticsLabelRaw => r'Вкладка $tabIndex из $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'мин.';
+  String? get timerPickerHourLabelFew => 'часа';
 
   @override
-  String get timerPickerMinuteLabelOther => r'мин.';
+  String? get timerPickerHourLabelMany => 'часов';
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'час';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'часа';
 
   @override
-  String get timerPickerSecondLabelFew => r'сек.';
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => r'сек.';
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'сек.';
+  String? get timerPickerMinuteLabelFew => 'мин.';
 
   @override
-  String get timerPickerSecondLabelOther => r'сек.';
+  String? get timerPickerMinuteLabelMany => 'мин.';
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'мин.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'мин.';
 
   @override
-  String get todayLabel => r'Сегодня';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => 'сек.';
+
+  @override
+  String? get timerPickerSecondLabelMany => 'сек.';
+
+  @override
+  String? get timerPickerSecondLabelOne => 'сек.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'сек.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Сегодня';
 }
 
 /// The translations for Sinhala Sinhalese (`si`).
@@ -9895,146 +11981,170 @@ class CupertinoLocalizationSi extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationSi({
-    String localeName = 'si',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'si',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'ඇඟවීම';
+  String get alertDialogLabel => 'ඇඟවීම';
 
   @override
-  String get anteMeridiemAbbreviation => r'පෙ.ව.';
+  String get anteMeridiemAbbreviation => 'පෙ.ව.';
 
   @override
-  String get copyButtonLabel => r'පිටපත් කරන්න';
+  String get backButtonLabel => 'Back';
 
   @override
-  String get cutButtonLabel => r'කපන්න';
+  String get cancelButtonLabel => 'අවලංගු කරන්න';
 
   @override
-  String get datePickerDateOrderString => r'ymd';
+  String get clearButtonLabel => 'හිස් කරන්න';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_dayPeriod_time';
+  String get copyButtonLabel => 'පිටපත් කරන්න';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'කපන්න';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'ymd';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hourයි';
+  String get datePickerDateTimeOrderString => 'date_dayPeriod_time';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hourයි';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hourයි';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'මිනිත්තු 1';
+  String? get datePickerMinuteSemanticsLabelOne => 'මිනිත්තු 1';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'මිනිත්තු $minute';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'අලවන්න';
+  String get lookUpButtonLabel => 'උඩ බලන්න';
 
   @override
-  String get postMeridiemAbbreviation => r'ප.ව.';
+  String get menuDismissLabel => 'මෙනුව අස් කරන්න';
 
   @override
-  String get selectAllButtonLabel => r'සියල්ල තෝරන්න';
+  String get modalBarrierDismissLabel => 'ඉවත ලන්න';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'ප්‍රතිස්ථාපන හමු නොවිණි';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'අලවන්න';
 
   @override
-  String get timerPickerHourLabelOne => r'පැය';
+  String get postMeridiemAbbreviation => 'ප.ව.';
 
   @override
-  String get timerPickerHourLabelOther => r'පැය';
+  String get searchTextFieldPlaceholderLabel => 'සෙවීම';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'වෙබය සොයන්න';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'සියල්ල තෝරන්න';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'බෙදා ගන්න...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'ටැබ $tabCount න් $tabIndex';
 
   @override
-  String get timerPickerMinuteLabelOne => r'මිනි.';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'මිනි.';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'පැය';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'පැය';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'තත්.';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'තත්.';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'මිනි.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'මිනි.';
 
   @override
-  String get todayLabel => r'අද';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'තත්.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'තත්.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'අද';
 }
 
 /// The translations for Slovak (`sk`).
@@ -10043,146 +12153,170 @@ class CupertinoLocalizationSk extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationSk({
-    String localeName = 'sk',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'sk',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Upozornenie';
+  String get alertDialogLabel => 'Upozornenie';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'Kopírovať';
+  String get backButtonLabel => 'Späť';
 
   @override
-  String get cutButtonLabel => r'Vystrihnúť';
+  String get cancelButtonLabel => 'Zrušiť';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get clearButtonLabel => 'Vymazať';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Kopírovať';
 
   @override
-  String get datePickerHourSemanticsLabelFew => r'$hour hodiny';
+  String get cutButtonLabel => 'Vystrihnúť';
 
   @override
-  String get datePickerHourSemanticsLabelMany => r'$hour hodiny';
+  String get datePickerDateOrderString => 'mdy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour hodina';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => r'$hour hodiny';
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => r'$hour hodiny';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour hodina';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour hodín';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => r'$minute minúty';
+  String? get datePickerMinuteSemanticsLabelFew => r'$minute minúty';
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => r'$minute minúty';
+  String? get datePickerMinuteSemanticsLabelMany => r'$minute minúty';
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 minúta';
+  String? get datePickerMinuteSemanticsLabelOne => '1 minúta';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute minút';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Prilepiť';
+  String get lookUpButtonLabel => 'Pohľad nahor';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'Zavrieť ponuku';
 
   @override
-  String get selectAllButtonLabel => r'Vybrať všetko';
+  String get modalBarrierDismissLabel => 'Odmietnuť';
 
   @override
-  String get timerPickerHourLabelFew => r'hodiny';
+  String get noSpellCheckReplacementsLabel => 'Nenašli sa žiadne náhrady';
 
   @override
-  String get timerPickerHourLabelMany => r'hodiny';
+  String get pasteButtonLabel => 'Prilepiť';
 
   @override
-  String get timerPickerHourLabelOne => r'hodina';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'hodín';
+  String get searchTextFieldPlaceholderLabel => 'Hľadať';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Hľadať na webe';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Označiť všetko';
 
   @override
-  String get timerPickerMinuteLabelFew => r'min';
+  String get shareButtonLabel => 'Zdieľať…';
 
   @override
-  String get timerPickerMinuteLabelMany => r'min';
+  String get tabSemanticsLabelRaw => r'Karta $tabIndex z $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'min';
+  String? get timerPickerHourLabelFew => 'hodiny';
 
   @override
-  String get timerPickerMinuteLabelOther => r'min';
+  String? get timerPickerHourLabelMany => 'hodiny';
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'hodina';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'hodín';
 
   @override
-  String get timerPickerSecondLabelFew => r's';
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => r's';
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r's';
+  String? get timerPickerMinuteLabelFew => 'min';
 
   @override
-  String get timerPickerSecondLabelOther => r's';
+  String? get timerPickerMinuteLabelMany => 'min';
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'min';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'min';
 
   @override
-  String get todayLabel => r'Dnes';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => 's';
+
+  @override
+  String? get timerPickerSecondLabelMany => 's';
+
+  @override
+  String? get timerPickerSecondLabelOne => 's';
+
+  @override
+  String get timerPickerSecondLabelOther => 's';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Dnes';
 }
 
 /// The translations for Slovenian (`sl`).
@@ -10191,146 +12325,170 @@ class CupertinoLocalizationSl extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationSl({
-    String localeName = 'sl',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'sl',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Opozorilo';
+  String get alertDialogLabel => 'Opozorilo';
 
   @override
-  String get anteMeridiemAbbreviation => r'DOP.';
+  String get anteMeridiemAbbreviation => 'DOP.';
 
   @override
-  String get copyButtonLabel => r'Kopiraj';
+  String get backButtonLabel => 'Nazaj';
 
   @override
-  String get cutButtonLabel => r'Izreži';
+  String get cancelButtonLabel => 'Prekliči';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Počisti';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Kopiraj';
 
   @override
-  String get datePickerHourSemanticsLabelFew => r'$hour';
+  String get cutButtonLabel => 'Izreži';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => r'$hour';
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => r'$hour';
+  String? get datePickerHourSemanticsLabelTwo => r'$hour';
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => r'$minute minute';
+  String? get datePickerMinuteSemanticsLabelFew => r'$minute minute';
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 minuta';
+  String? get datePickerMinuteSemanticsLabelOne => '1 minuta';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute minut';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => r'$minute minuti';
+  String? get datePickerMinuteSemanticsLabelTwo => r'$minute minuti';
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Prilepi';
+  String get lookUpButtonLabel => 'Pogled gor';
 
   @override
-  String get postMeridiemAbbreviation => r'POP.';
+  String get menuDismissLabel => 'Opusti meni';
 
   @override
-  String get selectAllButtonLabel => r'Izberi vse';
+  String get modalBarrierDismissLabel => 'Opusti';
 
   @override
-  String get timerPickerHourLabelFew => r'ure';
+  String get noSpellCheckReplacementsLabel => 'Ni zamenjav';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Prilepi';
 
   @override
-  String get timerPickerHourLabelOne => r'ura';
+  String get postMeridiemAbbreviation => 'POP.';
 
   @override
-  String get timerPickerHourLabelOther => r'ure';
+  String get searchTextFieldPlaceholderLabel => 'Iskanje';
 
   @override
-  String get timerPickerHourLabelTwo => r'ure';
+  String get searchWebButtonLabel => 'Iskanje v spletu';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Izberi vse';
 
   @override
-  String get timerPickerMinuteLabelFew => r'min';
+  String get shareButtonLabel => 'Deli …';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Zavihek $tabIndex od $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'min';
+  String? get timerPickerHourLabelFew => 'ure';
 
   @override
-  String get timerPickerMinuteLabelOther => r'min';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => r'min';
+  String? get timerPickerHourLabelOne => 'ura';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'ure';
 
   @override
-  String get timerPickerSecondLabelFew => r's';
+  String? get timerPickerHourLabelTwo => 'ure';
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r's';
+  String? get timerPickerMinuteLabelFew => 'min';
 
   @override
-  String get timerPickerSecondLabelOther => r's';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => r's';
+  String? get timerPickerMinuteLabelOne => 'min';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'min';
 
   @override
-  String get todayLabel => r'Danes';
+  String? get timerPickerMinuteLabelTwo => 'min';
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => 's';
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 's';
+
+  @override
+  String get timerPickerSecondLabelOther => 's';
+
+  @override
+  String? get timerPickerSecondLabelTwo => 's';
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Danes';
 }
 
 /// The translations for Albanian (`sq`).
@@ -10339,146 +12497,170 @@ class CupertinoLocalizationSq extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationSq({
-    String localeName = 'sq',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'sq',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Sinjalizim';
+  String get alertDialogLabel => 'Sinjalizim';
 
   @override
-  String get anteMeridiemAbbreviation => r'paradite';
+  String get anteMeridiemAbbreviation => 'paradite';
 
   @override
-  String get copyButtonLabel => r'Kopjo';
+  String get backButtonLabel => 'Prapa';
 
   @override
-  String get cutButtonLabel => r'Prit';
+  String get cancelButtonLabel => 'Anulo';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Pastro';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Kopjo';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Prit';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour fiks';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour fiks';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour fiks';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 minutë';
+  String? get datePickerMinuteSemanticsLabelOne => '1 minutë';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute minuta';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Ngjit';
+  String get lookUpButtonLabel => 'Kërko';
 
   @override
-  String get postMeridiemAbbreviation => r'pasdite';
+  String get menuDismissLabel => 'Hiqe menynë';
 
   @override
-  String get selectAllButtonLabel => r'Zgjidhi të gjitha';
+  String get modalBarrierDismissLabel => 'Hiq';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Nuk u gjetën zëvendësime';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Ngjit';
 
   @override
-  String get timerPickerHourLabelOne => r'orë';
+  String get postMeridiemAbbreviation => 'pasdite';
 
   @override
-  String get timerPickerHourLabelOther => r'orë';
+  String get searchTextFieldPlaceholderLabel => 'Kërko';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Kërko në ueb';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Zgjidhi të gjitha';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Ndaj...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Skeda $tabIndex nga $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'min.';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'min.';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'orë';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'orë';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'sek.';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'sek.';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'min.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'min.';
 
   @override
-  String get todayLabel => r'Sot';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'sek.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'sek.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Sot';
 }
 
 /// The translations for Serbian (`sr`).
@@ -10487,146 +12669,170 @@ class CupertinoLocalizationSr extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationSr({
-    String localeName = 'sr',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'sr',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Обавештење';
+  String get alertDialogLabel => 'Обавештење';
 
   @override
-  String get anteMeridiemAbbreviation => r'пре подне';
+  String get anteMeridiemAbbreviation => 'пре подне';
 
   @override
-  String get copyButtonLabel => r'Копирај';
+  String get backButtonLabel => 'Назад';
 
   @override
-  String get cutButtonLabel => r'Исеци';
+  String get cancelButtonLabel => 'Откажи';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Обриши';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Копирај';
 
   @override
-  String get datePickerHourSemanticsLabelFew => r'$hour сата';
+  String get cutButtonLabel => 'Исеци';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour сат';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => r'$hour сата';
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour сат';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour сати';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => r'$minute минута';
+  String? get datePickerMinuteSemanticsLabelFew => r'$minute минута';
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 минут';
+  String? get datePickerMinuteSemanticsLabelOne => '1 минут';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute минута';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Налепи';
+  String get lookUpButtonLabel => 'Поглед нагоре';
 
   @override
-  String get postMeridiemAbbreviation => r'по подне';
+  String get menuDismissLabel => 'Одбаците мени';
 
   @override
-  String get selectAllButtonLabel => r'Изабери све';
+  String get modalBarrierDismissLabel => 'Одбаци';
 
   @override
-  String get timerPickerHourLabelFew => r'сата';
+  String get noSpellCheckReplacementsLabel => 'Нису пронађене замене';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Налепи';
 
   @override
-  String get timerPickerHourLabelOne => r'сат';
+  String get postMeridiemAbbreviation => 'по подне';
 
   @override
-  String get timerPickerHourLabelOther => r'сати';
+  String get searchTextFieldPlaceholderLabel => 'Претражите';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Претражи веб';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Изабери све';
 
   @override
-  String get timerPickerMinuteLabelFew => r'мин';
+  String get shareButtonLabel => 'Дели…';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'$tabIndex. картица од $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'мин';
+  String? get timerPickerHourLabelFew => 'сата';
 
   @override
-  String get timerPickerMinuteLabelOther => r'мин';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'сат';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'сати';
 
   @override
-  String get timerPickerSecondLabelFew => r'сек';
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'сек';
+  String? get timerPickerMinuteLabelFew => 'мин';
 
   @override
-  String get timerPickerSecondLabelOther => r'сек';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'мин';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'мин';
 
   @override
-  String get todayLabel => r'Данас';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => 'сек';
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'сек';
+
+  @override
+  String get timerPickerSecondLabelOther => 'сек';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Данас';
 }
 
 /// The translations for Serbian, using the Cyrillic script (`sr_Cyrl`).
@@ -10635,26 +12841,17 @@ class CupertinoLocalizationSrCyrl extends CupertinoLocalizationSr {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationSrCyrl({
-    String localeName = 'sr_Cyrl',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'sr_Cyrl',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 }
 
 /// The translations for Serbian, using the Latin script (`sr_Latn`).
@@ -10663,95 +12860,119 @@ class CupertinoLocalizationSrLatn extends CupertinoLocalizationSr {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationSrLatn({
-    String localeName = 'sr_Latn',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'sr_Latn',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Obaveštenje';
+  String get alertDialogLabel => 'Obaveštenje';
 
   @override
-  String get anteMeridiemAbbreviation => r'pre podne';
+  String get anteMeridiemAbbreviation => 'pre podne';
 
   @override
-  String get copyButtonLabel => r'Kopiraj';
+  String get backButtonLabel => 'Nazad';
 
   @override
-  String get cutButtonLabel => r'Iseci';
+  String get cancelButtonLabel => 'Otkaži';
 
   @override
-  String get datePickerHourSemanticsLabelFew => r'$hour sata';
+  String get clearButtonLabel => 'Obriši';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour sat';
+  String get copyButtonLabel => 'Kopiraj';
+
+  @override
+  String get cutButtonLabel => 'Iseci';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => r'$hour sata';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour sat';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour sati';
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => r'$minute minuta';
+  String? get datePickerMinuteSemanticsLabelFew => r'$minute minuta';
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 minut';
+  String? get datePickerMinuteSemanticsLabelOne => '1 minut';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute minuta';
 
   @override
-  String get pasteButtonLabel => r'Nalepi';
+  String get lookUpButtonLabel => 'Pogled nagore';
 
   @override
-  String get postMeridiemAbbreviation => r'po podne';
+  String get menuDismissLabel => 'Odbacite meni';
 
   @override
-  String get selectAllButtonLabel => r'Izaberi sve';
+  String get modalBarrierDismissLabel => 'Odbaci';
 
   @override
-  String get timerPickerHourLabelFew => r'sata';
+  String get noSpellCheckReplacementsLabel => 'Nisu pronađene zamene';
 
   @override
-  String get timerPickerHourLabelOne => r'sat';
+  String get pasteButtonLabel => 'Nalepi';
 
   @override
-  String get timerPickerHourLabelOther => r'sati';
+  String get postMeridiemAbbreviation => 'po podne';
 
   @override
-  String get timerPickerMinuteLabelFew => r'min';
+  String get searchTextFieldPlaceholderLabel => 'Pretražite';
 
   @override
-  String get timerPickerMinuteLabelOne => r'min';
+  String get searchWebButtonLabel => 'Pretraži veb';
 
   @override
-  String get timerPickerMinuteLabelOther => r'min';
+  String get selectAllButtonLabel => 'Izaberi sve';
 
   @override
-  String get timerPickerSecondLabelFew => r'sek';
+  String get shareButtonLabel => 'Deli…';
 
   @override
-  String get timerPickerSecondLabelOne => r'sek';
+  String get tabSemanticsLabelRaw => r'$tabIndex. kartica od $tabCount';
 
   @override
-  String get timerPickerSecondLabelOther => r'sek';
+  String? get timerPickerHourLabelFew => 'sata';
 
   @override
-  String get todayLabel => r'Danas';
+  String? get timerPickerHourLabelOne => 'sat';
+
+  @override
+  String get timerPickerHourLabelOther => 'sati';
+
+  @override
+  String? get timerPickerMinuteLabelFew => 'min';
+
+  @override
+  String? get timerPickerMinuteLabelOne => 'min';
+
+  @override
+  String get timerPickerMinuteLabelOther => 'min';
+
+  @override
+  String? get timerPickerSecondLabelFew => 'sek';
+
+  @override
+  String? get timerPickerSecondLabelOne => 'sek';
+
+  @override
+  String get timerPickerSecondLabelOther => 'sek';
+
+  @override
+  String get todayLabel => 'Danas';
 }
 
 /// The translations for Swedish (`sv`).
@@ -10760,146 +12981,170 @@ class CupertinoLocalizationSv extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationSv({
-    String localeName = 'sv',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'sv',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Varning';
+  String get alertDialogLabel => 'Varning';
 
   @override
-  String get anteMeridiemAbbreviation => r'FM';
+  String get anteMeridiemAbbreviation => 'FM';
 
   @override
-  String get copyButtonLabel => r'Kopiera';
+  String get backButtonLabel => 'Tillbaka';
 
   @override
-  String get cutButtonLabel => r'Klipp ut';
+  String get cancelButtonLabel => 'Avbryt';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Rensa';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Kopiera';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Klipp ut';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'Klockan $hour';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'Klockan $hour';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'Klockan $hour';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 minut';
+  String? get datePickerMinuteSemanticsLabelOne => '1 minut';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute minuter';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Klistra in';
+  String get lookUpButtonLabel => 'Titta upp';
 
   @override
-  String get postMeridiemAbbreviation => r'EM';
+  String get menuDismissLabel => 'Stäng menyn';
 
   @override
-  String get selectAllButtonLabel => r'Markera alla';
+  String get modalBarrierDismissLabel => 'Stäng';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Inga ersättningar hittades';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Klistra in';
 
   @override
-  String get timerPickerHourLabelOne => r'timme';
+  String get postMeridiemAbbreviation => 'EM';
 
   @override
-  String get timerPickerHourLabelOther => r'timmar';
+  String get searchTextFieldPlaceholderLabel => 'Sök';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Sök på webben';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Markera allt';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Dela …';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Flik $tabIndex av $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'min';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'min';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'timme';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'timmar';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'sek';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'sek';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'min';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'min';
 
   @override
-  String get todayLabel => r'I dag';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'sek';
+
+  @override
+  String get timerPickerSecondLabelOther => 'sek';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'I dag';
 }
 
 /// The translations for Swahili (`sw`).
@@ -10908,146 +13153,170 @@ class CupertinoLocalizationSw extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationSw({
-    String localeName = 'sw',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'sw',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Arifa';
+  String get alertDialogLabel => 'Arifa';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'Nakili';
+  String get backButtonLabel => 'Nyuma';
 
   @override
-  String get cutButtonLabel => r'Kata';
+  String get cancelButtonLabel => 'Ghairi';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Futa';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Nakili';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Kata';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'Saa $hour kamili';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'Saa $hour kamili';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'Saa $hour kamili';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'Dakika 1';
+  String? get datePickerMinuteSemanticsLabelOne => 'Dakika 1';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'Dakika $minute';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Bandika';
+  String get lookUpButtonLabel => 'Tafuta';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'Ondoa menyu';
 
   @override
-  String get selectAllButtonLabel => r'Teua Zote';
+  String get modalBarrierDismissLabel => 'Ondoa';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Hakuna Neno Mbadala Lilopatikana';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Bandika';
 
   @override
-  String get timerPickerHourLabelOne => r'saa';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'saa';
+  String get searchTextFieldPlaceholderLabel => 'Tafuta';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Tafuta kwenye Wavuti';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Teua Zote';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Shiriki...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Kichupo cha $tabIndex kati ya $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'dakika';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'dakika';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'saa';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'saa';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'sekunde';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'sekunde';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'dakika';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'dakika';
 
   @override
-  String get todayLabel => r'Leo';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'sekunde';
+
+  @override
+  String get timerPickerSecondLabelOther => 'sekunde';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Leo';
 }
 
 /// The translations for Tamil (`ta`).
@@ -11056,146 +13325,170 @@ class CupertinoLocalizationTa extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationTa({
-    String localeName = 'ta',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'ta',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'விழிப்பூட்டல்';
+  String get alertDialogLabel => 'விழிப்பூட்டல்';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'நகலெடு';
+  String get backButtonLabel => 'பின்செல்';
 
   @override
-  String get cutButtonLabel => r'வெட்டு';
+  String get cancelButtonLabel => 'ரத்துசெய்';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'அழி';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'நகலெடு';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'வெட்டு';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour மணி';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour மணி';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour மணி';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 நிமிடம்';
+  String? get datePickerMinuteSemanticsLabelOne => '1 நிமிடம்';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute நிமிடங்கள்';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'ஒட்டு';
+  String get lookUpButtonLabel => 'தேடு';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'மெனுவை மூடும்';
 
   @override
-  String get selectAllButtonLabel => r'எல்லாம் தேர்ந்தெடு';
+  String get modalBarrierDismissLabel => 'நிராகரிக்கும்';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'மாற்று வார்த்தைகள் கிடைக்கவில்லை';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'ஒட்டு';
 
   @override
-  String get timerPickerHourLabelOne => r'மணிநேரம்';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'மணிநேரம்';
+  String get searchTextFieldPlaceholderLabel => 'தேடுக';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'இணையத்தில் தேடு';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'எல்லாம் தேர்ந்தெடு';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'பகிர்...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'தாவல் $tabIndex / $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'நிமி.';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'நிமி.';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'மணிநேரம்';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'மணிநேரம்';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'வி.';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'வி.';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'நிமி.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'நிமி.';
 
   @override
-  String get todayLabel => r'இன்று';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'வி.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'வி.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'இன்று';
 }
 
 /// The translations for Telugu (`te`).
@@ -11204,146 +13497,170 @@ class CupertinoLocalizationTe extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationTe({
-    String localeName = 'te',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'te',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'అలర్ట్';
+  String get alertDialogLabel => 'అలర్ట్';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'కాపీ చేయి';
+  String get backButtonLabel => 'Back';
 
   @override
-  String get cutButtonLabel => r'కత్తిరించు';
+  String get cancelButtonLabel => 'రద్దు చేయండి';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get clearButtonLabel => 'క్లియర్ చేయండి';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'కాపీ చేయి';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'కత్తిరించండి';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'mdy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour అవుతుంది';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour అవుతుంది';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour అవుతుంది';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 నిమిషం';
+  String? get datePickerMinuteSemanticsLabelOne => '1 నిమిషం';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute నిమిషాలు';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'అతికించు';
+  String get lookUpButtonLabel => 'వెతకండి';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'మెనూను తీసివేయండి';
 
   @override
-  String get selectAllButtonLabel => r'అన్నింటినీ ఎంచుకోండి';
+  String get modalBarrierDismissLabel => 'విస్మరించు';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'రీప్లేస్‌మెంట్‌లు ఏవీ కనుగొనబడలేదు';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'పేస్ట్ చేయండి';
 
   @override
-  String get timerPickerHourLabelOne => r'గంట';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'గంటలు';
+  String get searchTextFieldPlaceholderLabel => 'సెర్చ్';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'వెబ్‌లో సెర్చ్ చేయండి';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'అన్నింటినీ ఎంచుకోండి';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'షేర్ చేయండి...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'$tabCountలో $tabIndexవ ట్యాబ్';
 
   @override
-  String get timerPickerMinuteLabelOne => r'నిమి.';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'నిమి.';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'గంట';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'గంటలు';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'సెకన్లు.';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'సెకన్లు.';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'నిమి.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'నిమి.';
 
   @override
-  String get todayLabel => r'ఈరోజు';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'సెకన్లు.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'సెకన్లు.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'ఈరోజు';
 }
 
 /// The translations for Thai (`th`).
@@ -11352,146 +13669,170 @@ class CupertinoLocalizationTh extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationTh({
-    String localeName = 'th',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'th',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'การแจ้งเตือน';
+  String get alertDialogLabel => 'การแจ้งเตือน';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'คัดลอก';
+  String get backButtonLabel => 'กลับ';
 
   @override
-  String get cutButtonLabel => r'ตัด';
+  String get cancelButtonLabel => 'ยกเลิก';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'ล้าง';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'คัดลอก';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'ตัด';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour นาฬิกา';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour นาฬิกา';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour นาฬิกา';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 นาที';
+  String? get datePickerMinuteSemanticsLabelOne => '1 นาที';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute นาที';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'วาง';
+  String get lookUpButtonLabel => 'ค้นหา';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'ปิดเมนู';
 
   @override
-  String get selectAllButtonLabel => r'เลือกทั้งหมด';
+  String get modalBarrierDismissLabel => 'ปิด';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'ไม่พบรายการแทนที่';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'วาง';
 
   @override
-  String get timerPickerHourLabelOne => r'ชั่วโมง';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'ชั่วโมง';
+  String get searchTextFieldPlaceholderLabel => 'ค้นหา';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'ค้นหาบนอินเทอร์เน็ต';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'เลือกทั้งหมด';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'แชร์...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'แท็บที่ $tabIndex จาก $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'นาที';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'นาที';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'ชั่วโมง';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'ชั่วโมง';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'วินาที';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'วินาที';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'นาที';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'นาที';
 
   @override
-  String get todayLabel => r'วันนี้';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'วินาที';
+
+  @override
+  String get timerPickerSecondLabelOther => 'วินาที';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'วันนี้';
 }
 
 /// The translations for Tagalog (`tl`).
@@ -11500,146 +13841,170 @@ class CupertinoLocalizationTl extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationTl({
-    String localeName = 'tl',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'tl',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Alerto';
+  String get alertDialogLabel => 'Alerto';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'Kopyahin';
+  String get backButtonLabel => 'Bumalik';
 
   @override
-  String get cutButtonLabel => r'I-cut';
+  String get cancelButtonLabel => 'Kanselahin';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get clearButtonLabel => 'I-clear';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Kopyahin';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'I-cut';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'mdy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'Ala $hour';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'Ala $hour';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'Alas $hour';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 minuto';
+  String? get datePickerMinuteSemanticsLabelOne => '1 minuto';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute na minuto';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'I-paste';
+  String get lookUpButtonLabel => 'Tumingin sa Itaas';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'I-dismiss ang menu';
 
   @override
-  String get selectAllButtonLabel => r'Piliin Lahat';
+  String get modalBarrierDismissLabel => 'I-dismiss';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Walang Nahanap na Kapalit';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'I-paste';
 
   @override
-  String get timerPickerHourLabelOne => r'oras';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'na oras';
+  String get searchTextFieldPlaceholderLabel => 'Hanapin';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Maghanap sa Web';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Piliin Lahat';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Ibahagi...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Tab $tabIndex ng $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'min.';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'na min.';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'oras';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'na oras';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'seg.';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'na seg.';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'min.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'na min.';
 
   @override
-  String get todayLabel => r'Ngayon';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'seg.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'na seg.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Ngayon';
 }
 
 /// The translations for Turkish (`tr`).
@@ -11648,146 +14013,342 @@ class CupertinoLocalizationTr extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationTr({
-    String localeName = 'tr',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'tr',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Uyarı';
+  String get alertDialogLabel => 'Uyarı';
 
   @override
-  String get anteMeridiemAbbreviation => r'ÖÖ';
+  String get anteMeridiemAbbreviation => 'ÖÖ';
 
   @override
-  String get copyButtonLabel => r'Kopyala';
+  String get backButtonLabel => 'Geri';
 
   @override
-  String get cutButtonLabel => r'Kes';
+  String get cancelButtonLabel => 'İptal';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Temizle';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Kopyala';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Kes';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'Saat $hour';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'Saat $hour';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'Saat $hour';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 dakika';
+  String? get datePickerMinuteSemanticsLabelOne => '1 dakika';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute dakika';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Yapıştır';
+  String get lookUpButtonLabel => 'Ara';
 
   @override
-  String get postMeridiemAbbreviation => r'ÖS';
+  String get menuDismissLabel => 'Menüyü kapat';
 
   @override
-  String get selectAllButtonLabel => r'Tümünü Seç';
+  String get modalBarrierDismissLabel => 'Kapat';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Yerine Kelime Bulunamadı';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Yapıştır';
 
   @override
-  String get timerPickerHourLabelOne => r'saat';
+  String get postMeridiemAbbreviation => 'ÖS';
 
   @override
-  String get timerPickerHourLabelOther => r'saat';
+  String get searchTextFieldPlaceholderLabel => 'Ara';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => "Web'de Ara";
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Tümünü Seç';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Paylaş...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Sekme $tabIndex/$tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'dk.';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'dk.';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'saat';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'saat';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'sn.';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'sn.';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'dk.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'dk.';
 
   @override
-  String get todayLabel => r'Bugün';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'sn.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'sn.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Bugün';
+}
+
+/// The translations for Uighur Uyghur (`ug`).
+class CupertinoLocalizationUg extends GlobalCupertinoLocalizations {
+  /// Create an instance of the translation bundle for Uighur Uyghur.
+  ///
+  /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
+  const CupertinoLocalizationUg({
+    super.localeName = 'ug',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
+
+  @override
+  String get alertDialogLabel => 'ئاگاھلاندۇرۇش';
+
+  @override
+  String get anteMeridiemAbbreviation => 'چۈشتىن بۇرۇن';
+
+  @override
+  String get backButtonLabel => 'Back';
+
+  @override
+  String get cancelButtonLabel => 'بىكار قىلىش';
+
+  @override
+  String get clearButtonLabel => 'تازىلاش';
+
+  @override
+  String get copyButtonLabel => 'كۆچۈرۈش';
+
+  @override
+  String get cutButtonLabel => 'كېسىش';
+
+  @override
+  String get datePickerDateOrderString => 'ymd';
+
+  @override
+  String get datePickerDateTimeOrderString => 'date_dayPeriod_time';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'سائەت $hour';
+
+  @override
+  String get datePickerHourSemanticsLabelOther => r'سائەت $hour';
+
+  @override
+  String? get datePickerHourSemanticsLabelTwo => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelZero => null;
+
+  @override
+  String? get datePickerMinuteSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerMinuteSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerMinuteSemanticsLabelOne => '1 مىنۇت';
+
+  @override
+  String get datePickerMinuteSemanticsLabelOther => r'$minute مىنۇت';
+
+  @override
+  String? get datePickerMinuteSemanticsLabelTwo => null;
+
+  @override
+  String? get datePickerMinuteSemanticsLabelZero => null;
+
+  @override
+  String get lookUpButtonLabel => 'ئىزدەش';
+
+  @override
+  String get menuDismissLabel => 'تىزىملىكنى بىكار قىلىش';
+
+  @override
+  String get modalBarrierDismissLabel => 'بىكار قىلىش';
+
+  @override
+  String get noSpellCheckReplacementsLabel => 'ئالماشتۇرىدىغان مەزمۇن تېپىلمىدى';
+
+  @override
+  String get pasteButtonLabel => 'چاپلاش';
+
+  @override
+  String get postMeridiemAbbreviation => 'چۈشتىن كېيىن';
+
+  @override
+  String get searchTextFieldPlaceholderLabel => 'ئىزدەش';
+
+  @override
+  String get searchWebButtonLabel => 'توردا ئىزدەش';
+
+  @override
+  String get selectAllButtonLabel => 'ھەممىنى تاللاش';
+
+  @override
+  String get shareButtonLabel => 'ھەمبەھرلەش...';
+
+  @override
+  String get tabSemanticsLabelRaw => r'بەتكۈچ $tabIndex جەمئىي $tabCount';
+
+  @override
+  String? get timerPickerHourLabelFew => null;
+
+  @override
+  String? get timerPickerHourLabelMany => null;
+
+  @override
+  String? get timerPickerHourLabelOne => 'سائەت';
+
+  @override
+  String get timerPickerHourLabelOther => 'سائەت';
+
+  @override
+  String? get timerPickerHourLabelTwo => null;
+
+  @override
+  String? get timerPickerHourLabelZero => null;
+
+  @override
+  String? get timerPickerMinuteLabelFew => null;
+
+  @override
+  String? get timerPickerMinuteLabelMany => null;
+
+  @override
+  String? get timerPickerMinuteLabelOne => 'مىنۇت';
+
+  @override
+  String get timerPickerMinuteLabelOther => 'مىنۇت';
+
+  @override
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'سېكۇنت';
+
+  @override
+  String get timerPickerSecondLabelOther => 'سېكۇنت';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'بۈگۈن';
 }
 
 /// The translations for Ukrainian (`uk`).
@@ -11796,146 +14357,170 @@ class CupertinoLocalizationUk extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationUk({
-    String localeName = 'uk',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'uk',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Сповіщення';
+  String get alertDialogLabel => 'Сповіщення';
 
   @override
-  String get anteMeridiemAbbreviation => r'дп';
+  String get anteMeridiemAbbreviation => 'дп';
 
   @override
-  String get copyButtonLabel => r'Копіювати';
+  String get backButtonLabel => 'Назад';
 
   @override
-  String get cutButtonLabel => r'Вирізати';
+  String get cancelButtonLabel => 'Скасувати';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get clearButtonLabel => 'Очистити';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Копіювати';
 
   @override
-  String get datePickerHourSemanticsLabelFew => r'$hour години';
+  String get cutButtonLabel => 'Вирізати';
 
   @override
-  String get datePickerHourSemanticsLabelMany => r'$hour годин';
+  String get datePickerDateOrderString => 'mdy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour година';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => r'$hour години';
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => r'$hour годин';
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour година';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour години';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => r'$minute хвилини';
+  String? get datePickerMinuteSemanticsLabelFew => r'$minute хвилини';
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => r'$minute хвилин';
+  String? get datePickerMinuteSemanticsLabelMany => r'$minute хвилин';
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 хвилина';
+  String? get datePickerMinuteSemanticsLabelOne => '1 хвилина';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute хвилини';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Вставити';
+  String get lookUpButtonLabel => 'Шукати';
 
   @override
-  String get postMeridiemAbbreviation => r'пп';
+  String get menuDismissLabel => 'Закрити меню';
 
   @override
-  String get selectAllButtonLabel => r'Вибрати все';
+  String get modalBarrierDismissLabel => 'Закрити';
 
   @override
-  String get timerPickerHourLabelFew => r'години';
+  String get noSpellCheckReplacementsLabel => 'Замін не знайдено';
 
   @override
-  String get timerPickerHourLabelMany => r'годин';
+  String get pasteButtonLabel => 'Вставити';
 
   @override
-  String get timerPickerHourLabelOne => r'година';
+  String get postMeridiemAbbreviation => 'пп';
 
   @override
-  String get timerPickerHourLabelOther => r'години';
+  String get searchTextFieldPlaceholderLabel => 'Шукайте';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Пошук в Інтернеті';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Вибрати все';
 
   @override
-  String get timerPickerMinuteLabelFew => r'хв';
+  String get shareButtonLabel => 'Поділитися…';
 
   @override
-  String get timerPickerMinuteLabelMany => r'хв';
+  String get tabSemanticsLabelRaw => r'Вкладка $tabIndex з $tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'хв';
+  String? get timerPickerHourLabelFew => 'години';
 
   @override
-  String get timerPickerMinuteLabelOther => r'хв';
+  String? get timerPickerHourLabelMany => 'годин';
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'година';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'години';
 
   @override
-  String get timerPickerSecondLabelFew => r'с';
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => r'с';
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'с';
+  String? get timerPickerMinuteLabelFew => 'хв';
 
   @override
-  String get timerPickerSecondLabelOther => r'с';
+  String? get timerPickerMinuteLabelMany => 'хв';
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'хв';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'хв';
 
   @override
-  String get todayLabel => r'Сьогодні';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => 'с';
+
+  @override
+  String? get timerPickerSecondLabelMany => 'с';
+
+  @override
+  String? get timerPickerSecondLabelOne => 'с';
+
+  @override
+  String get timerPickerSecondLabelOther => 'с';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Сьогодні';
 }
 
 /// The translations for Urdu (`ur`).
@@ -11944,146 +14529,170 @@ class CupertinoLocalizationUr extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationUr({
-    String localeName = 'ur',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'ur',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'الرٹ';
+  String get alertDialogLabel => 'الرٹ';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'کاپی کریں';
+  String get backButtonLabel => 'Back';
 
   @override
-  String get cutButtonLabel => r'کٹ کریں';
+  String get cancelButtonLabel => 'منسوخ کریں';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'صاف کریں';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'کاپی کریں';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'کٹ کریں';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour بجے';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour بجے';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour بجے';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 منٹ';
+  String? get datePickerMinuteSemanticsLabelOne => '1 منٹ';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute منٹس';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'پیسٹ کریں';
+  String get lookUpButtonLabel => 'تفصیل دیکھیں';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'مینو برخاست کریں';
 
   @override
-  String get selectAllButtonLabel => r'سبھی منتخب کریں';
+  String get modalBarrierDismissLabel => 'برخاست کریں';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'کوئی تبدیلیاں نہیں ملیں';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'پیسٹ کریں';
 
   @override
-  String get timerPickerHourLabelOne => r'گھنٹہ';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'گھنٹے';
+  String get searchTextFieldPlaceholderLabel => 'تلاش کریں';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'ویب تلاش کریں';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'سبھی منتخب کریں';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'اشتراک کریں...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'$tabCount میں سے $tabIndex ٹیب';
 
   @override
-  String get timerPickerMinuteLabelOne => r'منٹ۔';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'منٹ۔';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'گھنٹہ';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'گھنٹے';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'سیکنڈ۔';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'سیکنڈ۔';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'منٹ۔';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'منٹ۔';
 
   @override
-  String get todayLabel => r'آج';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'سیکنڈ۔';
+
+  @override
+  String get timerPickerSecondLabelOther => 'سیکنڈ۔';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'آج';
 }
 
 /// The translations for Uzbek (`uz`).
@@ -12092,146 +14701,170 @@ class CupertinoLocalizationUz extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationUz({
-    String localeName = 'uz',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'uz',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Ogohlantirish';
+  String get alertDialogLabel => 'Ogohlantirish';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'Nusxa olish';
+  String get backButtonLabel => 'Orqaga';
 
   @override
-  String get cutButtonLabel => r'Kesib olish';
+  String get cancelButtonLabel => 'Bekor qilish';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get clearButtonLabel => 'Tozalash';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Nusxa olish';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Kesib olish';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'mdy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour soat';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour soat';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour soat';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 daqiqa';
+  String? get datePickerMinuteSemanticsLabelOne => '1 daqiqa';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute daqiqa';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Joylash';
+  String get lookUpButtonLabel => 'Tepaga qarang';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'Menyuni yopish';
 
   @override
-  String get selectAllButtonLabel => r'Barchasini tanlash';
+  String get modalBarrierDismissLabel => 'Yopish';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Almashtirish uchun soʻz topilmadi';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Joylash';
 
   @override
-  String get timerPickerHourLabelOne => r'soat';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'soat';
+  String get searchTextFieldPlaceholderLabel => 'Qidiruv';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Internetdan qidirish';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Barchasini tanlash';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Ulashish…';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'$tabCount varaqdan $tabIndex';
 
   @override
-  String get timerPickerMinuteLabelOne => r'daqiqa';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'daqiqa';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'soat';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'soat';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'soniya';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'soniya';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'daqiqa';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'daqiqa';
 
   @override
-  String get todayLabel => r'Bugun';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'soniya';
+
+  @override
+  String get timerPickerSecondLabelOther => 'soniya';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Bugun';
 }
 
 /// The translations for Vietnamese (`vi`).
@@ -12240,146 +14873,170 @@ class CupertinoLocalizationVi extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationVi({
-    String localeName = 'vi',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'vi',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Thông báo';
+  String get alertDialogLabel => 'Thông báo';
 
   @override
-  String get anteMeridiemAbbreviation => r'SÁNG';
+  String get anteMeridiemAbbreviation => 'SÁNG';
 
   @override
-  String get copyButtonLabel => r'Sao chép';
+  String get backButtonLabel => 'Quay lại';
 
   @override
-  String get cutButtonLabel => r'Cắt';
+  String get cancelButtonLabel => 'Huỷ';
 
   @override
-  String get datePickerDateOrderString => r'dmy';
+  String get clearButtonLabel => 'Xoá';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Sao chép';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Cắt';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'dmy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour giờ';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour giờ';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour giờ';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 phút';
+  String? get datePickerMinuteSemanticsLabelOne => '1 phút';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute phút';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Dán';
+  String get lookUpButtonLabel => 'Tra cứu';
 
   @override
-  String get postMeridiemAbbreviation => r'CHIỀU';
+  String get menuDismissLabel => 'Đóng trình đơn';
 
   @override
-  String get selectAllButtonLabel => r'Chọn tất cả';
+  String get modalBarrierDismissLabel => 'Bỏ qua';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Không tìm thấy phương án thay thế';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Dán';
 
   @override
-  String get timerPickerHourLabelOne => r'giờ';
+  String get postMeridiemAbbreviation => 'CHIỀU';
 
   @override
-  String get timerPickerHourLabelOther => r'giờ';
+  String get searchTextFieldPlaceholderLabel => 'Tìm kiếm';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Tìm kiếm trên web';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Chọn tất cả';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Chia sẻ...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Thẻ $tabIndex/$tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'phút';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'phút';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'giờ';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'giờ';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'giây';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'giây';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'phút';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'phút';
 
   @override
-  String get todayLabel => r'Hôm nay';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'giây';
+
+  @override
+  String get timerPickerSecondLabelOther => 'giây';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Hôm nay';
 }
 
 /// The translations for Chinese (`zh`).
@@ -12388,146 +15045,170 @@ class CupertinoLocalizationZh extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationZh({
-    String localeName = 'zh',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'zh',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'提醒';
+  String get alertDialogLabel => '提醒';
 
   @override
-  String get anteMeridiemAbbreviation => r'上午';
+  String get anteMeridiemAbbreviation => '上午';
 
   @override
-  String get copyButtonLabel => r'复制';
+  String get backButtonLabel => '返回';
 
   @override
-  String get cutButtonLabel => r'剪切';
+  String get cancelButtonLabel => '取消';
 
   @override
-  String get datePickerDateOrderString => r'ymd';
+  String get clearButtonLabel => '清除';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => '复制';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => '剪切';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'ymd';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour 点';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour 点';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour 点';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 分钟';
+  String? get datePickerMinuteSemanticsLabelOne => '1 分钟';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute 分钟';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'粘贴';
+  String get lookUpButtonLabel => '查询';
 
   @override
-  String get postMeridiemAbbreviation => r'下午';
+  String get menuDismissLabel => '关闭菜单';
 
   @override
-  String get selectAllButtonLabel => r'全选';
+  String get modalBarrierDismissLabel => '关闭';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => '找不到替换文字';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => '粘贴';
 
   @override
-  String get timerPickerHourLabelOne => r'小时';
+  String get postMeridiemAbbreviation => '下午';
 
   @override
-  String get timerPickerHourLabelOther => r'小时';
+  String get searchTextFieldPlaceholderLabel => '搜索';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => '搜索';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => '全选';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => '共享…';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'第 $tabIndex 个标签，共 $tabCount 个';
 
   @override
-  String get timerPickerMinuteLabelOne => r'分钟';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'分钟';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => '小时';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => '小时';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'秒';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'秒';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => '分钟';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => '分钟';
 
   @override
-  String get todayLabel => r'今天';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => '秒';
+
+  @override
+  String get timerPickerSecondLabelOther => '秒';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => '今天';
 }
 
 /// The translations for Chinese, using the Han script (`zh_Hans`).
@@ -12536,26 +15217,17 @@ class CupertinoLocalizationZhHans extends CupertinoLocalizationZh {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationZhHans({
-    String localeName = 'zh_Hans',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'zh_Hans',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 }
 
 /// The translations for Chinese, using the Han script (`zh_Hant`).
@@ -12564,68 +15236,83 @@ class CupertinoLocalizationZhHant extends CupertinoLocalizationZh {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationZhHant({
-    String localeName = 'zh_Hant',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'zh_Hant',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'通知';
+  String get alertDialogLabel => '通知';
 
   @override
-  String get copyButtonLabel => r'複製';
+  String get copyButtonLabel => '複製';
 
   @override
-  String get cutButtonLabel => r'剪下';
+  String get cutButtonLabel => '剪下';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_dayPeriod_time';
+  String get datePickerDateTimeOrderString => 'date_dayPeriod_time';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour 點';
+  String? get datePickerHourSemanticsLabelOne => r'$hour 點';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour 點';
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 分鐘';
+  String? get datePickerMinuteSemanticsLabelOne => '1 分鐘';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute 分鐘';
 
   @override
-  String get pasteButtonLabel => r'貼上';
+  String get lookUpButtonLabel => '查詢';
 
   @override
-  String get selectAllButtonLabel => r'全選';
+  String get menuDismissLabel => '閂選單';
 
   @override
-  String get timerPickerHourLabelOne => r'小時';
+  String get modalBarrierDismissLabel => '拒絕';
 
   @override
-  String get timerPickerHourLabelOther => r'小時';
+  String get noSpellCheckReplacementsLabel => '找不到替換字詞';
 
   @override
-  String get timerPickerMinuteLabelOne => r'分鐘';
+  String get pasteButtonLabel => '貼上';
 
   @override
-  String get timerPickerMinuteLabelOther => r'分鐘';
+  String get searchTextFieldPlaceholderLabel => '搜尋';
+
+  @override
+  String get searchWebButtonLabel => '搜尋';
+
+  @override
+  String get selectAllButtonLabel => '全選';
+
+  @override
+  String get shareButtonLabel => '分享…';
+
+  @override
+  String get tabSemanticsLabelRaw => r'$tabCount 個分頁中嘅第 $tabIndex 個';
+
+  @override
+  String? get timerPickerHourLabelOne => '小時';
+
+  @override
+  String get timerPickerHourLabelOther => '小時';
+
+  @override
+  String? get timerPickerMinuteLabelOne => '分鐘';
+
+  @override
+  String get timerPickerMinuteLabelOther => '分鐘';
 }
 
 /// The translations for Chinese, as used in Hong Kong, using the Han script (`zh_Hant_HK`).
@@ -12634,26 +15321,17 @@ class CupertinoLocalizationZhHantHk extends CupertinoLocalizationZhHant {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationZhHantHk({
-    String localeName = 'zh_Hant_HK',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'zh_Hant_HK',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 }
 
 /// The translations for Chinese, as used in Taiwan, using the Han script (`zh_Hant_TW`).
@@ -12662,44 +15340,47 @@ class CupertinoLocalizationZhHantTw extends CupertinoLocalizationZhHant {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationZhHantTw({
-    String localeName = 'zh_Hant_TW',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'zh_Hant_TW',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 分';
+  String get noSpellCheckReplacementsLabel => '找不到替代文字';
+
+  @override
+  String get menuDismissLabel => '關閉選單';
+
+  @override
+  String get tabSemanticsLabelRaw => r'第 $tabIndex 個分頁標籤，共 $tabCount 個';
+
+  @override
+  String? get datePickerMinuteSemanticsLabelOne => '1 分';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute 分';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
 
   @override
-  String get alertDialogLabel => r'快訊';
+  String get alertDialogLabel => '警告';
 
   @override
-  String get timerPickerMinuteLabelOne => r'分';
+  String? get timerPickerMinuteLabelOne => '分';
 
   @override
-  String get timerPickerMinuteLabelOther => r'分';
+  String get timerPickerMinuteLabelOther => '分';
+
+  @override
+  String get modalBarrierDismissLabel => '關閉';
 }
 
 /// The translations for Zulu (`zu`).
@@ -12708,146 +15389,170 @@ class CupertinoLocalizationZu extends GlobalCupertinoLocalizations {
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
   const CupertinoLocalizationZu({
-    String localeName = 'zu',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat dayFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat singleDigitHourFormat,
-    @required intl.DateFormat singleDigitMinuteFormat,
-    @required intl.DateFormat doubleDigitMinuteFormat,
-    @required intl.DateFormat singleDigitSecondFormat,
-    @required intl.NumberFormat decimalFormat,
-  }) : super(
-    localeName: localeName,
-    fullYearFormat: fullYearFormat,
-    dayFormat: dayFormat,
-    mediumDateFormat: mediumDateFormat,
-    singleDigitHourFormat: singleDigitHourFormat,
-    singleDigitMinuteFormat: singleDigitMinuteFormat,
-    doubleDigitMinuteFormat: doubleDigitMinuteFormat,
-    singleDigitSecondFormat: singleDigitSecondFormat,
-    decimalFormat: decimalFormat,
-  );
+    super.localeName = 'zu',
+    required super.fullYearFormat,
+    required super.dayFormat,
+    required super.weekdayFormat,
+    required super.mediumDateFormat,
+    required super.singleDigitHourFormat,
+    required super.singleDigitMinuteFormat,
+    required super.doubleDigitMinuteFormat,
+    required super.singleDigitSecondFormat,
+    required super.decimalFormat,
+  });
 
   @override
-  String get alertDialogLabel => r'Isexwayiso';
+  String get alertDialogLabel => 'Isexwayiso';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => 'AM';
 
   @override
-  String get copyButtonLabel => r'Kopisha';
+  String get backButtonLabel => 'Emuva';
 
   @override
-  String get cutButtonLabel => r'Sika';
+  String get cancelButtonLabel => 'Khansela';
 
   @override
-  String get datePickerDateOrderString => r'mdy';
+  String get clearButtonLabel => 'Sula';
 
   @override
-  String get datePickerDateTimeOrderString => r'date_time_dayPeriod';
+  String get copyButtonLabel => 'Kopisha';
 
   @override
-  String get datePickerHourSemanticsLabelFew => null;
+  String get cutButtonLabel => 'Sika';
 
   @override
-  String get datePickerHourSemanticsLabelMany => null;
+  String get datePickerDateOrderString => 'mdy';
 
   @override
-  String get datePickerHourSemanticsLabelOne => r'$hour ezimpondweni';
+  String get datePickerDateTimeOrderString => 'date_time_dayPeriod';
+
+  @override
+  String? get datePickerHourSemanticsLabelFew => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelMany => null;
+
+  @override
+  String? get datePickerHourSemanticsLabelOne => r'$hour ezimpondweni';
 
   @override
   String get datePickerHourSemanticsLabelOther => r'$hour ezimpondweni';
 
   @override
-  String get datePickerHourSemanticsLabelTwo => null;
+  String? get datePickerHourSemanticsLabelTwo => null;
 
   @override
-  String get datePickerHourSemanticsLabelZero => null;
+  String? get datePickerHourSemanticsLabelZero => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelFew => null;
+  String? get datePickerMinuteSemanticsLabelFew => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelMany => null;
+  String? get datePickerMinuteSemanticsLabelMany => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelOne => r'1 iminithi';
+  String? get datePickerMinuteSemanticsLabelOne => '1 iminithi';
 
   @override
   String get datePickerMinuteSemanticsLabelOther => r'$minute amaminithi';
 
   @override
-  String get datePickerMinuteSemanticsLabelTwo => null;
+  String? get datePickerMinuteSemanticsLabelTwo => null;
 
   @override
-  String get datePickerMinuteSemanticsLabelZero => null;
+  String? get datePickerMinuteSemanticsLabelZero => null;
 
   @override
-  String get pasteButtonLabel => r'Namathisela';
+  String get lookUpButtonLabel => 'Bheka Phezulu';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get menuDismissLabel => 'Chitha imenyu';
 
   @override
-  String get selectAllButtonLabel => r'Khetha konke';
+  String get modalBarrierDismissLabel => 'Cashisa';
 
   @override
-  String get timerPickerHourLabelFew => null;
+  String get noSpellCheckReplacementsLabel => 'Akukho Okuzofakwa Esikhundleni Okutholakele';
 
   @override
-  String get timerPickerHourLabelMany => null;
+  String get pasteButtonLabel => 'Namathisela';
 
   @override
-  String get timerPickerHourLabelOne => r'ihora';
+  String get postMeridiemAbbreviation => 'PM';
 
   @override
-  String get timerPickerHourLabelOther => r'amahora';
+  String get searchTextFieldPlaceholderLabel => 'Sesha';
 
   @override
-  String get timerPickerHourLabelTwo => null;
+  String get searchWebButtonLabel => 'Sesha Iwebhu';
 
   @override
-  String get timerPickerHourLabelZero => null;
+  String get selectAllButtonLabel => 'Khetha konke';
 
   @override
-  String get timerPickerMinuteLabelFew => null;
+  String get shareButtonLabel => 'Yabelana...';
 
   @override
-  String get timerPickerMinuteLabelMany => null;
+  String get tabSemanticsLabelRaw => r'Ithebhu $tabIndex kwangu-$tabCount';
 
   @override
-  String get timerPickerMinuteLabelOne => r'iminithi.';
+  String? get timerPickerHourLabelFew => null;
 
   @override
-  String get timerPickerMinuteLabelOther => r'iminithi.';
+  String? get timerPickerHourLabelMany => null;
 
   @override
-  String get timerPickerMinuteLabelTwo => null;
+  String? get timerPickerHourLabelOne => 'ihora';
 
   @override
-  String get timerPickerMinuteLabelZero => null;
+  String get timerPickerHourLabelOther => 'amahora';
 
   @override
-  String get timerPickerSecondLabelFew => null;
+  String? get timerPickerHourLabelTwo => null;
 
   @override
-  String get timerPickerSecondLabelMany => null;
+  String? get timerPickerHourLabelZero => null;
 
   @override
-  String get timerPickerSecondLabelOne => r'isekhondi.';
+  String? get timerPickerMinuteLabelFew => null;
 
   @override
-  String get timerPickerSecondLabelOther => r'isekhondi.';
+  String? get timerPickerMinuteLabelMany => null;
 
   @override
-  String get timerPickerSecondLabelTwo => null;
+  String? get timerPickerMinuteLabelOne => 'iminithi.';
 
   @override
-  String get timerPickerSecondLabelZero => null;
+  String get timerPickerMinuteLabelOther => 'iminithi.';
 
   @override
-  String get todayLabel => r'Namuhla';
+  String? get timerPickerMinuteLabelTwo => null;
+
+  @override
+  String? get timerPickerMinuteLabelZero => null;
+
+  @override
+  String? get timerPickerSecondLabelFew => null;
+
+  @override
+  String? get timerPickerSecondLabelMany => null;
+
+  @override
+  String? get timerPickerSecondLabelOne => 'isekhondi.';
+
+  @override
+  String get timerPickerSecondLabelOther => 'isekhondi.';
+
+  @override
+  String? get timerPickerSecondLabelTwo => null;
+
+  @override
+  String? get timerPickerSecondLabelZero => null;
+
+  @override
+  String get todayLabel => 'Namuhla';
 }
 
 /// The set of supported languages, as language code strings.
@@ -12870,9 +15575,11 @@ final Set<String> kCupertinoSupportedLanguages = HashSet<String>.from(const <Str
   'be', // Belarusian
   'bg', // Bulgarian
   'bn', // Bengali Bangla
+  'bo', // Tibetan
   'bs', // Bosnian
   'ca', // Catalan Valencian
   'cs', // Czech
+  'cy', // Welsh
   'da', // Danish
   'de', // German
   'el', // Modern Greek
@@ -12884,6 +15591,7 @@ final Set<String> kCupertinoSupportedLanguages = HashSet<String>.from(const <Str
   'fi', // Finnish
   'fil', // Filipino Pilipino
   'fr', // French
+  'ga', // Irish
   'gl', // Galician
   'gsw', // Swiss German Alemannic Alsatian
   'gu', // Gujarati
@@ -12914,6 +15622,7 @@ final Set<String> kCupertinoSupportedLanguages = HashSet<String>.from(const <Str
   'nb', // Norwegian Bokmål
   'ne', // Nepali
   'nl', // Dutch Flemish
+  'no', // Norwegian
   'or', // Oriya
   'pa', // Panjabi Punjabi
   'pl', // Polish
@@ -12932,6 +15641,7 @@ final Set<String> kCupertinoSupportedLanguages = HashSet<String>.from(const <Str
   'th', // Thai
   'tl', // Tagalog
   'tr', // Turkish
+  'ug', // Uighur Uyghur
   'uk', // Ukrainian
   'ur', // Urdu
   'uz', // Uzbek
@@ -12958,11 +15668,13 @@ final Set<String> kCupertinoSupportedLanguages = HashSet<String>.from(const <Str
 ///  * `be` - Belarusian
 ///  * `bg` - Bulgarian
 ///  * `bn` - Bengali Bangla
+///  * `bo` - Tibetan
 ///  * `bs` - Bosnian
 ///  * `ca` - Catalan Valencian
 ///  * `cs` - Czech
+///  * `cy` - Welsh
 ///  * `da` - Danish
-///  * `de` - German
+///  * `de` - German (plus one country variation)
 ///  * `el` - Modern Greek
 ///  * `en` - English (plus 8 country variations)
 ///  * `es` - Spanish Castilian (plus 20 country variations)
@@ -12972,6 +15684,7 @@ final Set<String> kCupertinoSupportedLanguages = HashSet<String>.from(const <Str
 ///  * `fi` - Finnish
 ///  * `fil` - Filipino Pilipino
 ///  * `fr` - French (plus one country variation)
+///  * `ga` - Irish
 ///  * `gl` - Galician
 ///  * `gsw` - Swiss German Alemannic Alsatian
 ///  * `gu` - Gujarati
@@ -13002,6 +15715,7 @@ final Set<String> kCupertinoSupportedLanguages = HashSet<String>.from(const <Str
 ///  * `nb` - Norwegian Bokmål
 ///  * `ne` - Nepali
 ///  * `nl` - Dutch Flemish
+///  * `no` - Norwegian
 ///  * `or` - Oriya
 ///  * `pa` - Panjabi Punjabi
 ///  * `pl` - Polish
@@ -13020,6 +15734,7 @@ final Set<String> kCupertinoSupportedLanguages = HashSet<String>.from(const <Str
 ///  * `th` - Thai
 ///  * `tl` - Tagalog
 ///  * `tr` - Turkish
+///  * `ug` - Uighur Uyghur
 ///  * `uk` - Ukrainian
 ///  * `ur` - Urdu
 ///  * `uz` - Uzbek
@@ -13030,10 +15745,11 @@ final Set<String> kCupertinoSupportedLanguages = HashSet<String>.from(const <Str
 ///
 /// Generally speaking, this method is only intended to be used by
 /// [GlobalCupertinoLocalizations.delegate].
-GlobalCupertinoLocalizations getCupertinoTranslation(
+GlobalCupertinoLocalizations? getCupertinoTranslation(
   Locale locale,
   intl.DateFormat fullYearFormat,
   intl.DateFormat dayFormat,
+  intl.DateFormat weekdayFormat,
   intl.DateFormat mediumDateFormat,
   intl.DateFormat singleDigitHourFormat,
   intl.DateFormat singleDigitMinuteFormat,
@@ -13043,259 +15759,274 @@ GlobalCupertinoLocalizations getCupertinoTranslation(
 ) {
   switch (locale.languageCode) {
     case 'af':
-      return CupertinoLocalizationAf(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationAf(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'am':
-      return CupertinoLocalizationAm(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationAm(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'ar':
-      return CupertinoLocalizationAr(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationAr(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'as':
-      return CupertinoLocalizationAs(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationAs(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'az':
-      return CupertinoLocalizationAz(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationAz(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'be':
-      return CupertinoLocalizationBe(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationBe(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'bg':
-      return CupertinoLocalizationBg(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationBg(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'bn':
-      return CupertinoLocalizationBn(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationBn(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+    case 'bo':
+      return CupertinoLocalizationBo(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'bs':
-      return CupertinoLocalizationBs(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationBs(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'ca':
-      return CupertinoLocalizationCa(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationCa(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'cs':
-      return CupertinoLocalizationCs(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationCs(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+    case 'cy':
+      return CupertinoLocalizationCy(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'da':
-      return CupertinoLocalizationDa(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
-    case 'de':
-      return CupertinoLocalizationDe(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationDa(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+    case 'de': {
+      switch (locale.countryCode) {
+        case 'CH':
+          return CupertinoLocalizationDeCh(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      }
+      return CupertinoLocalizationDe(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+    }
     case 'el':
-      return CupertinoLocalizationEl(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationEl(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'en': {
       switch (locale.countryCode) {
         case 'AU':
-          return CupertinoLocalizationEnAu(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationEnAu(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         case 'CA':
-          return CupertinoLocalizationEnCa(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationEnCa(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         case 'GB':
-          return CupertinoLocalizationEnGb(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationEnGb(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         case 'IE':
-          return CupertinoLocalizationEnIe(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationEnIe(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         case 'IN':
-          return CupertinoLocalizationEnIn(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationEnIn(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         case 'NZ':
-          return CupertinoLocalizationEnNz(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationEnNz(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         case 'SG':
-          return CupertinoLocalizationEnSg(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationEnSg(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         case 'ZA':
-          return CupertinoLocalizationEnZa(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationEnZa(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
       }
-      return CupertinoLocalizationEn(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationEn(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     }
     case 'es': {
       switch (locale.countryCode) {
         case '419':
-          return CupertinoLocalizationEs419(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationEs419(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         case 'AR':
-          return CupertinoLocalizationEsAr(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationEsAr(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         case 'BO':
-          return CupertinoLocalizationEsBo(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationEsBo(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         case 'CL':
-          return CupertinoLocalizationEsCl(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationEsCl(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         case 'CO':
-          return CupertinoLocalizationEsCo(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationEsCo(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         case 'CR':
-          return CupertinoLocalizationEsCr(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationEsCr(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         case 'DO':
-          return CupertinoLocalizationEsDo(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationEsDo(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         case 'EC':
-          return CupertinoLocalizationEsEc(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationEsEc(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         case 'GT':
-          return CupertinoLocalizationEsGt(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationEsGt(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         case 'HN':
-          return CupertinoLocalizationEsHn(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationEsHn(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         case 'MX':
-          return CupertinoLocalizationEsMx(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationEsMx(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         case 'NI':
-          return CupertinoLocalizationEsNi(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationEsNi(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         case 'PA':
-          return CupertinoLocalizationEsPa(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationEsPa(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         case 'PE':
-          return CupertinoLocalizationEsPe(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationEsPe(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         case 'PR':
-          return CupertinoLocalizationEsPr(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationEsPr(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         case 'PY':
-          return CupertinoLocalizationEsPy(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationEsPy(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         case 'SV':
-          return CupertinoLocalizationEsSv(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationEsSv(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         case 'US':
-          return CupertinoLocalizationEsUs(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationEsUs(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         case 'UY':
-          return CupertinoLocalizationEsUy(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationEsUy(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         case 'VE':
-          return CupertinoLocalizationEsVe(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationEsVe(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
       }
-      return CupertinoLocalizationEs(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationEs(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     }
     case 'et':
-      return CupertinoLocalizationEt(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationEt(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'eu':
-      return CupertinoLocalizationEu(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationEu(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'fa':
-      return CupertinoLocalizationFa(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationFa(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'fi':
-      return CupertinoLocalizationFi(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationFi(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'fil':
-      return CupertinoLocalizationFil(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationFil(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'fr': {
       switch (locale.countryCode) {
         case 'CA':
-          return CupertinoLocalizationFrCa(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationFrCa(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
       }
-      return CupertinoLocalizationFr(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationFr(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     }
+    case 'ga':
+      return CupertinoLocalizationGa(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'gl':
-      return CupertinoLocalizationGl(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationGl(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'gsw':
-      return CupertinoLocalizationGsw(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationGsw(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'gu':
-      return CupertinoLocalizationGu(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationGu(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'he':
-      return CupertinoLocalizationHe(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationHe(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'hi':
-      return CupertinoLocalizationHi(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationHi(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'hr':
-      return CupertinoLocalizationHr(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationHr(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'hu':
-      return CupertinoLocalizationHu(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationHu(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'hy':
-      return CupertinoLocalizationHy(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationHy(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'id':
-      return CupertinoLocalizationId(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationId(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'is':
-      return CupertinoLocalizationIs(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationIs(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'it':
-      return CupertinoLocalizationIt(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationIt(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'ja':
-      return CupertinoLocalizationJa(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationJa(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'ka':
-      return CupertinoLocalizationKa(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationKa(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'kk':
-      return CupertinoLocalizationKk(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationKk(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'km':
-      return CupertinoLocalizationKm(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationKm(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'kn':
-      return CupertinoLocalizationKn(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationKn(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'ko':
-      return CupertinoLocalizationKo(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationKo(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'ky':
-      return CupertinoLocalizationKy(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationKy(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'lo':
-      return CupertinoLocalizationLo(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationLo(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'lt':
-      return CupertinoLocalizationLt(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationLt(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'lv':
-      return CupertinoLocalizationLv(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationLv(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'mk':
-      return CupertinoLocalizationMk(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationMk(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'ml':
-      return CupertinoLocalizationMl(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationMl(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'mn':
-      return CupertinoLocalizationMn(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationMn(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'mr':
-      return CupertinoLocalizationMr(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationMr(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'ms':
-      return CupertinoLocalizationMs(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationMs(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'my':
-      return CupertinoLocalizationMy(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationMy(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'nb':
-      return CupertinoLocalizationNb(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationNb(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'ne':
-      return CupertinoLocalizationNe(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationNe(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'nl':
-      return CupertinoLocalizationNl(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationNl(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+    case 'no':
+      return CupertinoLocalizationNo(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'or':
-      return CupertinoLocalizationOr(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationOr(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'pa':
-      return CupertinoLocalizationPa(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationPa(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'pl':
-      return CupertinoLocalizationPl(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationPl(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'pt': {
       switch (locale.countryCode) {
         case 'PT':
-          return CupertinoLocalizationPtPt(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationPtPt(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
       }
-      return CupertinoLocalizationPt(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationPt(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     }
     case 'ro':
-      return CupertinoLocalizationRo(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationRo(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'ru':
-      return CupertinoLocalizationRu(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationRu(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'si':
-      return CupertinoLocalizationSi(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationSi(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'sk':
-      return CupertinoLocalizationSk(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationSk(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'sl':
-      return CupertinoLocalizationSl(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationSl(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'sq':
-      return CupertinoLocalizationSq(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationSq(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'sr': {
       switch (locale.scriptCode) {
         case 'Cyrl': {
-          return CupertinoLocalizationSrCyrl(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationSrCyrl(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         }
         case 'Latn': {
-          return CupertinoLocalizationSrLatn(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationSrLatn(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         }
       }
-      return CupertinoLocalizationSr(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationSr(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     }
     case 'sv':
-      return CupertinoLocalizationSv(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationSv(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'sw':
-      return CupertinoLocalizationSw(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationSw(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'ta':
-      return CupertinoLocalizationTa(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationTa(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'te':
-      return CupertinoLocalizationTe(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationTe(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'th':
-      return CupertinoLocalizationTh(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationTh(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'tl':
-      return CupertinoLocalizationTl(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationTl(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'tr':
-      return CupertinoLocalizationTr(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationTr(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+    case 'ug':
+      return CupertinoLocalizationUg(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'uk':
-      return CupertinoLocalizationUk(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationUk(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'ur':
-      return CupertinoLocalizationUr(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationUr(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'uz':
-      return CupertinoLocalizationUz(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationUz(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'vi':
-      return CupertinoLocalizationVi(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationVi(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     case 'zh': {
       switch (locale.scriptCode) {
         case 'Hans': {
-          return CupertinoLocalizationZhHans(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationZhHans(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         }
         case 'Hant': {
           switch (locale.countryCode) {
             case 'HK':
-              return CupertinoLocalizationZhHantHk(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+              return CupertinoLocalizationZhHantHk(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
             case 'TW':
-              return CupertinoLocalizationZhHantTw(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+              return CupertinoLocalizationZhHantTw(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
           }
-          return CupertinoLocalizationZhHant(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationZhHant(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         }
       }
       switch (locale.countryCode) {
         case 'HK':
-          return CupertinoLocalizationZhHantHk(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationZhHantHk(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
         case 'TW':
-          return CupertinoLocalizationZhHantTw(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+          return CupertinoLocalizationZhHantTw(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
       }
-      return CupertinoLocalizationZh(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationZh(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
     }
     case 'zu':
-      return CupertinoLocalizationZu(fullYearFormat: fullYearFormat, dayFormat: dayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
+      return CupertinoLocalizationZu(fullYearFormat: fullYearFormat, dayFormat: dayFormat, weekdayFormat: weekdayFormat, mediumDateFormat: mediumDateFormat, singleDigitHourFormat: singleDigitHourFormat, singleDigitMinuteFormat: singleDigitMinuteFormat, doubleDigitMinuteFormat: doubleDigitMinuteFormat, singleDigitSecondFormat: singleDigitSecondFormat, decimalFormat: decimalFormat);
   }
   assert(false, 'getCupertinoTranslation() called for unsupported locale "$locale"');
   return null;

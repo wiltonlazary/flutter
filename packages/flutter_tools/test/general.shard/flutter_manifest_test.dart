@@ -2,43 +2,61 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:async';
-
 import 'package:file/file.dart';
 import 'package:file/memory.dart';
-import 'package:flutter_tools/src/base/context.dart';
+import 'package:flutter_tools/src/base/deferred_component.dart';
 import 'package:flutter_tools/src/base/file_system.dart';
+import 'package:flutter_tools/src/base/logger.dart';
+import 'package:flutter_tools/src/base/yaml.dart';
 import 'package:flutter_tools/src/cache.dart';
 import 'package:flutter_tools/src/flutter_manifest.dart';
 
 import '../src/common.dart';
-import '../src/context.dart';
-import '../src/pubspec_schema.dart';
 
 void main() {
+  late BufferLogger logger;
+
   setUpAll(() {
     Cache.flutterRoot = getFlutterRoot();
   });
 
-  group('FlutterManifest', () {
-    testUsingContext('is empty when the pubspec.yaml file is empty', () async {
-      final FlutterManifest flutterManifest = FlutterManifest.createFromString('');
-      expect(flutterManifest.isEmpty, true);
-      expect(flutterManifest.appName, '');
-      expect(flutterManifest.usesMaterialDesign, false);
-      expect(flutterManifest.fontsDescriptor, isEmpty);
-      expect(flutterManifest.fonts, isEmpty);
-      expect(flutterManifest.assets, isEmpty);
-    });
+  setUp(() {
+    logger = BufferLogger.test();
+  });
 
-    test('has no fonts or assets when the "flutter" section is empty', () async {
-      const String manifest = '''
+  testWithoutContext('FlutterManifest is empty when the pubspec.yaml file is empty', () async {
+    final FlutterManifest flutterManifest = FlutterManifest.createFromString('', logger: logger)!;
+
+    expect(flutterManifest.isEmpty, true);
+    expect(flutterManifest.appName, '');
+    expect(flutterManifest.usesMaterialDesign, false);
+    expect(flutterManifest.fontsDescriptor, isEmpty);
+    expect(flutterManifest.fonts, isEmpty);
+    expect(flutterManifest.assets, isEmpty);
+    expect(flutterManifest.additionalLicenses, isEmpty);
+    expect(flutterManifest.defaultFlavor, null);
+  });
+
+  testWithoutContext('FlutterManifest is null when the pubspec.yaml file is not a map', () async {
+    expect(FlutterManifest.createFromString('Not a map', logger: logger), isNull);
+
+    expect(logger.errorText, contains('Expected YAML map'));
+  });
+
+  testWithoutContext(
+    'FlutterManifest has no fonts or assets when the "flutter" section is empty',
+    () async {
+      const manifest = '''
 name: test
 dependencies:
   flutter:
     sdk: flutter
 ''';
-      final FlutterManifest flutterManifest = FlutterManifest.createFromString(manifest);
+      final FlutterManifest flutterManifest = FlutterManifest.createFromString(
+        manifest,
+        logger: logger,
+      )!;
+
       expect(flutterManifest, isNotNull);
       expect(flutterManifest.isEmpty, false);
       expect(flutterManifest.appName, 'test');
@@ -46,10 +64,11 @@ dependencies:
       expect(flutterManifest.fontsDescriptor, isEmpty);
       expect(flutterManifest.fonts, isEmpty);
       expect(flutterManifest.assets, isEmpty);
-    });
+    },
+  );
 
-    test('knows if material design is used', () async {
-      const String manifest = '''
+  testWithoutContext('FlutterManifest knows if Material Design is used', () async {
+    const manifest = '''
 name: test
 dependencies:
   flutter:
@@ -57,30 +76,67 @@ dependencies:
 flutter:
   uses-material-design: true
 ''';
-      final FlutterManifest flutterManifest = FlutterManifest.createFromString(manifest);
-      expect(flutterManifest.usesMaterialDesign, true);
-    });
+    final FlutterManifest flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    )!;
 
-    test('has two assets', () async {
-      const String manifest = '''
+    expect(flutterManifest.usesMaterialDesign, true);
+  });
+
+  testWithoutContext('FlutterManifest knows if generate is provided', () async {
+    const manifest = '''
 name: test
 dependencies:
   flutter:
     sdk: flutter
 flutter:
-  uses-material-design: true
-  assets:
-    - a/foo
-    - a/bar
+  generate: true
 ''';
-      final FlutterManifest flutterManifest = FlutterManifest.createFromString(manifest);
-      expect(flutterManifest.assets.length, 2);
-      expect(flutterManifest.assets[0], Uri.parse('a/foo'));
-      expect(flutterManifest.assets[1], Uri.parse('a/bar'));
-    });
+    final FlutterManifest flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    )!;
 
-    test('has one font family with one asset', () async {
-      const String manifest = '''
+    expect(flutterManifest.generateLocalizations, true);
+  });
+
+  testWithoutContext('FlutterManifest can parse invalid generate key', () async {
+    const manifest = '''
+name: test
+dependencies:
+  flutter:
+    sdk: flutter
+flutter:
+  generate: "invalid"
+''';
+    final FlutterManifest flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    )!;
+
+    expect(flutterManifest.generateLocalizations, false);
+  });
+
+  testWithoutContext('FlutterManifest knows if generate is disabled', () async {
+    const manifest = '''
+name: test
+dependencies:
+  flutter:
+    sdk: flutter
+flutter:
+  generate: false
+''';
+    final FlutterManifest flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    )!;
+
+    expect(flutterManifest.generateLocalizations, false);
+  });
+
+  testWithoutContext('FlutterManifest has one font family with one asset', () async {
+    const manifest = '''
 name: test
 dependencies:
   flutter:
@@ -92,25 +148,31 @@ flutter:
       fonts:
         - asset: a/bar
 ''';
-      final FlutterManifest flutterManifest = FlutterManifest.createFromString(manifest);
-      final dynamic expectedFontsDescriptor = [{'fonts': [{'asset': 'a/bar'}], 'family': 'foo'}]; // ignore: always_specify_types
-      expect(flutterManifest.fontsDescriptor, expectedFontsDescriptor);
-      final List<Font> fonts = flutterManifest.fonts;
-      expect(fonts.length, 1);
-      final Font font = fonts[0];
-      final dynamic fooFontDescriptor = {'family': 'foo', 'fonts': [{'asset': 'a/bar'}]}; // ignore: always_specify_types
-      expect(font.descriptor, fooFontDescriptor);
-      expect(font.familyName, 'foo');
-      final List<FontAsset> assets = font.fontAssets;
-      expect(assets.length, 1);
-      final FontAsset fontAsset = assets[0];
-      expect(fontAsset.assetUri.path, 'a/bar');
-      expect(fontAsset.weight, isNull);
-      expect(fontAsset.style, isNull);
-    });
 
-    test('has one font family with a simple asset and one with weight', () async {
-      const String manifest = '''
+    final FlutterManifest flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    )!;
+
+    expect(flutterManifest.fonts, hasLength(1));
+    expect(
+      flutterManifest.fonts.single,
+      matchesFont(
+        familyName: 'foo',
+        descriptor: <String, Object>{
+          'family': 'foo',
+          'fonts': <Object>[
+            <String, Object>{'asset': 'a/bar'},
+          ],
+        },
+        fontAssets: <Matcher>[matchesFontAsset(assetUri: Uri.parse('a/bar'))],
+      ),
+    );
+  });
+
+  testWithoutContext('FlutterManifest has one font family with a simple asset '
+      'and one with weight', () async {
+    const manifest = '''
 name: test
 dependencies:
   flutter:
@@ -124,29 +186,35 @@ flutter:
         - asset: a/bar
           weight: 400
 ''';
-      final FlutterManifest flutterManifest = FlutterManifest.createFromString(manifest);
-      final dynamic expectedFontsDescriptor = [{'fonts': [{'asset': 'a/bar'}, {'weight': 400, 'asset': 'a/bar'}], 'family': 'foo'}]; // ignore: always_specify_types
-      expect(flutterManifest.fontsDescriptor, expectedFontsDescriptor);
-      final List<Font> fonts = flutterManifest.fonts;
-      expect(fonts.length, 1);
-      final Font font = fonts[0];
-      final dynamic fooFontDescriptor = {'family': 'foo', 'fonts': [{'asset': 'a/bar'}, {'weight': 400, 'asset': 'a/bar'}]}; // ignore: always_specify_types
-      expect(font.descriptor, fooFontDescriptor);
-      expect(font.familyName, 'foo');
-      final List<FontAsset> assets = font.fontAssets;
-      expect(assets.length, 2);
-      final FontAsset fontAsset0 = assets[0];
-      expect(fontAsset0.assetUri.path, 'a/bar');
-      expect(fontAsset0.weight, isNull);
-      expect(fontAsset0.style, isNull);
-      final FontAsset fontAsset1 = assets[1];
-      expect(fontAsset1.assetUri.path, 'a/bar');
-      expect(fontAsset1.weight, 400);
-      expect(fontAsset1.style, isNull);
-    });
 
-    test('has one font family with a simple asset and one with weight and style', () async {
-      const String manifest = '''
+    final FlutterManifest flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    )!;
+
+    expect(flutterManifest.fonts, hasLength(1));
+    expect(
+      flutterManifest.fonts.single,
+      matchesFont(
+        familyName: 'foo',
+        descriptor: <String, Object>{
+          'family': 'foo',
+          'fonts': <Object>[
+            <String, Object>{'asset': 'a/bar'},
+            <String, Object>{'weight': 400, 'asset': 'a/bar'},
+          ],
+        },
+        fontAssets: <Matcher>[
+          matchesFontAsset(assetUri: Uri.parse('a/bar')),
+          matchesFontAsset(assetUri: Uri.parse('a/bar'), weight: 400),
+        ],
+      ),
+    );
+  });
+
+  testWithoutContext('FlutterManifest has one font family with a simple asset '
+      'and one with weight and style', () {
+    const manifest = '''
 name: test
 dependencies:
   flutter:
@@ -161,30 +229,35 @@ flutter:
           weight: 400
           style: italic
 ''';
-      final FlutterManifest flutterManifest = FlutterManifest.createFromString(manifest);
-      final dynamic expectedFontsDescriptor = [{'fonts': [{'asset': 'a/bar'}, {'style': 'italic', 'weight': 400, 'asset': 'a/bar'}], 'family': 'foo'}]; // ignore: always_specify_types
 
-      expect(flutterManifest.fontsDescriptor, expectedFontsDescriptor);
-      final List<Font> fonts = flutterManifest.fonts;
-      expect(fonts.length, 1);
-      final Font font = fonts[0];
-      final dynamic fooFontDescriptor = {'family': 'foo', 'fonts': [{'asset': 'a/bar'}, {'weight': 400, 'style': 'italic', 'asset': 'a/bar'}]}; // ignore: always_specify_types
-      expect(font.descriptor, fooFontDescriptor);
-      expect(font.familyName, 'foo');
-      final List<FontAsset> assets = font.fontAssets;
-      expect(assets.length, 2);
-      final FontAsset fontAsset0 = assets[0];
-      expect(fontAsset0.assetUri.path, 'a/bar');
-      expect(fontAsset0.weight, isNull);
-      expect(fontAsset0.style, isNull);
-      final FontAsset fontAsset1 = assets[1];
-      expect(fontAsset1.assetUri.path, 'a/bar');
-      expect(fontAsset1.weight, 400);
-      expect(fontAsset1.style, 'italic');
-    });
+    final FlutterManifest flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    )!;
 
-    test('has two font families, each with one simple asset and one with weight and style', () async {
-      const String manifest = '''
+    expect(flutterManifest.fonts, hasLength(1));
+    expect(
+      flutterManifest.fonts.single,
+      matchesFont(
+        familyName: 'foo',
+        descriptor: <String, Object>{
+          'family': 'foo',
+          'fonts': <Object>[
+            <String, Object>{'asset': 'a/bar'},
+            <String, Object>{'weight': 400, 'style': 'italic', 'asset': 'a/bar'},
+          ],
+        },
+        fontAssets: <Matcher>[
+          matchesFontAsset(assetUri: Uri.parse('a/bar')),
+          matchesFontAsset(assetUri: Uri.parse('a/bar'), weight: 400, style: 'italic'),
+        ],
+      ),
+    );
+  });
+
+  testWithoutContext('FlutterManifest has two font families, each with one '
+      'simple asset and one with weight and style', () {
+    const manifest = '''
 name: test
 dependencies:
   flutter:
@@ -205,48 +278,98 @@ flutter:
           asset: a/baz
           style: italic
 ''';
-      final FlutterManifest flutterManifest = FlutterManifest.createFromString(manifest);
-      final dynamic expectedFontsDescriptor = <dynamic>[
-        {'fonts': [{'asset': 'a/bar'}, {'style': 'italic', 'weight': 400, 'asset': 'a/bar'}], 'family': 'foo'}, // ignore: always_specify_types
-        {'fonts': [{'asset': 'a/baz'}, {'style': 'italic', 'weight': 400, 'asset': 'a/baz'}], 'family': 'bar'}, // ignore: always_specify_types
-      ];
-      expect(flutterManifest.fontsDescriptor, expectedFontsDescriptor);
-      final List<Font> fonts = flutterManifest.fonts;
-      expect(fonts.length, 2);
 
-      final Font fooFont = fonts[0];
-      final dynamic fooFontDescriptor = {'family': 'foo', 'fonts': [{'asset': 'a/bar'}, {'weight': 400, 'style': 'italic', 'asset': 'a/bar'}]}; // ignore: always_specify_types
-      expect(fooFont.descriptor, fooFontDescriptor);
-      expect(fooFont.familyName, 'foo');
-      final List<FontAsset> fooAassets = fooFont.fontAssets;
-      expect(fooAassets.length, 2);
-      final FontAsset fooFontAsset0 = fooAassets[0];
-      expect(fooFontAsset0.assetUri.path, 'a/bar');
-      expect(fooFontAsset0.weight, isNull);
-      expect(fooFontAsset0.style, isNull);
-      final FontAsset fooFontAsset1 = fooAassets[1];
-      expect(fooFontAsset1.assetUri.path, 'a/bar');
-      expect(fooFontAsset1.weight, 400);
-      expect(fooFontAsset1.style, 'italic');
+    final FlutterManifest flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    )!;
 
-      final Font barFont = fonts[1];
-      const String fontDescriptor = '{family: bar, fonts: [{asset: a/baz}, {weight: 400, style: italic, asset: a/baz}]}'; // ignore: always_specify_types
-      expect(barFont.descriptor.toString(), fontDescriptor);
-      expect(barFont.familyName, 'bar');
-      final List<FontAsset> barAssets = barFont.fontAssets;
-      expect(barAssets.length, 2);
-      final FontAsset barFontAsset0 = barAssets[0];
-      expect(barFontAsset0.assetUri.path, 'a/baz');
-      expect(barFontAsset0.weight, isNull);
-      expect(barFontAsset0.style, isNull);
-      final FontAsset barFontAsset1 = barAssets[1];
-      expect(barFontAsset1.assetUri.path, 'a/baz');
-      expect(barFontAsset1.weight, 400);
-      expect(barFontAsset1.style, 'italic');
-    });
+    expect(flutterManifest.fonts, hasLength(2));
+    expect(
+      flutterManifest.fonts,
+      containsAll(<Matcher>[
+        matchesFont(
+          familyName: 'foo',
+          descriptor: <String, Object>{
+            'family': 'foo',
+            'fonts': <Object>[
+              <String, Object>{'asset': 'a/bar'},
+              <String, Object>{'weight': 400, 'style': 'italic', 'asset': 'a/bar'},
+            ],
+          },
+          fontAssets: <Matcher>[
+            matchesFontAsset(assetUri: Uri.parse('a/bar')),
+            matchesFontAsset(assetUri: Uri.parse('a/bar'), weight: 400, style: 'italic'),
+          ],
+        ),
+        matchesFont(
+          familyName: 'bar',
+          descriptor: <String, Object>{
+            'family': 'bar',
+            'fonts': <Object>[
+              <String, Object>{'asset': 'a/baz'},
+              <String, Object>{'weight': 400, 'style': 'italic', 'asset': 'a/baz'},
+            ],
+          },
+          fontAssets: <Matcher>[
+            matchesFontAsset(assetUri: Uri.parse('a/baz')),
+            matchesFontAsset(assetUri: Uri.parse('a/baz'), weight: 400, style: 'italic'),
+          ],
+        ),
+      ]),
+    );
+  });
 
-    testUsingContext('has only one of two font families when one declaration is missing the "family" option', () async {
-      const String manifest = '''
+  testWithoutContext('FlutterManifest.fontsDescriptor combines descriptors from '
+      'individual fonts', () {
+    const manifest = '''
+name: test
+dependencies:
+  flutter:
+    sdk: flutter
+flutter:
+  uses-material-design: true
+  fonts:
+    - family: foo
+      fonts:
+        - asset: a/bar
+        - asset: a/bar
+          weight: 400
+          style: italic
+    - family: bar
+      fonts:
+        - asset: a/baz
+        - weight: 400
+          asset: a/baz
+          style: italic
+''';
+
+    final FlutterManifest flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    )!;
+
+    expect(flutterManifest.fontsDescriptor, <Object>[
+      <String, Object>{
+        'family': 'foo',
+        'fonts': <Object>[
+          <String, Object>{'asset': 'a/bar'},
+          <String, Object>{'weight': 400, 'style': 'italic', 'asset': 'a/bar'},
+        ],
+      },
+      <String, Object>{
+        'family': 'bar',
+        'fonts': <Object>[
+          <String, Object>{'asset': 'a/baz'},
+          <String, Object>{'weight': 400, 'style': 'italic', 'asset': 'a/baz'},
+        ],
+      },
+    ]);
+  });
+
+  testWithoutContext('FlutterManifest has only one of two font families when '
+      'one declaration is missing the "family" option', () async {
+    const manifest = '''
 name: test
 dependencies:
   flutter:
@@ -266,30 +389,37 @@ flutter:
           weight: 400
           style: italic
 ''';
-      final FlutterManifest flutterManifest = FlutterManifest.createFromString(manifest);
 
-      final dynamic expectedFontsDescriptor = [{'fonts': [{'asset': 'a/bar'}, {'style': 'italic', 'weight': 400, 'asset': 'a/bar'}], 'family': 'foo'}]; // ignore: always_specify_types
-      expect(flutterManifest.fontsDescriptor, expectedFontsDescriptor);
-      final List<Font> fonts = flutterManifest.fonts;
-      expect(fonts.length, 1);
-      final Font fooFont = fonts[0];
-      final dynamic fooFontDescriptor = {'family': 'foo', 'fonts': [{'asset': 'a/bar'}, {'weight': 400, 'style': 'italic', 'asset': 'a/bar'}]}; // ignore: always_specify_types
-      expect(fooFont.descriptor, fooFontDescriptor);
-      expect(fooFont.familyName, 'foo');
-      final List<FontAsset> fooAassets = fooFont.fontAssets;
-      expect(fooAassets.length, 2);
-      final FontAsset fooFontAsset0 = fooAassets[0];
-      expect(fooFontAsset0.assetUri.path, 'a/bar');
-      expect(fooFontAsset0.weight, isNull);
-      expect(fooFontAsset0.style, isNull);
-      final FontAsset fooFontAsset1 = fooAassets[1];
-      expect(fooFontAsset1.assetUri.path, 'a/bar');
-      expect(fooFontAsset1.weight, 400);
-      expect(fooFontAsset1.style, 'italic');
-    });
+    final FlutterManifest flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    )!;
 
-    testUsingContext('has only one of two font families when one declaration is missing the "fonts" option', () async {
-      const String manifest = '''
+    expect(flutterManifest.fonts, hasLength(1));
+    expect(
+      flutterManifest.fonts,
+      containsAll(<Matcher>[
+        matchesFont(
+          familyName: 'foo',
+          descriptor: <String, Object>{
+            'family': 'foo',
+            'fonts': <Object>[
+              <String, Object>{'asset': 'a/bar'},
+              <String, Object>{'weight': 400, 'style': 'italic', 'asset': 'a/bar'},
+            ],
+          },
+          fontAssets: <Matcher>[
+            matchesFontAsset(assetUri: Uri.parse('a/bar')),
+            matchesFontAsset(assetUri: Uri.parse('a/bar'), weight: 400, style: 'italic'),
+          ],
+        ),
+      ]),
+    );
+  });
+
+  testWithoutContext('FlutterManifest has only one of two font families when '
+      'one declaration is missing the "fonts" option', () async {
+    const manifest = '''
 name: test
 dependencies:
   flutter:
@@ -305,29 +435,37 @@ flutter:
           style: italic
     - family: bar
 ''';
-      final FlutterManifest flutterManifest = FlutterManifest.createFromString(manifest);
-      final dynamic expectedFontsDescriptor = [{'fonts': [{'asset': 'a/bar'}, {'style': 'italic', 'weight': 400, 'asset': 'a/bar'}], 'family': 'foo'}]; // ignore: always_specify_types
-      expect(flutterManifest.fontsDescriptor, expectedFontsDescriptor);
-      final List<Font> fonts = flutterManifest.fonts;
-      expect(fonts.length, 1);
-      final Font fooFont = fonts[0];
-      final dynamic fooFontDescriptor = {'family': 'foo', 'fonts': [{'asset': 'a/bar'}, {'weight': 400, 'style': 'italic', 'asset': 'a/bar'}]}; // ignore: always_specify_types
-      expect(fooFont.descriptor, fooFontDescriptor);
-      expect(fooFont.familyName, 'foo');
-      final List<FontAsset> fooAassets = fooFont.fontAssets;
-      expect(fooAassets.length, 2);
-      final FontAsset fooFontAsset0 = fooAassets[0];
-      expect(fooFontAsset0.assetUri.path, 'a/bar');
-      expect(fooFontAsset0.weight, isNull);
-      expect(fooFontAsset0.style, isNull);
-      final FontAsset fooFontAsset1 = fooAassets[1];
-      expect(fooFontAsset1.assetUri.path, 'a/bar');
-      expect(fooFontAsset1.weight, 400);
-      expect(fooFontAsset1.style, 'italic');
-    });
 
-    testUsingContext('has no font family when declaration is missing the "asset" option', () async {
-      const String manifest = '''
+    final FlutterManifest flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    )!;
+
+    expect(flutterManifest.fonts, hasLength(1));
+    expect(
+      flutterManifest.fonts,
+      containsAll(<Matcher>[
+        matchesFont(
+          familyName: 'foo',
+          descriptor: <String, Object>{
+            'family': 'foo',
+            'fonts': <Object>[
+              <String, Object>{'asset': 'a/bar'},
+              <String, Object>{'weight': 400, 'style': 'italic', 'asset': 'a/bar'},
+            ],
+          },
+          fontAssets: <Matcher>[
+            matchesFontAsset(assetUri: Uri.parse('a/bar')),
+            matchesFontAsset(assetUri: Uri.parse('a/bar'), weight: 400, style: 'italic'),
+          ],
+        ),
+      ]),
+    );
+  });
+
+  testWithoutContext('FlutterManifest has no font family when declaration is '
+      'missing the "asset" option', () async {
+    const manifest = '''
 name: test
 dependencies:
   flutter:
@@ -339,56 +477,76 @@ flutter:
       fonts:
         - weight: 400
 ''';
-      final FlutterManifest flutterManifest = FlutterManifest.createFromString(manifest);
 
-      expect(flutterManifest.fontsDescriptor, <dynamic>[]);
-      final List<Font> fonts = flutterManifest.fonts;
-      expect(fonts.length, 0);
-    });
+    final FlutterManifest flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    )!;
 
-    test('allows a blank flutter section', () async {
-      const String manifest = '''
+    expect(flutterManifest.fontsDescriptor, isEmpty);
+    expect(flutterManifest.fonts, isEmpty);
+  });
+
+  testWithoutContext('FlutterManifest allows a blank flutter section', () {
+    const manifest = '''
 name: test
 dependencies:
   flutter:
     sdk: flutter
 flutter:
 ''';
-      final FlutterManifest flutterManifest = FlutterManifest.createFromString(manifest);
-      expect(flutterManifest.isEmpty, false);
-      expect(flutterManifest.isModule, false);
-      expect(flutterManifest.isPlugin, false);
-      expect(flutterManifest.androidPackage, null);
-      expect(flutterManifest.usesAndroidX, false);
-    });
 
-    test('allows a module declaration', () async {
-      const String manifest = '''
+    final FlutterManifest flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    )!;
+
+    expect(flutterManifest.isEmpty, false);
+    expect(flutterManifest.isModule, false);
+    expect(flutterManifest.isPlugin, false);
+    expect(flutterManifest.androidPackage, null);
+    expect(flutterManifest.usesAndroidX, false);
+  });
+
+  testWithoutContext('FlutterManifest allows a module declaration', () {
+    const manifest = '''
 name: test
 flutter:
   module:
     androidPackage: com.example
     androidX: true
 ''';
-      final FlutterManifest flutterManifest = FlutterManifest.createFromString(manifest);
-      expect(flutterManifest.isModule, true);
-      expect(flutterManifest.androidPackage, 'com.example');
-      expect(flutterManifest.usesAndroidX, true);
-    });
 
-    test('allows a legacy plugin declaration', () async {
-      const String manifest = '''
+    final FlutterManifest flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    )!;
+
+    expect(flutterManifest.isModule, true);
+    expect(flutterManifest.androidPackage, 'com.example');
+    expect(flutterManifest.usesAndroidX, true);
+  });
+
+  testWithoutContext('FlutterManifest allows a legacy plugin declaration', () {
+    const manifest = '''
 name: test
 flutter:
   plugin:
     androidPackage: com.example
 ''';
-      final FlutterManifest flutterManifest = FlutterManifest.createFromString(manifest);
-      expect(flutterManifest.isPlugin, true);
-      expect(flutterManifest.androidPackage, 'com.example');
-    });
-    test('allows a multi-plat plugin declaration', () async {
-      const String manifest = '''
+
+    final FlutterManifest flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    )!;
+
+    expect(flutterManifest.isPlugin, true);
+    expect(flutterManifest.androidPackage, 'com.example');
+  });
+
+  testWithoutContext('FlutterManifest allows a multi-plat plugin declaration '
+      'with android only', () {
+    const manifest = '''
 name: test
 flutter:
     plugin:
@@ -397,37 +555,54 @@ flutter:
           package: com.example
           pluginClass: TestPlugin
 ''';
-      final FlutterManifest flutterManifest = FlutterManifest.createFromString(manifest);
-      expect(flutterManifest.isPlugin, true);
-      expect(flutterManifest.androidPackage, 'com.example');
-    });
 
-    testUsingContext('handles an invalid plugin declaration', () async {
-      const String manifest = '''
+    final FlutterManifest flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    )!;
+
+    expect(flutterManifest.isPlugin, true);
+    expect(flutterManifest.androidPackage, 'com.example');
+  });
+
+  testWithoutContext('FlutterManifest allows a multi-plat plugin declaration '
+      'with ios only', () {
+    const manifest = '''
+name: test
+flutter:
+    plugin:
+      platforms:
+        ios:
+          pluginClass: HelloPlugin
+''';
+
+    final FlutterManifest flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    )!;
+
+    expect(flutterManifest.isPlugin, true);
+    expect(flutterManifest.androidPackage, isNull);
+  });
+
+  testWithoutContext('FlutterManifest handles an invalid plugin declaration', () {
+    const manifest = '''
 name: test
 flutter:
     plugin:
 ''';
-      final FlutterManifest flutterManifest = FlutterManifest.createFromString(manifest);
-      expect(flutterManifest, null);
-      expect(testLogger.errorText, contains('Expected "plugin" to be an object, but got null'));
-    });
 
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    );
 
-    Future<void> checkManifestVersion({
-      String manifest,
-      String expectedAppVersion,
-      String expectedBuildName,
-      String expectedBuildNumber,
-    }) async {
-      final FlutterManifest flutterManifest = FlutterManifest.createFromString(manifest);
-      expect(flutterManifest.appVersion, expectedAppVersion);
-      expect(flutterManifest.buildName, expectedBuildName);
-      expect(flutterManifest.buildNumber, expectedBuildNumber);
-    }
+    expect(flutterManifest, null);
+    expect(logger.errorText, contains('Expected "plugin" to be an object, but got null'));
+  });
 
-    test('parses major.minor.patch+build version clause 1', () async {
-      const String manifest = '''
+  testWithoutContext('FlutterManifest parses major.minor.patch+build version clause 1', () {
+    const manifest = '''
 name: test
 version: 1.0.0+2
 dependencies:
@@ -435,16 +610,20 @@ dependencies:
     sdk: flutter
 flutter:
 ''';
-      await checkManifestVersion(
-        manifest: manifest,
-        expectedAppVersion: '1.0.0+2',
-        expectedBuildName: '1.0.0',
-        expectedBuildNumber: '2',
-      );
-    });
 
-    test('parses major.minor.patch with no build version', () async {
-      const String manifest = '''
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    );
+
+    expect(
+      flutterManifest,
+      matchesManifest(appVersion: '1.0.0+2', buildName: '1.0.0', buildNumber: '2'),
+    );
+  });
+
+  testWithoutContext('FlutterManifest parses major.minor.patch with no build version', () {
+    const manifest = '''
 name: test
 version: 0.0.1
 dependencies:
@@ -452,16 +631,17 @@ dependencies:
     sdk: flutter
 flutter:
 ''';
-      await checkManifestVersion(
-        manifest: manifest,
-        expectedAppVersion: '0.0.1',
-        expectedBuildName: '0.0.1',
-        expectedBuildNumber: null,
-      );
-    });
 
-    test('parses major.minor.patch+build version clause 2', () async {
-      const String manifest = '''
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    );
+
+    expect(flutterManifest, matchesManifest(appVersion: '0.0.1', buildName: '0.0.1'));
+  });
+
+  testWithoutContext('FlutterManifest parses major.minor.patch+build version clause 2', () {
+    const manifest = '''
 name: test
 version: 1.0.0-beta+exp.sha.5114f85
 dependencies:
@@ -469,33 +649,45 @@ dependencies:
     sdk: flutter
 flutter:
 ''';
-      await checkManifestVersion(
-        manifest: manifest,
-        expectedAppVersion: '1.0.0-beta+exp.sha.5114f85',
-        expectedBuildName: '1.0.0-beta',
-        expectedBuildNumber: 'exp.sha.5114f85',
-      );
-    });
 
-    test('parses major.minor+build version clause', () async {
-      const String manifest = '''
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    );
+
+    expect(
+      flutterManifest,
+      matchesManifest(
+        appVersion: '1.0.0-beta+exp.sha.5114f85',
+        buildName: '1.0.0-beta',
+        buildNumber: 'exp.sha.5114f85',
+      ),
+    );
+  });
+
+  testWithoutContext('FlutterManifest parses major.minor+build version clause', () {
+    const manifest = '''
 name: test
-version: 1.0+2
+version: 1.0.0+2
 dependencies:
   flutter:
     sdk: flutter
 flutter:
 ''';
-      await checkManifestVersion(
-        manifest: manifest,
-        expectedAppVersion: '1.0+2',
-        expectedBuildName: '1.0',
-        expectedBuildNumber: '2',
-      );
-    });
 
-    test('parses empty version clause', () async {
-      const String manifest = '''
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    );
+
+    expect(
+      flutterManifest,
+      matchesManifest(appVersion: '1.0.0+2', buildName: '1.0.0', buildNumber: '2'),
+    );
+  });
+
+  testWithoutContext('FlutterManifest parses empty version clause', () {
+    const manifest = '''
 name: test
 version:
 dependencies:
@@ -503,33 +695,35 @@ dependencies:
     sdk: flutter
 flutter:
 ''';
-      await checkManifestVersion(
-        manifest: manifest,
-        expectedAppVersion: null,
-        expectedBuildName: null,
-        expectedBuildNumber: null,
-      );
-    });
 
-    test('parses no version clause', () async {
-      const String manifest = '''
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    );
+
+    expect(flutterManifest, matchesManifest());
+  });
+
+  testWithoutContext('FlutterManifest parses no version clause', () {
+    const manifest = '''
 name: test
 dependencies:
   flutter:
     sdk: flutter
 flutter:
 ''';
-      await checkManifestVersion(
-        manifest: manifest,
-        expectedAppVersion: null,
-        expectedBuildName: null,
-        expectedBuildNumber: null,
-      );
-    });
 
-    // Regression test for https://github.com/flutter/flutter/issues/31764
-    testUsingContext('Returns proper error when font detail is malformed', () async {
-      const String manifest = '''
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    );
+
+    expect(flutterManifest, matchesManifest());
+  });
+
+  // Regression test for https://github.com/flutter/flutter/issues/31764
+  testWithoutContext('FlutterManifest returns proper error when font detail is malformed', () {
+    const manifest = '''
 name: test
 dependencies:
   flutter:
@@ -540,14 +734,38 @@ flutter:
       fonts:
         -asset: a/bar
 ''';
-      final FlutterManifest flutterManifest = FlutterManifest.createFromString(manifest);
 
-      expect(flutterManifest, null);
-      expect(testLogger.errorText, contains('Expected "fonts" to either be null or a list.'));
-    });
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    );
 
-    testUsingContext('Returns proper error when font detail is not a list of maps', () async {
-      const String manifest = '''
+    expect(flutterManifest, null);
+    expect(logger.errorText, contains('Expected "fonts" to either be null or a list.'));
+  });
+
+  testWithoutContext('FlutterManifest ignores empty list of fonts', () {
+    const manifest = '''
+name: test
+dependencies:
+  flutter:
+    sdk: flutter
+flutter:
+  fonts: []
+''';
+
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    );
+
+    expect(flutterManifest, isNotNull);
+    expect(flutterManifest!.fonts.length, 0);
+  });
+
+  testWithoutContext('FlutterManifest returns proper error when font detail is '
+      'not a list of maps', () {
+    const manifest = '''
 name: test
 dependencies:
   flutter:
@@ -558,14 +776,19 @@ flutter:
       fonts:
         - asset
 ''';
-      final FlutterManifest flutterManifest = FlutterManifest.createFromString(manifest);
 
-      expect(flutterManifest, null);
-      expect(testLogger.errorText, contains('Expected "fonts" to be a list of maps.'));
-    });
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    );
 
-    testUsingContext('Returns proper error when font is a map instead of a list', () async {
-      const String manifest = '''
+    expect(flutterManifest, null);
+    expect(logger.errorText, contains('Expected "fonts" to be a list of maps.'));
+  });
+
+  testWithoutContext('FlutterManifest returns proper error when font is a map '
+      'instead of a list', () {
+    const manifest = '''
 name: test
 dependencies:
   flutter:
@@ -576,14 +799,19 @@ flutter:
     fonts:
       -asset: a/bar
 ''';
-      final FlutterManifest flutterManifest = FlutterManifest.createFromString(manifest);
 
-      expect(flutterManifest, null);
-      expect(testLogger.errorText, contains('Expected "fonts" to be a list'));
-    });
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    );
 
-    testUsingContext('Returns proper error when second font family is invalid', () async {
-      const String manifest = '''
+    expect(flutterManifest, null);
+    expect(logger.errorText, contains('Expected "fonts" to be a list'));
+  });
+
+  testWithoutContext('FlutterManifest returns proper error when second font '
+      'family is invalid', () {
+    const manifest = '''
 name: test
 dependencies:
   flutter:
@@ -596,13 +824,750 @@ flutter:
         - asset: a/bar
     - string
 ''';
-      final FlutterManifest flutterManifest = FlutterManifest.createFromString(manifest);
-      expect(flutterManifest, null);
-      expect(testLogger.errorText, contains('Expected a map.'));
-    });
 
-    testUsingContext('Does not crash on empty entry', () async {
-      const String manifest = '''
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    );
+
+    expect(flutterManifest, null);
+    expect(logger.errorText, contains('Expected a map.'));
+  });
+
+  testWithoutContext('FlutterManifest returns proper error when flutter is a '
+      'list instead of a map', () {
+    const manifest = '''
+name: test
+dependencies:
+  flutter:
+    sdk: flutter
+flutter:
+  - uses-material-design: true
+''';
+
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    );
+
+    expect(flutterManifest, null);
+    expect(
+      logger.errorText,
+      contains(
+        'Expected "flutter" section to be an object or null, but got '
+        '[{uses-material-design: true}].',
+      ),
+    );
+  });
+
+  testWithoutContext('FlutterManifest can parse manifest on posix filesystem', () {
+    const manifest = '''
+name: test
+dependencies:
+  flutter:
+    sdk: flutter
+flutter:
+''';
+    final FileSystem fileSystem = MemoryFileSystem.test();
+    fileSystem.file('pubspec.yaml').writeAsStringSync(manifest);
+
+    final FlutterManifest flutterManifest = FlutterManifest.createFromPath(
+      'pubspec.yaml',
+      fileSystem: fileSystem,
+      logger: logger,
+    )!;
+
+    expect(flutterManifest.isEmpty, false);
+  });
+
+  testWithoutContext('FlutterManifest can parse manifest on windows filesystem', () {
+    const manifest = '''
+name: test
+dependencies:
+  flutter:
+    sdk: flutter
+flutter:
+''';
+
+    final FileSystem fileSystem = MemoryFileSystem.test(style: FileSystemStyle.windows);
+    fileSystem.file('pubspec.yaml').writeAsStringSync(manifest);
+
+    final FlutterManifest flutterManifest = FlutterManifest.createFromPath(
+      'pubspec.yaml',
+      fileSystem: fileSystem,
+      logger: logger,
+    )!;
+
+    expect(flutterManifest.isEmpty, false);
+  });
+
+  testWithoutContext(
+    'FlutterManifest getSupportedPlatforms return null if runs on legacy format',
+    () {
+      const manifest = '''
+name: test
+flutter:
+  plugin:
+    androidPackage: com.example
+''';
+
+      final FlutterManifest flutterManifest = FlutterManifest.createFromString(
+        manifest,
+        logger: logger,
+      )!;
+
+      expect(flutterManifest.isPlugin, true);
+      expect(flutterManifest.supportedPlatforms, null);
+    },
+  );
+
+  testWithoutContext(
+    'FlutterManifest validSupportedPlatforms return null if the platform keys are not valid',
+    () {
+      const manifest = '''
+name: test
+flutter:
+  plugin:
+    platforms:
+      some_platform:
+        pluginClass: SomeClass
+''';
+
+      final FlutterManifest flutterManifest = FlutterManifest.createFromString(
+        manifest,
+        logger: logger,
+      )!;
+
+      expect(flutterManifest.isPlugin, true);
+      expect(flutterManifest.validSupportedPlatforms, null);
+    },
+  );
+
+  testWithoutContext('FlutterManifest validSupportedPlatforms only returns valid platforms', () {
+    const manifest = '''
+name: test
+flutter:
+  plugin:
+    platforms:
+      some_platform:
+        pluginClass: SomeClass
+      ios:
+        pluginClass: SomeClass
+''';
+
+    final FlutterManifest flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    )!;
+
+    expect(flutterManifest.isPlugin, true);
+    final Map<String, dynamic> validSupportedPlatforms = flutterManifest.validSupportedPlatforms!;
+    expect(validSupportedPlatforms['ios'], <String, dynamic>{'pluginClass': 'SomeClass'});
+    expect(validSupportedPlatforms['some_platform'], isNull);
+  });
+
+  testWithoutContext('FlutterManifest getSupportedPlatforms returns valid platforms.', () {
+    const manifest = '''
+name: test
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.example
+        pluginClass: SomeClass
+      ios:
+        pluginClass: SomeClass
+''';
+
+    final FlutterManifest flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    )!;
+
+    expect(flutterManifest.isPlugin, true);
+    final Map<String, dynamic> validSupportedPlatforms = flutterManifest.validSupportedPlatforms!;
+    expect(validSupportedPlatforms['ios'], <String, dynamic>{'pluginClass': 'SomeClass'});
+    expect(validSupportedPlatforms['android'], <String, dynamic>{
+      'pluginClass': 'SomeClass',
+      'package': 'com.example',
+    });
+  });
+
+  testWithoutContext('FlutterManifest validates a platform section that is a list '
+      'instead of a map', () {
+    const manifest = '''
+name: test
+flutter:
+    plugin:
+      platforms:
+        - android
+''';
+
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    );
+
+    expect(flutterManifest, null);
+    expect(
+      logger.errorText,
+      contains('flutter.plugin.platforms should be a map with the platform name as the key'),
+    );
+  });
+
+  testWithoutContext('FlutterManifest validates plugin format not support.', () {
+    const manifest = '''
+name: test
+flutter:
+  plugin:
+    android:
+      package: com.example
+      pluginClass: SomeClass
+    ios:
+      pluginClass: SomeClass
+''';
+
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    );
+
+    expect(flutterManifest, null);
+    expect(
+      logger.errorText,
+      contains('Cannot find the `flutter.plugin.platforms` key in the `pubspec.yaml` file. '),
+    );
+  });
+
+  testWithoutContext('FlutterManifest handles empty licenses list', () async {
+    const manifest = '''
+name: test
+dependencies:
+  flutter:
+    sdk: flutter
+flutter:
+  licenses: []
+''';
+
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    );
+
+    expect(flutterManifest, isNotNull);
+    expect(flutterManifest!.additionalLicenses.length, 0);
+  });
+
+  testWithoutContext('FlutterManifest can specify additional LICENSE files', () async {
+    const manifest = '''
+name: test
+dependencies:
+  flutter:
+    sdk: flutter
+flutter:
+  licenses:
+    - foo.txt
+''';
+
+    final FlutterManifest flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    )!;
+
+    expect(flutterManifest.additionalLicenses, <String>['foo.txt']);
+  });
+
+  testWithoutContext('FlutterManifest can validate incorrect licenses key', () async {
+    const manifest = '''
+name: test
+dependencies:
+  flutter:
+    sdk: flutter
+flutter:
+  licenses: foo.txt
+''';
+
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    );
+
+    expect(flutterManifest, null);
+    expect(
+      logger.errorText,
+      'Expected "licenses" to be a list of files, but got foo.txt (String).\n',
+    );
+  });
+
+  testWithoutContext('FlutterManifest validates individual list items', () async {
+    const manifest = '''
+name: test
+dependencies:
+  flutter:
+    sdk: flutter
+flutter:
+  licenses:
+    - foo.txt
+    - bar: fizz
+''';
+
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    );
+
+    expect(flutterManifest, null);
+    expect(
+      logger.errorText,
+      'Expected "licenses" to be a list of files, but '
+      'element at index 1 was a YamlMap.\n',
+    );
+  });
+
+  testWithoutContext('FlutterManifest parses single deferred components', () async {
+    const manifest = '''
+name: test
+dependencies:
+  flutter:
+    sdk: flutter
+flutter:
+  deferred-components:
+    - name: component1
+      libraries:
+        - lib1
+      assets:
+        - path/to/asset.jpg
+''';
+
+    final FlutterManifest flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    )!;
+
+    expect(flutterManifest, isNotNull);
+    final List<DeferredComponent> deferredComponents = flutterManifest.deferredComponents!;
+    expect(deferredComponents.length, 1);
+    expect(deferredComponents[0].name, 'component1');
+    expect(deferredComponents[0].libraries.length, 1);
+    expect(deferredComponents[0].libraries[0], 'lib1');
+    expect(deferredComponents[0].assets.length, 1);
+    expect(deferredComponents[0].assets[0].uri.path, 'path/to/asset.jpg');
+  });
+
+  testWithoutContext('FlutterManifest parses multiple deferred components', () async {
+    const manifest = '''
+name: test
+dependencies:
+  flutter:
+    sdk: flutter
+flutter:
+  deferred-components:
+    - name: component1
+      libraries:
+        - lib1
+      assets:
+        - path/to/asset.jpg
+    - name: component2
+      libraries:
+        - lib2
+        - lib3
+      assets:
+        - path/to/asset2.jpg
+''';
+
+    final FlutterManifest flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    )!;
+
+    expect(flutterManifest, isNotNull);
+    final List<DeferredComponent> deferredComponents = flutterManifest.deferredComponents!;
+    expect(deferredComponents.length, 2);
+    expect(deferredComponents[0].name, 'component1');
+    expect(deferredComponents[0].libraries.length, 1);
+    expect(deferredComponents[0].libraries[0], 'lib1');
+    expect(deferredComponents[0].assets.length, 1);
+    expect(deferredComponents[0].assets[0].uri.path, 'path/to/asset.jpg');
+
+    expect(deferredComponents[1].name, 'component2');
+    expect(deferredComponents[1].libraries.length, 2);
+    expect(deferredComponents[1].libraries[0], 'lib2');
+    expect(deferredComponents[1].libraries[1], 'lib3');
+    expect(deferredComponents[1].assets.length, 1);
+    expect(deferredComponents[1].assets[0].uri.path, 'path/to/asset2.jpg');
+  });
+
+  testWithoutContext('FlutterManifest parses empty deferred components', () async {
+    const manifest = '''
+name: test
+dependencies:
+  flutter:
+    sdk: flutter
+flutter:
+  deferred-components:
+''';
+
+    final FlutterManifest flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    )!;
+
+    expect(flutterManifest, isNotNull);
+    expect(flutterManifest.deferredComponents!.length, 0);
+  });
+
+  testWithoutContext('FlutterManifest deferred component requires name', () async {
+    const manifest = '''
+name: test
+dependencies:
+  flutter:
+    sdk: flutter
+flutter:
+  deferred-components:
+    - libraries:
+        - lib1
+''';
+
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    );
+
+    expect(flutterManifest, null);
+    expect(
+      logger.errorText,
+      'Expected the 0 element in "deferred-components" to have required key "name" of type String\n',
+    );
+  });
+
+  testWithoutContext('FlutterManifest deferred component is list', () async {
+    const manifest = '''
+name: test
+dependencies:
+  flutter:
+    sdk: flutter
+flutter:
+  deferred-components: blah
+''';
+
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    );
+
+    expect(flutterManifest, null);
+    expect(
+      logger.errorText,
+      'Expected "deferred-components" to be a list, but got blah (String).\n',
+    );
+  });
+
+  testWithoutContext('FlutterManifest deferred component libraries is list', () async {
+    const manifest = '''
+name: test
+dependencies:
+  flutter:
+    sdk: flutter
+flutter:
+  deferred-components:
+    - name: blah
+      libraries: blah
+''';
+
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    );
+
+    expect(flutterManifest, null);
+    expect(
+      logger.errorText,
+      'Expected "libraries" key in the element at '
+      'index 0 of "deferred-components" to be a list of String, but '
+      'got blah (String).\n',
+    );
+  });
+
+  testWithoutContext('FlutterManifest deferred component libraries is string', () async {
+    const manifest = '''
+name: test
+dependencies:
+  flutter:
+    sdk: flutter
+flutter:
+  deferred-components:
+    - name: blah
+      libraries:
+        - not-a-string:
+''';
+
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    );
+
+    expect(flutterManifest, null);
+    expect(
+      logger.errorText,
+      'Expected "libraries" key in the element at '
+      'index 0 of "deferred-components" to be a list of String, but '
+      'element at index 0 was a YamlMap.\n',
+    );
+  });
+
+  testWithoutContext('FlutterManifest deferred component assets is string', () async {
+    const manifest = '''
+name: test
+dependencies:
+  flutter:
+    sdk: flutter
+flutter:
+  deferred-components:
+    - name: blah
+      assets:
+        - not-a-string:
+''';
+
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    );
+
+    expect(flutterManifest, null);
+    expect(
+      logger.errorText,
+      'Asset manifest entry is malformed. Expected asset entry to be either a string or a map containing a "path" entry. Got Null instead.\n',
+    );
+  });
+
+  testWithoutContext('FlutterManifest deferred component multiple assets is string', () async {
+    const manifest = '''
+name: test
+dependencies:
+  flutter:
+    sdk: flutter
+flutter:
+  deferred-components:
+    - name: blah
+      assets:
+        - path/to/file.so
+        - also-not-a-string:
+          - woo
+''';
+
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    );
+
+    expect(flutterManifest, null);
+    expect(
+      logger.errorText,
+      'Asset manifest entry is malformed. Expected asset entry to be either a string or a map containing a "path" entry. Got Null instead.\n',
+    );
+  });
+
+  testWithoutContext('FlutterManifest multiple deferred components assets is string', () async {
+    const manifest = '''
+name: test
+dependencies:
+  flutter:
+    sdk: flutter
+flutter:
+  deferred-components:
+    - name: blah
+      assets:
+        - path/to/file.so
+    - name: blah2
+      assets:
+        - path/to/other/file.so
+        - not-a-string:
+          - woo
+''';
+
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    );
+
+    expect(flutterManifest, null);
+    expect(
+      logger.errorText,
+      'Asset manifest entry is malformed. Expected asset entry to be either a string or a map containing a "path" entry. Got Null instead.\n',
+    );
+  });
+
+  testWithoutContext('FlutterManifest deferred component assets is list', () async {
+    const manifest = '''
+name: test
+dependencies:
+  flutter:
+    sdk: flutter
+flutter:
+  deferred-components:
+    - name: blah
+      assets: blah
+''';
+
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    );
+
+    expect(flutterManifest, null);
+    expect(logger.errorText, 'Expected "assets" to be a list, but got blah (String).\n');
+  });
+
+  testWithoutContext('FlutterManifest parses asset-only deferred components', () async {
+    const manifest = '''
+name: test
+dependencies:
+  flutter:
+    sdk: flutter
+flutter:
+  deferred-components:
+    - name: component1
+      assets:
+        - path/to/asset1.jpg
+        - path/to/asset2.jpg
+        - path/to/asset3.jpg
+''';
+
+    final FlutterManifest flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    )!;
+
+    expect(flutterManifest, isNotNull);
+    final List<DeferredComponent> deferredComponents = flutterManifest.deferredComponents!;
+    expect(deferredComponents.length, 1);
+    expect(deferredComponents[0].name, 'component1');
+    expect(deferredComponents[0].libraries.length, 0);
+    expect(deferredComponents[0].assets.length, 3);
+    expect(deferredComponents[0].assets[0].uri.path, 'path/to/asset1.jpg');
+    expect(deferredComponents[0].assets[1].uri.path, 'path/to/asset2.jpg');
+    expect(deferredComponents[0].assets[2].uri.path, 'path/to/asset3.jpg');
+  });
+
+  testWithoutContext('FlutterManifest can parse empty dependencies', () async {
+    const manifest = '''
+name: test
+''';
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: BufferLogger.test(),
+    );
+
+    expect(flutterManifest, isNotNull);
+    expect(flutterManifest!.dependencies, isEmpty);
+  });
+
+  testWithoutContext(
+    'FlutterManifest provides a guided error to migrate disable-swift-package-manager',
+    () async {
+      const manifest = '''
+name: test
+dependencies:
+  flutter:
+    sdk: flutter
+flutter:
+  disable-swift-package-manager: true
+''';
+      final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+        manifest,
+        logger: logger,
+      );
+      expect(flutterManifest, isNull);
+      expect(
+        logger.errorText,
+        contains('The "disable-swift-package-manager" configuration has moved'),
+      );
+    },
+  );
+
+  testWithoutContext('FlutterManifest can parse default flavor', () async {
+    const manifest = '''
+name: test
+flutter:
+    default-flavor: prod
+''';
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: BufferLogger.test(),
+    );
+
+    expect(flutterManifest, isNotNull);
+    expect(flutterManifest!.defaultFlavor, 'prod');
+  });
+
+  testWithoutContext('FlutterManifest fails on invalid default flavor', () async {
+    const manifest = '''
+name: test
+flutter:
+    default-flavor: 3
+''';
+
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    );
+
+    expect(flutterManifest, null);
+    expect(logger.errorText, 'Expected "default-flavor" to be a string, but got 3 (int).\n');
+  });
+
+  testWithoutContext('FlutterManifest.copyWith generates a valid manifest', () async {
+    const manifest = '''
+name: test
+dependencies:
+  flutter:
+    sdk: flutter
+flutter:
+  uses-material-design: true
+''';
+    final FlutterManifest flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: logger,
+    )!;
+
+    final FlutterManifest updatedManifest = flutterManifest.copyWith(
+      logger: logger,
+      assets: <AssetsEntry>[
+        AssetsEntry(
+          uri: Uri(path: 'foo'),
+          flavors: const <String>{'flavor'},
+          transformers: const <AssetTransformerEntry>[
+            AssetTransformerEntry(package: 'package:foo', args: <String>['arg']),
+          ],
+        ),
+      ],
+      fonts: <Font>[
+        Font('fontFamily', <FontAsset>[
+          FontAsset(Uri(path: 'assetUri'), weight: 100, style: 'normal'),
+        ]),
+      ],
+      shaders: <Uri>[Uri(path: 'shaderUri')],
+      deferredComponents: <DeferredComponent>[
+        DeferredComponent(
+          name: 'deferredComponent',
+          libraries: const <String>['deferredComponentLibrary'],
+          assets: <AssetsEntry>[
+            AssetsEntry(
+              uri: Uri(path: 'deferredComponentUri'),
+              flavors: const <String>{'deferredComponentFlavor'},
+              transformers: const <AssetTransformerEntry>[
+                AssetTransformerEntry(
+                  package: 'package:deferredComponent',
+                  args: <String>['deferredComponentArg'],
+                ),
+              ],
+            ),
+          ],
+        ),
+      ],
+    );
+
+    expect(encodeYamlAsString(updatedManifest.toYaml()), '''
 name: test
 dependencies:
   flutter:
@@ -610,70 +1575,86 @@ dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - lib/gallery/example_code.dart
-    -
-''';
-      final FlutterManifest flutterManifest = FlutterManifest.createFromString(manifest);
-      final List<Uri> assets = flutterManifest.assets;
-
-      expect(testLogger.errorText, contains('Asset manifest contains a null or empty uri.'));
-      expect(assets.length, 1);
-    });
+    - path: foo
+      flavors:
+        - flavor
+      transformers:
+        - package: package:foo
+          args:
+            - arg
+  fonts:
+    - family: fontFamily
+      fonts:
+        - weight: 100
+          style: normal
+          asset: assetUri
+  shaders:
+    - shaderUri
+  deferred-components:
+    - name: deferredComponent
+      libraries:
+        - deferredComponentLibrary
+      assets:
+        - path: deferredComponentUri
+          flavors:
+            - deferredComponentFlavor
+          transformers:
+            - package: package:deferredComponent
+              args:
+                - deferredComponentArg''');
   });
 
-  group('FlutterManifest with MemoryFileSystem', () {
-    Future<void> assertSchemaIsReadable() async {
-      const String manifest = '''
+  testWithoutContext('FlutterManifest can parse workspace', () async {
+    const manifest = '''
 name: test
-dependencies:
-  flutter:
-    sdk: flutter
-flutter:
+workspace:
+- pkgs/bar
+- pkgs/foo
 ''';
-
-      final FlutterManifest flutterManifest = FlutterManifest.createFromString(manifest);
-      expect(flutterManifest.isEmpty, false);
-    }
-
-    void testUsingContextAndFs(
-      String description,
-      FileSystem filesystem,
-      dynamic testMethod(),
-    ) {
-      testUsingContext(
-        description,
-        () async {
-          writeEmptySchemaFile(filesystem);
-          testMethod();
-        },
-        overrides: <Type, Generator>{
-          FileSystem: () => filesystem,
-          ProcessManager: () => FakeProcessManager.any(),
-        },
-      );
-    }
-
-    testUsingContext('Validate manifest on original fs', () {
-      assertSchemaIsReadable();
-    });
-
-    testUsingContextAndFs(
-      'Validate manifest on Posix FS',
-      MemoryFileSystem(style: FileSystemStyle.posix),
-      () {
-        assertSchemaIsReadable();
-      },
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: BufferLogger.test(),
     );
 
-    testUsingContextAndFs(
-      'Validate manifest on Windows FS',
-      MemoryFileSystem(style: FileSystemStyle.windows),
-      () {
-        assertSchemaIsReadable();
-      },
-    );
-
+    expect(flutterManifest, isNotNull);
+    expect(flutterManifest!.workspace, <String>['pkgs/bar', 'pkgs/foo']);
   });
 
+  testWithoutContext('FlutterManifest can parse empty workspace', () async {
+    const manifest = '''
+name: test
+''';
+    final FlutterManifest? flutterManifest = FlutterManifest.createFromString(
+      manifest,
+      logger: BufferLogger.test(),
+    );
+
+    expect(flutterManifest, isNotNull);
+    expect(flutterManifest!.workspace, isEmpty);
+  });
 }
 
+Matcher matchesManifest({String? appVersion, String? buildName, String? buildNumber}) {
+  return isA<FlutterManifest>()
+      .having((FlutterManifest manifest) => manifest.appVersion, 'appVersion', appVersion)
+      .having((FlutterManifest manifest) => manifest.buildName, 'buildName', buildName)
+      .having((FlutterManifest manifest) => manifest.buildNumber, 'buildNumber', buildNumber);
+}
+
+Matcher matchesFontAsset({required Uri assetUri, int? weight, String? style}) {
+  return isA<FontAsset>()
+      .having((FontAsset fontAsset) => fontAsset.assetUri, 'assetUri', assetUri)
+      .having((FontAsset fontAsset) => fontAsset.weight, 'weight', weight)
+      .having((FontAsset fontAsset) => fontAsset.style, 'style', style);
+}
+
+Matcher matchesFont({
+  required Map<String, Object> descriptor,
+  required String familyName,
+  required List<Matcher> fontAssets,
+}) {
+  return isA<Font>()
+      .having((Font font) => font.descriptor, 'descriptor', descriptor)
+      .having((Font font) => font.familyName, 'familyName', familyName)
+      .having((Font font) => font.fontAssets, 'fontAssets', containsAll(fontAssets));
+}

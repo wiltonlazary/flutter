@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 class Item {
   GlobalKey key1 = GlobalKey();
@@ -12,35 +12,36 @@ class Item {
   @override
   String toString() => 'Item($key1, $key2)';
 }
+
 List<Item> items = <Item>[Item(), Item()];
 
 class StatefulLeaf extends StatefulWidget {
-  const StatefulLeaf({ GlobalKey key }) : super(key: key);
+  const StatefulLeaf({GlobalKey? key}) : super(key: key);
 
   @override
   StatefulLeafState createState() => StatefulLeafState();
 }
 
 class StatefulLeafState extends State<StatefulLeaf> {
-  void markNeedsBuild() { setState(() { }); }
+  void markNeedsBuild() {
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) => const Text('leaf', textDirection: TextDirection.ltr);
 }
 
 class KeyedWrapper extends StatelessWidget {
-  const KeyedWrapper(this.key1, this.key2);
+  const KeyedWrapper(this.key1, this.key2, {super.key});
 
   final Key key1;
-  final Key key2;
+  final GlobalKey key2;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       key: key1,
-      child: StatefulLeaf(
-        key: key2,
-      ),
+      child: StatefulLeaf(key: key2),
     );
   }
 }

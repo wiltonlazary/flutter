@@ -4,12 +4,12 @@
 
 import 'dart:math' as math;
 
-import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('CircularNotchedRectangle', () {
-    test('guest and host don\'t overlap', () {
+    test("guest and host don't overlap", () {
       const CircularNotchedRectangle shape = CircularNotchedRectangle();
       const Rect host = Rect.fromLTRB(0.0, 100.0, 300.0, 300.0);
       const Rect guest = Rect.fromLTWH(50.0, 50.0, 10.0, 10.0);
@@ -19,11 +19,7 @@ void main() {
 
       expect(
         actualPath,
-        coversSameAreaAs(
-          expectedPath,
-          areaToCompare: host.inflate(5.0),
-          sampleSize: 40,
-        ),
+        coversSameAreaAs(expectedPath, areaToCompare: host.inflate(5.0), sampleSize: 40),
       );
     });
 
@@ -41,6 +37,26 @@ void main() {
       const CircularNotchedRectangle shape = CircularNotchedRectangle();
       const Rect host = Rect.fromLTRB(0.0, 100.0, 300.0, 300.0);
       const Rect guest = Rect.fromLTRB(190.0, 95.0, 210.0, 115.0);
+
+      final Path actualPath = shape.getOuterPath(host, guest);
+
+      expect(pathDoesNotContainCircle(actualPath, guest), isTrue);
+    });
+
+    test('inverted guest center above host', () {
+      const CircularNotchedRectangle shape = CircularNotchedRectangle(inverted: true);
+      const Rect host = Rect.fromLTRB(0.0, 100.0, 300.0, 300.0);
+      const Rect guest = Rect.fromLTRB(190.0, 285.0, 210.0, 305.0);
+
+      final Path actualPath = shape.getOuterPath(host, guest);
+
+      expect(pathDoesNotContainCircle(actualPath, guest), isTrue);
+    });
+
+    test('inverted guest center below host', () {
+      const CircularNotchedRectangle shape = CircularNotchedRectangle(inverted: true);
+      const Rect host = Rect.fromLTRB(0.0, 100.0, 300.0, 300.0);
+      const Rect guest = Rect.fromLTRB(190.0, 295.0, 210.0, 315.0);
 
       final Path actualPath = shape.getOuterPath(host, guest);
 
@@ -81,17 +97,14 @@ void main() {
           sampleSize: 100,
         ),
       );
-    }, skip: isBrowser);
+    }, skip: isBrowser); // https://github.com/flutter/flutter/issues/44572
 
     test('AutomaticNotchedShape - no guest', () {
       expect(
         const AutomaticNotchedShape(
           RoundedRectangleBorder(),
           RoundedRectangleBorder(),
-        ).getOuterPath(
-          const Rect.fromLTWH(-200.0, -100.0, 50.0, 100.0),
-          null,
-        ),
+        ).getOuterPath(const Rect.fromLTWH(-200.0, -100.0, 50.0, 100.0), null),
         coversSameAreaAs(
           Path()
             ..moveTo(-200.0, -100.0)
@@ -115,8 +128,9 @@ bool pathDoesNotContainCircle(Path path, Rect circleBounds) {
     for (double i = 0.0; i < 1; i += 0.01) {
       final double x = i * radius * math.cos(theta);
       final double y = i * radius * math.sin(theta);
-      if (path.contains(Offset(x,y) + circleBounds.center))
+      if (path.contains(Offset(x, y) + circleBounds.center)) {
         return false;
+      }
     }
   }
   return true;

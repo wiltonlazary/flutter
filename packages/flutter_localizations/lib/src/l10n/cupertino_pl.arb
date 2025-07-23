@@ -28,5 +28,16 @@
   "cutButtonLabel": "Wytnij",
   "copyButtonLabel": "Kopiuj",
   "pasteButtonLabel": "Wklej",
-  "selectAllButtonLabel": "Wybierz wszystkie"
+  "selectAllButtonLabel": "Wybierz wszystkie",
+  "tabSemanticsLabel": "Karta $tabIndex z $tabCount",
+  "modalBarrierDismissLabel": "Zamknij",
+  "searchTextFieldPlaceholderLabel": "Szukaj",
+  "noSpellCheckReplacementsLabel": "Brak wyników zamieniania",
+  "menuDismissLabel": "Zamknij menu",
+  "lookUpButtonLabel": "Sprawdź",
+  "searchWebButtonLabel": "Szukaj w internecie",
+  "shareButtonLabel": "Udostępnij…",
+  "clearButtonLabel": "Wyczyść",
+  "cancelButtonLabel": "Anuluj",
+  "backButtonLabel": "Wstecz"
 }

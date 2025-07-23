@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter_tools/src/base/common.dart';
+import 'package:flutter_tools/src/base/context.dart';
 
 import '../../src/common.dart';
 
@@ -21,7 +22,14 @@ void main() {
     });
 
     test('throws ToolExit with message and exit code', () {
-      expect(() => throwToolExit('message', exitCode: 42), throwsToolExit(exitCode: 42, message: 'message'));
+      expect(
+        () => throwToolExit('message', exitCode: 42),
+        throwsToolExit(exitCode: 42, message: 'message'),
+      );
+    });
+
+    testWithoutContext('Throws if accessing the Zone', () {
+      expect(() => context.get<Object>(), throwsUnsupportedError);
     });
   });
 }

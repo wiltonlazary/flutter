@@ -16,7 +16,7 @@
 ///
 /// A class can have multiple categories.
 ///
-/// {@tool sample}
+/// {@tool snippet}
 ///
 /// ```dart
 /// /// A copper coffee pot, as desired by Ben Turpin.
@@ -39,7 +39,7 @@
 ///    class that overrides the inline documentations' own description.
 class Category {
   /// Create an annotation to provide a categorization of a class.
-  const Category(this.sections) : assert(sections != null);
+  const Category(this.sections);
 
   /// The strings the correspond to the section and subsection of the
   /// category represented by this object.
@@ -54,7 +54,7 @@ class Category {
 ///
 /// Each class should only have one [DocumentationIcon].
 ///
-/// {@tool sample}
+/// {@tool snippet}
 ///
 /// ```dart
 /// /// Utility class for beginning a dream-sharing sequence.
@@ -74,7 +74,7 @@ class Category {
 ///    class that overrides the inline documentations' own description.
 class DocumentationIcon {
   /// Create an annotation to provide a URL to an image describing a class.
-  const DocumentationIcon(this.url) : assert(url != null);
+  const DocumentationIcon(this.url);
 
   /// The URL to an image that represents the annotated class.
   final String url;
@@ -87,7 +87,7 @@ class DocumentationIcon {
 /// for this purpose, but on occasion the first paragraph is either too short
 /// or too long for use in isolation, without the remainder of the documentation.
 ///
-/// {@tool sample}
+/// {@tool snippet}
 ///
 /// ```dart
 /// /// A famous cat.
@@ -111,7 +111,7 @@ class DocumentationIcon {
 ///    represents the class.
 class Summary {
   /// Create an annotation to provide a short description of a class.
-  const Summary(this.text) : assert(text != null);
+  const Summary(this.text);
 
   /// The text of the summary of the annotated class.
   final String text;

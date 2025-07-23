@@ -3,10 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/gestures.dart';
-
-import '../flutter_test_alternative.dart';
-
-typedef GestureArenaCallback = void Function(Object key);
+import 'package:flutter_test/flutter_test.dart';
 
 const int primaryKey = 4;
 
@@ -18,6 +15,7 @@ class TestGestureArenaMember extends GestureArenaMember {
     expect(key, equals(primaryKey));
     acceptRan = true;
   }
+
   bool rejectRan = false;
 
   @override
@@ -32,12 +30,12 @@ class GestureTester {
   TestGestureArenaMember first = TestGestureArenaMember();
   TestGestureArenaMember second = TestGestureArenaMember();
 
-  GestureArenaEntry firstEntry;
+  late GestureArenaEntry firstEntry;
   void addFirst() {
     firstEntry = arena.add(primaryKey, first);
   }
 
-  GestureArenaEntry secondEntry;
+  late GestureArenaEntry secondEntry;
   void addSecond() {
     secondEntry = arena.add(primaryKey, second);
   }
@@ -158,15 +156,18 @@ void main() {
     tester.expectFirstWin();
   });
 
-  test('Win before close is delayed to close, and only first winner should win, regardless of order', () {
-    final GestureTester tester = GestureTester();
-    tester.addFirst();
-    tester.addSecond();
-    tester.expectNothing();
-    tester.secondEntry.resolve(GestureDisposition.accepted);
-    tester.firstEntry.resolve(GestureDisposition.accepted);
-    tester.expectNothing();
-    tester.arena.close(primaryKey);
-    tester.expectSecondWin();
-  });
+  test(
+    'Win before close is delayed to close, and only first winner should win, regardless of order',
+    () {
+      final GestureTester tester = GestureTester();
+      tester.addFirst();
+      tester.addSecond();
+      tester.expectNothing();
+      tester.secondEntry.resolve(GestureDisposition.accepted);
+      tester.firstEntry.resolve(GestureDisposition.accepted);
+      tester.expectNothing();
+      tester.arena.close(primaryKey);
+      tester.expectSecondWin();
+    },
+  );
 }

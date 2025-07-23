@@ -2,14 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:ui' as ui show window;
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 // This is a regression test for https://github.com/flutter/flutter/issues/5840.
 
 class Bar extends StatefulWidget {
+  const Bar({super.key});
   @override
   BarState createState() => BarState();
 }
@@ -46,7 +45,7 @@ class BarState extends State<Bar> {
 }
 
 class StatefulCreationCounter extends StatefulWidget {
-  const StatefulCreationCounter({ Key key }) : super(key: key);
+  const StatefulCreationCounter({super.key});
 
   @override
   StatefulCreationCounterState createState() => StatefulCreationCounterState();
@@ -68,7 +67,7 @@ class StatefulCreationCounterState extends State<StatefulCreationCounter> {
 void main() {
   testWidgets('reparent state with layout builder', (WidgetTester tester) async {
     expect(StatefulCreationCounterState.creationCount, 0);
-    await tester.pumpWidget(Bar());
+    await tester.pumpWidget(const Bar());
     expect(StatefulCreationCounterState.creationCount, 1);
     final BarState s = tester.state<BarState>(find.byType(Bar));
     s.trigger();
@@ -79,9 +78,9 @@ void main() {
   testWidgets('Clean then reparent with dependencies', (WidgetTester tester) async {
     int layoutBuilderBuildCount = 0;
 
-    StateSetter keyedSetState;
-    StateSetter layoutBuilderSetState;
-    StateSetter childSetState;
+    late StateSetter keyedSetState;
+    late StateSetter layoutBuilderSetState;
+    late StateSetter childSetState;
 
     final GlobalKey key = GlobalKey();
     final Widget keyedWidget = StatefulBuilder(
@@ -96,43 +95,55 @@ void main() {
     Widget layoutBuilderChild = keyedWidget;
     Widget deepChild = Container();
 
-    await tester.pumpWidget(MediaQuery(
-      data: MediaQueryData.fromWindow(ui.window),
-      child: Column(
-        children: <Widget>[
-          StatefulBuilder(builder: (BuildContext context, StateSetter setState) {
-            layoutBuilderSetState = setState;
-            return LayoutBuilder(
-              builder: (BuildContext context, BoxConstraints constraints) {
-                layoutBuilderBuildCount += 1;
-                return layoutBuilderChild; // initially keyedWidget above, but then a new Container
+    await tester.pumpWidget(
+      MediaQuery(
+        data: MediaQueryData.fromView(tester.view),
+        child: Column(
+          children: <Widget>[
+            StatefulBuilder(
+              builder: (BuildContext context, StateSetter setState) {
+                layoutBuilderSetState = setState;
+                return LayoutBuilder(
+                  builder: (BuildContext context, BoxConstraints constraints) {
+                    layoutBuilderBuildCount += 1;
+                    return layoutBuilderChild; // initially keyedWidget above, but then a new Container
+                  },
+                );
               },
-            );
-          }),
-          Container(
-            child: Container(
-              child: Container(
-                child: Container(
-                  child: Container(
-                    child: Container(
-                      child: StatefulBuilder(
-                        builder: (BuildContext context, StateSetter setState) {
-                          childSetState = setState;
-                          return deepChild; // initially a Container, but then the keyedWidget above
-                        },
+            ),
+            ColoredBox(
+              color: Colors.green,
+              child: ColoredBox(
+                color: Colors.green,
+                child: ColoredBox(
+                  color: Colors.green,
+                  child: ColoredBox(
+                    color: Colors.green,
+                    child: ColoredBox(
+                      color: Colors.green,
+                      child: ColoredBox(
+                        color: Colors.green,
+                        child: StatefulBuilder(
+                          builder: (BuildContext context, StateSetter setState) {
+                            childSetState = setState;
+                            return deepChild; // initially a Container, but then the keyedWidget above
+                          },
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
-    ));
+    );
     expect(layoutBuilderBuildCount, 1);
 
-    keyedSetState(() { /* Change nothing but add the element to the dirty list. */ });
+    keyedSetState(() {
+      /* Change nothing but add the element to the dirty list. */
+    });
 
     childSetState(() {
       // The deep child builds in the initial build phase. It takes the child

@@ -5,14 +5,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-class NotifyMaterial extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    LayoutChangedNotification().dispatch(context);
-    return Container();
-  }
-}
-
 void main() {
   testWidgets('SizeChangedLayoutNotification test', (WidgetTester tester) async {
     bool notified = false;
@@ -23,12 +15,7 @@ void main() {
           onNotification: (LayoutChangedNotification notification) {
             throw Exception('Should not reach this point.');
           },
-          child: const SizeChangedLayoutNotifier(
-            child: SizedBox(
-              width: 100.0,
-              height: 100.0,
-            ),
-          ),
+          child: const SizeChangedLayoutNotifier(child: SizedBox(width: 100.0, height: 100.0)),
         ),
       ),
     );
@@ -37,16 +24,11 @@ void main() {
       Center(
         child: NotificationListener<LayoutChangedNotification>(
           onNotification: (LayoutChangedNotification notification) {
-            expect(notification, isInstanceOf<SizeChangedLayoutNotification>());
+            expect(notification, isA<SizeChangedLayoutNotification>());
             notified = true;
             return true;
           },
-          child: const SizeChangedLayoutNotifier(
-            child: SizedBox(
-              width: 200.0,
-              height: 100.0,
-            ),
-          ),
+          child: const SizeChangedLayoutNotifier(child: SizedBox(width: 200.0, height: 100.0)),
         ),
       ),
     );

@@ -18,5 +18,16 @@
   "cutButtonLabel": "Қию",
   "copyButtonLabel": "Көшіру",
   "pasteButtonLabel": "Қою",
-  "selectAllButtonLabel": "Барлығын таңдау"
+  "selectAllButtonLabel": "Барлығын таңдау",
+  "tabSemanticsLabel": "Қойынды: $tabIndex/$tabCount",
+  "modalBarrierDismissLabel": "Жабу",
+  "searchTextFieldPlaceholderLabel": "Іздеу",
+  "noSpellCheckReplacementsLabel": "Ауыстыратын ешнәрсе табылмады.",
+  "menuDismissLabel": "Мәзірді жабу",
+  "lookUpButtonLabel": "Іздеу",
+  "searchWebButtonLabel": "Интернеттен іздеу",
+  "shareButtonLabel": "Бөлісу…",
+  "clearButtonLabel": "Өшіру",
+  "cancelButtonLabel": "Бас тарту",
+  "backButtonLabel": "Артқа"
 }

@@ -18,5 +18,16 @@
   "cutButtonLabel": "Leikkaa",
   "copyButtonLabel": "Kopioi",
   "pasteButtonLabel": "Liitä",
-  "selectAllButtonLabel": "Valitse kaikki"
+  "selectAllButtonLabel": "Valitse kaikki",
+  "tabSemanticsLabel": "Välilehti $tabIndex kautta $tabCount",
+  "modalBarrierDismissLabel": "Ohita",
+  "searchTextFieldPlaceholderLabel": "Hae",
+  "noSpellCheckReplacementsLabel": "Korvaavia sanoja ei löydy",
+  "menuDismissLabel": "Hylkää valikko",
+  "lookUpButtonLabel": "Hae",
+  "searchWebButtonLabel": "Hae verkosta",
+  "shareButtonLabel": "Jaa…",
+  "clearButtonLabel": "Tyhjennä",
+  "cancelButtonLabel": "Peru",
+  "backButtonLabel": "Takaisin"
 }

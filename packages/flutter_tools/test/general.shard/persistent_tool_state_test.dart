@@ -2,30 +2,45 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:file/memory.dart';
 import 'package:flutter_tools/src/base/file_system.dart';
+import 'package:flutter_tools/src/base/logger.dart';
 import 'package:flutter_tools/src/persistent_tool_state.dart';
+import 'package:flutter_tools/src/version.dart';
 
 import '../src/common.dart';
-import '../src/testbed.dart';
 
 void main() {
-  Testbed testbed;
+  testWithoutContext('state can be set and persists', () {
+    final fileSystem = MemoryFileSystem.test();
+    final Directory directory = fileSystem.directory('state_dir');
+    directory.createSync();
+    final File stateFile = directory.childFile('.flutter_tool_state');
+    final state1 = PersistentToolState.test(directory: directory, logger: BufferLogger.test());
+    expect(state1.shouldRedisplayWelcomeMessage, null);
+    state1.setShouldRedisplayWelcomeMessage(true);
+    expect(stateFile.existsSync(), true);
+    expect(state1.shouldRedisplayWelcomeMessage, true);
+    state1.setShouldRedisplayWelcomeMessage(false);
+    expect(state1.shouldRedisplayWelcomeMessage, false);
 
-  setUp(() {
-    testbed = Testbed();
+    final state2 = PersistentToolState.test(directory: directory, logger: BufferLogger.test());
+    expect(state2.shouldRedisplayWelcomeMessage, false);
   });
 
-  test('state can be set and persists', () => testbed.run(() {
-    final File stateFile = fs.file('.flutter_tool_state');
-    final PersistentToolState state1 = PersistentToolState(stateFile);
-    expect(state1.redisplayWelcomeMessage, null);
-    state1.redisplayWelcomeMessage = true;
-    expect(stateFile.existsSync(), true);
-    expect(state1.redisplayWelcomeMessage, true);
-    state1.redisplayWelcomeMessage = false;
-    expect(state1.redisplayWelcomeMessage, false);
+  testWithoutContext('channel versions can be cached and stored', () {
+    final fileSystem = MemoryFileSystem.test();
+    final Directory directory = fileSystem.directory('state_dir')..createSync();
+    final state1 = PersistentToolState.test(directory: directory, logger: BufferLogger.test());
 
-    final PersistentToolState state2 = PersistentToolState(stateFile);
-    expect(state2.redisplayWelcomeMessage, false);
-  }));
+    state1.updateLastActiveVersion('abc', Channel.master);
+    state1.updateLastActiveVersion('ghi', Channel.beta);
+    state1.updateLastActiveVersion('jkl', Channel.stable);
+
+    final state2 = PersistentToolState.test(directory: directory, logger: BufferLogger.test());
+
+    expect(state2.lastActiveVersion(Channel.master), 'abc');
+    expect(state2.lastActiveVersion(Channel.beta), 'ghi');
+    expect(state2.lastActiveVersion(Channel.stable), 'jkl');
+  });
 }

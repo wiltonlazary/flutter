@@ -8,32 +8,26 @@ import 'basic_messaging.dart';
 import 'test_step.dart';
 
 Future<TestStepResult> methodCallJsonSuccessHandshake(dynamic payload) async {
-  const MethodChannel channel =
-      MethodChannel('json-method', JSONMethodCodec());
-  return _methodCallSuccessHandshake(
-      'JSON success($payload)', channel, payload);
+  const MethodChannel channel = MethodChannel('json-method', JSONMethodCodec());
+  return _methodCallSuccessHandshake('JSON success($payload)', channel, payload);
 }
 
 Future<TestStepResult> methodCallJsonErrorHandshake(dynamic payload) async {
-  const MethodChannel channel =
-      MethodChannel('json-method', JSONMethodCodec());
+  const MethodChannel channel = MethodChannel('json-method', JSONMethodCodec());
   return _methodCallErrorHandshake('JSON error($payload)', channel, payload);
 }
 
 Future<TestStepResult> methodCallJsonNotImplementedHandshake() async {
-  const MethodChannel channel =
-      MethodChannel('json-method', JSONMethodCodec());
+  const MethodChannel channel = MethodChannel('json-method', JSONMethodCodec());
   return _methodCallNotImplementedHandshake('JSON notImplemented()', channel);
 }
 
-Future<TestStepResult> methodCallStandardSuccessHandshake(
-    dynamic payload) async {
+Future<TestStepResult> methodCallStandardSuccessHandshake(dynamic payload) async {
   const MethodChannel channel = MethodChannel(
     'std-method',
     StandardMethodCodec(ExtendedStandardMessageCodec()),
   );
-  return _methodCallSuccessHandshake(
-      'Standard success($payload)', channel, payload);
+  return _methodCallSuccessHandshake('Standard success($payload)', channel, payload);
 }
 
 Future<TestStepResult> methodCallStandardErrorHandshake(dynamic payload) async {
@@ -41,8 +35,7 @@ Future<TestStepResult> methodCallStandardErrorHandshake(dynamic payload) async {
     'std-method',
     StandardMethodCodec(ExtendedStandardMessageCodec()),
   );
-  return _methodCallErrorHandshake(
-      'Standard error($payload)', channel, payload);
+  return _methodCallErrorHandshake('Standard error($payload)', channel, payload);
 }
 
 Future<TestStepResult> methodCallStandardNotImplementedHandshake() async {
@@ -50,8 +43,7 @@ Future<TestStepResult> methodCallStandardNotImplementedHandshake() async {
     'std-method',
     StandardMethodCodec(ExtendedStandardMessageCodec()),
   );
-  return _methodCallNotImplementedHandshake(
-      'Standard notImplemented()', channel);
+  return _methodCallNotImplementedHandshake('Standard notImplemented()', channel);
 }
 
 Future<TestStepResult> _methodCallSuccessHandshake(
@@ -89,8 +81,7 @@ Future<TestStepResult> _methodCallErrorHandshake(
   final List<dynamic> received = <dynamic>[];
   channel.setMethodCallHandler((MethodCall call) async {
     received.add(call.arguments);
-    throw PlatformException(
-        code: 'error', message: null, details: arguments);
+    throw PlatformException(code: 'error', details: arguments);
   });
   dynamic errorDetails = nothing;
   dynamic error = nothing;

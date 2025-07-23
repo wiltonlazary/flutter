@@ -2,6 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/// @docImport 'package:flutter/foundation.dart';
+/// @docImport 'package:flutter/material.dart';
+///
+/// @docImport 'animated_size.dart';
+/// @docImport 'transitions.dart';
+library;
+
 import 'package:flutter/animation.dart';
 
 import 'framework.dart';
@@ -10,6 +17,8 @@ import 'value_listenable_builder.dart';
 
 /// [Widget] builder that animates a property of a [Widget] to a target value
 /// whenever the target value changes.
+///
+/// {@youtube 560 315 https://www.youtube.com/watch?v=l9uHB8VXZOg}
 ///
 /// The type of the animated property ([Color], [Rect], [double], etc.) is
 /// defined via the type of the provided [tween] (e.g. [ColorTween],
@@ -59,36 +68,13 @@ import 'value_listenable_builder.dart';
 ///
 /// ## Example Code
 ///
-/// {@tool snippet --template=stateful_widget_scaffold_center}
+/// {@tool dartpad}
 /// This example shows an [IconButton] that "zooms" in when the widget first
 /// builds (its size smoothly increases from 0 to 24) and whenever the button
 /// is pressed, it smoothly changes its size to the new target value of either
 /// 48 or 24.
 ///
-/// ```dart
-/// double targetValue = 24.0;
-///
-/// @override
-/// Widget build(BuildContext context) {
-///   return TweenAnimationBuilder(
-///     tween: Tween<double>(begin: 0, end: targetValue),
-///     duration: Duration(seconds: 1),
-///     builder: (BuildContext context, double size, Widget child) {
-///       return IconButton(
-///         iconSize: size,
-///         color: Colors.blue,
-///         icon: child,
-///         onPressed: () {
-///           setState(() {
-///             targetValue = targetValue == 24.0 ? 48.0 : 24.0;
-///           });
-///         },
-///       );
-///     },
-///     child: Icon(Icons.aspect_ratio),
-///   );
-/// }
-/// ```
+/// ** See code in examples/api/lib/widgets/tween_animation_builder/tween_animation_builder.0.dart **
 /// {@end-tool}
 ///
 /// ## Relationship to [ImplicitlyAnimatedWidget]s and [AnimatedWidget]s
@@ -111,28 +97,27 @@ import 'value_listenable_builder.dart';
 /// [AnimatedBuilder], which can be used similarly to this
 /// [TweenAnimationBuilder], but unlike the latter it is powered by a
 /// developer-managed [AnimationController].
-class TweenAnimationBuilder<T> extends ImplicitlyAnimatedWidget {
+///
+/// See also:
+///
+/// * [ValueListenableBuilder], a widget whose content stays synced with a
+///   [ValueListenable] instead of a [Tween].
+class TweenAnimationBuilder<T extends Object?> extends ImplicitlyAnimatedWidget {
   /// Creates a [TweenAnimationBuilder].
-  ///
-  /// The properties [tween], [duration], and [builder] are required. The values
-  /// for [tween], [curve], and [builder] must not be null.
   ///
   /// The [TweenAnimationBuilder] takes full ownership of the provided [tween]
   /// instance and mutates it. Once a [Tween] has been passed to a
   /// [TweenAnimationBuilder], its properties should not be accessed or changed
   /// anymore to avoid interference with the [TweenAnimationBuilder].
   const TweenAnimationBuilder({
-    Key key,
-    @required this.tween,
-    @required Duration duration,
-    Curve curve = Curves.linear,
-    @required this.builder,
-    VoidCallback onEnd,
+    super.key,
+    required this.tween,
+    required super.duration,
+    super.curve,
+    required this.builder,
+    super.onEnd,
     this.child,
-  }) : assert(tween != null),
-       assert(curve != null),
-       assert(builder != null),
-       super(key: key, duration: duration, curve: curve, onEnd: onEnd);
+  });
 
   /// Defines the target value for the animation.
   ///
@@ -184,7 +169,7 @@ class TweenAnimationBuilder<T> extends ImplicitlyAnimatedWidget {
   ///
   /// Using this pre-built child is entirely optional, but can improve
   /// performance significantly in some cases and is therefore a good practice.
-  final Widget child;
+  final Widget? child;
 
   @override
   ImplicitlyAnimatedWidgetState<ImplicitlyAnimatedWidget> createState() {
@@ -192,15 +177,16 @@ class TweenAnimationBuilder<T> extends ImplicitlyAnimatedWidget {
   }
 }
 
-class _TweenAnimationBuilderState<T> extends AnimatedWidgetBaseState<TweenAnimationBuilder<T>> {
-  Tween<T> _currentTween;
+class _TweenAnimationBuilderState<T extends Object?>
+    extends AnimatedWidgetBaseState<TweenAnimationBuilder<T>> {
+  Tween<T>? _currentTween;
 
   @override
   void initState() {
     _currentTween = widget.tween;
-    _currentTween.begin ??= _currentTween.end;
+    _currentTween!.begin ??= _currentTween!.end;
     super.initState();
-    if (_currentTween.begin != _currentTween.end) {
+    if (_currentTween!.begin != _currentTween!.end) {
       controller.forward();
     }
   }
@@ -211,15 +197,18 @@ class _TweenAnimationBuilderState<T> extends AnimatedWidgetBaseState<TweenAnimat
       widget.tween.end != null,
       'Tween provided to TweenAnimationBuilder must have non-null Tween.end value.',
     );
-    _currentTween = visitor(_currentTween, widget.tween.end, (dynamic value) {
-      // Constructor will never be called because null is never provided as current tween.
-      assert(false);
-      return null;
-    }) as Tween<T>;
+    _currentTween =
+        visitor(_currentTween, widget.tween.end, (dynamic value) {
+              assert(false);
+              throw StateError(
+                'Constructor will never be called because null is never provided as current tween.',
+              );
+            })
+            as Tween<T>?;
   }
 
   @override
   Widget build(BuildContext context) {
-    return widget.builder(context, _currentTween.evaluate(animation), widget.child);
+    return widget.builder(context, _currentTween!.evaluate(animation), widget.child);
   }
 }

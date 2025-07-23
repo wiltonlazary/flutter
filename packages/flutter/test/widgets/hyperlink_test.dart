@@ -2,9 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   testWidgets('Can tap a hyperlink', (WidgetTester tester) async {
@@ -13,12 +13,14 @@ void main() {
       ..onTap = () {
         didTapLeft = true;
       };
+    addTearDown(tapLeft.dispose);
 
     bool didTapRight = false;
     final TapGestureRecognizer tapRight = TapGestureRecognizer()
       ..onTap = () {
         didTapRight = true;
       };
+    addTearDown(tapRight.dispose);
 
     const Key textKey = Key('text');
 
@@ -29,15 +31,9 @@ void main() {
           textDirection: TextDirection.ltr,
           text: TextSpan(
             children: <TextSpan>[
-              TextSpan(
-                text: 'xxxxxxxx',
-                recognizer: tapLeft,
-              ),
+              TextSpan(text: 'xxxxxxxx', recognizer: tapLeft),
               const TextSpan(text: 'yyyyyyyy'),
-              TextSpan(
-                text: 'zzzzzzzzz',
-                recognizer: tapRight,
-              ),
+              TextSpan(text: 'zzzzzzzzz', recognizer: tapRight),
             ],
           ),
         ),

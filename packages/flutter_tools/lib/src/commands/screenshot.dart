@@ -2,26 +2,25 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:async';
+import 'package:meta/meta.dart';
+import 'package:vm_service/vm_service.dart' as vm_service;
 
 import '../base/common.dart';
 import '../base/file_system.dart';
-import '../base/utils.dart';
 import '../convert.dart';
 import '../device.dart';
-import '../globals.dart';
+import '../globals.dart' as globals;
 import '../runner/flutter_command.dart';
 import '../vmservice.dart';
 
-const String _kOut = 'out';
-const String _kType = 'type';
-const String _kObservatoryUri = 'observatory-uri';
-const String _kDeviceType = 'device';
-const String _kSkiaType = 'skia';
-const String _kRasterizerType = 'rasterizer';
+const _kOut = 'out';
+const _kType = 'type';
+const _kVmServiceUrl = 'vm-service-url';
+const _kDeviceType = 'device';
+const _kSkiaType = 'skia';
 
 class ScreenshotCommand extends FlutterCommand {
-  ScreenshotCommand() {
+  ScreenshotCommand({required this.fs}) {
     argParser.addOption(
       _kOut,
       abbr: 'o',
@@ -29,28 +28,33 @@ class ScreenshotCommand extends FlutterCommand {
       help: 'Location to write the screenshot.',
     );
     argParser.addOption(
-      _kObservatoryUri,
+      _kVmServiceUrl,
       valueHelp: 'URI',
-      help: 'The observatory URI to connect to.\n'
-          'This is required when --$_kType is "$_kSkiaType" or "$_kRasterizerType".\n'
-          'To find the observatory URI, use "flutter run" and look for'
-          '"An Observatory ... is available at" in the output.',
+      help:
+          'The VM Service URL to which to connect.\n'
+          'This is required when "--$_kType" is "$_kSkiaType".\n'
+          'To find the VM service URL, use "flutter run" and look for '
+          '"A Dart VM Service ... is available at" in the output.',
     );
     argParser.addOption(
       _kType,
       valueHelp: 'type',
       help: 'The type of screenshot to retrieve.',
-      allowed: const <String>[_kDeviceType, _kSkiaType, _kRasterizerType],
+      allowed: const <String>[_kDeviceType, _kSkiaType],
       allowedHelp: const <String, String>{
-        _kDeviceType: 'Delegate to the device\'s native screenshot capabilities. This '
+        _kDeviceType:
+            "Delegate to the device's native screenshot capabilities. This "
             'screenshots the entire screen currently being displayed (including content '
             'not rendered by Flutter, like the device status bar).',
-        _kSkiaType: 'Render the Flutter app as a Skia picture. Requires --$_kObservatoryUri',
-        _kRasterizerType: 'Render the Flutter app using the rasterizer. Requires --$_kObservatoryUri',
+        _kSkiaType: 'Render the Flutter app as a Skia picture. Requires "--$_kVmServiceUrl".',
       },
       defaultsTo: _kDeviceType,
     );
+    usesDeviceTimeoutOption();
+    usesDeviceConnectionOption();
   }
+
+  final FileSystem fs;
 
   @override
   String get name => 'screenshot';
@@ -59,93 +63,118 @@ class ScreenshotCommand extends FlutterCommand {
   String get description => 'Take a screenshot from a connected device.';
 
   @override
-  final List<String> aliases = <String>['pic'];
+  final String category = FlutterCommandCategory.tools;
 
-  Device device;
+  @override
+  bool get refreshWirelessDevices => true;
 
-  static void validateOptions(String screenshotType, Device device, String observatoryUri) {
+  @override
+  final aliases = <String>['pic'];
+
+  Device? device;
+
+  Future<void> _validateOptions(String? screenshotType, String? vmServiceUrl) async {
     switch (screenshotType) {
       case _kDeviceType:
+        if (vmServiceUrl != null) {
+          throwToolExit('VM Service URI cannot be provided for screenshot type $screenshotType');
+        }
+        device = await findTargetDevice(includeDevicesUnsupportedByProject: true);
         if (device == null) {
           throwToolExit('Must have a connected device for screenshot type $screenshotType');
         }
-        if (!device.supportsScreenshot) {
-          throwToolExit('Screenshot not supported for ${device.name}.');
+        if (!device!.supportsScreenshot) {
+          throwToolExit('Screenshot not supported for ${device!.displayName}.');
         }
-        break;
       default:
-        if (observatoryUri == null) {
-          throwToolExit('Observatory URI must be specified for screenshot type $screenshotType');
+        if (vmServiceUrl == null) {
+          throwToolExit('VM Service URI must be specified for screenshot type $screenshotType');
+        }
+        if (vmServiceUrl.isEmpty || Uri.tryParse(vmServiceUrl) == null) {
+          throwToolExit('VM Service URI "$vmServiceUrl" is invalid');
         }
     }
   }
 
   @override
-  Future<FlutterCommandResult> verifyThenRunCommand(String commandPath) async {
-    device = await findTargetDevice();
-    validateOptions(stringArg(_kType), device, stringArg(_kObservatoryUri));
+  Future<FlutterCommandResult> verifyThenRunCommand(String? commandPath) async {
+    await _validateOptions(stringArg(_kType), stringArg(_kVmServiceUrl));
     return super.verifyThenRunCommand(commandPath);
   }
 
   @override
   Future<FlutterCommandResult> runCommand() async {
-    File outputFile;
-    if (argResults.wasParsed(_kOut)) {
+    File? outputFile;
+    if (argResults?.wasParsed(_kOut) ?? false) {
       outputFile = fs.file(stringArg(_kOut));
     }
 
+    var success = true;
     switch (stringArg(_kType)) {
       case _kDeviceType:
         await runScreenshot(outputFile);
-        return null;
       case _kSkiaType:
-        await runSkia(outputFile);
-        return null;
-      case _kRasterizerType:
-        await runRasterizer(outputFile);
-        return null;
+        success = await runSkia(outputFile);
     }
 
-    return null;
+    return success ? FlutterCommandResult.success() : FlutterCommandResult.fail();
   }
 
-  Future<void> runScreenshot(File outputFile) async {
-    outputFile ??= getUniqueFile(fs.currentDirectory, 'flutter', 'png');
+  Future<void> runScreenshot(File? outputFile) async {
+    outputFile ??= globals.fsUtils.getUniqueFile(fs.currentDirectory, 'flutter', 'png');
+
     try {
-      await device.takeScreenshot(outputFile);
-    } catch (error) {
+      await device!.takeScreenshot(outputFile);
+    } on Exception catch (error) {
       throwToolExit('Error taking screenshot: $error');
     }
-    _showOutputFileInfo(outputFile);
+
+    checkOutput(outputFile, fs);
+
+    try {
+      _showOutputFileInfo(outputFile);
+    } on Exception catch (error) {
+      throwToolExit(
+        'Error with provided file path: "${outputFile.path}"\n'
+        'Error: $error',
+      );
+    }
   }
 
-  Future<void> runSkia(File outputFile) async {
-    final Map<String, dynamic> skp = await _invokeVmServiceRpc('_flutter.screenshotSkp');
-    outputFile ??= getUniqueFile(fs.currentDirectory, 'flutter', 'skp');
+  Future<bool> runSkia(File? outputFile) async {
+    final Uri vmServiceUrl = Uri.parse(stringArg(_kVmServiceUrl)!);
+    final FlutterVmService vmService = await connectToVmService(
+      vmServiceUrl,
+      logger: globals.logger,
+    );
+    final vm_service.Response? skp = await vmService.screenshotSkp();
+    if (skp == null) {
+      globals.printError(
+        'The Skia picture request failed, probably because the device was '
+        'disconnected',
+      );
+      return false;
+    }
+    outputFile ??= globals.fsUtils.getUniqueFile(fs.currentDirectory, 'flutter', 'skp');
     final IOSink sink = outputFile.openWrite();
-    sink.add(base64.decode(skp['skp'] as String));
+    sink.add(base64.decode(skp.json?['skp'] as String));
     await sink.close();
     _showOutputFileInfo(outputFile);
-    _ensureOutputIsNotJsonRpcError(outputFile);
+    ensureOutputIsNotJsonRpcError(outputFile);
+    return true;
   }
 
-  Future<void> runRasterizer(File outputFile) async {
-    final Map<String, dynamic> response = await _invokeVmServiceRpc('_flutter.screenshot');
-    outputFile ??= getUniqueFile(fs.currentDirectory, 'flutter', 'png');
-    final IOSink sink = outputFile.openWrite();
-    sink.add(base64.decode(response['screenshot'] as String));
-    await sink.close();
-    _showOutputFileInfo(outputFile);
-    _ensureOutputIsNotJsonRpcError(outputFile);
+  static void checkOutput(File outputFile, FileSystem fs) {
+    if (!fs.file(outputFile.path).existsSync()) {
+      throwToolExit(
+        'File was not created, ensure path is valid\n'
+        'Path provided: "${outputFile.path}"',
+      );
+    }
   }
 
-  Future<Map<String, dynamic>> _invokeVmServiceRpc(String method) async {
-    final Uri observatoryUri = Uri.parse(stringArg(_kObservatoryUri));
-    final VMService vmService = await VMService.connect(observatoryUri);
-    return await vmService.vm.invokeRpcRaw(method);
-  }
-
-  void _ensureOutputIsNotJsonRpcError(File outputFile) {
+  @visibleForTesting
+  static void ensureOutputIsNotJsonRpcError(File outputFile) {
     if (outputFile.lengthSync() >= 1000) {
       return;
     }
@@ -153,12 +182,14 @@ class ScreenshotCommand extends FlutterCommand {
       encoding: const AsciiCodec(allowInvalid: true),
     );
     if (content.startsWith('{"jsonrpc":"2.0", "error"')) {
-      throwToolExit('It appears the output file contains an error message, not valid skia output.');
+      throwToolExit('It appears the output file contains an error message, not valid output.');
     }
   }
 
   void _showOutputFileInfo(File outputFile) {
     final int sizeKB = (outputFile.lengthSync()) ~/ 1024;
-    printStatus('Screenshot written to ${fs.path.relative(outputFile.path)} (${sizeKB}kB).');
+    globals.printStatus(
+      'Screenshot written to ${fs.path.relative(outputFile.path)} (${sizeKB}kB).',
+    );
   }
 }

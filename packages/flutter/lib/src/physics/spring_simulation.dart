@@ -2,11 +2,20 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/// @docImport 'package:flutter/widgets.dart';
+library;
+
 import 'dart:math' as math;
 
+import 'package:flutter/foundation.dart';
+
 import 'simulation.dart';
-import 'tolerance.dart';
 import 'utils.dart';
+
+export 'tolerance.dart' show Tolerance;
+
+// Examples can assume:
+// late AnimationController _controller;
 
 /// Structure that describes a spring's constants.
 ///
@@ -15,38 +24,91 @@ class SpringDescription {
   /// Creates a spring given the mass, stiffness, and the damping coefficient.
   ///
   /// See [mass], [stiffness], and [damping] for the units of the arguments.
-  const SpringDescription({
-    this.mass,
-    this.stiffness,
-    this.damping,
-  });
+  const SpringDescription({required this.mass, required this.stiffness, required this.damping});
 
   /// Creates a spring given the mass (m), stiffness (k), and damping ratio (ζ).
-  /// The damping ratio is especially useful trying to determining the type of
-  /// spring to create. A ratio of 1.0 creates a critically damped spring, > 1.0
-  /// creates an overdamped spring and < 1.0 an underdamped one.
+  /// The damping ratio describes a gradual reduction in a spring oscillation.
+  /// By using the damping ratio, you can define how rapidly the oscillations
+  /// decay from one bounce to the next.
+  ///
+  /// The damping ratio is especially useful when trying to determining the type
+  /// of spring to create. A ratio of 1.0 creates a critically damped
+  /// spring, > 1.0 creates an overdamped spring and < 1.0 an underdamped one.
   ///
   /// See [mass] and [stiffness] for the units for those arguments. The damping
   /// ratio is unitless.
   SpringDescription.withDampingRatio({
-    this.mass,
-    this.stiffness,
+    required this.mass,
+    required this.stiffness,
     double ratio = 1.0,
   }) : damping = ratio * 2.0 * math.sqrt(mass * stiffness);
 
-  /// The mass of the spring (m). The units are arbitrary, but all springs
-  /// within a system should use the same mass units.
+  /// Creates a [SpringDescription] based on a desired animation duration and
+  /// bounce.
+  ///
+  /// This provides an intuitive way to define a spring based on its visual
+  /// properties, [duration] and [bounce]. Check the properties' documentation
+  /// for their definition.
+  ///
+  /// This constructor produces the same result as SwiftUI's
+  /// `spring(duration:bounce:blendDuration:)` animation.
+  ///
+  /// {@tool snippet}
+  /// ```dart
+  /// final SpringDescription spring = SpringDescription.withDurationAndBounce(
+  ///   duration: const Duration(milliseconds: 300),
+  ///   bounce: 0.3,
+  /// );
+  /// ```
+  /// {@end-tool}
+  ///
+  /// See also:
+  /// * [SpringDescription], which creates a spring by explicitly providing
+  /// physical parameters.
+  /// * [SpringDescription.withDampingRatio], which creates a spring with a
+  ///   damping ratio and other physical parameters.
+  factory SpringDescription.withDurationAndBounce({
+    Duration duration = const Duration(milliseconds: 500),
+    double bounce = 0.0,
+  }) {
+    assert(duration.inMilliseconds > 0, 'Duration must be positive');
+    final double durationInSeconds = duration.inMilliseconds / Duration.millisecondsPerSecond;
+    const double mass = 1.0;
+    final double stiffness = (4 * math.pi * math.pi * mass) / math.pow(durationInSeconds, 2);
+    final double dampingRatio = bounce > 0 ? (1.0 - bounce) : (1 / (bounce + 1));
+    final double damping = dampingRatio * 2.0 * math.sqrt(mass * stiffness);
+
+    return SpringDescription(mass: mass, stiffness: stiffness, damping: damping);
+  }
+
+  /// The mass of the spring (m).
+  ///
+  /// The units are arbitrary, but all springs within a system should use
+  /// the same mass units.
+  ///
+  /// The greater the mass, the larger the amplitude of oscillation,
+  /// and the longer the time to return to the equilibrium position.
   final double mass;
 
-  /// The spring constant (k). The units of stiffness are M/T², where M is the
-  /// mass unit used for the value of the [mass] property, and T is the time
-  /// unit used for driving the [SpringSimulation].
+  /// The spring constant (k).
+  ///
+  /// The units of stiffness are M/T², where M is the mass unit used for the
+  /// value of the [mass] property, and T is the time unit used for driving
+  /// the [SpringSimulation].
+  ///
+  /// Stiffness defines the spring constant, which measures the strength of
+  /// the spring. A stiff spring applies more force to the object that is
+  /// attached for some deviation from the rest position.
   final double stiffness;
 
   /// The damping coefficient (c).
   ///
+  /// It is a pure number without physical meaning and describes the oscillation
+  /// and decay of a system after being disturbed. The larger the damping,
+  /// the fewer oscillations and smaller the amplitude of the elastic motion.
+  ///
   /// Do not confuse the damping _coefficient_ (c) with the damping _ratio_ (ζ).
-  /// To create a [SpringDescription] with a damping ratio, use the [new
+  /// To create a [SpringDescription] with a damping ratio, use the [
   /// SpringDescription.withDampingRatio] constructor.
   ///
   /// The units of the damping coefficient are M/T, where M is the mass unit
@@ -54,8 +116,46 @@ class SpringDescription {
   /// driving the [SpringSimulation].
   final double damping;
 
+  /// The duration parameter used in [SpringDescription.withDurationAndBounce].
+  ///
+  /// This value defines the perceptual duration of the spring, controlling
+  /// its overall pace. It is approximately equal to the time it takes for
+  /// the spring to settle, but for highly bouncy springs, it instead
+  /// corresponds to the oscillation period.
+  ///
+  /// This duration does not represent the exact time for the spring to stop
+  /// moving. For example, when [bounce] is 1, the spring oscillates
+  /// indefinitely, even though [duration] has a finite value. To determine
+  /// when the motion has effectively stopped within a certain tolerance,
+  /// use [SpringSimulation.isDone].
+  ///
+  /// Defaults to 0.5 seconds.
+  Duration get duration {
+    final double durationInSeconds = math.sqrt((4 * math.pi * math.pi * mass) / stiffness);
+    final int milliseconds = (durationInSeconds * Duration.millisecondsPerSecond).round();
+    return Duration(milliseconds: milliseconds);
+  }
+
+  /// The bounce parameter used in [SpringDescription.withDurationAndBounce].
+  ///
+  /// This value controls how bouncy the spring is:
+  ///
+  ///  * A value of 0 results in a critically damped spring with no oscillation.
+  ///  * Values between 0 and 1 produce underdamping, where the spring oscillates a few times
+  ///    before settling. A value of 1 represents an undamped spring that
+  ///    oscillates indefinitely.
+  ///  * Negative values indicate overdamping, where the motion is slow and
+  ///    resistive, like moving through a thick fluid.
+  ///
+  /// Defaults to 0.
+  double get bounce {
+    final double dampingRatio = damping / (2.0 * math.sqrt(mass * stiffness));
+    return dampingRatio < 1.0 ? (1.0 - dampingRatio) : ((1 / dampingRatio) - 1);
+  }
+
   @override
-  String toString() => '$runtimeType(mass: ${mass.toStringAsFixed(1)}, stiffness: ${stiffness.toStringAsFixed(1)}, damping: ${damping.toStringAsFixed(1)})';
+  String toString() =>
+      '${objectRuntimeType(this, 'SpringDescription')}(mass: ${mass.toStringAsFixed(1)}, stiffness: ${stiffness.toStringAsFixed(1)}, damping: ${damping.toStringAsFixed(1)})';
 }
 
 /// The kind of spring solution that the [SpringSimulation] is using to simulate the spring.
@@ -77,6 +177,30 @@ enum SpringType {
 /// A spring simulation.
 ///
 /// Models a particle attached to a spring that follows Hooke's law.
+///
+/// {@tool snippet}
+///
+/// This method triggers an [AnimationController] (a previously constructed
+/// `_controller` field) to simulate a spring oscillation.
+///
+/// ```dart
+/// void _startSpringMotion() {
+///   _controller.animateWith(SpringSimulation(
+///     const SpringDescription(
+///       mass: 1.0,
+///       stiffness: 300.0,
+///       damping: 15.0,
+///     ),
+///     0.0, // starting position
+///     1.0, // ending position
+///     0.0, // starting velocity
+///   ));
+/// }
+/// ```
+/// {@end-tool}
+///
+/// This [AnimationController] could be used with an [AnimatedBuilder] to
+/// animate the position of a child as if it were attached to a spring.
 class SpringSimulation extends Simulation {
   /// Creates a spring simulation from the provided spring description, start
   /// distance, end distance, and initial velocity.
@@ -87,39 +211,59 @@ class SpringSimulation extends Simulation {
   /// The units for the velocity are L/T, where L is the aforementioned
   /// arbitrary unit of length, and T is the time unit used for driving the
   /// [SpringSimulation].
+  ///
+  /// If `snapToEnd` is true, [x] will be set to `end` and [dx] to 0 when
+  /// [isDone] returns true. This is useful for transitions that require the
+  /// simulation to stop exactly at the end value, since the spring may not
+  /// naturally reach the target precisely. Defaults to false.
   SpringSimulation(
     SpringDescription spring,
     double start,
     double end,
     double velocity, {
-    Tolerance tolerance = Tolerance.defaultTolerance,
+    bool snapToEnd = false,
+    super.tolerance,
   }) : _endPosition = end,
        _solution = _SpringSolution(spring, start - end, velocity),
-       super(tolerance: tolerance);
+       _snapToEnd = snapToEnd;
 
   final double _endPosition;
   final _SpringSolution _solution;
+  final bool _snapToEnd;
 
   /// The kind of spring being simulated, for debugging purposes.
   ///
-  /// This is derived from the [SpringDescription] provided to the [new
+  /// This is derived from the [SpringDescription] provided to the [
   /// SpringSimulation] constructor.
   SpringType get type => _solution.type;
 
   @override
-  double x(double time) => _endPosition + _solution.x(time);
+  double x(double time) {
+    if (_snapToEnd && isDone(time)) {
+      return _endPosition;
+    } else {
+      return _endPosition + _solution.x(time);
+    }
+  }
 
   @override
-  double dx(double time) => _solution.dx(time);
+  double dx(double time) {
+    if (_snapToEnd && isDone(time)) {
+      return 0;
+    } else {
+      return _solution.dx(time);
+    }
+  }
 
   @override
   bool isDone(double time) {
     return nearZero(_solution.x(time), tolerance.distance) &&
-           nearZero(_solution.dx(time), tolerance.velocity);
+        nearZero(_solution.dx(time), tolerance.velocity);
   }
 
   @override
-  String toString() => '$runtimeType(end: $_endPosition, $type)';
+  String toString() =>
+      '${objectRuntimeType(this, 'SpringSimulation')}(end: ${_endPosition.toStringAsFixed(1)}, $type)';
 }
 
 /// A [SpringSimulation] where the value of [x] is guaranteed to have exactly the
@@ -128,20 +272,13 @@ class ScrollSpringSimulation extends SpringSimulation {
   /// Creates a spring simulation from the provided spring description, start
   /// distance, end distance, and initial velocity.
   ///
-  /// See the [new SpringSimulation] constructor on the superclass for a
+  /// See the [SpringSimulation.new] constructor on the superclass for a
   /// discussion of the arguments' units.
-  ScrollSpringSimulation(
-    SpringDescription spring,
-    double start,
-    double end,
-    double velocity, {
-    Tolerance tolerance = Tolerance.defaultTolerance,
-  }) : super(spring, start, end, velocity, tolerance: tolerance);
+  ScrollSpringSimulation(super.spring, super.start, super.end, super.velocity, {super.tolerance});
 
   @override
   double x(double time) => isDone(time) ? _endPosition : super.x(time);
 }
-
 
 // SPRING IMPLEMENTATIONS
 
@@ -151,18 +288,11 @@ abstract class _SpringSolution {
     double initialPosition,
     double initialVelocity,
   ) {
-    assert(spring != null);
-    assert(spring.mass != null);
-    assert(spring.stiffness != null);
-    assert(spring.damping != null);
-    assert(initialPosition != null);
-    assert(initialVelocity != null);
-    final double cmk = spring.damping * spring.damping - 4 * spring.mass * spring.stiffness;
-    if (cmk == 0.0)
-      return _CriticalSolution(spring, initialPosition, initialVelocity);
-    if (cmk > 0.0)
-      return _OverdampedSolution(spring, initialPosition, initialVelocity);
-    return _UnderdampedSolution(spring, initialPosition, initialVelocity);
+    return switch (spring.damping * spring.damping - 4 * spring.mass * spring.stiffness) {
+      > 0.0 => _OverdampedSolution(spring, initialPosition, initialVelocity),
+      < 0.0 => _UnderdampedSolution(spring, initialPosition, initialVelocity),
+      _ => _CriticalSolution(spring, initialPosition, initialVelocity),
+    };
   }
 
   double x(double time);
@@ -171,21 +301,14 @@ abstract class _SpringSolution {
 }
 
 class _CriticalSolution implements _SpringSolution {
-  factory _CriticalSolution(
-    SpringDescription spring,
-    double distance,
-    double velocity,
-  ) {
+  factory _CriticalSolution(SpringDescription spring, double distance, double velocity) {
     final double r = -spring.damping / (2.0 * spring.mass);
     final double c1 = distance;
-    final double c2 = velocity / (r * distance);
+    final double c2 = velocity - (r * distance);
     return _CriticalSolution.withArgs(r, c1, c2);
   }
 
-  _CriticalSolution.withArgs(double r, double c1, double c2)
-    : _r = r,
-      _c1 = c1,
-      _c2 = c2;
+  _CriticalSolution.withArgs(double r, double c1, double c2) : _r = r, _c1 = c1, _c2 = c2;
 
   final double _r, _c1, _c2;
 
@@ -205,11 +328,7 @@ class _CriticalSolution implements _SpringSolution {
 }
 
 class _OverdampedSolution implements _SpringSolution {
-  factory _OverdampedSolution(
-    SpringDescription spring,
-    double distance,
-    double velocity,
-  ) {
+  factory _OverdampedSolution(SpringDescription spring, double distance, double velocity) {
     final double cmk = spring.damping * spring.damping - 4 * spring.mass * spring.stiffness;
     final double r1 = (-spring.damping - math.sqrt(cmk)) / (2.0 * spring.mass);
     final double r2 = (-spring.damping + math.sqrt(cmk)) / (2.0 * spring.mass);
@@ -228,14 +347,12 @@ class _OverdampedSolution implements _SpringSolution {
 
   @override
   double x(double time) {
-    return _c1 * math.pow(math.e, _r1 * time) +
-           _c2 * math.pow(math.e, _r2 * time);
+    return _c1 * math.pow(math.e, _r1 * time) + _c2 * math.pow(math.e, _r2 * time);
   }
 
   @override
   double dx(double time) {
-    return _c1 * _r1 * math.pow(math.e, _r1 * time) +
-           _c2 * _r2 * math.pow(math.e, _r2 * time);
+    return _c1 * _r1 * math.pow(math.e, _r1 * time) + _c2 * _r2 * math.pow(math.e, _r2 * time);
   }
 
   @override
@@ -243,14 +360,11 @@ class _OverdampedSolution implements _SpringSolution {
 }
 
 class _UnderdampedSolution implements _SpringSolution {
-  factory _UnderdampedSolution(
-    SpringDescription spring,
-    double distance,
-    double velocity,
-  ) {
-    final double w = math.sqrt(4.0 * spring.mass * spring.stiffness -
-                     spring.damping * spring.damping) / (2.0 * spring.mass);
-    final double r = -(spring.damping / 2.0 * spring.mass);
+  factory _UnderdampedSolution(SpringDescription spring, double distance, double velocity) {
+    final double w =
+        math.sqrt(4.0 * spring.mass * spring.stiffness - spring.damping * spring.damping) /
+        (2.0 * spring.mass);
+    final double r = -(spring.damping / 2.0 / spring.mass);
     final double c1 = distance;
     final double c2 = (velocity - r * distance) / w;
     return _UnderdampedSolution.withArgs(w, r, c1, c2);
@@ -267,7 +381,7 @@ class _UnderdampedSolution implements _SpringSolution {
   @override
   double x(double time) {
     return (math.pow(math.e, _r * time) as double) *
-           (_c1 * math.cos(_w * time) + _c2 * math.sin(_w * time));
+        (_c1 * math.cos(_w * time) + _c2 * math.sin(_w * time));
   }
 
   @override
@@ -275,8 +389,7 @@ class _UnderdampedSolution implements _SpringSolution {
     final double power = math.pow(math.e, _r * time) as double;
     final double cosine = math.cos(_w * time);
     final double sine = math.sin(_w * time);
-    return      power * (_c2 * _w * cosine - _c1 * _w * sine) +
-           _r * power * (_c2 *      sine   + _c1 *      cosine);
+    return power * (_c2 * _w * cosine - _c1 * _w * sine) + _r * power * (_c2 * sine + _c1 * cosine);
   }
 
   @override

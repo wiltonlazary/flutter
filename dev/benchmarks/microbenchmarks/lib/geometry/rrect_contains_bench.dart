@@ -8,14 +8,14 @@ import '../common.dart';
 
 const int _kNumIters = 10000;
 
-void main() {
-  assert(false, "Don't run benchmarks in checked mode! Use 'flutter run --release'.");
+Future<void> execute() async {
+  assert(false, "Don't run benchmarks in debug mode! Use 'flutter run --release'.");
   final Stopwatch watch = Stopwatch();
   print('RRect contains benchmark...');
   watch.start();
   for (int i = 0; i < _kNumIters; i += 1) {
-    final RRect outter = RRect.fromLTRBR(10, 10, 20, 20, const Radius.circular(2.0));
-    outter.contains(const Offset(15, 15));
+    final RRect outer = RRect.fromLTRBR(10, 10, 20, 20, const Radius.circular(2.0));
+    outer.contains(const Offset(15, 15));
   }
   watch.stop();
 
@@ -27,4 +27,11 @@ void main() {
     name: 'rrect_contains_iteration',
   );
   printer.printToStdout();
+}
+
+//
+//  Note that the benchmark is normally run by benchmark_collection.dart.
+//
+Future<void> main() async {
+  return execute();
 }

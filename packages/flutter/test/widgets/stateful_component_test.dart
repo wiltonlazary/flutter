@@ -2,22 +2,24 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 import 'test_widgets.dart';
 
 void main() {
   testWidgets('Stateful widget smoke test', (WidgetTester tester) async {
-
     void checkTree(BoxDecoration expectedDecoration) {
       final SingleChildRenderObjectElement element = tester.element(
-        find.byElementPredicate((Element element) => element is SingleChildRenderObjectElement)
+        find.byElementPredicate(
+          (Element element) =>
+              element is SingleChildRenderObjectElement && element.renderObject is! RenderView,
+        ),
       );
       expect(element, isNotNull);
-      expect(element.renderObject is RenderDecoratedBox, isTrue);
-      final RenderDecoratedBox renderObject = element.renderObject;
+      expect(element.renderObject, isA<RenderDecoratedBox>());
+      final RenderDecoratedBox renderObject = element.renderObject as RenderDecoratedBox;
       expect(renderObject.decoration, equals(expectedDecoration));
     }
 
@@ -55,12 +57,12 @@ void main() {
     checkTree(kBoxDecorationB);
   });
 
-  testWidgets('Don\'t rebuild subwidgets', (WidgetTester tester) async {
+  testWidgets("Don't rebuild subwidgets", (WidgetTester tester) async {
     await tester.pumpWidget(
-      FlipWidget(
-        key: const Key('rebuild test'),
+      const FlipWidget(
+        key: Key('rebuild test'),
         left: TestBuildCounter(),
-        right: const DecoratedBox(decoration: kBoxDecorationB),
+        right: DecoratedBox(decoration: kBoxDecorationB),
       ),
     );
 

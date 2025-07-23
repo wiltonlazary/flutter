@@ -9,12 +9,10 @@ import 'package:process/process.dart';
 
 @immutable
 class RunningProcessInfo {
-  const RunningProcessInfo(this.pid, this.creationDate, this.commandLine)
-      : assert(pid != null),
-        assert(commandLine != null);
+  const RunningProcessInfo(this.pid, this.commandLine, this.creationDate);
 
+  final int pid;
   final String commandLine;
-  final String pid;
   final DateTime creationDate;
 
   @override
@@ -25,84 +23,62 @@ class RunningProcessInfo {
         other.creationDate == creationDate;
   }
 
-  @override
-  int get hashCode {
-    // TODO(dnfield): Replace this when Object.hashValues lands.
-    int hash = 17;
-    if (pid != null) {
-      hash = hash * 23 + pid.hashCode;
+  Future<bool> terminate({required ProcessManager processManager}) async {
+    // This returns true when the signal is sent, not when the process goes away.
+    // See also https://github.com/dart-lang/sdk/issues/40759 (killPid should wait for process to be terminated).
+    if (Platform.isWindows) {
+      // TODO(ianh): Move Windows to killPid once we can.
+      //  - killPid on Windows has not-useful return code: https://github.com/dart-lang/sdk/issues/47675
+      final ProcessResult result = await processManager.run(<String>[
+        'taskkill.exe',
+        '/pid',
+        '$pid',
+        '/f',
+      ]);
+      return result.exitCode == 0;
     }
-    if (commandLine != null) {
-      hash = hash * 23 + commandLine.hashCode;
-    }
-    if (creationDate != null) {
-      hash = hash * 23 + creationDate.hashCode;
-    }
-    return hash;
+    return processManager.killPid(pid, ProcessSignal.sigkill);
   }
+
+  @override
+  int get hashCode => Object.hash(pid, commandLine, creationDate);
 
   @override
   String toString() {
-    return 'RunningProcesses{pid: $pid, commandLine: $commandLine, creationDate: $creationDate}';
+    return 'RunningProcesses(pid: $pid, commandLine: $commandLine, creationDate: $creationDate)';
   }
 }
 
-Future<bool> killProcess(String pid, {ProcessManager processManager}) async {
-  assert(pid != null, 'Must specify a pid to kill');
-  processManager ??= const LocalProcessManager();
-  ProcessResult result;
-  if (Platform.isWindows) {
-    result = await processManager.run(<String>[
-      'taskkill.exe',
-      '/pid',
-      pid,
-      '/f',
-    ]);
-  } else {
-    result = await processManager.run(<String>[
-      'kill',
-      '-9',
-      pid,
-    ]);
-  }
-  return result.exitCode == 0;
-}
-
-Stream<RunningProcessInfo> getRunningProcesses({
-  String processName,
-  ProcessManager processManager,
+Future<Set<RunningProcessInfo>> getRunningProcesses({
+  String? processName,
+  required ProcessManager processManager,
 }) {
-  processManager ??= const LocalProcessManager();
   if (Platform.isWindows) {
-    return windowsRunningProcesses(processName);
+    return windowsRunningProcesses(processName, processManager);
   }
   return posixRunningProcesses(processName, processManager);
 }
 
 @visibleForTesting
-Stream<RunningProcessInfo> windowsRunningProcesses(String processName) async* {
-  // PowerShell script to get the command line arguments and create time of
-  // a process.
+Future<Set<RunningProcessInfo>> windowsRunningProcesses(
+  String? processName,
+  ProcessManager processManager,
+) async {
+  // PowerShell script to get the command line arguments and create time of a process.
   // See: https://docs.microsoft.com/en-us/windows/desktop/cimwin32prov/win32-process
   final String script = processName != null
-      ? '"Get-CimInstance Win32_Process -Filter \\\"name=\'$processName\'\\\" | Select-Object ProcessId,CreationDate,CommandLine | Format-Table -AutoSize | Out-String -Width 4096"'
+      ? '"Get-CimInstance Win32_Process -Filter \\"name=\'$processName\'\\" | Select-Object ProcessId,CreationDate,CommandLine | Format-Table -AutoSize | Out-String -Width 4096"'
       : '"Get-CimInstance Win32_Process | Select-Object ProcessId,CreationDate,CommandLine | Format-Table -AutoSize | Out-String -Width 4096"';
-  // Unfortunately, there doesn't seem to be a good way to get ProcessManager to
-  // run this. May be a bug in Dart.
-  // TODO(dnfield): fix this when https://github.com/dart-lang/sdk/issues/36175 is resolved.
-  final ProcessResult result = await Process.run(
-    'powershell -command $script',
-    <String>[],
-  );
+  // TODO(ianh): Unfortunately, there doesn't seem to be a good way to get
+  // ProcessManager to run this.
+  final ProcessResult result = await Process.run('powershell -command $script', <String>[]);
   if (result.exitCode != 0) {
     print('Could not list processes!');
     print(result.stderr);
     print(result.stdout);
-    return;
+    return <RunningProcessInfo>{};
   }
-  for (RunningProcessInfo info in processPowershellOutput(result.stdout as String)) {
-    yield info;
-  }
+  return processPowershellOutput(result.stdout as String).toSet();
 }
 
 /// Parses the output of the PowerShell script from [windowsRunningProcesses].
@@ -113,16 +89,12 @@ Stream<RunningProcessInfo> windowsRunningProcesses(String processName) async* {
 ///      2904 3/11/2019 11:01:54 AM "C:\Program Files\Android\Android Studio\jre\bin\java.exe" -Xmx1536M -Dfile.encoding=windows-1252 -Duser.country=US -Duser.language=en -Duser.variant -cp C:\Users\win1\.gradle\wrapper\dists\gradle-4.10.2-all\9fahxiiecdb76a5g3aw9oi8rv\gradle-4.10.2\lib\gradle-launcher-4.10.2.jar org.gradle.launcher.daemon.bootstrap.GradleDaemon 4.10.2
 @visibleForTesting
 Iterable<RunningProcessInfo> processPowershellOutput(String output) sync* {
-  if (output == null) {
-    return;
-  }
-
   const int processIdHeaderSize = 'ProcessId'.length;
   const int creationDateHeaderStart = processIdHeaderSize + 1;
-  int creationDateHeaderEnd;
-  int commandLineHeaderStart;
+  late int creationDateHeaderEnd;
+  late int commandLineHeaderStart;
   bool inTableBody = false;
-  for (String line in output.split('\n')) {
+  for (final String line in output.split('\n')) {
     if (line.startsWith('ProcessId')) {
       commandLineHeaderStart = line.indexOf('CommandLine');
       creationDateHeaderEnd = commandLineHeaderStart - 1;
@@ -140,16 +112,13 @@ Iterable<RunningProcessInfo> processPowershellOutput(String output) sync* {
 
     // 3/11/2019 11:01:54 AM
     // 12/11/2019 11:01:54 AM
-    String rawTime = line.substring(
-      creationDateHeaderStart,
-      creationDateHeaderEnd,
-    ).trim();
+    String rawTime = line.substring(creationDateHeaderStart, creationDateHeaderEnd).trim();
 
     if (rawTime[1] == '/') {
       rawTime = '0$rawTime';
     }
     if (rawTime[4] == '/') {
-      rawTime = rawTime.substring(0, 3) + '0' + rawTime.substring(3);
+      rawTime = '${rawTime.substring(0, 3)}0${rawTime.substring(3)}';
     }
     final String year = rawTime.substring(6, 10);
     final String month = rawTime.substring(3, 5);
@@ -163,23 +132,18 @@ Iterable<RunningProcessInfo> processPowershellOutput(String output) sync* {
       time = '${hours + 12}${time.substring(2)}';
     }
 
-    final String pid = line.substring(0, processIdHeaderSize).trim();
+    final int pid = int.parse(line.substring(0, processIdHeaderSize).trim());
     final DateTime creationDate = DateTime.parse('$year-$month-${day}T$time');
     final String commandLine = line.substring(commandLineHeaderStart).trim();
-    yield RunningProcessInfo(pid, creationDate, commandLine);
+    yield RunningProcessInfo(pid, commandLine, creationDate);
   }
 }
 
 @visibleForTesting
-Stream<RunningProcessInfo> posixRunningProcesses(
-  String processName,
+Future<Set<RunningProcessInfo>> posixRunningProcesses(
+  String? processName,
   ProcessManager processManager,
-) async* {
-  // Cirrus is missing this in Linux for some reason.
-  if (!processManager.canRun('ps')) {
-    print('Cannot list processes on this system: `ps` not available.');
-    return;
-  }
+) async {
   final ProcessResult result = await processManager.run(<String>[
     'ps',
     '-eo',
@@ -189,11 +153,9 @@ Stream<RunningProcessInfo> posixRunningProcesses(
     print('Could not list processes!');
     print(result.stderr);
     print(result.stdout);
-    return;
+    return <RunningProcessInfo>{};
   }
-  for (RunningProcessInfo info in processPsOutput(result.stdout as String, processName)) {
-    yield info;
-  }
+  return processPsOutput(result.stdout as String, processName).toSet();
 }
 
 /// Parses the output of the command in [posixRunningProcesses].
@@ -204,13 +166,7 @@ Stream<RunningProcessInfo> posixRunningProcesses(
 /// Sat Mar  9 20:12:47 2019         1 /sbin/launchd
 /// Sat Mar  9 20:13:00 2019        49 /usr/sbin/syslogd
 @visibleForTesting
-Iterable<RunningProcessInfo> processPsOutput(
-  String output,
-  String processName,
-) sync* {
-  if (output == null) {
-    return;
-  }
+Iterable<RunningProcessInfo> processPsOutput(String output, String? processName) sync* {
   bool inTableBody = false;
   for (String line in output.split('\n')) {
     if (line.trim().startsWith('STARTED')) {
@@ -247,15 +203,15 @@ Iterable<RunningProcessInfo> processPsOutput(
     final String rawTime = line.substring(0, 24);
 
     final String year = rawTime.substring(20, 24);
-    final String month = months[rawTime.substring(4, 7)];
+    final String month = months[rawTime.substring(4, 7)]!;
     final String day = rawTime.substring(8, 10).replaceFirst(' ', '0');
     final String time = rawTime.substring(11, 19);
 
     final DateTime creationDate = DateTime.parse('$year-$month-${day}T$time');
     line = line.substring(24).trim();
     final int nextSpace = line.indexOf(' ');
-    final String pid = line.substring(0, nextSpace);
+    final int pid = int.parse(line.substring(0, nextSpace));
     final String commandLine = line.substring(nextSpace + 1);
-    yield RunningProcessInfo(pid, creationDate, commandLine);
+    yield RunningProcessInfo(pid, commandLine, creationDate);
   }
 }

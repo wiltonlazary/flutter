@@ -2,7 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:ui' as ui show Paragraph, ParagraphBuilder, ParagraphConstraints, ParagraphStyle, TextStyle;
+import 'dart:ui'
+    as ui
+    show Paragraph, ParagraphBuilder, ParagraphConstraints, ParagraphStyle, TextStyle;
+
+import 'package:flutter/foundation.dart';
 
 import 'box.dart';
 import 'object.dart';
@@ -30,7 +34,7 @@ class RenderErrorBox extends RenderBox {
   ///
   /// A message can optionally be provided. If a message is provided, an attempt
   /// will be made to render the message when the box paints.
-  RenderErrorBox([ this.message = '' ]) {
+  RenderErrorBox([this.message = '']) {
     try {
       if (message != '') {
         // This class is intentionally doing things using the low-level
@@ -45,16 +49,20 @@ class RenderErrorBox extends RenderBox {
         builder.pushStyle(textStyle);
         builder.addText(message);
         _paragraph = builder.build();
+      } else {
+        _paragraph = null;
       }
     } catch (error) {
-      // Intentionally left empty.
+      // If an error happens here we're in a terrible state, so we really should
+      // just forget about it and let the developer deal with the already-reported
+      // errors. It's unlikely that these errors are going to help with that.
     }
   }
 
   /// The message to attempt to display at paint time.
   final String message;
 
-  ui.Paragraph _paragraph;
+  late final ui.Paragraph? _paragraph;
 
   @override
   double computeMaxIntrinsicWidth(double height) {
@@ -73,8 +81,9 @@ class RenderErrorBox extends RenderBox {
   bool hitTestSelf(Offset position) => true;
 
   @override
-  void performResize() {
-    size = constraints.constrain(const Size(_kMaxWidth, _kMaxHeight));
+  @protected
+  Size computeDryLayout(covariant BoxConstraints constraints) {
+    return constraints.constrain(const Size(_kMaxWidth, _kMaxHeight));
   }
 
   /// The distance to place around the text.
@@ -88,7 +97,7 @@ class RenderErrorBox extends RenderBox {
   /// See also:
   ///
   ///  * [minimumWidth], which controls how wide the box must be before the
-  //     horizontal padding is applied.
+  ///    horizontal padding is applied.
   static EdgeInsets padding = const EdgeInsets.fromLTRB(64.0, 96.0, 64.0, 12.0);
 
   /// The width below which the horizontal padding is not applied.
@@ -144,7 +153,7 @@ class RenderErrorBox extends RenderBox {
   @override
   void paint(PaintingContext context, Offset offset) {
     try {
-      context.canvas.drawRect(offset & size, Paint() .. color = backgroundColor);
+      context.canvas.drawRect(offset & size, Paint()..color = backgroundColor);
       if (_paragraph != null) {
         double width = size.width;
         double left = 0.0;
@@ -159,8 +168,10 @@ class RenderErrorBox extends RenderBox {
         }
         context.canvas.drawParagraph(_paragraph, offset + Offset(left, top));
       }
-    } catch (e) {
-      // Intentionally left empty.
+    } catch (error) {
+      // If an error happens here we're in a terrible state, so we really should
+      // just forget about it and let the developer deal with the already-reported
+      // errors. It's unlikely that these errors are going to help with that.
     }
   }
 }

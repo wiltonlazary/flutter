@@ -2,17 +2,18 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 class TestValueKey<T> extends ValueKey<T> {
-  const TestValueKey(T value) : super(value);
+  const TestValueKey(super.value);
 }
 
+@immutable
 class NotEquals {
   const NotEquals();
   @override
-  bool operator ==(dynamic other) => false;
+  bool operator ==(Object other) => false;
   @override
   int get hashCode => 0;
 }
@@ -33,7 +34,7 @@ void main() {
     expect(TestValueKey<String>(nonconst('')) == TestValueKey<dynamic>(nonconst('')), isFalse);
 
     expect(UniqueKey() == UniqueKey(), isFalse);
-    final LocalKey k = UniqueKey();
+    final UniqueKey k = UniqueKey();
     expect(UniqueKey() == UniqueKey(), isFalse);
     expect(k == k, isTrue);
 

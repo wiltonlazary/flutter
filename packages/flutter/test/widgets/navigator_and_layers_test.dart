@@ -2,13 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 import 'test_widgets.dart';
 
 class TestCustomPainter extends CustomPainter {
-  TestCustomPainter({ this.log, this.name });
+  TestCustomPainter({required this.log, required this.name});
 
   final List<String> log;
   final String name;
@@ -20,8 +20,7 @@ class TestCustomPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(TestCustomPainter oldPainter) {
-    return name != oldPainter.name
-        || log != oldPainter.log;
+    return name != oldPainter.name || log != oldPainter.log;
   }
 }
 
@@ -33,21 +32,13 @@ void main() {
       MaterialApp(
         routes: <String, WidgetBuilder>{
           '/': (BuildContext context) => RepaintBoundary(
-            child: Container(
-              child: RepaintBoundary(
-                child: FlipWidget(
-                  left: CustomPaint(
-                    painter: TestCustomPainter(
-                      log: log,
-                      name: 'left',
-                    ),
-                  ),
-                  right: CustomPaint(
-                    painter: TestCustomPainter(
-                      log: log,
-                      name: 'right',
-                    ),
-                  ),
+            child: RepaintBoundary(
+              child: FlipWidget(
+                left: CustomPaint(
+                  painter: TestCustomPainter(log: log, name: 'left'),
+                ),
+                right: CustomPaint(
+                  painter: TestCustomPainter(log: log, name: 'right'),
                 ),
               ),
             ),
@@ -71,18 +62,6 @@ void main() {
     flipStatefulWidget(tester);
     expect(await tester.pumpAndSettle(), 1);
     log.add('7');
-    expect(log, <String>[
-      '0',
-      'left',
-      '1',
-      '2',
-      '3',
-      '4',
-      '5',
-      'right',
-      '6',
-      'left',
-      '7',
-    ]);
+    expect(log, <String>['0', 'left', '1', '2', '3', '4', '5', 'right', '6', 'left', '7']);
   });
 }

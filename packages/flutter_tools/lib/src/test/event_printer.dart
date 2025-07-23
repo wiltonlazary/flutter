@@ -2,24 +2,41 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import '../base/io.dart' show stdout;
 import '../convert.dart';
+
+import 'test_device.dart';
 import 'watcher.dart';
 
 /// Prints JSON events when running a test in --machine mode.
 class EventPrinter extends TestWatcher {
-  EventPrinter({StringSink out}) : _out = out ?? stdout;
+  EventPrinter({required StringSink out, TestWatcher? parent}) : _out = out, _parent = parent;
 
   final StringSink _out;
+  final TestWatcher? _parent;
 
   @override
-  void handleStartedProcess(ProcessEvent event) {
-    _sendEvent('test.startedProcess',
-        <String, dynamic>{'observatoryUri': event.observatoryUri.toString()});
+  void handleStartedDevice(Uri? vmServiceUri) {
+    _sendEvent('test.startedProcess', <String, dynamic>{'vmServiceUri': vmServiceUri?.toString()});
+    _parent?.handleStartedDevice(vmServiceUri);
   }
 
-  void _sendEvent(String name, [ dynamic params ]) {
-    final Map<String, dynamic> map = <String, dynamic>{'event': name};
+  @override
+  Future<void> handleTestCrashed(TestDevice testDevice) async {
+    return _parent?.handleTestCrashed(testDevice);
+  }
+
+  @override
+  Future<void> handleTestTimedOut(TestDevice testDevice) async {
+    return _parent?.handleTestTimedOut(testDevice);
+  }
+
+  @override
+  Future<void> handleFinishedTest(TestDevice testDevice) async {
+    return _parent?.handleFinishedTest(testDevice);
+  }
+
+  void _sendEvent(String name, [dynamic params]) {
+    final map = <String, dynamic>{'event': name};
     if (params != null) {
       map['params'] = params;
     }

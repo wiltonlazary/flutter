@@ -5,12 +5,13 @@
 import 'package:flutter/material.dart';
 
 class ButtonMatrixApp extends StatefulWidget {
+  const ButtonMatrixApp({super.key});
+
   @override
   ButtonMatrixAppState createState() => ButtonMatrixAppState();
 }
 
 class ButtonMatrixAppState extends State<ButtonMatrixApp> {
-
   int count = 1;
   int increment = 1;
 
@@ -21,8 +22,10 @@ class ButtonMatrixAppState extends State<ButtonMatrixApp> {
         appBar: AppBar(
           title: Text('Count: $count'),
           actions: <Widget>[
-            FlatButton(
-              onPressed: () => setState(() { count += increment; }),
+            TextButton(
+              onPressed: () => setState(() {
+                count += increment;
+              }),
               child: Text('Add $increment'),
             ),
           ],
@@ -34,9 +37,11 @@ class ButtonMatrixAppState extends State<ButtonMatrixApp> {
             Column(
               children: List<Widget>.filled(
                 10,
-                FlatButton(
+                TextButton(
                   child: const Text('Faster'),
-                  onPressed: () => setState(() { increment += 1; }),
+                  onPressed: () => setState(() {
+                    increment += 1;
+                  }),
                 ),
               ),
             ),
@@ -48,5 +53,5 @@ class ButtonMatrixAppState extends State<ButtonMatrixApp> {
 }
 
 void main() {
-  runApp(ButtonMatrixApp());
+  runApp(const ButtonMatrixApp());
 }

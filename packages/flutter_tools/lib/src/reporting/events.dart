@@ -2,22 +2,20 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-part of reporting;
+part of 'reporting.dart';
 
 /// A generic usage even that does not involve custom dimensions.
 ///
 /// If sending values for custom dimensions is required, extend this class as
 /// below.
 class UsageEvent {
-  UsageEvent(this.category, this.parameter, {
-    this.label,
-    this.value,
-  });
+  UsageEvent(this.category, this.parameter, {this.label, this.value, required this.flutterUsage});
 
   final String category;
   final String parameter;
-  final String label;
-  final int value;
+  final String? label;
+  final int? value;
+  final Usage flutterUsage;
 
   void send() {
     flutterUsage.sendEvent(category, parameter, label: label, value: value);
@@ -32,11 +30,12 @@ class UsageEvent {
 /// [invalidatedSourcesCount] to [syncedLibraryCount] should help understand
 /// sync/transfer "overhead" of updating this number of source files.
 class HotEvent extends UsageEvent {
-  HotEvent(String parameter, {
-    @required this.targetPlatform,
-    @required this.sdkName,
-    @required this.emulator,
-    @required this.fullRestart,
+  HotEvent(
+    String parameter, {
+    required this.targetPlatform,
+    required this.sdkName,
+    required this.emulator,
+    required this.fullRestart,
     this.reason,
     this.finalLibraryCount,
     this.syncedLibraryCount,
@@ -46,62 +45,69 @@ class HotEvent extends UsageEvent {
     this.invalidatedSourcesCount,
     this.transferTimeInMs,
     this.overallTimeInMs,
-  }) : super('hot', parameter);
+    this.compileTimeInMs,
+    this.findInvalidatedTimeInMs,
+    this.scannedSourcesCount,
+    this.reassembleTimeInMs,
+    this.reloadVMTimeInMs,
+    // TODO(fujino): make this required
+    Usage? usage,
+  }) : super('hot', parameter, flutterUsage: usage ?? globals.flutterUsage);
 
-  final String reason;
+  final String? reason;
   final String targetPlatform;
   final String sdkName;
   final bool emulator;
   final bool fullRestart;
-  final int finalLibraryCount;
-  final int syncedLibraryCount;
-  final int syncedClassesCount;
-  final int syncedProceduresCount;
-  final int syncedBytes;
-  final int invalidatedSourcesCount;
-  final int transferTimeInMs;
-  final int overallTimeInMs;
+  final int? finalLibraryCount;
+  final int? syncedLibraryCount;
+  final int? syncedClassesCount;
+  final int? syncedProceduresCount;
+  final int? syncedBytes;
+  final int? invalidatedSourcesCount;
+  final int? transferTimeInMs;
+  final int? overallTimeInMs;
+  final int? compileTimeInMs;
+  final int? findInvalidatedTimeInMs;
+  final int? scannedSourcesCount;
+  final int? reassembleTimeInMs;
+  final int? reloadVMTimeInMs;
 
   @override
   void send() {
-    final Map<String, String> parameters = _useCdKeys(<CustomDimensions, String>{
-      CustomDimensions.hotEventTargetPlatform: targetPlatform,
-      CustomDimensions.hotEventSdkName: sdkName,
-      CustomDimensions.hotEventEmulator: emulator.toString(),
-      CustomDimensions.hotEventFullRestart: fullRestart.toString(),
-      if (reason != null)
-        CustomDimensions.hotEventReason: reason,
-      if (finalLibraryCount != null)
-        CustomDimensions.hotEventFinalLibraryCount: finalLibraryCount.toString(),
-      if (syncedLibraryCount != null)
-        CustomDimensions.hotEventSyncedLibraryCount: syncedLibraryCount.toString(),
-      if (syncedClassesCount != null)
-        CustomDimensions.hotEventSyncedClassesCount: syncedClassesCount.toString(),
-      if (syncedProceduresCount != null)
-        CustomDimensions.hotEventSyncedProceduresCount: syncedProceduresCount.toString(),
-      if (syncedBytes != null)
-        CustomDimensions.hotEventSyncedBytes: syncedBytes.toString(),
-      if (invalidatedSourcesCount != null)
-        CustomDimensions.hotEventInvalidatedSourcesCount: invalidatedSourcesCount.toString(),
-      if (transferTimeInMs != null)
-        CustomDimensions.hotEventTransferTimeInMs: transferTimeInMs.toString(),
-      if (overallTimeInMs != null)
-        CustomDimensions.hotEventOverallTimeInMs: overallTimeInMs.toString(),
-    });
+    final parameters = CustomDimensions(
+      hotEventTargetPlatform: targetPlatform,
+      hotEventSdkName: sdkName,
+      hotEventEmulator: emulator,
+      hotEventFullRestart: fullRestart,
+      hotEventReason: reason,
+      hotEventFinalLibraryCount: finalLibraryCount,
+      hotEventSyncedLibraryCount: syncedLibraryCount,
+      hotEventSyncedClassesCount: syncedClassesCount,
+      hotEventSyncedProceduresCount: syncedProceduresCount,
+      hotEventSyncedBytes: syncedBytes,
+      hotEventInvalidatedSourcesCount: invalidatedSourcesCount,
+      hotEventTransferTimeInMs: transferTimeInMs,
+      hotEventOverallTimeInMs: overallTimeInMs,
+      hotEventCompileTimeInMs: compileTimeInMs,
+      hotEventFindInvalidatedTimeInMs: findInvalidatedTimeInMs,
+      hotEventScannedSourcesCount: scannedSourcesCount,
+      hotEventReassembleTimeInMs: reassembleTimeInMs,
+      hotEventReloadVMTimeInMs: reloadVMTimeInMs,
+    );
     flutterUsage.sendEvent(category, parameter, parameters: parameters);
   }
 }
 
 /// An event that reports the result of a [DoctorValidator]
 class DoctorResultEvent extends UsageEvent {
-  DoctorResultEvent({
-    @required this.validator,
-    @required this.result,
-  }) : super(
-    'doctor-result',
-    '${validator.runtimeType}',
-    label: result.typeStr,
-  );
+  DoctorResultEvent({required this.validator, required this.result, Usage? flutterUsage})
+    : super(
+        'doctor-result',
+        '${validator.runtimeType}',
+        label: result.typeStr,
+        flutterUsage: flutterUsage ?? globals.flutterUsage,
+      );
 
   final DoctorValidator validator;
   final ValidationResult result;
@@ -112,90 +118,80 @@ class DoctorResultEvent extends UsageEvent {
       flutterUsage.sendEvent(category, parameter, label: label);
       return;
     }
-    final GroupedValidator group = validator as GroupedValidator;
-    for (int i = 0; i < group.subValidators.length; i++) {
+    final group = validator as GroupedValidator;
+    // The validator crashed.
+    if (group.subResults.isEmpty) {
+      flutterUsage.sendEvent(category, parameter, label: label);
+      return;
+    }
+    for (var i = 0; i < group.subValidators.length; i++) {
       final DoctorValidator v = group.subValidators[i];
       final ValidationResult r = group.subResults[i];
-      DoctorResultEvent(validator: v, result: r).send();
+      DoctorResultEvent(validator: v, result: r, flutterUsage: flutterUsage).send();
     }
   }
 }
 
 /// An event that reports on the result of a pub invocation.
 class PubResultEvent extends UsageEvent {
-  PubResultEvent({
-    @required String context,
-    @required String result,
-  }) : super('pub-result', context, label: result);
+  PubResultEvent({required String context, required String result, required Usage usage})
+    : super('pub-result', context, label: result, flutterUsage: usage);
 }
 
 /// An event that reports something about a build.
 class BuildEvent extends UsageEvent {
-  BuildEvent(String label, {
-    this.command,
-    this.settings,
-    this.eventError,
-  }) : super(
-    // category
-    'build',
-    // parameter
-    FlutterCommand.current == null ?
-      'unspecified' :
-      '${FlutterCommand.current.name}',
-    label: label,
-  );
+  BuildEvent(
+    String label, {
+    String? command,
+    String? settings,
+    String? eventError,
+    required Usage flutterUsage,
+    required String type,
+  }) : _command = command,
+       _settings = settings,
+       _eventError = eventError,
+       super(
+         // category
+         'build',
+         // parameter
+         type,
+         label: label,
+         flutterUsage: flutterUsage,
+       );
 
-  final String command;
-  final String settings;
-  final String eventError;
+  final String? _command;
+  final String? _settings;
+  final String? _eventError;
 
   @override
   void send() {
-    final Map<String, String> parameters = _useCdKeys(<CustomDimensions, String>{
-      if (command != null)
-        CustomDimensions.buildEventCommand: command,
-      if (settings != null)
-        CustomDimensions.buildEventSettings: settings,
-      if (eventError != null)
-        CustomDimensions.buildEventError: eventError,
-    });
-    flutterUsage.sendEvent(
-      category,
-      parameter,
-      label: label,
-      parameters: parameters,
+    final parameters = CustomDimensions(
+      buildEventCommand: _command,
+      buildEventSettings: _settings,
+      buildEventError: _eventError,
     );
+    flutterUsage.sendEvent(category, parameter, label: label, parameters: parameters);
   }
 }
 
 /// An event that reports the result of a top-level command.
 class CommandResultEvent extends UsageEvent {
-  CommandResultEvent(String commandPath, FlutterCommandResult result)
-      : super(commandPath, result?.toString() ?? 'unspecified');
+  CommandResultEvent(super.commandPath, super.result, int? maxRss)
+    : _maxRss = maxRss,
+      super(flutterUsage: globals.flutterUsage);
+
+  final int? _maxRss;
 
   @override
   void send() {
     // An event for the command result.
-    flutterUsage.sendEvent(
-      'tool-command-result',
-      category,
-      label: parameter,
-    );
+    flutterUsage.sendEvent('tool-command-result', category, label: parameter);
 
     // A separate event for the memory highwater mark. This is a separate event
     // so that we can get the command result even if trying to grab maxRss
     // throws an exception.
-    try {
-      final int maxRss = processInfo.maxRss;
-      flutterUsage.sendEvent(
-        'tool-command-max-rss',
-        category,
-        label: parameter,
-        value: maxRss,
-      );
-    } catch (error) {
-      // If grabbing the maxRss fails for some reason, just don't send an event.
-      printTrace('Querying maxRss failed with error: $error');
+    if (_maxRss != null) {
+      flutterUsage.sendEvent('tool-command-max-rss', category, label: parameter, value: _maxRss);
     }
   }
 }
@@ -204,10 +200,23 @@ class CommandResultEvent extends UsageEvent {
 class AnalyticsConfigEvent extends UsageEvent {
   AnalyticsConfigEvent({
     /// Whether analytics reporting is being enabled (true) or disabled (false).
-    @required bool enabled,
+    required bool enabled,
   }) : super(
-    'analytics',
-    'enabled',
-    label: enabled ? 'true' : 'false',
-  );
+         'analytics',
+         'enabled',
+         label: enabled ? 'true' : 'false',
+         flutterUsage: globals.flutterUsage,
+       );
+}
+
+/// An event that reports when the code size measurement is run via `--analyze-size`.
+class CodeSizeEvent extends UsageEvent {
+  CodeSizeEvent(String platform, {required Usage flutterUsage})
+    : super('code-size-analysis', platform, flutterUsage: flutterUsage);
+}
+
+/// An event for tracking the usage of specific error handling fallbacks.
+class ErrorHandlingEvent extends UsageEvent {
+  ErrorHandlingEvent(String parameter)
+    : super('error-handling', parameter, flutterUsage: globals.flutterUsage);
 }

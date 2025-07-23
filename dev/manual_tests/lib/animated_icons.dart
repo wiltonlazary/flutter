@@ -2,25 +2,22 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:io';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedIconsTestApp extends StatelessWidget {
+  const AnimatedIconsTestApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'Animated Icons Test',
-      home: Scaffold(
-        body: IconsList(),
-      ),
+      home: Scaffold(body: IconsList()),
     );
   }
 }
 
 class IconsList extends StatelessWidget {
-  const IconsList();
+  const IconsList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +28,7 @@ class IconsList extends StatelessWidget {
 }
 
 class IconSampleRow extends StatefulWidget {
-  const IconSampleRow(this.sample);
+  const IconSampleRow(this.sample, {super.key});
 
   final IconSample sample;
 
@@ -40,23 +37,26 @@ class IconSampleRow extends StatefulWidget {
 }
 
 class IconSampleRowState extends State<IconSampleRow> with SingleTickerProviderStateMixin {
-  AnimationController progress;
+  late final AnimationController progress = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 300),
+  );
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       leading: InkWell(
-        onTap: () { progress.forward(from: 0.0); },
-        child: AnimatedIcon(
-          icon: widget.sample.icon,
-          progress: progress,
-          color: Colors.lightBlue,
-        ),
+        onTap: () {
+          progress.forward(from: 0.0);
+        },
+        child: AnimatedIcon(icon: widget.sample.icon, progress: progress, color: Colors.lightBlue),
       ),
       title: Text(widget.sample.description),
       subtitle: Slider(
         value: progress.value,
-        onChanged: (double v) { progress.animateTo(v, duration: Duration.zero); },
+        onChanged: (double v) {
+          progress.animateTo(v, duration: Duration.zero);
+        },
       ),
     );
   }
@@ -64,7 +64,6 @@ class IconSampleRowState extends State<IconSampleRow> with SingleTickerProviderS
   @override
   void initState() {
     super.initState();
-    progress = AnimationController(vsync: this, duration: const Duration(milliseconds: 300));
     progress.addListener(_handleChange);
   }
 
@@ -79,7 +78,7 @@ class IconSampleRowState extends State<IconSampleRow> with SingleTickerProviderS
   }
 }
 
-const List<IconSample> samples = <IconSample> [
+const List<IconSample> samples = <IconSample>[
   IconSample(AnimatedIcons.arrow_menu, 'arrow_menu'),
   IconSample(AnimatedIcons.menu_arrow, 'menu_arrow'),
 
@@ -108,16 +107,4 @@ class IconSample {
   final String description;
 }
 
-// Sets a platform override for desktop to avoid exceptions. See
-// https://flutter.dev/desktop#target-platform-override for more info.
-// TODO(gspencergoog): Remove once TargetPlatform includes all desktop platforms.
-void _enablePlatformOverrideForDesktop() {
-  if (!kIsWeb && (Platform.isWindows || Platform.isLinux)) {
-    debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
-  }
-}
-
-void main() {
-  _enablePlatformOverrideForDesktop();
-  runApp(AnimatedIconsTestApp());
-}
+void main() => runApp(const AnimatedIconsTestApp());
